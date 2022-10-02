@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <title>Document</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'GangwonEdu_OTFBoldA';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+</style>
+
+<body>
+
+<div>
+    <h3>Request User Data.json From Kakao</h3>
+    <button onclick="requestUserData()">Request Data</button>
+    <button onclick="deleteUserData()">Delete Data</button>
+    <p>User e-mail: <span id="useremail"></span></p>
+    <p>User nickname: <span id="nickname"></span></p>
+    <p>User birthday: <span id="userbirthday"></span></p>
+    <p>User gender: <span id="usergender"></span></p>
+</div>
+
+<div>
+    <h3>Send User Data.json to Server</h3>
+    <button onclick="toServer(userData)">Request</button>
+    <button onclick="deleteUserId()">Reset</button>
+    <p>전송 성공 여부: <span id="senddata"></span></p>
+    <p>User ID: <span id="userid"></span></p>
+    <p>※ 위의 정보를 json 형식으로 변환하여 서버에 전송합니다.</p>
+    <p>※ 서버에서 사용자 ID를 생성 또는 검색하여 본 페이지로 전송</p>
+</div>
+
+<div>
+    <h3>Request User Data.json From Server</h3>
+    <button onclick="getUserData(userid)">Request</button>
+    <p>※ 전송 받을 데이터 종류: 사용자 ID, 사용자 별명, 사용자 D-day</p>
+</div>
+
+<div>
+    <h3>Request User Letter Data.json From Server</h3>
+    <button onclick="getUserLetter(userid)">Request</button>
+    <p>※ 전송 받을 데이터 종류: 편지 ID, Description, font-color, font-family, icon, author, Write Date, openOrNot</p>
+    <p>※ Sticker Data: sticker ID, X location, Y location</p>
+</div>
+
+<div>
+    <textarea style="resize: none;" id="textarea" maxlength="20"></textarea>
+    <br>
+    <button onclick="fontColor(1)">font-color-1</button>
+    <button onclick="fontColor(2)">font-color-2</button>
+    <button onclick="fontColor(3)">font-color-3</button>
+    <br>
+    <button onclick="fontFamily(1)">font-family-1</button>
+    <button onclick="fontFamily(2)">font-family-2</button>
+    <button onclick="fontFamily(3)">font-family-3</button>
+    <br>
+    <button onclick="letterIcon(1)">letter-icon-1</button>
+    <button onclick="letterIcon(2)">letter-icon-2</button>
+    <button onclick="letterIcon(3)">letter-icon-3</button>
+    <br>
+    <input id="input" type="text" maxlength="10">
+    <br>
+    <button onclick="letterData(userid)">submit</button>
+    <p>전송 성공 여부: <span id="senddata2"></span></p>
+</div>
+
+
+<script src="index.js"></script>
+</body>
+
+</html>
