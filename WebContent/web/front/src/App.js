@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 // import Slider from "react-slick";
 // import $ from "jquery";
 import './App.css';
@@ -97,7 +98,7 @@ function Main() {
   return (
     <div className='main_background'>
       <ModalStory props={{ checkStory, setCheckStory }}></ModalStory>
-      <Menu props={userData}></Menu>
+      <Menu></Menu>
       <NameOfPlanet props={{ userData, setUserData, letterData, setLetterData }}></NameOfPlanet>
       <h1 className='loging'><NavLink end to="/login"></NavLink></h1>
       <button className='cookie' onClick={delCookie}></button>
@@ -110,7 +111,7 @@ function Main() {
 function App() {
 
   const navigater = useNavigate();
-  const [userID, setUserID] = useState(1);
+  const userID = useSelector((state) => state.userID)
 
   useEffect(() => {
     // Check user device.
@@ -129,9 +130,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/*" element={<Main />}></Route>
-        <Route path="/login" element={<Login props={userID} />}></Route>
-        <Route path="/redirect" element={<Redirect props={setUserID} />}></Route>
-        <Route path="/redirect2" element={<Redirect2 props={setUserID} />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/redirect" element={<Redirect />}></Route>
+        <Route path="/redirect2" element={<Redirect2 />}></Route>
       </Routes>
     </React.Fragment>
   );

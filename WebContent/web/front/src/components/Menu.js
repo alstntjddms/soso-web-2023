@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './Menu.css';
 
-function Menu(props) {
+function Menu() {
 
+    const nickname = useSelector((state)=>state.userData.nickname);
     const [isMenu, setIsMenu] = useState(false);
     const [isInner, setIsInner] = useState(false);
     const [isMypage, setIsMypage] = useState(false);
@@ -80,7 +82,7 @@ function Menu(props) {
                         <div className='menu_bar_mypage_box1'>
                             <p className='menu_bar_mypage_box1_p'>안녕하세요!</p>
                             <div></div>
-                            <p className='menu_bar_mypage_box1_p'>{props.props.nickname} 님</p>
+                            <p className='menu_bar_mypage_box1_p'>{nickname} 님</p>
                             <div className='menu_bar_mypage_box1_innerBox'>
                                 <div className='menu_bar_mypage_box1_logout' onClick={() => { logoutWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT2) }}>로그아웃</div>
                             </div>

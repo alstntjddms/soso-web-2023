@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import './Redirect.css';
 
-function Redirect(props) {
+function Redirect() {
 
     const navigater = useNavigate();
     const urlParams = new URL(window.location.href).searchParams;
     const name = urlParams.get('code');
     const urlParamsErro = new URL(window.location.href).searchParams;
     const nameErro = urlParamsErro.get('error_description');
+    const updateUserID = useDispatch();
 
     useEffect(() => {
         if (nameErro === 'User denied access') {
@@ -27,9 +29,9 @@ function Redirect(props) {
             body: queryStringBody
         })
             .then(res => res.json())
-            .then((data) => {
-                props.props(data)
-                console.log('성공:', data);
+            .then((e) => {
+                updateUserID({ type : 'UPDATE', data : e})
+                console.log('성공:', e);
                 navigater('/main');
             })
             .catch((error) => {
@@ -37,7 +39,7 @@ function Redirect(props) {
                 alert('서버가 불안정 하여 로그인에 실패했습니다.');
                 navigater('/login');
             });
-    }, [name, nameErro, navigater, props]);
+    }, [name, nameErro, navigater, updateUserID]);
 
     return (
         <div className='redirect_outContainer'>

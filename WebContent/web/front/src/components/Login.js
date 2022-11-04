@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 
-function Login(props) {
+function Login() {
 
     const navigater = useNavigate();
     const [isConditions, setIsConditions] = useState(false);
     const [isIndividual, setIsIndividual] = useState(false);
+    const userID = useSelector((state) => state.userID)
 
     useEffect(() => {
-        if (props.props !== null) {
+        if (userID !== null) {
             navigater('/main')
         };
-    }, [navigater, props.props]);
+    }, [navigater, userID]);
 
     function loginWithKakao(key, url) {
         window.location.href = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${key}&redirect_uri=${url}`;

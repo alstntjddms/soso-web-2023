@@ -1,32 +1,36 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './NameOfPlanet.css';
 
 function NameOfPlanet(props) {
+
+    const openDate = useSelector((state)=> state.userData.openDate);
 
     const [checkOpenDate, setCheckOpenDate] = useState(true);
     const [renderPage, setRenderPage] = useState(0);
     const [yesNameUrl, setYesNameUrl] = useState(false);
 
     useEffect(() => {
-        if (props.props.userData.openDate === null) {
+        if (openDate === null) {
             setCheckOpenDate(true);
-        } else if (props.props.userData.openDate !== null) {
+        } else if (openDate !== null) {
             setCheckOpenDate(false);
         };
-    }, [props.props.userData.openDate]);
+    }, [openDate]);
 
 
     function ShareButton(props) {
 
+        const openDate = useSelector((state)=> state.userData.openDate);
         const [checkMainButton, setCheckMainButton] = useState(false);
         const [checkShare, setCheckShare] = useState(false);
 
         useEffect(() => {
-            if (props.props.props.props.userData.openDate !== null) {
+            if (openDate !== null) {
                 setCheckMainButton(true);
             };
-        }, [props.props.props.props.userData.openDate]);
+        }, [openDate]);
 
         const basicURL = 'https://angelo-s-library-2.netlify.app/';
         const image_share = 'https://cdn-icons-png.flaticon.com/512/1111/1111905.png';
@@ -209,12 +213,17 @@ function NameOfPlanet(props) {
             setViewSend(!viewSend);
         };
 
+        const dispatch = useDispatch();
+        const newUserData = useSelector((state)=> state.userData);
+
         function settingUserData() {
             if (window.confirm(`${changeUserNickname}(이)란 이름으로 행성을 개설할까요?`)) {
-                let newUserData = props.props.props.props.userData;
+                // let newUserData = props.props.props.props.userData;
                 newUserData['nickname'] = changeUserNickname;
                 newUserData['openDate'] = startDate;
-                props.props.props.props.setUserData(newUserData);
+                dispatch({type : 'UPDATE_NICKNAME', data : newUserData.nickname});
+                dispatch({type : 'UPDATE_OPENDATE', data : newUserData.openDate});
+                // props.props.props.props.setUserData(newUserData);
                 setViewSend(!viewSend);
                 setYesNameUrl(!yesNameUrl);
                 setRenderPage(renderPage + 1);
@@ -278,7 +287,9 @@ function NameOfPlanet(props) {
 
     function YesName(props) {
 
-        const [Dday, setDday] = useState(Number(props.props.props.props.userData.openDate));
+        const openDate = useSelector((state)=> state.userData.openDate);
+        const nickname = useSelector((state)=>state.userData.nickname);
+        const [Dday, setDday] = useState(openDate);
 
         const setDDay = useCallback(() => {
             let count = setInterval(function () {
@@ -307,7 +318,7 @@ function NameOfPlanet(props) {
 
         return (
             <div className='yesname_outContainer'>
-                <h3>P-{props.props.props.props.userData.nickname}</h3>
+                <h3>P-{nickname}</h3>
                 <h4>남은 시간</h4>
                 <h4>{Dday}</h4>
             </div>

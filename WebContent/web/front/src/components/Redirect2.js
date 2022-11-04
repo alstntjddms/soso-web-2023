@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import './Redirect2.css';
 
-function Redirect2(props) {
+function Redirect2() {
 
     const navigater = useNavigate();
+    const updateUserID = useDispatch();
 
     useEffect(() => {
         setTimeout(() => {
-            props.props(null);
+            updateUserID({ type: 'UPDATE', data: null });
             navigater('/main');
         }, 2500);
-    }, [navigater, props]);
+    }, [navigater, updateUserID]);
 
     return (
         <div className='redirect2_outContainer'>
