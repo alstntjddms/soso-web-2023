@@ -6,11 +6,18 @@ import './App.css';
 function App() {
 
   const textareaFocus = useRef('');
-  const stickerNumber = useSelector((state) => state.stickerNumber);
-  const stickerArray = useSelector((state) => state.stickerArray);
+  const userID = useSelector((state) => state.userID);
   const text = useSelector((state) => state.text);
   const textLength = useSelector((state) => state.textLength);
-  const userID = useSelector((state) => state.userID);
+  const stickerArray = useSelector((state) => state.stickerArray);
+  const stickerNumber = useSelector((state) => state.stickerNumber);
+  const letterOption = useSelector((state) => state.letterOption);
+  const fontOption = useSelector((state) => state.fontOption);
+  const colorOption = useSelector((state) => state.colorOption);
+  const letterPaperOption = useSelector((state) => state.letterPaperOption);
+  const letterBadge = useSelector((state) => state.letterBadge);
+  const stickerOption = useSelector((state) => state.stickerOption);
+
   const dispatch = useDispatch();
 
   // request_userData from fetch
@@ -181,15 +188,15 @@ function App() {
 
   const [styleLetter, setStyleLetter] = useState({ "color": "black", "fontFamily": "GangwonEdu_OTFBoldA", "border": "2px solid orange" });
 
-  function setColor(props) {
-    let newStyle = { ...styleLetter };
-    newStyle['color'] = props;
-    setStyleLetter(newStyle);
-  };
-
   function setFontFamily(props) {
     let newStyle = { ...styleLetter };
     newStyle['fontFamily'] = props;
+    setStyleLetter(newStyle);
+  };
+
+  function setColor(props) {
+    let newStyle = { ...styleLetter };
+    newStyle['color'] = props;
     setStyleLetter(newStyle);
   };
 
@@ -206,14 +213,46 @@ function App() {
     textareaFocus.current.focus();
   }, [get_query]);
 
-  const [a, setA] = useState(true);
+  // 
+
+  function showLetterOption(props) {
+    if (letterOption === false) {
+      dispatch({ type: 'CHANGE_LETTER_OPTION', data: true });
+      dispatch({ type: props, data: true });
+    };
+  };
+
+  function nonshowLetterOption() {
+    if (letterOption === true) {
+      dispatch({ type: 'CHANGE_LETTER_OPTION', data: false });
+      dispatch({ type: 'CHANGE_FONT_FAMILY', data: false });
+      dispatch({ type: 'CHANGE_COLOR', data: false });
+    };
+  };
+
+  function changeLetterOption(props) {
+    switch (props) {
+      case 'CHANGE_FONT_FAMILY':
+        dispatch({ type: 'CHANGE_FONT_FAMILY', data: true });
+        dispatch({ type: 'CHANGE_COLOR', data: false });
+        break;
+      case 'CHANGE_COLOR':
+        dispatch({ type: 'CHANGE_FONT_FAMILY', data: false });
+        dispatch({ type: 'CHANGE_COLOR', data: true });
+        break;
+      default:
+        break;
+    };
+  };
 
   return (
     <React.Fragment>
       <h5>{userID}</h5>
-      <div style={{ display: "none" }}>
-        <div className='outContainer'>
-          <textarea style={styleLetter} className='textarea' readOnly></textarea>
+      <div>
+        <div style={{ display: "none" }}>
+          <div className='outContainer'>
+            <textarea style={styleLetter} className='textarea' readOnly></textarea>
+          </div>
         </div>
         <div id="textarea">
           <textarea style={styleLetter} ref={textareaFocus} className="textbox" maxLength={189} placeholder='편지를 작성해주세요.(189자 이내)' onChange={(e) => {
@@ -223,7 +262,7 @@ function App() {
           </textarea>
           <div className='textLength'>{textLength}/189</div>
         </div>
-        <br></br>
+        {/* <br></br>
         <div style={{ position: 'relative', left: '1rem' }}>
           <button className='btn0' onClick={() => { createEl(stickerNumber, 0) }}></button>
           <button className='btn1' onClick={() => { createEl(stickerNumber, 1) }}></button>
@@ -238,12 +277,13 @@ function App() {
         </div>
         <br></br>
         <button style={{ position: 'relative', left: '2rem' }} onClick={attach}>a preview of a letter</button>
-        <button style={{ position: 'relative', left: '2rem' }} onClick={attachRemove}>to delete preview of a letter</button>
+        <button style={{ position: 'relative', left: '2rem' }} onClick={attachRemove}>to delete preview of a letter</button> */}
       </div>
+      <br></br>
       <div>
         <div>
-          <button onClick={() => { setA(!a) }}>font</button>
-          <button>font</button>
+          <button onClick={() => { showLetterOption('CHANGE_FONT_FAMILY') }}>서체</button>
+          <button onClick={() => { showLetterOption('CHANGE_COLOR') }}>색</button>
           <button>font</button>
         </div>
         <div>
@@ -251,32 +291,38 @@ function App() {
           <button>font</button>
         </div>
       </div>
-      <div className={a ? 'letter_option_active' : 'letter_option'} >
+      <div className={letterOption ? 'letter_option_active' : 'letter_option'} >
         <div className='letter_option_innerContainer'>
           <div className='menu_title'>
-            <div className='menu_item'>서체</div>
-            <div className='menu_item'>색</div>
+            <div className='menu_item' onClick={() => { changeLetterOption('CHANGE_FONT_FAMILY') }}>서체</div>
+            <div className='menu_item' onClick={() => { changeLetterOption('CHANGE_COLOR') }}>색</div>
             <div className='menu_item'>편지지</div>
             <div className='menu_item'>편지 배지</div>
             <div className='menu_item'>스티커</div>
           </div>
-          <div className='menu_close'>
+          <div className='menu_close' onClick={nonshowLetterOption}>
             ×
           </div>
         </div>
-        <div>
-          <div className='font_option'>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-            <h1 className='font_item'>page1</h1>
-          </div>
+        <div className={fontOption ? 'font_option_active' : 'font_option'}>
+          <div style={{ fontFamily: "GangwonEdu_OTFBoldA" }} className='font_item' onClick={() => { setFontFamily('GangwonEdu_OTFBoldA') }}>강원교육모두체</div>
+          <div style={{ fontFamily: "MonoplexKR-Italic" }} className='font_item' onClick={() => { setFontFamily('MonoplexKR-Italic') }}>모노플렉스</div>
+          <div style={{ fontFamily: "Tenada" }} className='font_item' onClick={() => { setFontFamily('Tenada') }}>태나다체</div>
+          <div style={{ fontFamily: "KOFIHDrLEEJWTTF-B" }} className='font_item' onClick={() => { setFontFamily('KOFIHDrLEEJWTTF-B') }}>KOFIH이종욱체</div>
+          <div style={{ fontFamily: "Humanbumsuk" }} className='font_item' onClick={() => { setFontFamily('Humanbumsuk') }}>휴먼범석체</div>
+          <div style={{ fontFamily: "HSGooltokki" }} className='font_item' onClick={() => { setFontFamily('HSGooltokki') }}>HS굴토끼체</div>
+          <div style={{ fontFamily: "FUNFLOWSURVIVORKR" }} className='font_item' onClick={() => { setFontFamily('FUNFLOWSURVIVORKR') }}>펀플로생존자</div>
+          <div style={{ fontFamily: "FlowerSalt" }} className='font_item' onClick={() => { setFontFamily('FlowerSalt') }}>꽃소금체</div>
+        </div>
+        <div className={colorOption ? 'color_option_active' : 'color_option'}>
+          <div style={{ color: "black" }} className='font_item' onClick={() => { setColor('black') }}>black</div>
+          <div style={{ color: "red" }} className='font_item' onClick={() => { setColor('red') }}>red</div>
+          <div style={{ color: "blue" }} className='font_item' onClick={() => { setColor('blue') }}>blue</div>
+          <div style={{ color: "green" }} className='font_item' onClick={() => { setColor('green') }}>green</div>
+          <div style={{ color: "yellow" }} className='font_item' onClick={() => { setColor('yellow') }}>yellow</div>
+          <div style={{ color: "pink" }} className='font_item' onClick={() => { setColor('pink') }}>pink</div>
+          <div style={{ color: "violet" }} className='font_item' onClick={() => { setColor('violet') }}>violet</div>
+          <div style={{ color: "white" }} className='font_item' onClick={() => { setColor('white') }}>white</div>
         </div>
       </div>
     </React.Fragment>

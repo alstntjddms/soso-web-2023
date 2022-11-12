@@ -7,7 +7,13 @@ function reducer(state, action) {
             textLength: 0,
             text: '',
             stickerArray: [],
-            stickerNumber: 0
+            stickerNumber: 0,
+            letterOption: false,
+            fontOption: false,
+            colorOption: false,
+            letterPaperOption: false,
+            letterBadge: false,
+            stickerOption: false
         };
     };
 
@@ -27,6 +33,15 @@ function reducer(state, action) {
     };
     if (action.type === 'CHANGE_STICKER_NUMBER') {
         newState.stickerNumber = action.data;
+    };
+    if (action.type === 'CHANGE_LETTER_OPTION') {
+        newState.letterOption = action.data;
+    };
+    if (action.type === 'CHANGE_FONT_FAMILY') {
+        newState.fontOption = action.data;
+    };
+    if (action.type === 'CHANGE_COLOR') {
+        newState.colorOption = action.data;
     };
 
     return newState
