@@ -206,6 +206,8 @@ function App() {
     textareaFocus.current.focus();
   }, [get_query]);
 
+  const [a, setA] = useState(true);
+
   return (
     <React.Fragment>
       <h5>{userID}</h5>
@@ -237,6 +239,45 @@ function App() {
         <br></br>
         <button style={{ position: 'relative', left: '2rem' }} onClick={attach}>a preview of a letter</button>
         <button style={{ position: 'relative', left: '2rem' }} onClick={attachRemove}>to delete preview of a letter</button>
+      </div>
+      <div>
+        <div>
+          <button onClick={() => { setA(!a) }}>font</button>
+          <button>font</button>
+          <button>font</button>
+        </div>
+        <div>
+          <button>font</button>
+          <button>font</button>
+        </div>
+      </div>
+      <div className={a ? 'letter_option_active' : 'letter_option'} >
+        <div className='letter_option_innerContainer'>
+          <div className='menu_title'>
+            <div className='menu_item'>서체</div>
+            <div className='menu_item'>색</div>
+            <div className='menu_item'>편지지</div>
+            <div className='menu_item'>편지 배지</div>
+            <div className='menu_item'>스티커</div>
+          </div>
+          <div className='menu_close'>
+            ×
+          </div>
+        </div>
+        <div>
+          <div className='font_option'>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+            <h1 className='font_item'>page1</h1>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
