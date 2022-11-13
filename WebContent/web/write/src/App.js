@@ -18,6 +18,9 @@ function App() {
   const letterBadge = useSelector((state) => state.letterBadge);
   const stickerOption = useSelector((state) => state.stickerOption);
 
+  const btnFont = useSelector((state) => state.btnFont);
+  const btnColor = useSelector((state) => state.btnColor);
+
   const dispatch = useDispatch();
 
   // request_userData from fetch
@@ -245,9 +248,24 @@ function App() {
     };
   };
 
+  function selectBTNFont(props) {
+    switch (props) {
+      case 'CHANGE_BTN_FONT':
+        dispatch({ type: 'CHANGE_BTN_FONT', data: true });
+        dispatch({ type: 'CHANGE_BTN_COLOR', data: false });
+        break;
+      case 'CHANGE_BTN_COLOR':
+        dispatch({ type: 'CHANGE_BTN_FONT', data: false });
+        dispatch({ type: 'CHANGE_BTN_COLOR', data: true });
+        break;
+      default:
+        break;
+    };
+  };
+
   return (
     <React.Fragment>
-      <h5>{userID}</h5>
+      <h5>userID : {userID}</h5>
       <div>
         <div style={{ display: "none" }}>
           <div className='outContainer'>
@@ -315,14 +333,14 @@ function App() {
           <div style={{ fontFamily: "FlowerSalt" }} className='font_item' onClick={() => { setFontFamily('FlowerSalt') }}>꽃소금체</div>
         </div>
         <div className={colorOption ? 'color_option_active' : 'color_option'}>
-          <div style={{ color: "black" }} className='font_item' onClick={() => { setColor('black') }}>black</div>
-          <div style={{ color: "red" }} className='font_item' onClick={() => { setColor('red') }}>red</div>
-          <div style={{ color: "blue" }} className='font_item' onClick={() => { setColor('blue') }}>blue</div>
-          <div style={{ color: "green" }} className='font_item' onClick={() => { setColor('green') }}>green</div>
-          <div style={{ color: "yellow" }} className='font_item' onClick={() => { setColor('yellow') }}>yellow</div>
-          <div style={{ color: "pink" }} className='font_item' onClick={() => { setColor('pink') }}>pink</div>
-          <div style={{ color: "violet" }} className='font_item' onClick={() => { setColor('violet') }}>violet</div>
-          <div style={{ color: "white" }} className='font_item' onClick={() => { setColor('white') }}>white</div>
+          <div style={{ color: "black", fontSize: "2.5rem" }} className={btnFont ? 'font_item_active' : 'font_item'} onClick={() => { setColor('black'); selectBTNFont('CHANGE_BTN_FONT') }}>●</div>
+          <div style={{ color: "red", fontSize: "2.5rem" }} className={btnColor ? 'font_item_active' : 'font_item'} onClick={() => { setColor('red'); selectBTNFont('CHANGE_BTN_COLOR') }}>●</div>
+          <div style={{ color: "blue", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('blue') }}>●</div>
+          <div style={{ color: "green", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('green') }}>●</div>
+          <div style={{ color: "yellow", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('yellow') }}>●</div>
+          <div style={{ color: "pink", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('pink') }}>●</div>
+          <div style={{ color: "violet", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('violet') }}>●</div>
+          <div style={{ color: "gray", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('gray') }}>●</div>
         </div>
       </div>
     </React.Fragment>

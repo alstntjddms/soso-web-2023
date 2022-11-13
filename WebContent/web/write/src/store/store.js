@@ -13,7 +13,9 @@ function reducer(state, action) {
             colorOption: false,
             letterPaperOption: false,
             letterBadge: false,
-            stickerOption: false
+            stickerOption: false,
+            btnFont: false,
+            btnColor: false
         };
     };
 
@@ -42,6 +44,14 @@ function reducer(state, action) {
     };
     if (action.type === 'CHANGE_COLOR') {
         newState.colorOption = action.data;
+    };
+
+
+    if (action.type === 'CHANGE_BTN_FONT') {
+        newState.btnFont = action.data;
+    };
+    if (action.type === 'CHANGE_BTN_COLOR') {
+        newState.btnColor = action.data;
     };
 
     return newState
