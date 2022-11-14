@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 // import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import GoogleAdsense from 'react-adsense-google';
+import { Adsense } from '@ctrl/react-adsense';
 import './App.css';
 
 function App() {
@@ -345,13 +345,26 @@ function App() {
         </div>
       </div>
       <div>
-        <GoogleAdsense
-          adClient='ca-pub-2137718561795055'
-          adSlot='2781439022'
-          style={{ 'display': 'block', 'text-align': 'center' }}
-          adLayout='in-article'
-          adFormat='fluid'
-          fullWidthResponsive='true'
+        <Adsense
+          client="ca-pub-2137718561795055"
+          slot="2781439022"
+          style={{ width: '20rem', height: '5rem' }}
+          format="fluid"
+        />
+      </div>
+      <div>
+        <Adsense
+          client="ca-pub-2137718561795055"
+          slot="2781439022"
+          style={{ display: 'block' }}
+          layout="in-article"
+          format="fluid"
+        />
+      </div>
+      <div>
+        <Adsense
+          client="ca-pub-2137718561795055"
+          slot="2781439022"
         />
       </div>
     </React.Fragment>
