@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 // import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+import GoogleAdsense from 'react-adsense-google';
 import './App.css';
 
 function App() {
@@ -342,6 +343,16 @@ function App() {
           <div style={{ color: "violet", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('violet') }}>●</div>
           <div style={{ color: "gray", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('gray') }}>●</div>
         </div>
+      </div>
+      <div>
+        <GoogleAdsense
+          adClient='ca-pub-2137718561795055'
+          adSlot='2781439022'
+          style={{ 'display': 'block', 'text-align': 'center' }}
+          adLayout='in-article'
+          adFormat='fluid'
+          fullWidthResponsive='true'
+        />
       </div>
     </React.Fragment>
   );
