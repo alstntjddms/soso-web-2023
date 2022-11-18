@@ -40,6 +40,9 @@
         const name = urlParams.get('code');
         let usertoken = '';
 
+        let newCode = new URL(window.location.href).searchParams.get('code');
+        console.log(newCode);
+
         function sendCode() {
             const code = { code: name };
             console.log(code)
