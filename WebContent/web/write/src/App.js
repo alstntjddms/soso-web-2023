@@ -345,6 +345,7 @@ function App() {
         </div>
       </div>
       <div>
+        <h6>first</h6>
         <Adsense
           client="ca-pub-2137718561795055"
           slot="2781439022"
@@ -353,6 +354,7 @@ function App() {
         />
       </div>
       <div>
+        <h6>second</h6>
         <Adsense
           client="ca-pub-2137718561795055"
           slot="2781439022"
@@ -362,6 +364,7 @@ function App() {
         />
       </div>
       <div>
+        <h6>third</h6>
         <Adsense
           client="ca-pub-2137718561795055"
           slot="2781439022"
