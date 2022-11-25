@@ -266,6 +266,35 @@ function App() {
     };
   };
 
+  function Adfit() {
+
+    const adRef = useRef(false);
+
+    useEffect(() => {
+      if (adRef.current) {
+        return;
+      }
+      let ins = document.createElement('ins');
+      let scr = document.createElement('script');
+      ins.className = 'kakao_ad_area';
+      ins.style = "display:none; width:100%;";
+      scr.async = 'true';
+      scr.type = "text/javascript";
+      scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+      ins.setAttribute('data-ad-width', '300');
+      ins.setAttribute('data-ad-height', '250');
+      ins.setAttribute('data-ad-unit', 'DAN-49FS30iHGOn0dnLe');
+      document.querySelector('.adfit').appendChild(ins);
+      document.querySelector('.adfit').appendChild(scr);
+      adRef.current = true;
+    }, []);
+
+    return (
+      <div id={abc ? 'abc_active' : 'abc'} className='adfit'>
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
       <h5>userID : {userID}</h5>
@@ -311,7 +340,7 @@ function App() {
           <button>font</button>
           <button>font</button>
         </div>
-        <button onClick={()=>{setAbc(!abc)}}>button</button>
+        <button onClick={() => { setAbc(!abc) }}>button</button>
       </div>
       <div className={letterOption ? 'letter_option_active' : 'letter_option'} >
         <div className='letter_option_innerContainer'>
@@ -373,6 +402,7 @@ function App() {
           slot="2781439022"
         />
       </div> */}
+      <Adfit></Adfit>
     </React.Fragment>
   );
 }

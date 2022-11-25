@@ -505,10 +505,18 @@ body {
     transition: all 0.5s;
 }
 
-.abc_active{
+.abc_active {
     opacity: 1;
 }
 
-.abc{
+.abc {
+    opacity: 0;
+}
+
+#abc_active {
+    opacity: 1;
+}
+
+#abc {
     opacity: 0;
 }
