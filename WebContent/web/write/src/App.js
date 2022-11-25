@@ -6,6 +6,8 @@ import './App.css';
 
 function App() {
 
+  const [abc, setAbc] = useState(false);
+
   const textareaFocus = useRef('');
   const userID = useSelector((state) => state.userID);
   const text = useSelector((state) => state.text);
@@ -309,6 +311,7 @@ function App() {
           <button>font</button>
           <button>font</button>
         </div>
+        <button onClick={()=>{setAbc(!abc)}}>button</button>
       </div>
       <div className={letterOption ? 'letter_option_active' : 'letter_option'} >
         <div className='letter_option_innerContainer'>
@@ -344,7 +347,7 @@ function App() {
           <div style={{ color: "gray", fontSize: "2.5rem" }} className='font_item' onClick={() => { setColor('gray') }}>●</div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <h6>first</h6>
         <Adsense
           client="ca-pub-2137718561795055"
@@ -352,8 +355,8 @@ function App() {
           style={{ width: '20rem', height: '5rem' }}
           format="fluid"
         />
-      </div>
-      <div>
+      </div> */}
+      <div className={abc ? 'abc_active' : 'abc'}>
         <h6>second</h6>
         <Adsense
           client="ca-pub-2137718561795055"
@@ -363,13 +366,13 @@ function App() {
           format="fluid"
         />
       </div>
-      <div>
+      {/* <div>
         <h6>third</h6>
         <Adsense
           client="ca-pub-2137718561795055"
           slot="2781439022"
         />
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

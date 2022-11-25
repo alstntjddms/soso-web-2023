@@ -504,3 +504,11 @@ body {
     opacity: 1;
     transition: all 0.5s;
 }
+
+.abc_active{
+    opacity: 1;
+}
+
+.abc{
+    opacity: 0;
+}
