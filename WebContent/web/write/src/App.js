@@ -295,9 +295,18 @@ function App() {
     );
   };
 
+  function sendsend() {
+    fetch('http://13.209.184.10:8080/api/letterall')
+      .then((response) => response.json())
+      .then((data) => console.log(data[data.length - 1]))
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <React.Fragment>
-      <h5>userID : {userID}</h5>
+      <h5 onClick={() => { sendsend() }}>userID : {userID}</h5>
       <div>
         <div style={{ display: "none" }}>
           <div className='outContainer'>
