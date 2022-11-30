@@ -1,38 +1,12 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
-import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 // import { Adsense } from '@ctrl/react-adsense';
 // import Slider from "react-slick";
 import './App.css';
+import Main from './components/Main';
 import Login from './components/Login';
 import Redirect from './components/Redirect';
-
-
-function Main() {
-
-  const dispatch = useDispatch();
-  const checkStory = useSelector((state) => state.checkStory);
-
-  useEffect(() => {
-    const cookieData = document.cookie.split(';');
-    for (let i = 0; i < cookieData.length; i++) {
-      if (cookieData[i].indexOf('planetter') > -1) {
-      } else {
-        dispatch({ type: 'CHANGE_CHECKSTORY', data: !checkStory });
-      } break;
-    };
-  }, []);
-
-  return (
-    <div className='main_background'>
-      {/* <ModalStory></ModalStory>
-      <Menu></Menu>
-      <NameOfPlanet></NameOfPlanet> */}
-      <h1 className='loging'><NavLink end to="/login"></NavLink></h1>
-    </div>
-  );
-};
-
 
 function App() {
 

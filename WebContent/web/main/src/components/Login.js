@@ -14,7 +14,7 @@ function Login() {
 
     useEffect(() => {
         if (userID !== null) {
-            navigater('/main')
+            navigater('/main');
         };
     }, [navigater, userID]);
 
@@ -31,10 +31,6 @@ function Login() {
     };
 
     function Conditions() {
-
-        function toggleConditions() {
-            dispatch({ type: 'CHANGE_ISCONDITIONS', data: !isConditions });
-        };
 
         return (
             <div className={isConditions ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
@@ -64,10 +60,6 @@ function Login() {
     };
 
     function Individual() {
-
-        function toggleIndividual() {
-            dispatch({ type: 'CHANGE_ISINDIVIDUAL', data: !isIndividual });
-        };
 
         return (
             <div className={isIndividual ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
