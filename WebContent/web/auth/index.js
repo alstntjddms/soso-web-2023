@@ -11,7 +11,7 @@ new Vue({
     methods: {
         // 전체데이터 조회
         getAllData: async function() {
-            this.allLetterData = await axios.get("http://13.209.184.10:8080/api/letter")
+            this.allLetterData = await axios.get("http://plater.kr/api/letterall")
                 .then(function(res) {
                     console.log(res);
                     return res.data;
