@@ -14,7 +14,8 @@ function reducer(state, action) {
             isMypage: false,
             isPlater: false,
             isHowto: false,
-            isMembershipWithdrawal: false 
+            isMembershipWithdrawal: false,
+            isStory: false
         };
     };
     const newState = { ...state };
@@ -61,6 +62,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISHOWTO') {
         newState.isHowto = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSTORY') {
+        newState.isStory = action.data;
     };
 
     return newState;

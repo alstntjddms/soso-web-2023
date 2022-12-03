@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Menu.css';
 
 function Menu() {
 
     const dispatch = useDispatch();
+
+    const [speck, setSpeck] = useState(0);
 
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
@@ -50,6 +52,14 @@ function Menu() {
     function toggleMypage() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISMYPAGE', data: !isMypage });
+        // Speech Synthesis
+        setTimeout(() => {
+            if (speck === 0) {
+                const speech = new SpeechSynthesisUtterance(userData.nickname + '님 안녕하세요.');
+                window.speechSynthesis.speak(speech);
+                setSpeck(speck + 1);
+            };
+        }, 500);
     };
 
     function togglePlanetter() {
