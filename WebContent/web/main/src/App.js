@@ -7,6 +7,7 @@ import './App.css';
 import Main from './components/Main';
 import Login from './components/Login';
 import Redirect from './components/Redirect';
+import Redirect2 from './components/Redirect2';
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
         <Route path="/*" element={<Main />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/redirect" element={<Redirect />}></Route>
-        {/* <Route path="/redirect2" element={<Redirect2 />}></Route> */}
+        <Route path="/redirect2" element={<Redirect2 />}></Route>
       </Routes>
     </React.Fragment>
   );

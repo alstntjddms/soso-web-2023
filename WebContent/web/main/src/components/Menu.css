@@ -129,7 +129,7 @@
 }
 
 .menu_img {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2976/2976215.png');
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hamburger_icon_white.svg/120px-Hamburger_icon_white.svg.png?20190820131613');
     background-repeat: no-repeat;
     background-size: contain;
     width: 1.0rem;
@@ -184,7 +184,7 @@
 
 .menu_bar_mypage_line1 {
     position: relative;
-    left: -10%;
+    left: 0%;
     width: 100vw;
     height: 0.2rem;
     margin-top: 6rem;
@@ -227,7 +227,7 @@
 
 .menu_bar_mypage_line2 {
     position: relative;
-    left: -10%;
+    left: 0%;
     width: 100vw;
     height: 0.2rem;
     margin-top: 1rem;
@@ -244,7 +244,7 @@
 
 .menu_bar_mypage_line {
     position: relative;
-    left: -10%;
+    left: 0%;
     width: 100vw;
     height: 0.2rem;
     margin-top: 1rem;
