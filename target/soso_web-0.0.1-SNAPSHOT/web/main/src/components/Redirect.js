@@ -18,10 +18,11 @@ function Redirect() {
             navigater('/login');
         };
         const code = { code: name };
+        console.log(code);
         const queryStringBody = Object.keys(code)
             .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
             .join("&");
-        fetch("http://plater.kr/api/kakao", {
+        fetch("http://www.plater.kr/api/kakao", {
             method: "POST",
             mode: 'cors',
             cache: 'no-cache',
