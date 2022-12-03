@@ -4,8 +4,7 @@ function reducer(state, action) {
     if (state === undefined) {
         return {
             userID: 'null',
-            checkStory: true,
-            userData: {'nickname' : 'null', 'openDate' : null},
+            userData: { 'nickname': 'null', 'openDate': null },
             letterData: [],
             isConditions: false,
             isIndividual: false,
@@ -24,10 +23,6 @@ function reducer(state, action) {
         newState.userID = action.data;
     };
 
-    if (action.type === 'CHANGE_CHECKSTORY') {
-        newState.checkStory = action.data;
-    };
-    
     if (action.type === 'CHANGE_ISCONDITIONS') {
         newState.isConditions = action.data;
     };

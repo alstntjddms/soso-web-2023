@@ -26,8 +26,8 @@ function ModalStory() {
 
     // Setting Cookie
     function setCookie() {
-        dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
-        if (isStory === false) {
+        let checkCookie = document.querySelector('.modalStory_cookie_input');
+        if (checkCookie.checked === true) {
             const expires = new Date();
             expires.setDate(expires.getDate() + 1);
             const expiresDate = expires.toUTCString();
@@ -86,7 +86,7 @@ function ModalStory() {
                             </div>
                         </div>
                     </Slider>
-                    <div className='modalStory_cookie'><input className='modalStory_cookie_input' type='checkbox' checked={isStory} onChange={setCookie}></input> 다시 보지 않기(1일 동안)</div>
+                    <div className='modalStory_cookie'><input className='modalStory_cookie_input' type='checkbox' onChange={setCookie}></input> 다시 보지 않기(1일 동안)</div>
                 </div>
             </div>
         </div>
