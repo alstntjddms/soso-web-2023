@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Main.css';
-import Menu from './Menu';
 import ModalStory from './ModalStory';
+import Menu from './Menu';
+import InnerPage from './InnerPage';
 
 function Main() {
 
@@ -20,15 +21,15 @@ function Main() {
 
   return (
     <div className='main_background'>
-      <section>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <section className='section_shootingStar'>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
       </section>
       <ModalStory></ModalStory>
       <Menu></Menu>
-      {/* <InnerPage></InnerPage> */}
+      <InnerPage></InnerPage>
     </div>
   );
 };

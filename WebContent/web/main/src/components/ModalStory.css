@@ -134,7 +134,7 @@
 
 .slick-dots li.slick-active button:before {
     opacity: .75;
-    color: lightgray;
+    color: orange;
 }
 
 .slick-dots li button:before {
@@ -148,7 +148,7 @@
     content: '•';
     text-align: center;
     opacity: 1.0;
-    color: #000000;
+    color: lightgray;
 }
 
 .slick-dots {

@@ -4,6 +4,10 @@
     top: 20%;
 }
 
+.noname_outContainer>h3 {
+    color: white;
+}
+
 .noname_sendSignal {
     background-color: rgba(230, 230, 230, 1.0);
     width: 10rem;
@@ -206,10 +210,16 @@
     border: 1px solid black;
 }
 
+/*  */
+
 .yesname_outContainer {
     position: relative;
     text-align: center;
     top: 7%;
+}
+
+.yesname_outContainer > h3, h4 {
+    color: white;
 }
 
 .yesNameUrl {
@@ -281,95 +291,7 @@
     margin: auto;
 }
 
-.shareButton_outContainer {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    right: 3rem;
-    width: 3rem;
-    height: 3rem;
-    pointer-events: none;
-    touch-action: none;
-    opacity: 0.5;
-}
-
-.shareButton_outContainer_active {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    right: 3rem;
-    width: 3rem;
-    height: 3rem;
-}
-
-.shareButton_share {
-    width: 1rem;
-}
-
-.shareButton_innerContainer {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    right: 0;
-    top: 2rem;
-    width: 3rem;
-    height: 3rem;
-}
-
-.shareButton_share_btn {
-    width: 50%;
-    margin: 0.1rem;
-    position: absolute;
-    top: -45%;
-    left: -75%;
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-    touch-action: none;
-    transition: all linear 0.2s;
-}
-
-.shareButton_share_btn_url_active {
-    width: 50%;
-    margin: 0.1rem;
-    position: absolute;
-    top: -65%;
-    left: -150%;
-    transition: all linear 0.2s;
-}
-
-.shareButton_share_btn_kakao_active {
-    width: 50%;
-    margin: 0.1rem;
-    position: absolute;
-    top: 0%;
-    left: -145%;
-    transition: all linear 0.2s;
-}
-
-.shareButton_share_btn_facebook_active {
-    width: 50%;
-    margin: 0.1rem;
-    position: absolute;
-    top: 30%;
-    left: -90%;
-    transition: all linear 0.2s;
-}
-
-.shareButton_share_btn_twitter_active {
-    width: 50%;
-    margin: 0.1rem;
-    position: absolute;
-    top: 15%;
-    left: -20%;
-    transition: all linear 0.2s;
-}
+/*  */
 
 .letterBox_outContainer {
     position: relative;
@@ -387,6 +309,10 @@
     padding-right: 2.0rem;
     padding-left: 2.0rem;
     padding-bottom: 1rem;
+}
+
+.letterBox_innerContainer_div > span {
+    color: white;
 }
 
 .letteropen {

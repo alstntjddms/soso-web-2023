@@ -14,7 +14,13 @@ function reducer(state, action) {
             isPlater: false,
             isHowto: false,
             isMembershipWithdrawal: false,
-            isStory: false
+            isStory: false,
+            isShare: false,
+            isShareBt: false,
+            isNamePage: false,
+            ModalCreateUrl: false,
+            isSendSignal: false
+            
         };
     };
     const newState = { ...state };
@@ -63,8 +69,35 @@ function reducer(state, action) {
         newState.isStory = action.data;
     };
 
+    if (action.type === 'CHANGE_ISSHARE') {
+        newState.isShare = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSHAREBT') {
+        newState.isShareBt = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISNAMEPAGE') {
+        newState.isNamePage = action.data;
+    };
+
+    if (action.type === 'CHANGE_MODALCREATEURL') {
+        newState.ModalCreateUrl = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDSIGNAL') {
+        newState.isSendSignal = action.data;
+    };
+
+    if (action.type === 'CHANGE_USERNICKNAME') {
+        newState.userData.nickname = action.data;
+    };
+
+    if (action.type === 'CHANGE_OPENDATE') {
+        newState.userData.openDate = action.data;
+    };
+
     return newState;
 };
-
 const store = createStore(reducer);
 export default store;

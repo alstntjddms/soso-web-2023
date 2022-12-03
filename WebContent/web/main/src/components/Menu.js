@@ -23,8 +23,8 @@ function Menu() {
                     <p className='membershipWithdrawal_title'>서비스를</p>
                     <p className='membershipWithdrawal_title'>탈퇴하시겠습니까?</p>
                     <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는 모두 삭제됩니다.</p>
-                    <div className='membershipWithdrawal_HLine'></div>
-                    <div className='membershipWithdrawal_VLine'></div>
+                    <span className='membershipWithdrawal_HLine'></span>
+                    <span className='membershipWithdrawal_VLine'></span>
                     <div className='membershipWithdrawal_innerBox'>
                         <div className='membershipWithdrawal_button' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴</div>
                         <div className='membershipWithdrawal_button' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
