@@ -7,26 +7,25 @@ import ModalStory from './ModalStory';
 function Main() {
 
   const dispatch = useDispatch();
-  const checkStory = useSelector((state) => state.checkStory);
+  const isStory = useSelector((state) => state.isStory);
 
   useEffect(() => {
     const cookieData = document.cookie.split(';');
     for (let i = 0; i < cookieData.length; i++) {
-      if (cookieData[i].indexOf('planetter') > -1) {
-      } else {
-        dispatch({ type: 'CHANGE_CHECKSTORY', data: !checkStory });
-      } break;
+      if (cookieData[i].indexOf('plater') > -1) {
+        dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
+      } else break;
     };
   }, [dispatch]);
 
   return (
     <div className='main_background'>
-       <section>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </section>
+      <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </section>
       <ModalStory></ModalStory>
       <Menu></Menu>
       {/* <InnerPage></InnerPage> */}
