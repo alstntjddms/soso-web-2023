@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './Main.css';
 import Menu from './Menu';
+import ModalStory from './ModalStory';
 
 function Main() {
 
@@ -17,14 +17,19 @@ function Main() {
         dispatch({ type: 'CHANGE_CHECKSTORY', data: !checkStory });
       } break;
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='main_background'>
-      {/* <ModalStory></ModalStory> */}
+       <section>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </section>
+      <ModalStory></ModalStory>
       <Menu></Menu>
-      {/* <NameOfPlanet></NameOfPlanet> */}
-      <h1 className='loging'><NavLink end to="/login"></NavLink></h1>
+      {/* <InnerPage></InnerPage> */}
     </div>
   );
 };
