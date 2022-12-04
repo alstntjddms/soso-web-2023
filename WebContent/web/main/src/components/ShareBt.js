@@ -10,7 +10,7 @@ function ShareBt() {
     const isShareBt = useSelector((state) => state.isShareBt);
 
     useEffect(() => {
-        if (userData.openDate !== null) {
+        if (userData.openDate !== 0) {
             dispatch({ type: 'CHANGE_ISSHARE', data: !isShare });
         };
     }, [dispatch, userData.openDate]);

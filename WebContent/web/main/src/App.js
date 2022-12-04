@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
-// import { Adsense } from '@ctrl/react-adsense';
-// import Slider from "react-slick";
 import './App.css';
 import Main from './components/Main';
 import Login from './components/Login';
@@ -13,9 +11,10 @@ function App() {
 
   const navigater = useNavigate();
   const userID = useSelector((state) => state.userID);
+  const userData = useSelector((state) => state.userData);
 
   useEffect(() => {
-    console.log(userID);
+    console.log(userID, userData);
     // Check user device.
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     } else {

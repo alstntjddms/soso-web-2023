@@ -4,8 +4,225 @@ function reducer(state, action) {
     if (state === undefined) {
         return {
             userID: 'null',
-            userData: { 'nickname': 'null', 'openDate': null },
-            letterData: [],
+            userData: { 'nickname': 'null', 'openDate': 0 },
+            letterData: [
+                {
+                    "letterId": "0",
+                    "letterContent": "first letter",
+                    "letterFont": "0",
+                    "letterFontColor": "0",
+                    "letterPaper": "0",
+                    "letterWriter": "Angelo",
+                    "letterIcon": "0",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "1",
+                    "letterContent": "second letter",
+                    "letterFont": "1",
+                    "letterFontColor": "1",
+                    "letterPaper": "1",
+                    "letterWriter": "Yuna",
+                    "letterIcon": "1",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "2",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "3",
+                    "letterContent": "second letter",
+                    "letterFont": "1",
+                    "letterFontColor": "1",
+                    "letterPaper": "1",
+                    "letterWriter": "Yuna",
+                    "letterIcon": "1",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "4",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "5",
+                    "letterContent": "second letter",
+                    "letterFont": "1",
+                    "letterFontColor": "1",
+                    "letterPaper": "1",
+                    "letterWriter": "Yuna",
+                    "letterIcon": "1",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "6",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "7",
+                    "letterContent": "second letter",
+                    "letterFont": "1",
+                    "letterFontColor": "1",
+                    "letterPaper": "1",
+                    "letterWriter": "Yuna",
+                    "letterIcon": "1",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "8",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                }
+            ],
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -20,7 +237,7 @@ function reducer(state, action) {
             isNamePage: false,
             ModalCreateUrl: false,
             isSendSignal: false
-            
+
         };
     };
     const newState = { ...state };
@@ -96,6 +313,8 @@ function reducer(state, action) {
     if (action.type === 'CHANGE_OPENDATE') {
         newState.userData.openDate = action.data;
     };
+
+    
 
     return newState;
 };
