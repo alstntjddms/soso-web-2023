@@ -221,6 +221,54 @@ function reducer(state, action) {
                             "stickerY": "5"
                         }
                     ]
+                },
+                {
+                    "letterId": "9",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
+                },
+                {
+                    "letterId": "10",
+                    "letterContent": "third letter",
+                    "letterFont": "2",
+                    "letterFontColor": "2",
+                    "letterPaper": "2",
+                    "letterWriter": "egoing",
+                    "letterIcon": "2",
+                    "letterWriteDate": "1661837285640",
+                    "sticker": [
+                        {
+                            "stickerId": "0",
+                            "stickerIcon": "0",
+                            "stickerX": "123",
+                            "stickerY": "-5"
+                        },
+                        {
+                            "stickerId": "1",
+                            "stickerIcon": "1",
+                            "stickerX": "-123",
+                            "stickerY": "5"
+                        }
+                    ]
                 }
             ],
             isConditions: false,
@@ -314,7 +362,7 @@ function reducer(state, action) {
         newState.userData.openDate = action.data;
     };
 
-    
+
 
     return newState;
 };

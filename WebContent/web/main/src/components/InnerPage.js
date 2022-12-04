@@ -247,70 +247,26 @@ function InnerPage() {
 
     function LetterBox() {
         const [render, serRender] = useState(0);
-        const [letterModal, setLetterModal] = useState(false);
-        const [letterId, setLetterId] = useState(null);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
 
+        function changeIcon(i) {
+            const copyLetter = { ...letterData };
+            copyLetter[i].letterIcon = 'open';
+            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+            serRender(render + 1);
+        };
+
         function openLetter(i) {
-            function changeIcon() {
-                let now = new Date().getTime();
-                let distance = userData.openDate - now;
-                if (distance > 0) {
-                    alert('편지를 읽다');
-                    if (i === 6 || i === 14 || i === 22 || i === 30) {
-                        const copyLetter = { ...letterData };
-                        copyLetter[i].letterId = 'open1';
-                        dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-                        serRender(render + 1);
-                    } else if (i === 7 || i === 15 || i === 23 || i === 31) {
-                        const copyLetter = { ...letterData };
-                        copyLetter[i].letterId = 'open';
-                        dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-                        serRender(render + 1);
-                    } else if (-1 < i < 6 || 7 < i < 14 || 15 < i < 22 || 23 < i < 30) {
-                        const copyLetter = { ...letterData };
-                        copyLetter[i].letterId = 'open2';
-                        dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-                        serRender(render + 1);
-                    };
-                };
-
-
+            let now = new Date().getTime();
+            let distance = userData.openDate - now;
+            if (distance > 0) {
+                changeIcon(i);
+            } else {
+                alert('아직 읽지 못합니다.')
             };
-            changeIcon();
-
-            // let now = new Date().getTime();
-            // let distance = userData.openDate - now;
-            // if (distance > 0) {
-            //     alert('편지를 읽다');
-            //     if (i === 6 || i === 14 || i === 22 || i === 30) {
-            //         dispatch({ type: 'CHANGE_LETTERID', data: 'open' });
-            //         letterData[i].
-            //         setLetterModal(!letterModal);
-            //         setLetterId(Number(letterData[i].letterId));
-            //     } else if (i === 7 || i === 15 || i === 23 || i === 31) {
-            //         let props = letterData;
-            //         let propsObj = {
-            //             "num": letterData[i].num, "desc": letterData[i].desc, "fontColor": letterData[i].fontColor, "fontFamily": letterData[i].fontFamily, "letterIcon": "open2", "openOrNot": "true", "author": letterData[i].author
-            //         };
-            //         props[i] = propsObj;
-            //         setLetterModal(!letterModal);
-            //         setLetterId(Number(letterData[i].num));
-            //     } else if (-1 < i < 6 || 7 < i < 14 || 15 < i < 22 || 23 < i < 30) {
-            //         let props = letterData;
-            //         let propsObj = {
-            //             "num": letterData[i].num, "desc": letterData[i].desc, "fontColor": letterData[i].fontColor, "fontFamily": letterData[i].fontFamily, "letterIcon": "open", "openOrNot": "true", "author": letterData[i].author
-            //         };
-            //         props[i] = propsObj;
-            //         setLetterModal(!letterModal);
-            //         setLetterId(Number(letterData[i].num));
-            //     };
-            // } else {
-            //     alert('아직 못 읽어요.');
-            // };
         };
 
         let settings = {
@@ -402,7 +358,7 @@ function InnerPage() {
 
         return (
             <React.Fragment>
-                {letterModal && <Letter props={{ letterModal, setLetterModal, letterId }}></Letter>}
+                {/* { && <Letter></Letter>} */}
                 <div className='letterBox_outContainer'>
                     <Slider {...settings}>
                         <div className='letterBox_innerContainer'>
