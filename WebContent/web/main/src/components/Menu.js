@@ -116,7 +116,7 @@ function Menu() {
                         <p className='menu_bar_mypage_box_p'>문의하기</p>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
-                        <p>Planetter</p>
+                        <p>Pl@ter</p>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
                         <p>이용방법</p>

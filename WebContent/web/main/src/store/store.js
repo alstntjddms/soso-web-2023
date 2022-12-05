@@ -284,7 +284,8 @@ function reducer(state, action) {
             isShareBt: false,
             isNamePage: false,
             ModalCreateUrl: false,
-            isSendSignal: false
+            isSendSignal: false,
+            isLetter: false
 
         };
     };
@@ -362,7 +363,9 @@ function reducer(state, action) {
         newState.userData.openDate = action.data;
     };
 
-
+    if (action.type === 'CHANGE_ISLETTER') {
+        newState.isLetter = action.data;
+    };
 
     return newState;
 };

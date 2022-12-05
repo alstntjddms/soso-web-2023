@@ -219,33 +219,8 @@ function InnerPage() {
         );
     };
 
-    ////////////////////////////////////////
-
-    function Letter(props) {
-
-        return (
-            <div>
-                {/* <div onClick={() => { props.props.setLetterModal(!props.props.letterModal) }}>
-                    <div className={"modallettermodal" + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}>
-                        <h1 className="modal_titlelettermodal">{"From: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].author}</h1>
-                        <span className={'abcdefg' + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontFamily}>
-                            <article className={"modal_desclettermodal" + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}>
-                                {"Letter Description: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].desc}
-                                <br></br>
-                                {"Letter Font Color: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}
-                                <br></br>
-                                {"Letter Font Family: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontFamily}
-                            </article>
-                        </span>
-                        <h3 className="modal_authorlettermodal"></h3>
-                        <div className="modal_closelettermodal" onClick={() => { props.props.setLetterModal(!props.props.letterModal) }}></div>
-                    </div>
-                </div> */}
-            </div>
-        );
-    };
-
     function LetterBox() {
+        const isLetter = useSelector((state) => state.isLetter);
         const [render, serRender] = useState(0);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
@@ -256,13 +231,14 @@ function InnerPage() {
             const copyLetter = { ...letterData };
             copyLetter[i].letterIcon = 'open';
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            serRender(render + 1);
+            serRender(i);
         };
 
         function openLetter(i) {
             let now = new Date().getTime();
             let distance = userData.openDate - now;
             if (distance > 0) {
+                dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 changeIcon(i);
             } else {
                 alert('아직 읽지 못합니다.')
@@ -291,7 +267,7 @@ function InnerPage() {
                 setList2(<span>Nothing...</span>);
                 setList3(<span>Nothing...</span>);
                 setList4(<span>Nothing...</span>);
-            } else if (letterData.length <= 8) {
+            } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
@@ -300,53 +276,53 @@ function InnerPage() {
                     setList3(<span>Nothing...</span>);
                     setList4(<span>Nothing...</span>);
                 };
-            } else if (letterData.length <= 16) {
-                for (let i = 0; i < 8; i++) {
+            } else if (letterData.length <= 18) {
+                for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList(list);
                 };
-                for (let i = 8; i < letterData.length; i++) {
+                for (let i = 9; i < letterData.length; i++) {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList2(list2);
                     setList3(<span>Nothing...</span>);
                     setList4(<span>Nothing...</span>);
                 };
-            } else if (letterData.length <= 24) {
-                for (let i = 0; i < 8; i++) {
+            } else if (letterData.length <= 27) {
+                for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList(list);
                 };
-                for (let i = 8; i < 16; i++) {
+                for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList2(list2);
                 };
-                for (let i = 16; i < letterData.length; i++) {
+                for (let i = 18; i < letterData.length; i++) {
                     let li = letterData[i];
                     list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList3(list3);
                     setList4(<span>Nothing...</span>);
                 };
-            } else if (letterData.length <= 32) {
-                for (let i = 0; i < 8; i++) {
+            } else if (letterData.length <= 36) {
+                for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList(list);
                 };
-                for (let i = 8; i < 16; i++) {
+                for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList2(list2);
                 };
-                for (let i = 16; i < 24; i++) {
+                for (let i = 18; i < 27; i++) {
                     let li = letterData[i];
                     list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList3(list3);
                 };
-                for (let i = 24; i < letterData.length; i++) {
+                for (let i = 27; i < letterData.length; i++) {
                     let li = letterData[i];
                     list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList4(list4);
@@ -356,9 +332,26 @@ function InnerPage() {
             };
         }, [render]);
 
+        function Letter() {
+            return (
+                <React.Fragment>
+                    <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
+                        <div className="letter_textarea">
+                            <img alt='close' className='letter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                            }}></img>
+                            <textarea className="textbox" readOnly>
+                            </textarea>
+                            <div className='author'></div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
         return (
             <React.Fragment>
-                {/* { && <Letter></Letter>} */}
+                <Letter></Letter>
                 <div className='letterBox_outContainer'>
                     <Slider {...settings}>
                         <div className='letterBox_innerContainer'>
