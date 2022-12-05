@@ -512,10 +512,15 @@ h4 {
 }
 
 .author {
+    width: 45%;
+    text-align: right;
     position: absolute;
-    left: 80%;
-    top: 92%;
-    color: aliceblue;
+    background-color: transparent;
+    border: none;
+    left: 48%;
+    top: 90%;
+    color: white;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .letter_close {

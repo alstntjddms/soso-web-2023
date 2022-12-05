@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
-// import { Adsense } from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
 
@@ -234,12 +234,58 @@ function InnerPage() {
             serRender(i);
         };
 
+        function enterDesc(i) {
+            let copyText = letterData[i].letterContent;
+            let enterText = document.querySelector('.textbox');
+            enterText.value = copyText;
+        };
+
+        function enterAuthor(i) {
+            let copyAuthor = `보낸이. ${letterData[i].letterWriter}`;
+            let enterAuthor = document.querySelector('.author');
+            enterAuthor.value = copyAuthor;
+        };
+
+        function attach(i) {
+            let copyStrickerArray = letterData[i].sticker;
+            for (let i = 0; i < copyStrickerArray.length; i++) {
+                let item = document.createElement('div');
+                let stage = document.querySelector('.letter_textarea');
+                item.setAttribute('id', '_' + copyStrickerArray[i].stickerId);
+                item.setAttribute('class', 'item' + copyStrickerArray[i].stickerIcon);
+                stage.appendChild(item);
+                setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
+            };
+            setTimeout(() => {
+                enterDesc(i);
+            }, 10);
+            setTimeout(() => {
+                enterAuthor(i);
+            }, 10);
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            };
+        };
+
+        // function attachRemove(i) {
+        //     let removeText = '';
+        //     let enterRemove = document.querySelector('.letter_textarea');
+        //     enterRemove.value = removeText;
+        //     let copyStrickerArray = letterData[i].sticker;
+        //     for (let i = 0; i < copyStrickerArray.length; i++) {
+        //       document.getElementById('_' + copyStrickerArray[i].letterId).remove();
+        //     };
+        //   };
+
         function openLetter(i) {
             let now = new Date().getTime();
             let distance = userData.openDate - now;
             if (distance > 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 changeIcon(i);
+                setTimeout(() => {
+                    attach(i);
+                }, 10);
             } else {
                 alert('아직 읽지 못합니다.')
             };
@@ -338,11 +384,24 @@ function InnerPage() {
                     <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
                         <div className="letter_textarea">
                             <img alt='close' className='letter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                                // openLetter(render);
+                                // setTimeout(() => {
+                                //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                // }, 10);
                                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
                             }}></img>
-                            <textarea className="textbox" readOnly>
+                            <textarea className="textbox" value={''} readOnly disabled>
                             </textarea>
-                            <div className='author'></div>
+                            <input type='text' className='author' value={''} readOnly disabled></input>
+                        </div>
+                        <div style={{ marginTop: "1rem" }}>
+                            <Adsense
+                                client={process.env.REACT_APP_GOOGLE_ADSENSE}
+                                slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
+                                style={{ display: 'block' }}
+                                layout="in-article"
+                                format="fluid"
+                            />
                         </div>
                     </div>
                 </React.Fragment>

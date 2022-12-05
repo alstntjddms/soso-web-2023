@@ -44,13 +44,13 @@ function reducer(state, action) {
                             "stickerId": "0",
                             "stickerIcon": "0",
                             "stickerX": "123",
-                            "stickerY": "-5"
+                            "stickerY": "-55"
                         },
                         {
                             "stickerId": "1",
                             "stickerIcon": "1",
                             "stickerX": "-123",
-                            "stickerY": "5"
+                            "stickerY": "55"
                         }
                     ]
                 },
