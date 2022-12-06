@@ -199,6 +199,7 @@ function InnerPage() {
                 setDday(days + '일 ' + hours + '시간 ' + minutes + '분 ' + seconds + '초');
                 if (distance < 0) {
                     clearInterval(count);
+                    dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
                     setDday("편지를 열어보세요.");
                 };
             }, 0);
@@ -275,6 +276,7 @@ function InnerPage() {
         //   };
 
         function openLetter(i) {
+            dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
             let distance = userData.openDate - now;
             if (distance <= 0) {
