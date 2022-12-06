@@ -19,14 +19,14 @@ function reducer(state, action) {
                         {
                             "stickerId": "0",
                             "stickerIcon": "0",
-                            "stickerX": "123",
-                            "stickerY": "-5"
+                            "stickerX": "105",
+                            "stickerY": "-95"
                         },
                         {
                             "stickerId": "1",
                             "stickerIcon": "1",
-                            "stickerX": "-123",
-                            "stickerY": "5"
+                            "stickerX": "75",
+                            "stickerY": "-23"
                         }
                     ]
                 },
@@ -42,15 +42,15 @@ function reducer(state, action) {
                     "sticker": [
                         {
                             "stickerId": "0",
-                            "stickerIcon": "0",
-                            "stickerX": "123",
-                            "stickerY": "-55"
+                            "stickerIcon": "1",
+                            "stickerX": "-110",
+                            "stickerY": "125"
                         },
                         {
                             "stickerId": "1",
-                            "stickerIcon": "1",
-                            "stickerX": "-123",
-                            "stickerY": "55"
+                            "stickerIcon": "2",
+                            "stickerX": "-70",
+                            "stickerY": "61"
                         }
                     ]
                 },

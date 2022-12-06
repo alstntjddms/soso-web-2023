@@ -86,7 +86,7 @@ function Menu() {
                 <div className={`menu_bar${isMenu ? "_active" : ""}${isInner ? "_wide" : ""}`}>
                     <div className={isInner ? "menu_bar_inner_true" : "menu_bar_inner"}>
                         <p onClick={toggleMypage}>마이페이지</p>
-                        <p onClick={togglePlanetter}>Planetter</p>
+                        <p onClick={togglePlanetter}>Pl@ter</p>
                         <p onClick={toggleHowto} >이용 방법</p>
                         <p>Contact Us</p>
                     </div>

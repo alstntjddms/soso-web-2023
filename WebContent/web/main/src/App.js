@@ -14,7 +14,6 @@ function App() {
   const userData = useSelector((state) => state.userData);
 
   useEffect(() => {
-    console.log(userID, userData);
     // Check user device.
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     } else {

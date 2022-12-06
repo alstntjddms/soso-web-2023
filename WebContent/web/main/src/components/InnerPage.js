@@ -221,11 +221,12 @@ function InnerPage() {
 
     function LetterBox() {
         const isLetter = useSelector((state) => state.isLetter);
-        const [render, serRender] = useState(0);
+        const [render, serRender] = useState(-1);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
+        const [setStyle, setSetStyle] = useState({ "color": "black" });
 
         function changeIcon(i) {
             const copyLetter = { ...letterData };
@@ -247,6 +248,9 @@ function InnerPage() {
         };
 
         function attach(i) {
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            };
             let copyStrickerArray = letterData[i].sticker;
             for (let i = 0; i < copyStrickerArray.length; i++) {
                 let item = document.createElement('div');
@@ -256,15 +260,8 @@ function InnerPage() {
                 stage.appendChild(item);
                 setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
             };
-            setTimeout(() => {
-                enterDesc(i);
-            }, 10);
-            setTimeout(() => {
-                enterAuthor(i);
-            }, 10);
-            function setTranslate(xPos, yPos, el) {
-                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-            };
+            enterDesc(i);
+            enterAuthor(i);
         };
 
         // function attachRemove(i) {
@@ -280,12 +277,17 @@ function InnerPage() {
         function openLetter(i) {
             let now = new Date().getTime();
             let distance = userData.openDate - now;
-            if (distance > 0) {
+            if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 changeIcon(i);
                 setTimeout(() => {
                     attach(i);
-                }, 10);
+                }, 100);
+
+                // let aaa = {...setStyle};
+                // aaa['color'] = 'orange'
+                // setSetStyle(aaa)
+
             } else {
                 alert('아직 읽지 못합니다.')
             };
@@ -387,14 +389,14 @@ function InnerPage() {
                                 // openLetter(render);
                                 // setTimeout(() => {
                                 //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                                // }, 10);
+                                // }, 500);
                                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
                             }}></img>
-                            <textarea className="textbox" value={''} readOnly disabled>
+                            <textarea style={setStyle} className="textbox" value={''} readOnly>
                             </textarea>
-                            <input type='text' className='author' value={''} readOnly disabled></input>
+                            <input type='text' className='author' value={''} readOnly></input>
                         </div>
-                        <div style={{ marginTop: "1rem" }}>
+                        <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}
                                 slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
