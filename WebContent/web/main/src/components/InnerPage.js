@@ -200,6 +200,7 @@ function InnerPage() {
                 if (distance < 0) {
                     clearInterval(count);
                     dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
+                    dispatch({ type: 'CHANGE_ISSHARE', data: false });
                     setDday("편지를 열어보세요.");
                 };
             }, 0);
@@ -221,13 +222,32 @@ function InnerPage() {
     };
 
     function LetterBox() {
+        const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
         const isLetter = useSelector((state) => state.isLetter);
         const [render, serRender] = useState(-1);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
-        const [setStyle, setSetStyle] = useState({ "color": "black" });
+        const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
+
+        function letterBlcok(i) {
+            if (window.confirm('이 편지를 차단하겠습니까? (차단된 편지는 다시 읽을 수 없고 서비스질 개선에 사용됩니다.')) {
+                const copyLetter = { ...letterData };
+                copyLetter[i].letterIcon = 'block';
+                dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+                dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                serRender(-1);
+            };
+        };
+
+        function changeLetterStyle(i) {
+            let newStyle = { ...setStyle };
+            newStyle['color'] = letterData[i].letterFontColor;
+            newStyle['fontFamily'] = letterData[i].letterFont;
+            newStyle['backgroundImage'] = letterData[i].letterPaper;
+            setSetStyle(newStyle);
+        };
 
         function changeIcon(i) {
             const copyLetter = { ...letterData };
@@ -282,16 +302,12 @@ function InnerPage() {
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 changeIcon(i);
+                changeLetterStyle(i);
                 setTimeout(() => {
                     attach(i);
                 }, 100);
-
-                // let aaa = {...setStyle};
-                // aaa['color'] = 'orange'
-                // setSetStyle(aaa)
-
             } else {
-                alert('아직 읽지 못합니다.')
+                dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: true });
             };
         };
 
@@ -387,6 +403,7 @@ function InnerPage() {
                 <React.Fragment>
                     <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
                         <div className="letter_textarea">
+                            <img alt='block' className='letter_block' src='https://cdn-icons-png.flaticon.com/512/2089/2089793.png' onClick={() => { letterBlcok(render) }}></img>
                             <img alt='close' className='letter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
                                 // openLetter(render);
                                 // setTimeout(() => {
@@ -412,8 +429,25 @@ function InnerPage() {
             );
         };
 
+        function NotYetLetter() {
+            return (
+                <React.Fragment>
+                    <div className={isNotYetLetter ? 'notYetLetter_outContainer' : 'notYetLetter_outContainer_fade'}>
+                        <div className='notYetLetter_innerContainer'>
+                            <img alt='close' className='notYetLetter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: false });
+                            }}></img>
+                            <img alt='clock' className='notYetLetter_clcok' src='https://cdn-icons-png.flaticon.com/512/833/833602.png'></img>
+                            <span>지구에서 편지가 오고 있습니다.</span>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
         return (
             <React.Fragment>
+                <NotYetLetter></NotYetLetter>
                 <Letter></Letter>
                 <div className='letterBox_outContainer'>
                     <Slider {...settings}>
