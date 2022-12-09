@@ -1,164 +1,35 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
-import './NameOfPlanet.css';
+import { Adsense } from '@ctrl/react-adsense';
+import './InnerPage.css';
+import ShareBt from './ShareBt';
 
 function InnerPage() {
-
     const dispatch = useDispatch();
-    // const userID = useSelector((state) => state.userID);
-    // dispatch({ type: 'CHANGE_ISMENU', data: !isMenu });
 
     const userData = useSelector((state) => state.userData);
-
-    const [checkOpenDate, setCheckOpenDate] = useState(true);
-    const [renderPage, setRenderPage] = useState(0);
-    const [yesNameUrl, setYesNameUrl] = useState(false);
+    const letterData = useSelector((state) => state.letterData);
+    const isNamePage = useSelector((state) => state.isNamePage);
+    const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
 
     useEffect(() => {
-        if (userData.openDate === null) {////////
-            setCheckOpenDate(true);
-        } else if (props.props.userData.openDate !== null) {
-            setCheckOpenDate(false);
+        if (userData.openDate === 0) {
+            dispatch({ type: 'CHANGE_ISNAMEPAGE', data: false });
+        } else if (userData.openDate !== 0) {
+            dispatch({ type: 'CHANGE_ISNAMEPAGE', data: true });
         };
-    }, [userData.openDate]);
+    }, [dispatch, userData.openDate]);
 
-
-    function ShareButton(props) {
-
-        const [checkMainButton, setCheckMainButton] = useState(false);
-        const [checkShare, setCheckShare] = useState(false);
-
-        useEffect(() => {
-            if (props.props.props.props.userData.openDate !== null) {
-                setCheckMainButton(true);
-            };
-        }, [props.props.props.props.userData.openDate]);
-
-        const basicURL = 'https://angelo-s-library-2.netlify.app/';
-        const image_share = 'https://cdn-icons-png.flaticon.com/512/1111/1111905.png';
-        const title = 'Planetter - 기다려지는 소식';
-
-        // function of to share throught the kakaotalk message
-        function kakaoShare() {
-            const KakaoJS = process.env.REACT_APP_JAVASCRIPT_KEY
-            if (!window.Kakao.isInitialized()) {
-                window.Kakao.init(KakaoJS);
-            };
-            window.Kakao.Share.sendDefault({
-                objectType: 'feed',
-                content: {
-                    title: 'Planetter',
-                    description: 'Planetter-기다려지는 소식',
-                    imageUrl: image_share,
-                    link: {
-                        mobileWebUrl: basicURL,
-                        webUrl: basicURL,
-                    },
-                },
-                buttons: [
-                    {
-                        title: 'Planetter-편지 보내기',
-                        link: {
-                            mobileWebUrl: basicURL,
-                            webUrl: basicURL,
-                        },
-                    },
-                    {
-                        title: 'Planetter-놀러가기',
-                        link: {
-                            mobileWebUrl: basicURL,
-                            webUrl: basicURL,
-                        },
-                    },
-                ],
-                installTalk: true,
-            });
-        };
-
-        // function of to share throught the twitter
-        function shareTwitter() {
-            let url = encodeURIComponent(basicURL);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '소소한 프로젝트', 'width=400, height=400');
-        };
-
-        // function of to share throught the facebook
-        function shareFacebook() {
-            window.open('https://www.facebook.com/sharer/sharer.php?u='
-                + encodeURIComponent(basicURL)
-                + '&t=' + encodeURIComponent(title),
-                'facebooksharedialog',
-                'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=400');
-        };
-
-        function urlCopy() {
-            var Dummy_Tag = document.createElement("input");
-            var Current_URL = window.location.href;
-            document.body.appendChild(Dummy_Tag);
-            Dummy_Tag.value = Current_URL;
-            Dummy_Tag.select();
-            document.execCommand("copy");
-            document.body.removeChild(Dummy_Tag);
-            alert("링크가 복사되었습니다.\nThe link has been copied.");
-        };
-
-        return (
-            <React.Fragment>
-                <div className={checkMainButton ? 'shareButton_outContainer_active' : 'shareButton_outContainer'} onClick={() => { setCheckShare(!checkShare) }}>
-                    <img className='shareButton_share' alt='share' src='https://cdn-icons-png.flaticon.com/512/929/929539.png'></img>
-                </div>
-                <div className='shareButton_innerContainer'>
-                    <img className={checkShare ? 'shareButton_share_btn_url_active' : 'shareButton_share_btn'} alt='url' src='https://cdn-icons-png.flaticon.com/512/4050/4050374.png' onClick={urlCopy}></img>
-                    <img className={checkShare ? 'shareButton_share_btn_kakao_active' : 'shareButton_share_btn'} alt='kakao' src='https://cdn-icons-png.flaticon.com/512/3669/3669990.png' onClick={kakaoShare}></img>
-                    <img className={checkShare ? 'shareButton_share_btn_facebook_active' : 'shareButton_share_btn'} alt='facebook' src='https://cdn-icons-png.flaticon.com/512/2168/2168281.png' onClick={shareFacebook}></img>
-                    <img className={checkShare ? 'shareButton_share_btn_twitter_active' : 'shareButton_share_btn'} alt='twitter' src='https://cdn-icons-png.flaticon.com/512/2168/2168336.png' onClick={shareTwitter}></img>
-                </div>
-            </React.Fragment>
-        );
-    };
-
-    function YesNameUrl() {
-
-        function urlCopy() {
-            var Dummy_Tag = document.createElement("input");
-            var Current_URL = window.location.href;
-            document.body.appendChild(Dummy_Tag);
-            Dummy_Tag.value = Current_URL;
-            Dummy_Tag.select();
-            document.execCommand("copy");
-            document.body.removeChild(Dummy_Tag);
-            alert("링크가 복사되었습니다.\nThe link has been copied.");
-            setYesNameUrl(!yesNameUrl);
-        };
-
-        return (
-            <div className={yesNameUrl ? "yesNameUrl" : "yesNameUrl_fade"}>
-                <div className='yesNameUrl_outContainer'>
-                    <img alt='close' className='yesNameUrl_img' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => { setYesNameUrl(!yesNameUrl) }}></img>
-                    <p className='yesNameUrl_title'>행성 개설 완료!</p>
-                    <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요!</p>
-                    <div className='yesNameUrl_button' onClick={urlCopy}>링크 복사</div>
-                </div>
-            </div>
-        );
-    };
-
-    function NoName(props) {
-
-        const [viewSend, setViewSend] = useState(true);
-        const [changeUserNickname, setChangeUserNickname] = useState(String(props.props.props.props.userData.nickname));
-        const [inputUserNameLength, setInputUserNameLength] = useState(Number(props.props.props.props.userData.nickname.length));
+    // case of a new member
+    function SetSignal() {
+        const isSendSignal = useSelector((state) => state.isSendSignal);
+        const [stringUserNickname, setStringUserNickname] = useState(String(userData.nickname));
+        const [lengthUserNickname, setLengthUserNickname] = useState(Number(userData.nickname.length));
         const [startMonth, setStartMonth] = useState(null);
         const [startHours, setStartHours] = useState(null);
         const [endMonth, setEndMonth] = useState(null);
         const [endHours, setEndHours] = useState(null);
-        const [startDate, setStartDate] = useState(null);
-
-        function settingStartDate() {
-            const now = new Date();
-            now.setDate(now.getDate() + 10);
-            setStartDate(now.getTime());
-        };
 
         function settingStartMonth() {
             setInterval(function () {
@@ -166,7 +37,7 @@ function InnerPage() {
                 let months = now.getMonth() + 1;
                 let days = now.getDate();
                 setStartMonth(months + '-' + days);
-            }, 1000);
+            }, 300);
         };
 
         function settingStartHours() {
@@ -176,7 +47,7 @@ function InnerPage() {
                 let minutes = now.getMinutes();
                 let seconds = now.getSeconds();
                 setStartHours(hours + ':' + minutes + ':' + seconds);
-            }, 1000);
+            }, 300);
         };
 
         function settingEndtMonth() {
@@ -186,7 +57,7 @@ function InnerPage() {
                 let months = now.getMonth() + 1;
                 let days = now.getDate();
                 setEndMonth(months + '-' + days);
-            }, 1000);
+            }, 300);
         };
 
         function settingEndHours() {
@@ -196,113 +67,140 @@ function InnerPage() {
                 let minutes = now.getMinutes();
                 let seconds = now.getSeconds();
                 setEndHours(hours + ':' + minutes + ':' + seconds);
-            }, 1000);
+            }, 300);
         };
 
-        function showSettingPage() {
-            setViewSend(!viewSend);
-            settingStartDate();
+        function showCreateSendSingalPage() {
+            dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
             settingStartMonth();
             settingStartHours();
             settingEndtMonth();
             settingEndHours();
         };
 
-        function nonshowSettingPage() {
-            const originalUserNickname = String(props.props.props.props.userData.nickname);
-            const originalUserNicknameLength = Number(props.props.props.props.userData.nickname.length);
-            setChangeUserNickname(originalUserNickname);
-            setInputUserNameLength(originalUserNicknameLength);
-            setViewSend(!viewSend);
+        function fadeCreateSendSingalPage() {
+            const originalUserNickname = String(userData.nickname);
+            const originalUserNicknameLength = Number(userData.nickname.length);
+            setStringUserNickname(originalUserNickname);
+            setLengthUserNickname(originalUserNicknameLength);
+            dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
         };
 
-        function settingUserData() {
-            if (window.confirm(`${changeUserNickname}(이)란 이름으로 행성을 개설할까요?`)) {
-                let newUserData = props.props.props.props.userData;
-                newUserData['nickname'] = changeUserNickname;
-                newUserData['openDate'] = startDate;
-                props.props.props.props.setUserData(newUserData);
-                setViewSend(!viewSend);
-                setYesNameUrl(!yesNameUrl);
-                setRenderPage(renderPage + 1);
+        function sendSignal() {
+            if (window.confirm(`${stringUserNickname}(이)란 이름으로 행성을 개설할까요?`)) {
+                const now = new Date();
+                now.setDate(now.getDate() + 10);
+                const finalDate = Number(now.getTime());
+                dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
+                dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+                dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
+                dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
             };
         };
 
         return (
-            <div className='noname_outContainer'>
-                <h3>아직 신호를 보내지 않았습니다.</h3>
-                <div className='noname_sendSignal' onClick={showSettingPage}>신호 보내기</div>
-                <div className={viewSend ? "noname_sendSignal_outContainer_fade" : "noname_sendSignal_outContainer"}>
-                    <div className='noname_sendSignal_innerTitle'>
-                        <img alt='back_icon' className='noname_sendSignal_innerTitle_backIcon' src='https://cdn-icons-png.flaticon.com/512/8287/8287941.png' onClick={nonshowSettingPage}></img>
-                        <p className='noname_sendSignal_innerTitle_p'>안녕, 잘 지내?
-                            <br></br>
-                            나는…
-                        </p>
-                    </div>
-                    <div className='noname_sendSignal_innerName'>
-                        <p className='noname_sendSignal_innerName_p'>행성의 이름</p>
-                        <input id='input_userName' maxLength={10} onChange={(e) => {
-                            setInputUserNameLength(e.target.value.length)
-                            setChangeUserNickname(e.target.value)
-                        }} value={changeUserNickname}></input><span className='inputUserNameLength'>{inputUserNameLength}/10</span>
-                    </div>
-                    <div className='noname_sendSignal_line'></div>
-                    <div className='noname_sendSignal_innerTime'>
-                        <p className='noname_sendSignal_innerTime_p'>시작 - 마감</p>
-                        <h6 className='noname_sendSignal_innerTime_h6'>Planetter는 10일의 시간을 제공합니다.</h6>
-                    </div>
-                    <div className='noname_sendSignal_innerTime_view'>
-                        <div className='noname_sendSignal_innerTime_view_start'>
-                            <p className='noname_sendSignal_innerTime_view_p'>시작</p>
-                            <p className='noname_sendSignal_innerTime_view_month'>{startMonth}</p>
-                            <p className='noname_sendSignal_innerTime_view_hours'>{startHours}</p>
+            <React.Fragment>
+                <div className='noname_outContainer'>
+                    <h3>아직 신호를 보내지 않았습니다.</h3>
+                    <div className='noname_sendSignal' onClick={showCreateSendSingalPage}>신호 보내기</div>
+                    <div className={isSendSignal ? "noname_sendSignal_outContainer" : "noname_sendSignal_outContainer_fade"}>
+                        <div className='noname_sendSignal_innerTitle'>
+                            <img alt='back_icon' className='noname_sendSignal_innerTitle_backIcon' src='https://cdn-icons-png.flaticon.com/512/8287/8287941.png' onClick={fadeCreateSendSingalPage}></img>
+                            <p className='noname_sendSignal_innerTitle_p'>안녕, 잘 지내?
+                                <br></br>
+                                나는…
+                            </p>
                         </div>
-                        <div className='noname_sendSignal_innerTime_view_pause'>~</div>
-                        <div className='noname_sendSignal_innerTime_view_end'>
-                            <p className='noname_sendSignal_innerTime_view_p'>마감</p>
-                            <p className='noname_sendSignal_innerTime_view_month'>{endMonth}</p>
-                            <p className='noname_sendSignal_innerTime_view_hours'>{endHours}</p>
+                        <div className='noname_sendSignal_innerName'>
+                            <p className='noname_sendSignal_innerName_p'>행성의 이름</p>
+                            <input id='input_userName' maxLength={10} onChange={(e) => {
+                                setLengthUserNickname(e.target.value.length);
+                                setStringUserNickname(e.target.value);
+                            }} value={stringUserNickname}></input><span className='inputUserNameLength'>{lengthUserNickname}/10</span>
                         </div>
-                    </div>
-                    <div className='noname_sendSignal_line'></div>
-                    <div className='noname_sendSignal_innerNotice'>
-                        <div className='noname_sendSignal_innerNotice_innerbox'>
-                            <p className='noname_sendSignal_innerNotice_p'>알림 설정</p>
-                            <h6 className='noname_sendSignal_innerNotice_h6'>카카오톡을 통해 D-Day 알림을 받습니다.</h6>
+                        <div className='noname_sendSignal_line'></div>
+                        <div className='noname_sendSignal_innerTime'>
+                            <p className='noname_sendSignal_innerTime_p'>시작 - 마감</p>
+                            <h6 className='noname_sendSignal_innerTime_h6'>PLATER는 10일의 시간을 제공합니다.</h6>
                         </div>
-                        <div>
-                            <img alt='button_notice' className='noname_sendSignal_innerNotice_button' src='https://cdn-icons-png.flaticon.com/512/5720/5720465.png' onClick={() => { alert('아직 서비스 준비 중입니다.') }}></img>
+                        <div className='noname_sendSignal_innerTime_view'>
+                            <div className='noname_sendSignal_innerTime_view_start'>
+                                <p className='noname_sendSignal_innerTime_view_p'>시작</p>
+                                <p className='noname_sendSignal_innerTime_view_month'>{startMonth}</p>
+                                <p className='noname_sendSignal_innerTime_view_hours'>{startHours}</p>
+                            </div>
+                            <div className='noname_sendSignal_innerTime_view_pause'>~</div>
+                            <div className='noname_sendSignal_innerTime_view_end'>
+                                <p className='noname_sendSignal_innerTime_view_p'>마감</p>
+                                <p className='noname_sendSignal_innerTime_view_month'>{endMonth}</p>
+                                <p className='noname_sendSignal_innerTime_view_hours'>{endHours}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className='noname_sendSignal_startDiv'>
-                        <div className='noname_sendSignal_startDiv_button' onClick={settingUserData}>시작하기</div>
+                        <div className='noname_sendSignal_line'></div>
+                        <div className='noname_sendSignal_innerNotice'>
+                            <div className='noname_sendSignal_innerNotice_innerbox'>
+                                <p className='noname_sendSignal_innerNotice_p'>알림 설정</p>
+                                <h6 className='noname_sendSignal_innerNotice_h6'>카카오톡을 통해 D-Day 알림을 받습니다.</h6>
+                            </div>
+                            <div>
+                                <img alt='button_notice' className='noname_sendSignal_innerNotice_button' src='https://cdn-icons-png.flaticon.com/512/5720/5720465.png' onClick={() => { alert('아직 서비스 준비 중입니다.') }}></img>
+                            </div>
+                        </div>
+                        <div className='noname_sendSignal_startDiv'>
+                            <div className='noname_sendSignal_startDiv_button' onClick={sendSignal}>시작하기</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     };
 
-    function YesName(props) {
+    // notify after receiver creation
+    function CreateNameURL() {
 
-        const [Dday, setDday] = useState(Number(props.props.props.props.userData.openDate));
+        function urlCopy() {
+            let Dummy_Tag = document.createElement("input");
+            let Current_URL = window.location.href;
+            document.body.appendChild(Dummy_Tag);
+            Dummy_Tag.value = Current_URL;
+            Dummy_Tag.select();
+            document.execCommand("copy");
+            document.body.removeChild(Dummy_Tag);
+            alert("링크가 복사되었습니다.\nThe link has been copied.");
+            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+        };
+
+        return (
+            <React.Fragment>
+                <div className={ModalCreateUrl ? "yesNameUrl" : "yesNameUrl_fade"}>
+                    <div className='yesNameUrl_outContainer'>
+                        <img alt='close' className='yesNameUrl_img' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => { dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl }); }}></img>
+                        <p className='yesNameUrl_title'>행성 개설 완료!</p>
+                        <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요!</p>
+                        <div className='yesNameUrl_button' onClick={urlCopy}>링크 복사</div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    // case of an old member
+    function ShowMemberInf() {
+        const [Dday, setDday] = useState(Number(userData.openDate));
 
         const setDDay = useCallback(() => {
             let count = setInterval(function () {
-                // Get today's date and time
                 let now = new Date().getTime();
-                // Find the distance between now and the count down date
                 let distance = Dday - now;
-                // Time calculations for days, hours, minutes and seconds
                 let days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                // Output the result in an element with id="Dday"
                 setDday(days + '일 ' + hours + '시간 ' + minutes + '분 ' + seconds + '초');
-                // If the count down is over, write some text
                 if (distance < 0) {
                     clearInterval(count);
+                    dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
+                    dispatch({ type: 'CHANGE_ISSHARE', data: false });
                     setDday("편지를 열어보세요.");
                 };
             }, 0);
@@ -313,89 +211,109 @@ function InnerPage() {
         }, []);
 
         return (
-            <div className='yesname_outContainer'>
-                <h3>P-{props.props.props.props.userData.nickname}</h3>
-                <h4>남은 시간</h4>
-                <h4>{Dday}</h4>
-            </div>
+            <React.Fragment>
+                <div className='yesname_outContainer'>
+                    <h3>작은별-{userData.nickname}</h3>
+                    <h4>남은 시간</h4>
+                    <h4>{Dday}</h4>
+                </div>
+            </React.Fragment>
         );
     };
 
-    function Letter(props) {
-
-        return (
-            <div>
-                {/* <div onClick={() => { props.props.setLetterModal(!props.props.letterModal) }}>
-                    <div className={"modallettermodal" + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}>
-                        <h1 className="modal_titlelettermodal">{"From: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].author}</h1>
-                        <span className={'abcdefg' + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontFamily}>
-                            <article className={"modal_desclettermodal" + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}>
-                                {"Letter Description: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].desc}
-                                <br></br>
-                                {"Letter Font Color: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontColor}
-                                <br></br>
-                                {"Letter Font Family: " + props.props.props.props.props.props.letterData[props.props.letterId - 1].fontFamily}
-                            </article>
-                        </span>
-                        <h3 className="modal_authorlettermodal"></h3>
-                        <div className="modal_closelettermodal" onClick={() => { props.props.setLetterModal(!props.props.letterModal) }}></div>
-                    </div>
-                </div> */}
-            </div>
-        );
-    };
-
-    function LetterBox(props) {
-
-        const [renderPage, setRenderPage] = useState(0);
-        const [letterModal, setLetterModal] = useState(false);
-        const [letterId, setLetterId] = useState(null);
+    function LetterBox() {
+        const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
+        const isLetter = useSelector((state) => state.isLetter);
+        const [render, serRender] = useState(-1);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
+        const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
 
-        function openLetter(letterData, i) {
+        function letterBlcok(i) {
+            if (window.confirm('이 편지를 차단하겠습니까? (차단된 편지는 다시 읽을 수 없고 서비스질 개선에 사용됩니다.')) {
+                const copyLetter = { ...letterData };
+                copyLetter[i].letterIcon = 'block';
+                dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+                dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                serRender(-1);
+            };
+        };
+
+        function changeLetterStyle(i) {
+            let newStyle = { ...setStyle };
+            newStyle['color'] = letterData[i].letterFontColor;
+            newStyle['fontFamily'] = letterData[i].letterFont;
+            newStyle['backgroundImage'] = letterData[i].letterPaper;
+            setSetStyle(newStyle);
+        };
+
+        function changeIcon(i) {
+            const copyLetter = { ...letterData };
+            copyLetter[i].letterIcon = 'open';
+            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+            serRender(i);
+        };
+
+        function enterDesc(i) {
+            let copyText = letterData[i].letterContent;
+            let enterText = document.querySelector('.textbox');
+            enterText.value = copyText;
+        };
+
+        function enterAuthor(i) {
+            let copyAuthor = `보낸이. ${letterData[i].letterWriter}`;
+            let enterAuthor = document.querySelector('.author');
+            enterAuthor.value = copyAuthor;
+        };
+
+        function attach(i) {
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            };
+            let copyStrickerArray = letterData[i].sticker;
+            for (let i = 0; i < copyStrickerArray.length; i++) {
+                let item = document.createElement('div');
+                let stage = document.querySelector('.letter_textarea');
+                item.setAttribute('id', '_' + copyStrickerArray[i].stickerId);
+                item.setAttribute('class', 'item' + copyStrickerArray[i].stickerIcon);
+                stage.appendChild(item);
+                setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
+            };
+            enterDesc(i);
+            enterAuthor(i);
+        };
+
+        // function attachRemove(i) {
+        //     let removeText = '';
+        //     let enterRemove = document.querySelector('.letter_textarea');
+        //     enterRemove.value = removeText;
+        //     let copyStrickerArray = letterData[i].sticker;
+        //     for (let i = 0; i < copyStrickerArray.length; i++) {
+        //       document.getElementById('_' + copyStrickerArray[i].letterId).remove();
+        //     };
+        //   };
+
+        function openLetter(i) {
+            dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
-            let distance = props.props.props.props.userData.openDate - now;
-            if (distance < 0) {
-                alert('편지를 읽다')
-                if (i === 6 || i === 14 || i === 22 || i === 30) {
-                    let props = letterData;
-                    let propsObj = {
-                        "num": letterData[i].num, "desc": letterData[i].desc, "fontColor": letterData[i].fontColor, "fontFamily": letterData[i].fontFamily, "letterIcon": "open1", "openOrNot": "true", "author": letterData[i].author
-                    };
-                    props[i] = propsObj;
-                    setLetterModal(!letterModal);
-                    setLetterId(Number(letterData[i].num));
-                    setRenderPage(renderPage + 1);
-                } else if (i === 7 || i === 15 || i === 23 || i === 31) {
-                    let props = letterData;
-                    let propsObj = {
-                        "num": letterData[i].num, "desc": letterData[i].desc, "fontColor": letterData[i].fontColor, "fontFamily": letterData[i].fontFamily, "letterIcon": "open2", "openOrNot": "true", "author": letterData[i].author
-                    };
-                    props[i] = propsObj;
-                    setLetterModal(!letterModal);
-                    setLetterId(Number(letterData[i].num));
-                    setRenderPage(renderPage + 1);
-                } else if (-1 < i < 6 || 7 < i < 14 || 15 < i < 22 || 23 < i < 30) {
-                    let props = letterData;
-                    let propsObj = {
-                        "num": letterData[i].num, "desc": letterData[i].desc, "fontColor": letterData[i].fontColor, "fontFamily": letterData[i].fontFamily, "letterIcon": "open", "openOrNot": "true", "author": letterData[i].author
-                    };
-                    props[i] = propsObj;
-                    setLetterModal(!letterModal);
-                    setLetterId(Number(letterData[i].num));
-                    setRenderPage(renderPage + 1);
-                };
+            let distance = userData.openDate - now;
+            if (distance <= 0) {
+                dispatch({ type: 'CHANGE_ISLETTER', data: true });
+                changeIcon(i);
+                changeLetterStyle(i);
+                setTimeout(() => {
+                    attach(i);
+                }, 100);
             } else {
-                alert('아직 못 읽어요.');
+                dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: true });
             };
         };
 
         let settings = {
             draggable: false,
-            swipe: false,
+            swipe: true,
             arrows: true,
             dots: true,
             infinite: false,
@@ -410,80 +328,127 @@ function InnerPage() {
             const list3 = [];
             const list4 = [];
 
-            if (props.props.props.props.letterData.length === 0) {
-                setList(<span style={{ color: "black" }}>Nothing...</span>)
-                setList2(<span style={{ color: "black" }}>Nothing...</span>)
-                setList3(<span style={{ color: "black" }}>Nothing...</span>)
-                setList4(<span style={{ color: "black" }}>Nothing...</span>)
-            } else if (props.props.props.props.letterData.length <= 8) {
-                for (let i = 0; i < props.props.props.props.letterData.length; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList(list)
-                }
-            } else if (props.props.props.props.letterData.length <= 16) {
-                for (let i = 0; i < 8; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList(list)
-                }
-
-                for (let i = 8; i < props.props.props.props.letterData.length; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list2.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList2(list2)
-                }
-            } else if (props.props.props.props.letterData.length <= 24) {
-                for (let i = 0; i < 8; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList(list)
-                }
-
-                for (let i = 8; i < 16; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list2.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList2(list2)
-                }
-                for (let i = 16; i < props.props.props.props.letterData.length; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list3.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList3(list3)
-                }
-
-            } else if (props.props.props.props.letterData.length <= 32) {
-                for (let i = 0; i < 8; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList(list)
-                }
-
-                for (let i = 8; i < 16; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list2.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList2(list2)
-
-                }
-                for (let i = 16; i < 24; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list3.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList3(list3)
-
-                }
-                for (let i = 24; i < props.props.props.props.letterData.length; i++) {
-                    let li = props.props.props.props.letterData[i]
-                    list4.push(React.Children.toArray(<button key={li.num} data-id={li.num} className={"letter" + li.letterIcon} onClick={() => { openLetter(props.props.props.props.letterData, i) }}></button>))
-                    setList4(list4)
-
-                }
+            if (letterData.length === 0) {
+                setList(<span>Nothing...</span>);
+                setList2(<span>Nothing...</span>);
+                setList3(<span>Nothing...</span>);
+                setList4(<span>Nothing...</span>);
+            } else if (letterData.length <= 9) {
+                for (let i = 0; i < letterData.length; i++) {
+                    let li = letterData[i];
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList(list);
+                    setList2(<span>Nothing...</span>);
+                    setList3(<span>Nothing...</span>);
+                    setList4(<span>Nothing...</span>);
+                };
+            } else if (letterData.length <= 18) {
+                for (let i = 0; i < 9; i++) {
+                    let li = letterData[i];
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList(list);
+                };
+                for (let i = 9; i < letterData.length; i++) {
+                    let li = letterData[i];
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList2(list2);
+                    setList3(<span>Nothing...</span>);
+                    setList4(<span>Nothing...</span>);
+                };
+            } else if (letterData.length <= 27) {
+                for (let i = 0; i < 9; i++) {
+                    let li = letterData[i];
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList(list);
+                };
+                for (let i = 9; i < 18; i++) {
+                    let li = letterData[i];
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList2(list2);
+                };
+                for (let i = 18; i < letterData.length; i++) {
+                    let li = letterData[i];
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList3(list3);
+                    setList4(<span>Nothing...</span>);
+                };
+            } else if (letterData.length <= 36) {
+                for (let i = 0; i < 9; i++) {
+                    let li = letterData[i];
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList(list);
+                };
+                for (let i = 9; i < 18; i++) {
+                    let li = letterData[i];
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList2(list2);
+                };
+                for (let i = 18; i < 27; i++) {
+                    let li = letterData[i];
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList3(list3);
+                };
+                for (let i = 27; i < letterData.length; i++) {
+                    let li = letterData[i];
+                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    setList4(list4);
+                };
             } else {
-                console.log("I'm full")
-            }
-        }, [props.props.props.props.letterData, renderPage])
+                console.log(letterData.length);
+            };
+        }, [render]);
+
+        function Letter() {
+            return (
+                <React.Fragment>
+                    <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
+                        <div className="letter_textarea">
+                            <img alt='block' className='letter_block' src='https://cdn-icons-png.flaticon.com/512/2089/2089793.png' onClick={() => { letterBlcok(render) }}></img>
+                            <img alt='close' className='letter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                                // openLetter(render);
+                                // setTimeout(() => {
+                                //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                // }, 500);
+                                dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                            }}></img>
+                            <textarea style={setStyle} className="textbox" value={''} readOnly>
+                            </textarea>
+                            <input type='text' className='author' value={''} readOnly></input>
+                        </div>
+                        <div className='googleAdsense'>
+                            <Adsense
+                                client={process.env.REACT_APP_GOOGLE_ADSENSE}
+                                slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
+                                style={{ display: 'block' }}
+                                layout="in-article"
+                                format="fluid"
+                            />
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
+        function NotYetLetter() {
+            return (
+                <React.Fragment>
+                    <div className={isNotYetLetter ? 'notYetLetter_outContainer' : 'notYetLetter_outContainer_fade'}>
+                        <div className='notYetLetter_innerContainer'>
+                            <img alt='close' className='notYetLetter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: false });
+                            }}></img>
+                            <img alt='clock' className='notYetLetter_clcok' src='https://cdn-icons-png.flaticon.com/512/833/833602.png'></img>
+                            <span>지구에서 편지가 오고 있습니다.</span>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
 
         return (
             <React.Fragment>
-                {letterModal && <Letter props={{ props, letterModal, setLetterModal, letterId }}></Letter>}
+                <NotYetLetter></NotYetLetter>
+                <Letter></Letter>
                 <div className='letterBox_outContainer'>
                     <Slider {...settings}>
                         <div className='letterBox_innerContainer'>
@@ -510,10 +475,10 @@ function InnerPage() {
 
     return (
         <React.Fragment>
-            <ShareButton props={{ props }}></ShareButton>
-            {checkOpenDate ? <NoName props={{ props }}></NoName> : <YesName props={{ props }}></YesName>}
-            {checkOpenDate ? '' : <LetterBox props={{ props }}></LetterBox>}
-            <YesNameUrl></YesNameUrl>
+            <ShareBt></ShareBt>
+            {isNamePage ? <ShowMemberInf></ShowMemberInf> : <SetSignal></SetSignal>}
+            {isNamePage ? <LetterBox></LetterBox> : <span></span>}
+            <CreateNameURL></CreateNameURL>
         </React.Fragment>
     );
 };
