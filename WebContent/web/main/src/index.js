@@ -9,7 +9,7 @@ import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/web/main/plater'>
     <Provider store={store}>
       <React.StrictMode>
         <App />
