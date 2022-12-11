@@ -36,7 +36,7 @@ function Redirect() {
                 .then(res => res.json())
                 .then((data) => {
                     console.log(data);
-                    dispatch({ type: 'CHANGE_USERID', data: data });                    
+                    dispatch({ type: 'CHANGE_USERID', data: data });
                     // navigater('/main');
                 })
                 .catch((error) => {
