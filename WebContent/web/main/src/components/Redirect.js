@@ -37,12 +37,12 @@ function Redirect() {
                 .then((data) => {
                     console.log(data);
                     dispatch({ type: 'CHANGE_USERID', data: data });
-                    // navigater('/main');
+                    navigater('/main');
                 })
                 .catch((error) => {
                     console.log(error);
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');
-                    // navigater('/login');
+                    navigater('/login');
                 });
         }, 2000);
     }, [name, nameErro, navigater, dispatch]);
