@@ -1,0 +1,645 @@
+.yesNameUrl {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.yesNameUrl_fade {
+    opacity: 0;
+    transition: all 1.5s;
+    pointer-events: none;
+}
+
+.yesNameUrl_outContainer {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    border: 1px solid black;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.yesNameUrl_img {
+    position: relative;
+    left: 8rem;
+    top: 0.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.yesNameUrl_title {
+    position: relative;
+    margin: auto;
+    top: 10%;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.yesNameUrl_p {
+    position: relative;
+    color: black;
+    top: 10%;
+}
+
+.yesNameUrl_button {
+    position: relative;
+    top: 18%;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+    line-height: 3rem;
+    color: black;
+    border: 1px solid black;
+    width: 10rem;
+    margin: auto;
+}
+
+/*  */
+
+.noname_outContainer {
+    position: relative;
+    text-align: center;
+    top: 20%;
+}
+
+.noname_outContainer>h3 {
+    color: white;
+}
+
+.noname_sendSignal {
+    background-color: rgba(230, 230, 230, 1.0);
+    width: 10rem;
+    height: 3rem;
+    line-height: 3rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.noname_sendSignal_outContainer {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 7;
+    transition: all 0.5s;
+}
+
+.noname_sendSignal_outContainer_fade {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.noname_sendSignal_innerTitle {
+    position: relative;
+    left: 10%;
+    top: 5%;
+    font-size: 1.3rem;
+    text-align: left;
+    margin: auto;
+}
+
+.noname_sendSignal_innerTitle_backIcon {
+    position: fixed;
+    right: 1%;
+    top: 1%;
+    width: 2rem;
+    opacity: 0.8;
+}
+
+.noname_sendSignal_innerTitle_p {
+    margin: auto;
+}
+
+.noname_sendSignal_innerName {
+    position: relative;
+    left: 10%;
+    top: 5%;
+    font-size: 1.3rem;
+    text-align: left;
+    margin: auto;
+}
+
+.noname_sendSignal_innerName_p {
+    margin-bottom: 0.3rem;
+}
+
+#input_userName {
+    border: none;
+    height: 1.3rem;
+    width: 12rem;
+    background-color: rgba(230, 230, 230, 1.0);
+    padding-left: 0.5rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+.inputUserNameLength {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    vertical-align: unset;
+}
+
+.noname_sendSignal_line {
+    position: relative;
+    top: 8%;
+    width: 100%;
+    height: 0.3rem;
+    border: none;
+    background-color: rgba(230, 230, 230, 1.0);
+    margin-top: 0.5rem;
+}
+
+.noname_sendSignal_innerTime {
+    position: relative;
+    left: 10%;
+    top: 8%;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.noname_sendSignal_innerTime_p {
+    margin-bottom: 0rem;
+}
+
+.noname_sendSignal_innerTime_h6 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.noname_sendSignal_innerTime_view {
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    position: relative;
+    top: 7%;
+    height: 9rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.noname_sendSignal_innerTime_view_start {
+    height: 7rem;
+    width: 7rem;
+    background-color: rgba(230, 230, 230, 1.0);
+    margin: auto;
+}
+
+.noname_sendSignal_innerTime_view_pause {
+    height: 9rem;
+    line-height: 9rem;
+}
+
+.noname_sendSignal_innerTime_view_end {
+    height: 7rem;
+    width: 7rem;
+    background-color: rgba(230, 230, 230, 1.0);
+    margin: auto;
+}
+
+.noname_sendSignal_innerTime_view_p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.noname_sendSignal_innerTime_view_month {
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}
+
+.noname_sendSignal_innerTime_view_hours {
+    font-size: 1.0rem;
+    margin-top: 0rem;
+}
+
+.noname_sendSignal_innerNotice {
+    position: relative;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    top: 9.5%;
+    height: 4rem;
+    padding-right: 1rem;
+}
+
+.noname_sendSignal_innerNotice_innerbox {
+    position: relative;
+    left: 15%;
+    text-align: left;
+    font-size: 1.3rem;
+}
+
+.noname_sendSignal_innerNotice_p {
+    margin-bottom: 0rem;
+    margin-top: 0.5rem;
+}
+
+.noname_sendSignal_innerNotice_h6 {
+    font-size: 0.8rem;
+    margin: auto;
+}
+
+.noname_sendSignal_innerNotice_button {
+    position: relative;
+    width: 3rem;
+    top: 10%;
+}
+
+.noname_sendSignal_startDiv {
+    position: relative;
+    top: 10%;
+    font-size: 1.5rem;
+    background-color: rgba(230, 230, 230, 1.0);
+    height: inherit;
+}
+
+.noname_sendSignal_startDiv_button {
+    position: relative;
+    width: 10rem;
+    height: 2rem;
+    margin: auto;
+    top: 2%;
+    font-size: 1.0rem;
+    background-color: white;
+    line-height: 2.2rem;
+    border: 1px solid black;
+}
+
+/*  */
+
+.yesname_outContainer {
+    position: relative;
+    text-align: center;
+    top: 7%;
+}
+
+.yesname_outContainer>h3,
+h4 {
+    color: white;
+}
+
+/*  */
+
+.letterBox_outContainer {
+    position: relative;
+    top: 0%;
+}
+
+.letterBox_innerContainer {
+    display: flex !important;
+    text-align: center;
+    height: 25rem;
+}
+
+.letterBox_innerContainer_div {
+    margin: auto;
+    padding-right: 2.0rem;
+    padding-left: 2.0rem;
+    padding-bottom: 1rem;
+}
+
+.letterBox_innerContainer_div>span {
+    color: white;
+}
+
+.letteropen {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/3071/3071819.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letterblock {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/718/718672.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.letter0 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter1 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter2 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter3 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter4 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter5 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter6 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter7 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.letter8 {
+    border: none;
+    background-color: transparent;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2218/2218521.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/*  */
+
+.letter_outContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 7;
+}
+
+.letter_outContainer_fade {
+    display: none;
+}
+
+.letter_textarea {
+    margin: auto;
+    margin-top: 5rem;
+    width: 20rem;
+    height: 20rem;
+    background-color: #262a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 7px;
+    touch-action: none;
+    position: relative;
+}
+
+.textbox {
+    font-family: 'GangwonEdu_OTFBoldA';
+    position: absolute;
+    text-align: left;
+    line-height: 1.5rem;
+    border: 2px solid black;
+    border-radius: 2%;
+    resize: none;
+    display: flex;
+    margin: auto;
+    width: 15rem;
+    height: 14rem;
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+    padding: 0rem 1rem;
+    padding-top: 1rem;
+    touch-action: none;
+    pointer-events: none;
+}
+
+.author {
+    position: absolute;
+    width: 45%;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    left: 48%;
+    top: 92%;
+    color: white;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+.letter_close {
+    position: relative;
+    left: 41%;
+    top: -45%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.letter_block {
+    position: relative;
+    left: 40%;
+    top: -45%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.item0 {
+    width: 4rem;
+    height: 4rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2338/2338389.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    position: absolute;
+}
+
+.item1 {
+    width: 4rem;
+    height: 4rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/616/616490.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    position: absolute;
+}
+
+.item2 {
+    width: 4rem;
+    height: 4rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/528/528098.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    position: absolute;
+}
+
+.googleAdsense {
+    position: relative;
+    margin-top: 2rem;
+}
+
+/*  */
+
+.notYetLetter_outContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 7;
+}
+
+.notYetLetter_outContainer_fade {
+    display: none;
+}
+
+.notYetLetter_innerContainer {
+    position: relative;
+    margin: auto;
+    top: 25%;
+    width: 15rem;
+    height: 10rem;
+    background-color: white;
+}
+
+.notYetLetter_close {
+    position: relative;
+    left: 90%;
+    top: 0%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.notYetLetter_clcok {
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    width: 3rem;
+}
+
+.notYetLetter_innerContainer>span {
+    position: absolute;
+    top: 58%;
+    left: 32%;
+    width: 6rem;
+}

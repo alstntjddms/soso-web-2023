@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Menu.css';
 
 function Menu() {
 
     const dispatch = useDispatch();
+
+    const [speck, setSpeck] = useState(0);
 
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
@@ -50,6 +52,14 @@ function Menu() {
     function toggleMypage() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISMYPAGE', data: !isMypage });
+        // Speech Synthesis
+        setTimeout(() => {
+            if (speck === 0) {
+                const speech = new SpeechSynthesisUtterance(userData.nickname + '님 안녕하세요.');
+                window.speechSynthesis.speak(speech);
+                setSpeck(speck + 1);
+            };
+        }, 500);
     };
 
     function togglePlanetter() {
@@ -76,7 +86,7 @@ function Menu() {
                 <div className={`menu_bar${isMenu ? "_active" : ""}${isInner ? "_wide" : ""}`}>
                     <div className={isInner ? "menu_bar_inner_true" : "menu_bar_inner"}>
                         <p onClick={toggleMypage}>마이페이지</p>
-                        <p onClick={togglePlanetter}>Planetter</p>
+                        <p onClick={togglePlanetter}>Pl@ter</p>
                         <p onClick={toggleHowto} >이용 방법</p>
                         <p>Contact Us</p>
                     </div>
@@ -106,7 +116,7 @@ function Menu() {
                         <p className='menu_bar_mypage_box_p'>문의하기</p>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
-                        <p>Planetter</p>
+                        <p>Pl@ter</p>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
                         <p>이용방법</p>
