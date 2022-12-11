@@ -79,6 +79,7 @@ function Menu() {
     return (
         <React.Fragment>
             <div className={isMenu ? "menu_wrap" : ""}>
+                <div className={isMenu ? "menu_wrap2" : ""} onClick={toggleMenu}></div>
                 <MembershipWithdrawal></MembershipWithdrawal>
                 <div className="menu_outContainer">
                     <div className={`menu_img${isMenu ? "_active" : ""}${isMypage || isPlater || isHowto ? "_plus" : ""}`} onClick={toggleMenu}></div>
