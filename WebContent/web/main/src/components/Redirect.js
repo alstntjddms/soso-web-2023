@@ -23,7 +23,7 @@ function Redirect() {
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch("https://www.plater.kr/api/kakao", {
+            fetch("https://plater.kr/api/kakao", {
                 method: "POST",
                 mode: 'cors',
                 cache: 'no-cache',
