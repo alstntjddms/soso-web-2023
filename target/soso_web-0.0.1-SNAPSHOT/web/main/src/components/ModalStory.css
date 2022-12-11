@@ -28,7 +28,7 @@
     left: 50%;
     top: 35%;
     transform: translate(-50%, -50%);
-    z-index: 100;
+    z-index: 20;
     border: 1px solid rgba(230, 230, 230, 1.0);
 }
 
@@ -134,7 +134,7 @@
 
 .slick-dots li.slick-active button:before {
     opacity: .75;
-    color: lightgray;
+    color: orange;
 }
 
 .slick-dots li button:before {
@@ -148,7 +148,7 @@
     content: '•';
     text-align: center;
     opacity: 1.0;
-    color: #000000;
+    color: lightgray;
 }
 
 .slick-dots {

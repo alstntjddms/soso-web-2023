@@ -13,36 +13,38 @@ function Redirect() {
     const nameErro = urlParamsErro.get('error_description');
 
     useEffect(() => {
-        if (nameErro === 'User denied access') {
-            alert('로그인에 실패하였습니다.');
-            navigater('/login');
-        };
-        const code = { code: name };
-        console.log(code);
-        const queryStringBody = Object.keys(code)
-            .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
-            .join("&");
-        fetch("http://www.plater.kr/api/kakao", {
-            method: "POST",
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-            },
-            body: queryStringBody
-        })
-            .then(res => res.json())
-            .then((data) => {
-                dispatch({ type: 'CHANGE_USERID', data: data });
-                console.log(data);
-                navigater('/main');
-            })
-            .catch((error) => {
-                console.log(error);
-                alert('서버가 불안정 하여 로그인에 실패했습니다.');
+        setTimeout(() => {
+            if (nameErro === 'User denied access') {
+                alert('로그인에 실패하였습니다.');
                 navigater('/login');
-            });
+            };
+            const code = { code: name };
+            console.log(code);
+            const queryStringBody = Object.keys(code)
+                .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
+                .join("&");
+            fetch("http://www.plater.kr/api/kakao", {
+                method: "POST",
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                },
+                body: queryStringBody
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data);
+                    dispatch({ type: 'CHANGE_USERID', data: data });                    
+                    navigater('/main');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('서버가 불안정 하여 로그인에 실패했습니다.');
+                    navigater('/login');
+                });
+        }, 2000);
     }, [name, nameErro, navigater, dispatch]);
 
     return (
