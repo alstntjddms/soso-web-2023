@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { Adsense } from '@ctrl/react-adsense';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
+import Restart from './Restart';
 
 function InnerPage() {
     const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function InnerPage() {
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
     const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
+    const isRestart = useSelector((state) => state.isRestart);
 
     useEffect(() => {
         if (userData.openDate === 0) {
@@ -201,6 +203,7 @@ function InnerPage() {
                     clearInterval(count);
                     dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
                     dispatch({ type: 'CHANGE_ISSHARE', data: false });
+                    dispatch({ type: 'CHANGE_ISRESTART', data: true });
                     setDday("편지를 열어보세요.");
                 };
             }, 0);
@@ -214,7 +217,7 @@ function InnerPage() {
             <React.Fragment>
                 <div className='yesname_outContainer'>
                     <h3>작은별-{userData.nickname}</h3>
-                    <h4>남은 시간</h4>
+                    <span><h4>남은 시간</h4></span>
                     <h4>{Dday}</h4>
                 </div>
             </React.Fragment>
@@ -329,18 +332,18 @@ function InnerPage() {
             const list4 = [];
 
             if (letterData.length === 0) {
-                setList(<span>Nothing...</span>);
-                setList2(<span>Nothing...</span>);
-                setList3(<span>Nothing...</span>);
-                setList4(<span>Nothing...</span>);
+                setList(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList2(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList4(<span>아직 편지가 도착하지 않았어요.</span>);
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList(list);
-                    setList2(<span>Nothing...</span>);
-                    setList3(<span>Nothing...</span>);
-                    setList4(<span>Nothing...</span>);
+                    setList2(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
@@ -352,8 +355,8 @@ function InnerPage() {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList2(list2);
-                    setList3(<span>Nothing...</span>);
-                    setList4(<span>Nothing...</span>);
+                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
@@ -370,7 +373,7 @@ function InnerPage() {
                     let li = letterData[i];
                     list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList3(list3);
-                    setList4(<span>Nothing...</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {
@@ -479,6 +482,7 @@ function InnerPage() {
             {isNamePage ? <ShowMemberInf></ShowMemberInf> : <SetSignal></SetSignal>}
             {isNamePage ? <LetterBox></LetterBox> : <span></span>}
             <CreateNameURL></CreateNameURL>
+            {isRestart ? <Restart></Restart> : <span></span>}
         </React.Fragment>
     );
 };
