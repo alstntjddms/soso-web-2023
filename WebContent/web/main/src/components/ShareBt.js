@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './ShareBt.css';
 
 function ShareBt() {
-
     const dispatch = useDispatch();
     const userData = useSelector((state) => state.userData);
     const isShare = useSelector((state) => state.isShare);

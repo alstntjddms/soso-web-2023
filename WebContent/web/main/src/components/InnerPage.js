@@ -5,10 +5,12 @@ import { Adsense } from '@ctrl/react-adsense';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
 import Restart from './Restart';
+import Refresh from './Refresh';
 
 function InnerPage() {
     const dispatch = useDispatch();
-
+    const [render, setRender] = useState(-1);
+    const [slickPage, setSlickPage] = useState(0);
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
@@ -217,7 +219,8 @@ function InnerPage() {
             <React.Fragment>
                 <div className='yesname_outContainer'>
                     <h3>작은별-{userData.nickname}</h3>
-                    <span><h4>남은 시간</h4></span>
+                    <Refresh></Refresh>
+                    <h4>남은 시간</h4>
                     <h4>{Dday}</h4>
                 </div>
             </React.Fragment>
@@ -227,20 +230,32 @@ function InnerPage() {
     function LetterBox() {
         const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
         const isLetter = useSelector((state) => state.isLetter);
-        const [render, serRender] = useState(-1);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
         const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
 
+        function setSlickPageNum(i) {
+            console.log(i);
+            if (i <= 8) {
+                setSlickPage(0);
+            } else if (i >= 9 && i <= 17) {
+                setSlickPage(1);
+            } else if (i >= 18 && i <= 26) {
+                setSlickPage(2);
+            } else if (i >= 27 && i <= 35) {
+                setSlickPage(3);
+            };
+        };
+
         function letterBlcok(i) {
             if (window.confirm('이 편지를 차단하겠습니까? (차단된 편지는 다시 읽을 수 없고 서비스질 개선에 사용됩니다.')) {
-                const copyLetter = { ...letterData };
+                const copyLetter = [...letterData];
                 copyLetter[i].letterIcon = 'block';
                 dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                serRender(-1);
+                setRender(-1);
             };
         };
 
@@ -253,10 +268,10 @@ function InnerPage() {
         };
 
         function changeIcon(i) {
-            const copyLetter = { ...letterData };
+            const copyLetter = [...letterData];
             copyLetter[i].letterIcon = 'open';
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            serRender(i);
+            setRender(i);
         };
 
         function enterDesc(i) {
@@ -304,6 +319,7 @@ function InnerPage() {
             let distance = userData.openDate - now;
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
+                setSlickPageNum(i);
                 changeIcon(i);
                 changeLetterStyle(i);
                 setTimeout(() => {
@@ -315,6 +331,7 @@ function InnerPage() {
         };
 
         let settings = {
+            initialSlide: slickPage,
             draggable: false,
             swipe: true,
             arrows: true,
@@ -397,9 +414,8 @@ function InnerPage() {
                     setList4(list4);
                 };
             } else {
-                console.log(letterData.length);
             };
-        }, [render]);
+        }, []);
 
         function Letter() {
             return (

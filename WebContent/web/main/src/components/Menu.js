@@ -3,11 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Menu.css';
 
 function Menu() {
-
     const dispatch = useDispatch();
-
     const [speck, setSpeck] = useState(0);
-
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
     const isInner = useSelector((state) => state.isInner);

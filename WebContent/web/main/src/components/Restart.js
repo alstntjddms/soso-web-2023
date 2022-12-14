@@ -4,7 +4,6 @@ import './Restart.css';
 
 function Restart() {
     const dispatch = useDispatch();
-
     const isRestart = useSelector((state) => state.isRestart);
     const isNamePage = useSelector((state) => state.isNamePage);
 

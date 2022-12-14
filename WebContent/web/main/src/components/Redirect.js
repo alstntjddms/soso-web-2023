@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import './Redirect.css';
 
 function Redirect() {
-
     const navigater = useNavigate();
     const dispatch = useDispatch();
     const urlParams = new URL(window.location.href).searchParams;

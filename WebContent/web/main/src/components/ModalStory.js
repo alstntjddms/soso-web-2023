@@ -4,9 +4,7 @@ import Slider from "react-slick";
 import './ModalStory.css';
 
 function ModalStory() {
-
     const dispatch = useDispatch();
-
     const isStory = useSelector((state) => state.isStory);
 
     const settings = {
