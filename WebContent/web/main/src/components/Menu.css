@@ -355,3 +355,17 @@
     color: black;
     border: 1px solid black;
 }
+
+/*  */
+
+.menu_plater_page {
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.menu_plater_img {
+    position: relative;
+    left: 7%;
+    width: 75%;
+}
