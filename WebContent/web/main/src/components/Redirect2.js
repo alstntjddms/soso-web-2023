@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import './Redirect2.css';
 
 function Redirect2() {
-
     const navigater = useNavigate();
     const dispatch = useDispatch();
 

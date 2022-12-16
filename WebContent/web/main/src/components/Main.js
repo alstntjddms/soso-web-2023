@@ -7,7 +7,6 @@ import Menu from './Menu';
 import InnerPage from './InnerPage';
 
 function Main() {
-
   const [render1, setRender1] = useState(0);
   const dispatch = useDispatch();
   const isStory = useSelector((state) => state.isStory);

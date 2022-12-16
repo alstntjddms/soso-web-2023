@@ -286,8 +286,8 @@ function reducer(state, action) {
             ModalCreateUrl: false,
             isSendSignal: false,
             isLetter: false,
-            isNotYetLetter: false
-
+            isNotYetLetter: false,
+            isRestart: false
         };
     };
     const newState = { ...state };
@@ -370,6 +370,14 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISNOTYETLETTER') {
         newState.isNotYetLetter = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISRESTART') {
+        newState.isRestart = action.data;
+    };
+
+    if (action.type === 'CHANGE_LETTERDATA') {
+        newState.letterData = action.data;
     };
 
     return newState;

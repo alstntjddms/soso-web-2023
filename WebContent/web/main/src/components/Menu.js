@@ -3,11 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Menu.css';
 
 function Menu() {
-
     const dispatch = useDispatch();
-
     const [speck, setSpeck] = useState(0);
-
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
     const isInner = useSelector((state) => state.isInner);
@@ -118,6 +115,19 @@ function Menu() {
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
                         <p>Pl@ter</p>
+                        <article className='menu_plater_page'>
+                            <h5>삐삐-</h5>
+                            <h5>지구와 교신 중…</h5>
+                            <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                            <h5>삐삐-</h5>
+                            <h5>지구와 교신 중…</h5>
+                            <h5>삐삐-</h5>
+                            <h5>지구와 교신 중…</h5>
+                            <h5>삐삐-</h5>
+                            <h5>지구와 교신 중…</h5>
+                            <h5>삐삐-</h5>
+                            <h5>지구와 교신 중…</h5>
+                        </article>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
                         <p>이용방법</p>

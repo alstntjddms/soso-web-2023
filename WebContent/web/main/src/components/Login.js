@@ -4,10 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Login.css';
 
 function Login() {
-
     const navigater = useNavigate();
     const dispatch = useDispatch();
-
     const userID = useSelector((state) => state.userID);
     const isConditions = useSelector((state) => state.isConditions);
     const isIndividual = useSelector((state) => state.isIndividual);

@@ -8,10 +8,8 @@ import Redirect from './components/Redirect';
 import Redirect2 from './components/Redirect2';
 
 function App() {
-
   const navigater = useNavigate();
   const userID = useSelector((state) => state.userID);
-  const userData = useSelector((state) => state.userData);
 
   console.log(userID);
 

@@ -3,7 +3,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 3;
+    z-index: 7;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -20,12 +20,12 @@
 .yesNameUrl_outContainer {
     position: absolute;
     left: 50%;
-    top: 35%;
+    top: 42%;
     width: 18rem;
     height: 18rem;
     background-color: rgba(255, 255, 255, 1.0);
     transform: translate(-50%, -50%);
-    z-index: 4;
+    z-index: 8;
     border: 1px solid black;
     text-align: center;
     overflow: hidden;
@@ -277,7 +277,7 @@
     top: 2%;
     font-size: 1.0rem;
     background-color: white;
-    line-height: 2.2rem;
+    line-height: 2.0rem;
     border: 1px solid black;
 }
 
@@ -298,13 +298,13 @@ h4 {
 
 .letterBox_outContainer {
     position: relative;
-    top: 0%;
+    top: 2%;
 }
 
 .letterBox_innerContainer {
     display: flex !important;
     text-align: center;
-    height: 25rem;
+    height: 23rem;
 }
 
 .letterBox_innerContainer_div {
@@ -642,4 +642,5 @@ h4 {
     top: 58%;
     left: 32%;
     width: 6rem;
+    text-align: center;
 }
