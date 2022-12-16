@@ -4,14 +4,18 @@ import Slider from "react-slick";
 import { Adsense } from '@ctrl/react-adsense';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
+import Restart from './Restart';
+import Refresh from './Refresh';
 
 function InnerPage() {
     const dispatch = useDispatch();
-
+    const [render, setRender] = useState(-1);
+    const [slickPage, setSlickPage] = useState(0);
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
     const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
+    const isRestart = useSelector((state) => state.isRestart);
 
     useEffect(() => {
         if (userData.openDate === 0) {
@@ -201,6 +205,7 @@ function InnerPage() {
                     clearInterval(count);
                     dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
                     dispatch({ type: 'CHANGE_ISSHARE', data: false });
+                    dispatch({ type: 'CHANGE_ISRESTART', data: true });
                     setDday("편지를 열어보세요.");
                 };
             }, 0);
@@ -214,6 +219,7 @@ function InnerPage() {
             <React.Fragment>
                 <div className='yesname_outContainer'>
                     <h3>작은별-{userData.nickname}</h3>
+                    <Refresh></Refresh>
                     <h4>남은 시간</h4>
                     <h4>{Dday}</h4>
                 </div>
@@ -224,20 +230,32 @@ function InnerPage() {
     function LetterBox() {
         const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
         const isLetter = useSelector((state) => state.isLetter);
-        const [render, serRender] = useState(-1);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
         const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
 
+        function setSlickPageNum(i) {
+            console.log(i);
+            if (i <= 8) {
+                setSlickPage(0);
+            } else if (i >= 9 && i <= 17) {
+                setSlickPage(1);
+            } else if (i >= 18 && i <= 26) {
+                setSlickPage(2);
+            } else if (i >= 27 && i <= 35) {
+                setSlickPage(3);
+            };
+        };
+
         function letterBlcok(i) {
             if (window.confirm('이 편지를 차단하겠습니까? (차단된 편지는 다시 읽을 수 없고 서비스질 개선에 사용됩니다.')) {
-                const copyLetter = { ...letterData };
+                const copyLetter = [...letterData];
                 copyLetter[i].letterIcon = 'block';
                 dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                serRender(-1);
+                setRender(-1);
             };
         };
 
@@ -250,10 +268,10 @@ function InnerPage() {
         };
 
         function changeIcon(i) {
-            const copyLetter = { ...letterData };
+            const copyLetter = [...letterData];
             copyLetter[i].letterIcon = 'open';
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            serRender(i);
+            setRender(i);
         };
 
         function enterDesc(i) {
@@ -301,6 +319,7 @@ function InnerPage() {
             let distance = userData.openDate - now;
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
+                setSlickPageNum(i);
                 changeIcon(i);
                 changeLetterStyle(i);
                 setTimeout(() => {
@@ -312,6 +331,7 @@ function InnerPage() {
         };
 
         let settings = {
+            initialSlide: slickPage,
             draggable: false,
             swipe: true,
             arrows: true,
@@ -329,18 +349,18 @@ function InnerPage() {
             const list4 = [];
 
             if (letterData.length === 0) {
-                setList(<span>Nothing...</span>);
-                setList2(<span>Nothing...</span>);
-                setList3(<span>Nothing...</span>);
-                setList4(<span>Nothing...</span>);
+                setList(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList2(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList4(<span>아직 편지가 도착하지 않았어요.</span>);
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList(list);
-                    setList2(<span>Nothing...</span>);
-                    setList3(<span>Nothing...</span>);
-                    setList4(<span>Nothing...</span>);
+                    setList2(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
@@ -352,8 +372,8 @@ function InnerPage() {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList2(list2);
-                    setList3(<span>Nothing...</span>);
-                    setList4(<span>Nothing...</span>);
+                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
@@ -370,7 +390,7 @@ function InnerPage() {
                     let li = letterData[i];
                     list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
                     setList3(list3);
-                    setList4(<span>Nothing...</span>);
+                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {
@@ -394,9 +414,8 @@ function InnerPage() {
                     setList4(list4);
                 };
             } else {
-                console.log(letterData.length);
             };
-        }, [render]);
+        }, []);
 
         function Letter() {
             return (
@@ -479,6 +498,7 @@ function InnerPage() {
             {isNamePage ? <ShowMemberInf></ShowMemberInf> : <SetSignal></SetSignal>}
             {isNamePage ? <LetterBox></LetterBox> : <span></span>}
             <CreateNameURL></CreateNameURL>
+            {isRestart ? <Restart></Restart> : <span></span>}
         </React.Fragment>
     );
 };

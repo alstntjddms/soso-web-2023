@@ -13,6 +13,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="soso_web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.tuckey:urlrewritefilter:4.0.3" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/soso_web-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />

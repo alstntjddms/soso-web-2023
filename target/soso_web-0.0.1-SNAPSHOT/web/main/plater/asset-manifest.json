@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.a68d51dd.css",
-    "main.js": "/static/js/main.fa26e8b5.js",
-    "static/js/787.deeec6c3.chunk.js": "/static/js/787.deeec6c3.chunk.js",
+    "main.css": "/web/main/plater/static/css/main.6e3e78f8.css",
+    "main.js": "/web/main/plater/static/js/main.cfc40f20.js",
+    "static/js/787.deeec6c3.chunk.js": "/web/main/plater/static/js/787.deeec6c3.chunk.js",
     "index.html": "/index.html",
-    "main.a68d51dd.css.map": "/static/css/main.a68d51dd.css.map",
-    "main.fa26e8b5.js.map": "/static/js/main.fa26e8b5.js.map",
-    "787.deeec6c3.chunk.js.map": "/static/js/787.deeec6c3.chunk.js.map"
+    "main.6e3e78f8.css.map": "/web/main/plater/static/css/main.6e3e78f8.css.map",
+    "main.cfc40f20.js.map": "/web/main/plater/static/js/main.cfc40f20.js.map",
+    "787.deeec6c3.chunk.js.map": "/web/main/plater/static/js/787.deeec6c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a68d51dd.css",
-    "static/js/main.fa26e8b5.js"
+    "/web/main/plater/static/css/main.6e3e78f8.css",
+    "/web/main/plater/static/js/main.cfc40f20.js"
   ]
 }
