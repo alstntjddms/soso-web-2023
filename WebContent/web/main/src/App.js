@@ -6,6 +6,7 @@ import Main from './components/Main';
 import Login from './components/Login';
 import Redirect from './components/Redirect';
 import Redirect2 from './components/Redirect2';
+import Send from './components/Send';
 
 function App() {
   const navigater = useNavigate();
@@ -33,6 +34,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/redirect" element={<Redirect />}></Route>
         <Route path="/redirect2" element={<Redirect2 />}></Route>
+        <Route path="/send" element={<Send />}></Route>
+        {/* <Route path="/blog" element={<Send />}></Route> */}
       </Routes>
     </React.Fragment>
   );

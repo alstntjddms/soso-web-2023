@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import './Main.css'
+import './Send.css'
 
-function Main() {
-
+function Send() {
     const navigater = useNavigate();
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
@@ -54,10 +53,10 @@ function Main() {
         // Creating elements
         let item = document.createElement('div');
         let itemClose = document.createElement('div');
-        let stage = document.querySelector('#textarea');
+        let stage = document.querySelector('#send_textarea');
         item.setAttribute('id', 'id' + props);
-        item.setAttribute('class', 'item' + num);
-        itemClose.setAttribute('class', 'close');
+        item.setAttribute('class', 'send_item' + num);
+        itemClose.setAttribute('class', 'send_close');
         itemClose.addEventListener('click', () => { remove(props) });
         stage.appendChild(item);
         let stageClose = document.querySelector('#id' + props);
@@ -128,28 +127,28 @@ function Main() {
 
     return (
         <React.Fragment>
-            <div className='top_menu'>
+            <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                 <h3>To. {userID}</h3>
                 <span>완성하기</span>
             </div>
-            <div id="textarea">
-                <textarea ref={textareaFocus} className="textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
+            <div id="send_textarea">
+                <textarea ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
                     dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                     dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                 }}>
                 </textarea>
-                <div className='textLength'>{textLength}/100</div>
+                <div className='send_textLength'>{textLength}/100</div>
             </div>
             <div>
                 <div style={{ position: 'relative', left: '1rem' }}>
-                    <button className='btn0' onClick={() => { createEl(stickerNumber, 0) }}></button>
-                    <button className='btn1' onClick={() => { createEl(stickerNumber, 1) }}></button>
-                    <button className='btn2' onClick={() => { createEl(stickerNumber, 2) }}></button>
+                    <button className='send_btn0' onClick={() => { createEl(stickerNumber, 0) }}></button>
+                    <button className='send_btn1' onClick={() => { createEl(stickerNumber, 1) }}></button>
+                    <button className='send_btn2' onClick={() => { createEl(stickerNumber, 2) }}></button>
                 </div>
             </div>
         </React.Fragment>
     );
 };
 
-export default Main;
+export default Send;

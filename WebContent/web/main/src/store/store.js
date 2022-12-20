@@ -287,7 +287,12 @@ function reducer(state, action) {
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
-            isRestart: false
+            isRestart: false,
+            // send component
+            textLength: 0,
+            text: '',
+            stickerArray: [],
+            stickerNumber: 0
         };
     };
     const newState = { ...state };
@@ -378,6 +383,23 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_LETTERDATA') {
         newState.letterData = action.data;
+    };
+    // send component
+
+    if (action.type === 'CHANGE_TEXTLENGTH') {
+        newState.textLength = action.data;
+    };
+
+    if (action.type === 'CHANGE_TEXT') {
+        newState.text = action.data;
+    };
+
+    if (action.type === 'CHANGE_STICKER') {
+        newState.stickerArray = action.data;
+    };
+
+    if (action.type === 'CHANGE_STICKER_NUMBER') {
+        newState.stickerNumber = action.data;
     };
 
     return newState;
