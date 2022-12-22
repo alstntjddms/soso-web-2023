@@ -282,7 +282,7 @@ function InnerPage() {
         };
 
         function enterAuthor(i) {
-            let copyAuthor = `보낸이. ${letterData[i].letterWriter}`;
+            let copyAuthor = `보낸이 ${letterData[i].letterWriter}`;
             let enterAuthor = document.querySelector('.author');
             enterAuthor.value = copyAuthor;
         };

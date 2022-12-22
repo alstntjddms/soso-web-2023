@@ -271,6 +271,7 @@ function reducer(state, action) {
                     ]
                 }
             ],
+            sendLetterData: [{}],
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -292,7 +293,14 @@ function reducer(state, action) {
             textLength: 0,
             text: '',
             stickerArray: [],
-            stickerNumber: 0
+            stickerNumber: 0,
+            isSendPopUp: true,
+            isLetterOption: false,
+            isFontFamily: false,
+            isRange: false,
+            isColor: false,
+            isLetterPater: false,
+            isSticker: false
         };
     };
     const newState = { ...state };
@@ -400,6 +408,34 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_STICKER_NUMBER') {
         newState.stickerNumber = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDPOPUP') {
+        newState.isSendPopUp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISLETTEROPTION') {
+        newState.isLetterOption = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISFONTFAMILY') {
+        newState.isFontFamily = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISRANGE') {
+        newState.isRange = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISCOLOR') {
+        newState.isColor = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISLETTERPAPER') {
+        newState.isLetterPaper = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSTICKER') {
+        newState.isSticker = action.data;
     };
 
     return newState;

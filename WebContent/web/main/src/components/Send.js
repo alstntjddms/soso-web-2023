@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import './Send.css'
@@ -12,6 +12,61 @@ function Send() {
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
     const stickerNumber = useSelector((state) => state.stickerNumber);
+
+    const isSendPopUp = useSelector((state) => state.isSendPopUp);
+
+    const isLetterOption = useSelector((state) => state.isLetterOption);
+    const isFontFamily = useSelector((state) => state.isFontFamily);
+    const isRange = useSelector((state) => state.isRange);
+    const isColor = useSelector((state) => state.isColor);
+    const isLetterPaper = useSelector((state) => state.isLetterPaper);
+    const isSticker = useSelector((state) => state.isSticker);
+
+    const [styleLetter, setStyleLetter] = useState({ "color": "black", "fontFamily": "GangwonEdu_OTFBoldA" });
+
+    function SendPopUp() {
+        return (
+            <React.Fragment>
+                <div className={isSendPopUp ? 'send_popUp' : 'send_popUp_fade'}>
+                    <div className='send_popUp_outContainer'>
+                        <div className='send_popUp_InnerContainer'>
+                            <h3>{userID}님의 행성</h3>
+                            <h4>안녕하세요! 이곳은</h4>
+                            <h4>{userID}님의 행성이에요.</h4>
+                            <div className='send_popUP_send_btn' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISSENDPOPUP', data: !isSendPopUp });
+                            }}>편지쓰기</div>
+                            <div className='send_popUP_main_btn' onClick={() => {
+                                navigater('/main');
+                            }}>행성 만들기</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    // ?userID=userID
+    const get_query = useCallback(() => {
+        const url = document.location.href;
+        const qs = url.substring(url.indexOf('?') + 1).split('&');
+        const result = {};
+        for (let i = 0; i < qs.length; i++) {
+            qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
+        };
+        console.log(result.userID);
+        if (result.userID !== undefined) {
+            dispatch({ type: 'CHANGE_USERID', data: result.userID });
+        } else {
+            alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
+            navigater('/main');
+        };
+    }, [dispatch, navigater]);
+
+    useEffect(() => {
+        get_query();
+        textareaFocus.current.focus();
+    }, [get_query]);
 
     function locationData(data, id, X, Y, num) {
         if (id === '') {
@@ -125,8 +180,87 @@ function Send() {
         };
     };
 
+    // letter option active
+    function activeLetterOption() {
+        if (isLetterOption === false) {
+            dispatch({ type: 'CHANGE_ISLETTEROPTION', data: true });
+            dispatch({ type: 'CHANGE_ISFONTFAMILY', data: true });
+        };
+    };
+
+    // letter option inactive
+    function inactiveLetterOption() {
+        if (isLetterOption === true) {
+            dispatch({ type: 'CHANGE_ISLETTEROPTION', data: false });
+            dispatch({ type: 'CHANGE_ISFONTFAMILY', data: false });
+            dispatch({ type: 'CHANGE_ISRANGE', data: false });
+            dispatch({ type: 'CHANGE_ISCOLOR', data: false });
+            dispatch({ type: 'CHANGE_ISLETTERPAPER', data: false });
+            dispatch({ type: 'CHANGE_ISSTICKER', data: false });
+        };
+    };
+
+    // change letter option menu
+    function changeLetterOption(props) {
+        switch (props) {
+            case 'CHANGE_ISFONTFAMILY':
+                dispatch({ type: 'CHANGE_ISFONTFAMILY', data: true });
+                dispatch({ type: 'CHANGE_ISRANGE', data: false });
+                dispatch({ type: 'CHANGE_ISCOLOR', data: false });
+                dispatch({ type: 'CHANGE_ISLETTERPAPER', data: false });
+                dispatch({ type: 'CHANGE_ISSTICKER', data: false });
+                break;
+            case 'CHANGE_ISRANGE':
+                dispatch({ type: 'CHANGE_ISFONTFAMILY', data: false });
+                dispatch({ type: 'CHANGE_ISRANGE', data: true });
+                dispatch({ type: 'CHANGE_ISCOLOR', data: false });
+                dispatch({ type: 'CHANGE_ISLETTERPAPER', data: false });
+                dispatch({ type: 'CHANGE_ISSTICKER', data: false });
+                break;
+            case 'CHANGE_ISCOLOR':
+                dispatch({ type: 'CHANGE_ISFONTFAMILY', data: false });
+                dispatch({ type: 'CHANGE_ISRANGE', data: false });
+                dispatch({ type: 'CHANGE_ISCOLOR', data: true });
+                dispatch({ type: 'CHANGE_ISLETTERPAPER', data: false });
+                dispatch({ type: 'CHANGE_ISSTICKER', data: false });
+
+                break;
+            case 'CHANGE_ISLETTERPAPER':
+                dispatch({ type: 'CHANGE_ISFONTFAMILY', data: false });
+                dispatch({ type: 'CHANGE_ISRANGE', data: false });
+                dispatch({ type: 'CHANGE_ISCOLOR', data: false });
+                dispatch({ type: 'CHANGE_ISLETTERPAPER', data: true });
+                dispatch({ type: 'CHANGE_ISSTICKER', data: false });
+                break;
+            case 'CHANGE_ISSTICKER':
+                dispatch({ type: 'CHANGE_ISFONTFAMILY', data: false });
+                dispatch({ type: 'CHANGE_ISRANGE', data: false });
+                dispatch({ type: 'CHANGE_ISCOLOR', data: false });
+                dispatch({ type: 'CHANGE_ISLETTERPAPER', data: false });
+                dispatch({ type: 'CHANGE_ISSTICKER', data: true });
+                break;
+            default:
+                break;
+        };
+    };
+
+    // change fontFamily
+    function setFontFamily(props) {
+        let newStyle = { ...styleLetter };
+        newStyle['fontFamily'] = props;
+        setStyleLetter(newStyle);
+    };
+
+    // change color
+    function setColor(props) {
+        let newStyle = { ...styleLetter };
+        newStyle['color'] = props;
+        setStyleLetter(newStyle);
+    };
+
     return (
         <React.Fragment>
+            <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                 <h3>To. {userID}</h3>
@@ -147,6 +281,32 @@ function Send() {
                     <button className='send_btn2' onClick={() => { createEl(stickerNumber, 2) }}></button>
                 </div>
             </div>
+
+            
+
+            <div className='send_option_button' onClick={activeLetterOption}></div>
+
+            <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
+                <div className='send_letter_option_innerContainer'>
+                    <div className='send_letter_option_menu'>
+                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISFONTFAMILY') }}>글꼴</div>
+                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISRANGE') }}>정렬</div>
+                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISCOLOR') }}>색상</div>
+                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISLETTERPAPER') }}>편지지</div>
+                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISSTICKER') }}>스티커</div>
+                    </div>
+                    <div className='send_letter_menu_close' onClick={inactiveLetterOption}>
+                        ×
+                    </div>
+                </div>
+                <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
+                    <div className='send_item' onClick={() => { setFontFamily('GangwonEdu_OTFBoldA') }}>글꼴</div>
+                </div>
+                <div className={isColor ? 'send_color_active' : 'send_color'}>
+                    <div className='send_item' onClick={() => { setColor('black') }}>●</div>
+                </div>
+            </div>
+
         </React.Fragment>
     );
 };
