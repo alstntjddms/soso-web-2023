@@ -22,7 +22,7 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
 
-    const [styleLetter, setStyleLetter] = useState({ "color": "black", "fontFamily": "GangwonEdu_OTFBoldA" });
+    const [styleLetter, setStyleLetter] = useState({ "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
 
     function SendPopUp() {
         return (
@@ -44,6 +44,39 @@ function Send() {
                 </div>
             </React.Fragment>
         );
+    };
+
+    function PreLetter() {
+        return (
+            <React.Fragment>
+                <div>
+                    <div className='pre_letter_outContainer'>
+                        <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    // make letter func
+    function makeLetter() {
+        let copyStickerArray = stickerArray;
+        for (let i = 0; i < copyStickerArray.length; i++) {
+            let item = document.createElement('div');
+            let stage = document.querySelector('.pre_letter_outContainer');
+            item.setAttribute('id', '_' + copyStickerArray[i].id);
+            item.setAttribute('class', 'send_item' + copyStickerArray[i].class);
+            stage.appendChild(item);
+            setTranslate(Math.round(Number(copyStickerArray[i].X)), Math.round((Number(copyStickerArray[i].Y))), item);
+        };
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        };
+        // Enter text
+        let copyText = text;
+        let enterText = document.querySelector('.send_pre_textbox');
+        enterText.value = copyText;
     };
 
     // ?userID=userID
@@ -260,11 +293,12 @@ function Send() {
 
     return (
         <React.Fragment>
+            <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                 <h3>To. {userID}</h3>
-                <span>완성하기</span>
+                <span onClick={makeLetter}>완성하기</span>
             </div>
             <div id="send_textarea">
                 <textarea ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
@@ -274,15 +308,15 @@ function Send() {
                 </textarea>
                 <div className='send_textLength'>{textLength}/100</div>
             </div>
-            <div>
+            {/* <div>
                 <div style={{ position: 'relative', left: '1rem' }}>
                     <button className='send_btn0' onClick={() => { createEl(stickerNumber, 0) }}></button>
                     <button className='send_btn1' onClick={() => { createEl(stickerNumber, 1) }}></button>
                     <button className='send_btn2' onClick={() => { createEl(stickerNumber, 2) }}></button>
                 </div>
-            </div>
+            </div> */}
 
-            
+
 
             <div className='send_option_button' onClick={activeLetterOption}></div>
 
@@ -303,6 +337,7 @@ function Send() {
                     <div className='send_item' onClick={() => { setFontFamily('GangwonEdu_OTFBoldA') }}>글꼴</div>
                 </div>
                 <div className={isColor ? 'send_color_active' : 'send_color'}>
+                    <div className='send_item' onClick={() => { setColor('red') }}>●</div>
                     <div className='send_item' onClick={() => { setColor('black') }}>●</div>
                 </div>
             </div>

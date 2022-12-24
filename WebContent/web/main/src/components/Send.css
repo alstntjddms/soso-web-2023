@@ -62,22 +62,9 @@
     color: aliceblue;
 }
 
-.send_btn0 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
+/* sticker button */
 
-.send_btn0_1 {
-    opacity: 0;
-    pointer-events: none;
+.send_btn0 {
     background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -103,21 +90,6 @@
     margin-right: 0.5rem;
 }
 
-.send_btn1_1 {
-    opacity: 0;
-    pointer-events: none;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/733/733740.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
 .send_btn2 {
     background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
     background-repeat: no-repeat;
@@ -131,20 +103,7 @@
     margin-right: 0.5rem;
 }
 
-.send_btn2_1 {
-    opacity: 0;
-    pointer-events: none;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
+/* activate sticker */
 
 .send_item0 {
     width: 4rem;
@@ -394,4 +353,38 @@
     visibility: hidden;
     touch-action: none;
     transition: all 0.5s;
+}
+
+/*  */
+
+.pre_letter_outContainer {
+    margin: auto;
+    margin-top: 1rem;
+    width: 20rem;
+    height: 20rem;
+    background-color: #262a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 7px;
+    touch-action: none;
+    position: relative;
+}
+
+.send_pre_textbox {
+    font-family: 'GangwonEdu_OTFBoldA';
+    position: absolute;
+    text-align: left;
+    line-height: 1.5rem;
+    border: 2px solid black;
+    border-radius: 2%;
+    resize: none;
+    display: flex;
+    margin: auto;
+    width: 15rem;
+    height: 14rem;
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+    padding: 0rem 1rem;
+    padding-top: 1rem;
 }
