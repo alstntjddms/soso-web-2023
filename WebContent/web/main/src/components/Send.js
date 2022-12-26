@@ -24,6 +24,15 @@ function Send() {
 
     const [styleLetter, setStyleLetter] = useState({ "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
 
+    const [fontItem_1, setFontItem_1] = useState(false);
+    const [fontItem_2, setFontItem_2] = useState(false);
+    const [fontItem_3, setFontItem_3] = useState(false);
+    const [fontItem_4, setFontItem_4] = useState(false);
+    const [fontItem_5, setFontItem_5] = useState(false);
+    const [fontItem_6, setFontItem_6] = useState(false);
+
+
+
     function SendPopUp() {
         return (
             <React.Fragment>
@@ -291,9 +300,65 @@ function Send() {
         setStyleLetter(newStyle);
     };
 
+    // font_item select
+    function selectFontItem(props) {
+        switch (props) {
+            case 'fontItem_1':
+                setFontItem_1(true);
+                setFontItem_2(false);
+                setFontItem_3(false);
+                setFontItem_4(false);
+                setFontItem_5(false);
+                setFontItem_6(false);
+                break;
+            case 'fontItem_2':
+                setFontItem_1(false);
+                setFontItem_2(true);
+                setFontItem_3(false);
+                setFontItem_4(false);
+                setFontItem_5(false);
+                setFontItem_6(false);
+                break;
+            case 'fontItem_3':
+                setFontItem_1(false);
+                setFontItem_2(false);
+                setFontItem_3(true);
+                setFontItem_4(false);
+                setFontItem_5(false);
+                setFontItem_6(false);
+                break;
+            case 'fontItem_4':
+                setFontItem_1(false);
+                setFontItem_2(false);
+                setFontItem_3(false);
+                setFontItem_4(true);
+                setFontItem_5(false);
+                setFontItem_6(false);
+                break;
+            case 'fontItem_5':
+                setFontItem_1(false);
+                setFontItem_2(false);
+                setFontItem_3(false);
+                setFontItem_4(false);
+                setFontItem_5(true);
+                setFontItem_6(false);
+                break;
+            case 'fontItem_6':
+                setFontItem_1(false);
+                setFontItem_2(false);
+                setFontItem_3(false);
+                setFontItem_4(false);
+                setFontItem_5(false);
+                setFontItem_6(true);
+                break;
+            default:
+                break;
+        };
+    };
+
     return (
         <React.Fragment>
-            <PreLetter></PreLetter>
+            {/* <PreLetter></PreLetter> */}
             <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
@@ -301,7 +366,7 @@ function Send() {
                 <span onClick={makeLetter}>완성하기</span>
             </div>
             <div id="send_textarea">
-                <textarea ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
+                <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
                     dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                     dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                 }}>
@@ -334,7 +399,48 @@ function Send() {
                     </div>
                 </div>
                 <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
-                    <div className='send_item' onClick={() => { setFontFamily('GangwonEdu_OTFBoldA') }}>글꼴</div>
+                    <div className={fontItem_1 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
+                        setFontFamily('SpoqaHanSansNeo-Regular');
+                        selectFontItem('fontItem_1');
+                    }}>
+                        <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
+                    <div className={fontItem_2 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'GyeonggiBatang' }} onClick={() => {
+                        setFontFamily('GyeonggiBatang');
+                        selectFontItem('fontItem_2');
+                    }}>
+                        <div className='send_item_font_title'>경기천년바탕 R</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
+                    <div className={fontItem_3 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
+                        setFontFamily('NeoDunggeunmo');
+                        selectFontItem('fontItem_3');
+                    }}>
+                        <div className='send_item_font_title'>Neo 둥근모</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
+                    <div className={fontItem_4 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
+                        setFontFamily('Saying_tobe_strong');
+                        selectFontItem('fontItem_4');
+                    }}>
+                        <div className='send_item_font_title'>힘내라는 말보단</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
+                    <div className={fontItem_5 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
+                        setFontFamily('ROEHOE-CHAN');
+                        selectFontItem('fontItem_5');
+                    }}>
+                        <div className='send_item_font_title'>노회찬체</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
+                    <div className={fontItem_6 ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
+                        setFontFamily('SBAggroB');
+                        selectFontItem('fontItem_6');
+                    }}>
+                        <div className='send_item_font_title'>어그로체 L</div>
+                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    </div>
                 </div>
                 <div className={isColor ? 'send_color_active' : 'send_color'}>
                     <div className='send_item' onClick={() => { setColor('red') }}>●</div>

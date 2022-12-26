@@ -33,7 +33,7 @@ function reducer(state, action) {
                 {
                     "letterId": "1",
                     "letterContent": "핀 적도 없는 벚꽃이 어느새 발치에 흩날린다. 짤은 생 단 한번도 제대로 꽃핀적 없이 나의 생은 어느새 마지막이 되었구나",
-                    "letterFont": "Ycomputer-Regular",
+                    "letterFont": "SpoqaHanSansNeo-Regular",
                     "letterFontColor": "orange",
                     "letterPaper": "url('https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg')",
                     "letterWriter": "Yuna",
@@ -57,7 +57,7 @@ function reducer(state, action) {
                 {
                     "letterId": "2",
                     "letterContent": "토닥토닥 비가 내리더니 바람과 햇살아래 새싹이 방긋 웃네요. 내게 날아온 봄소식 어여쁜 그림엽서를 그대와 공유합니다.",
-                    "letterFont": "Humanbumsuk",
+                    "letterFont": "GyeonggiBatang",
                     "letterFontColor": "violet",
                     "letterPaper": "url('https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg')",
                     "letterWriter": "egoing",
