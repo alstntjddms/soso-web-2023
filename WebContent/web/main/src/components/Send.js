@@ -23,6 +23,13 @@ function Send() {
     const isSticker = useSelector((state) => state.isSticker);
 
     const [styleLetter, setStyleLetter] = useState({ "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
+    const [letterMenu, setLetterMenu] = useState({
+        font: false,
+        range: false,
+        color: false,
+        paper: false,
+        sticker: false
+    });
     const [fontItem, setFontItem] = useState({
         a: false,
         b: false,
@@ -30,6 +37,23 @@ function Send() {
         d: false,
         e: false,
         f: false
+    });
+    const [rangeItem, setRangeItem] = useState({
+        left: false,
+        center: false,
+        right: false
+    });
+    const [colorItem, setColorItem] = useState({
+        a: false,
+        b: false,
+        c: false,
+        d: false,
+        e: false,
+        f: false,
+        g: false,
+        h: false,
+        i: false,
+        j: false
     });
 
     function SendPopUp() {
@@ -43,6 +67,7 @@ function Send() {
                             <h4>{userID}님의 행성이에요.</h4>
                             <div className='send_popUP_send_btn' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUP', data: !isSendPopUp });
+                                textareaFocus.current.focus();
                             }}>편지쓰기</div>
                             <div className='send_popUP_main_btn' onClick={() => {
                                 navigater('/main');
@@ -106,7 +131,6 @@ function Send() {
 
     useEffect(() => {
         get_query();
-        textareaFocus.current.focus();
     }, [get_query]);
 
     function locationData(data, id, X, Y, num) {
@@ -292,11 +316,67 @@ function Send() {
         setStyleLetter(newStyle);
     };
 
+    // change range
+    function setRange(props) {
+        let newStyle = { ...styleLetter };
+        newStyle['textAlign'] = props;
+        setStyleLetter(newStyle);
+    };
+
     // change color
     function setColor(props) {
         let newStyle = { ...styleLetter };
         newStyle['color'] = props;
         setStyleLetter(newStyle);
+    };
+
+    // letter_menu select
+    function selectLetterMenu(props) {
+        let newLetterMenu = { ...letterMenu };
+        switch (props) {
+            case 'font':
+                newLetterMenu['font'] = true;
+                newLetterMenu['range'] = false;
+                newLetterMenu['color'] = false;
+                newLetterMenu['paper'] = false;
+                newLetterMenu['sticker'] = false;
+                setLetterMenu(newLetterMenu);
+                break;
+            case 'range':
+                newLetterMenu['font'] = false;
+                newLetterMenu['range'] = true;
+                newLetterMenu['color'] = false;
+                newLetterMenu['paper'] = false;
+                newLetterMenu['sticker'] = false;
+                setLetterMenu(newLetterMenu);
+                break;
+            case 'color':
+                newLetterMenu['font'] = false;
+                newLetterMenu['range'] = false;
+                newLetterMenu['color'] = true;
+                newLetterMenu['paper'] = false;
+                newLetterMenu['sticker'] = false;
+                setLetterMenu(newLetterMenu);
+                break;
+            case 'paper':
+                newLetterMenu['font'] = false;
+                newLetterMenu['range'] = false;
+                newLetterMenu['color'] = false;
+                newLetterMenu['paper'] = true;
+                newLetterMenu['sticker'] = false;
+                setLetterMenu(newLetterMenu);
+                break;
+            case 'sticker':
+                newLetterMenu['font'] = false;
+                newLetterMenu['range'] = false;
+                newLetterMenu['color'] = false;
+                newLetterMenu['paper'] = false;
+                newLetterMenu['sticker'] = true;
+                setLetterMenu(newLetterMenu);
+                break;
+            default:
+                break;
+        };
     };
 
     // font_item select
@@ -362,6 +442,172 @@ function Send() {
         };
     };
 
+    // range_item select
+    function selectRangeItem(props) {
+        let newRangeItem = { ...rangeItem };
+        switch (props) {
+            case 'left':
+                newRangeItem['left'] = true;
+                newRangeItem['center'] = false;
+                newRangeItem['right'] = false;
+                setRangeItem(newRangeItem);
+                break;
+            case 'center':
+                newRangeItem['left'] = false;
+                newRangeItem['center'] = true;
+                newRangeItem['right'] = false;
+                setRangeItem(newRangeItem);
+                break;
+            case 'right':
+                newRangeItem['left'] = false;
+                newRangeItem['center'] = false;
+                newRangeItem['right'] = true;
+                setRangeItem(newRangeItem);
+                break;
+            default:
+                break;
+        };
+    };
+
+    // color_item select
+    function selectColorItem(props) {
+        let newColorItem = { ...colorItem };
+        switch (props) {
+            case 'color_1':
+                newColorItem['a'] = true;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_2':
+                newColorItem['a'] = false;
+                newColorItem['b'] = true;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_3':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = true;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_4':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = true;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_5':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = true;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_6':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = true;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_7':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = true;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_8':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = true;
+                newColorItem['i'] = false;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_9':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = true;
+                newColorItem['j'] = false;
+                setColorItem(newColorItem);
+                break;
+            case 'color_10':
+                newColorItem['a'] = false;
+                newColorItem['b'] = false;
+                newColorItem['c'] = false;
+                newColorItem['d'] = false;
+                newColorItem['e'] = false;
+                newColorItem['f'] = false;
+                newColorItem['g'] = false;
+                newColorItem['h'] = false;
+                newColorItem['i'] = false;
+                newColorItem['j'] = true;
+                setColorItem(newColorItem);
+                break;
+            default:
+                break;
+        };
+    };
+
     return (
         <React.Fragment>
             {/* <PreLetter></PreLetter> */}
@@ -387,18 +633,39 @@ function Send() {
                 </div>
             </div> */}
 
-            <div className='send_option_button' onClick={activeLetterOption}></div>
+            <div className='send_option_button' onClick={() => {
+                activeLetterOption();
+                selectLetterMenu('font');
+            }}></div>
 
             <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
                 <div className='send_letter_option_innerContainer'>
                     <div className='send_letter_option_menu'>
-                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISFONTFAMILY') }}>글꼴</div>
-                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISRANGE') }}>정렬</div>
-                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISCOLOR') }}>색상</div>
-                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISLETTERPAPER') }}>편지지</div>
-                        <div className='send_letter_menu' onClick={() => { changeLetterOption('CHANGE_ISSTICKER') }}>스티커</div>
+                        <div className={letterMenu.font ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                            changeLetterOption('CHANGE_ISFONTFAMILY');
+                            selectLetterMenu('font');
+                        }}>글꼴</div>
+                        <div className={letterMenu.range ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                            changeLetterOption('CHANGE_ISRANGE');
+                            selectLetterMenu('range');
+                        }}>정렬</div>
+                        <div className={letterMenu.color ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                            changeLetterOption('CHANGE_ISCOLOR');
+                            selectLetterMenu('color');
+                        }}>색상</div>
+                        <div className={letterMenu.paper ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                            changeLetterOption('CHANGE_ISLETTERPAPER');
+                            selectLetterMenu('paper');
+                        }}>편지지</div>
+                        <div className={letterMenu.sticker ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                            changeLetterOption('CHANGE_ISSTICKER');
+                            selectLetterMenu('sticker');
+                        }}>스티커</div>
                     </div>
-                    <div className='send_letter_menu_close' onClick={inactiveLetterOption}>
+                    <div className='send_letter_menu_close' onClick={() => {
+                        inactiveLetterOption();
+                        selectLetterMenu('font');
+                    }}>
                         ×
                     </div>
                 </div>
@@ -446,9 +713,61 @@ function Send() {
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                 </div>
+                <div className={isRange ? 'send_range_active' : 'send_range'}>
+                    <div className={rangeItem.left ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                        setRange('left');
+                        selectRangeItem('left');
+                    }}><div className='send_item_range_left'></div></div>
+                    <div className={rangeItem.center ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                        setRange('center');
+                        selectRangeItem('center');
+                    }}><div className='send_item_range_center'></div></div>
+                    <div className={rangeItem.right ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                        setRange('right');
+                        selectRangeItem('right');
+                    }}><div className='send_item_range_right'></div></div>
+                </div>
                 <div className={isColor ? 'send_color_active' : 'send_color'}>
-                    <div className='send_item' onClick={() => { setColor('red') }}>●</div>
-                    <div className='send_item' onClick={() => { setColor('black') }}>●</div>
+                    <div id='color_1' className={colorItem.a ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(6 18 42)');
+                        selectColorItem('color_1');
+                    }}></div>
+                    <div id='color_2' className={colorItem.b ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(169 19 25)');
+                        selectColorItem('color_2');
+                    }}></div>
+                    <div id='color_3' className={colorItem.c ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(242 202 22)');
+                        selectColorItem('color_3');
+                    }}></div>
+                    <div id='color_4' className={colorItem.d ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(77 168 77)');
+                        selectColorItem('color_4');
+                    }}></div>
+                    <div id='color_5' className={colorItem.e ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(8 160 222)');
+                        selectColorItem('color_5');
+                    }}></div>
+                    <div id='color_6' className={colorItem.f ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(76 76 253)');
+                        selectColorItem('color_6');
+                    }}></div>
+                    <div id='color_7' className={colorItem.g ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(221 79 136)');
+                        selectColorItem('color_7');
+                    }}></div>
+                    <div id='color_8' className={colorItem.h ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(73 36 25)');
+                        selectColorItem('color_8');
+                    }}></div>
+                    <div id='color_9' className={colorItem.i ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(1 124 136)');
+                        selectColorItem('color_9');
+                    }}></div>
+                    <div id='color_10' className={colorItem.j ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                        setColor('rgb(220 233 243)');
+                        selectColorItem('color_10');
+                    }}></div>
                 </div>
             </div>
 
