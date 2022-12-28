@@ -12,17 +12,18 @@ function Send() {
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
     const stickerNumber = useSelector((state) => state.stickerNumber);
-
+    // 
     const isSendPopUp = useSelector((state) => state.isSendPopUp);
-
+    const isPreLetterBox = useSelector((state) => state.isPreLetterBox);
+    // 
     const isLetterOption = useSelector((state) => state.isLetterOption);
     const isFontFamily = useSelector((state) => state.isFontFamily);
     const isRange = useSelector((state) => state.isRange);
     const isColor = useSelector((state) => state.isColor);
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
-
-    const [styleLetter, setStyleLetter] = useState({ "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
+    // 
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "1.0rem", "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -55,6 +56,11 @@ function Send() {
         i: false,
         j: false
     });
+    const [paperItem, setPaperItem] = useState({
+        a: false,
+        b: false,
+        c: false
+    });
 
     function SendPopUp() {
         return (
@@ -80,11 +86,18 @@ function Send() {
     };
 
     function PreLetter() {
+        useEffect(() => {
+            makeLetter();
+        }, [])
         return (
             <React.Fragment>
-                <div>
-                    <div className='pre_letter_outContainer'>
-                        <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
+                <div className={isPreLetterBox ? 'per_letter_outBox' : 'per_letter_outBox_active'}>
+                    <div className='pre_letter_wrap' onClick={() => {
+                        dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                    }}>
+                        <div className='pre_letter_outContainer'>
+                            <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>
@@ -98,7 +111,7 @@ function Send() {
             let item = document.createElement('div');
             let stage = document.querySelector('.pre_letter_outContainer');
             item.setAttribute('id', '_' + copyStickerArray[i].id);
-            item.setAttribute('class', 'send_item' + copyStickerArray[i].class);
+            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].class);
             stage.appendChild(item);
             setTranslate(Math.round(Number(copyStickerArray[i].X)), Math.round((Number(copyStickerArray[i].Y))), item);
         };
@@ -175,7 +188,7 @@ function Send() {
         let itemClose = document.createElement('div');
         let stage = document.querySelector('#send_textarea');
         item.setAttribute('id', 'id' + props);
-        item.setAttribute('class', 'send_item' + num);
+        item.setAttribute('class', 'send_item_sticker' + num);
         itemClose.setAttribute('class', 'send_close');
         itemClose.addEventListener('click', () => { remove(props) });
         stage.appendChild(item);
@@ -310,9 +323,10 @@ function Send() {
     };
 
     // change fontFamily
-    function setFontFamily(props) {
+    function setFontFamily(props, size) {
         let newStyle = { ...styleLetter };
         newStyle['fontFamily'] = props;
+        newStyle['fontSize'] = size;
         setStyleLetter(newStyle);
     };
 
@@ -327,6 +341,13 @@ function Send() {
     function setColor(props) {
         let newStyle = { ...styleLetter };
         newStyle['color'] = props;
+        setStyleLetter(newStyle);
+    };
+
+    // change paper
+    function setPaper(props) {
+        let newStyle = { ...styleLetter };
+        newStyle['backgroundImage'] = props;
         setStyleLetter(newStyle);
     };
 
@@ -608,14 +629,45 @@ function Send() {
         };
     };
 
+    // paper_item select
+    function selectPaperItem(props) {
+        let newPaperItem = { ...paperItem };
+        switch (props) {
+            case 'paper_1':
+                newPaperItem['a'] = true;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_2':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = true;
+                newPaperItem['c'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_3':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = true;
+                setPaperItem(newPaperItem);
+                break;
+            default:
+                break;
+        };
+    };
+
+    console.log(stickerArray);
+
     return (
         <React.Fragment>
-            {/* <PreLetter></PreLetter> */}
+            <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                 <h3>To. {userID}</h3>
-                <span onClick={makeLetter}>완성하기</span>
+                <span onClick={() => {
+                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                }}>완성하기</span>
             </div>
             <div id="send_textarea">
                 <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
@@ -625,19 +677,10 @@ function Send() {
                 </textarea>
                 <div className='send_textLength'>{textLength}/100</div>
             </div>
-            {/* <div>
-                <div style={{ position: 'relative', left: '1rem' }}>
-                    <button className='send_btn0' onClick={() => { createEl(stickerNumber, 0) }}></button>
-                    <button className='send_btn1' onClick={() => { createEl(stickerNumber, 1) }}></button>
-                    <button className='send_btn2' onClick={() => { createEl(stickerNumber, 2) }}></button>
-                </div>
-            </div> */}
-
             <div className='send_option_button' onClick={() => {
                 activeLetterOption();
                 selectLetterMenu('font');
             }}></div>
-
             <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
                 <div className='send_letter_option_innerContainer'>
                     <div className='send_letter_option_menu'>
@@ -671,42 +714,42 @@ function Send() {
                 </div>
                 <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
                     <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
-                        setFontFamily('SpoqaHanSansNeo-Regular');
+                        setFontFamily('SpoqaHanSansNeo-Regular', '0.8rem');
                         selectFontItem('fontItem_1');
                     }}>
                         <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                     <div className={fontItem.b ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'GyeonggiBatang' }} onClick={() => {
-                        setFontFamily('GyeonggiBatang');
+                        setFontFamily('GyeonggiBatang', '0.8rem');
                         selectFontItem('fontItem_2');
                     }}>
                         <div className='send_item_font_title'>경기천년바탕 R</div>
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                     <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
-                        setFontFamily('NeoDunggeunmo');
+                        setFontFamily('NeoDunggeunmo', '0.8rem');
                         selectFontItem('fontItem_3');
                     }}>
                         <div className='send_item_font_title'>Neo 둥근모</div>
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                     <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                        setFontFamily('Saying_tobe_strong');
+                        setFontFamily('Saying_tobe_strong', '1.1rem');
                         selectFontItem('fontItem_4');
                     }}>
                         <div className='send_item_font_title'>힘내라는 말보단</div>
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                     <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                        setFontFamily('ROEHOE-CHAN');
+                        setFontFamily('ROEHOE-CHAN', '1.0rem');
                         selectFontItem('fontItem_5');
                     }}>
                         <div className='send_item_font_title'>노회찬체</div>
                         <div className='send_item_font_content'>안녕, 플래터</div>
                     </div>
                     <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                        setFontFamily('SBAggroB');
+                        setFontFamily('SBAggroB', '0.9rem');
                         selectFontItem('fontItem_6');
                     }}>
                         <div className='send_item_font_title'>어그로체 L</div>
@@ -769,8 +812,30 @@ function Send() {
                         selectColorItem('color_10');
                     }}></div>
                 </div>
+                <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
+                    <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                        setPaper('url(\'https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432\')');
+                        selectPaperItem('paper_1');
+                    }}><span>space</span></div>
+                    <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                        setPaper('url(\'https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg\')');
+                        selectPaperItem('paper_2');
+                    }}><span>space</span></div>
+                    <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                        setPaper('url(\'https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg\')');
+                        selectPaperItem('paper_3');
+                    }}><span>space</span></div>
+                </div>
+                <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
+                    <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
+                    <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
+                    <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
+                    <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
+                    <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
+                    <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
+                    <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
+                </div>
             </div>
-
         </React.Fragment>
     );
 };

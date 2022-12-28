@@ -300,7 +300,8 @@ function reducer(state, action) {
             isRange: false,
             isColor: false,
             isLetterPater: false,
-            isSticker: false
+            isSticker: false,
+            isPreLetterBox: false
         };
     };
     const newState = { ...state };
@@ -436,6 +437,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISSTICKER') {
         newState.isSticker = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPRELETTERBOX') {
+        newState.isPreLetterBox = action.data;
     };
 
     return newState;

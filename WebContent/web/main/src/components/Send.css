@@ -62,112 +62,6 @@
     color: aliceblue;
 }
 
-/* sticker button */
-
-.send_btn0 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-.send_btn1 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/733/733740.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-.send_btn2 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-color: transparent;
-    transition: all ease 1s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-/* activate sticker */
-
-.send_item0 {
-    width: 4rem;
-    height: 4rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    touch-action: none;
-    user-select: none;
-    z-index: 1;
-    position: absolute;
-}
-
-.send_item0:active {
-    background-color: rgba(168, 218, 220, 1.00);
-    position: relative;
-}
-
-.send_item1 {
-    width: 4rem;
-    height: 4rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/733/733740.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    touch-action: none;
-    user-select: none;
-    z-index: 1;
-    position: absolute;
-}
-
-.send_item1:active {
-    background-color: rgba(168, 218, 220, 1.00);
-    position: relative;
-}
-
-.send_item2 {
-    width: 4rem;
-    height: 4rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    touch-action: none;
-    user-select: none;
-    z-index: 1;
-    position: absolute;
-}
-
-.send_item2:active {
-    background-color: rgba(168, 218, 220, 1.00);
-    position: relative;
-}
-
-.send_close {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/463/463612.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 1rem;
-    height: 1rem;
-    z-index: 2;
-}
-
 /*  */
 
 .send_popUp {
@@ -308,8 +202,7 @@
 }
 
 .send_font_active,
-.send_paper_active,
-.send_sticker_active {
+.send_paper_active {
     background-color: white;
     margin-top: 0.5rem;
     height: 10rem;
@@ -331,7 +224,8 @@
     transition: all 0.5s;
 }
 
-.send_color_active {
+.send_color_active,
+.send_sticker_active {
     background-color: white;
     margin-top: 0.5rem;
     height: 10rem;
@@ -343,8 +237,7 @@
 }
 
 .send_font,
-.send_paper,
-.send_sticker {
+.send_paper {
     background-color: white;
     margin-top: 0.5rem;
     height: 10rem;
@@ -372,7 +265,8 @@
     transition: all 0.5s;
 }
 
-.send_color {
+.send_color,
+.send_sticker {
     background-color: white;
     margin-top: 0.5rem;
     height: 10rem;
@@ -397,8 +291,8 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     display: grid;
-    width: 85%;
-    height: 11vh;
+    width: 10rem;
+    height: 4.5rem;
     grid-template-rows: 30% 70%;
 }
 
@@ -411,8 +305,8 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     display: grid;
-    width: 85%;
-    height: 11vh;
+    width: 10rem;
+    height: 4.5rem;
     grid-template-rows: 30% 70%;
 }
 
@@ -579,9 +473,284 @@
 
 /*  */
 
+.send_item_paper {
+    box-shadow: -0.2rem 0 0 0 rgb(172 173 177),
+        0.2rem 0 0 0 rgb(172 173 177),
+        0 -0.2rem 0 0 rgb(172 173 177),
+        0 0.2rem 0 0 rgb(172 173 177);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 10rem;
+    height: 4.5rem;
+    display: flex;
+}
+
+.send_item_paper_active {
+    box-shadow: -0.2rem 0 0 0 rgb(119, 118, 253),
+        0.2rem 0 0 0 rgb(119, 118, 253),
+        0 -0.2rem 0 0 rgb(119, 118, 253),
+        0 0.2rem 0 0 rgb(119, 118, 253);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 10rem;
+    height: 4.5rem;
+    display: flex;
+}
+
+.send_item_paper>span,
+.send_item_paper_active>span {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+#paper_1 {
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+}
+
+#paper_2 {
+    background-image: url('https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg');
+}
+
+#paper_3 {
+    background-image: url('https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg');
+}
+
+/*  */
+
+.send_close {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/463/463612.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 0.8rem;
+    height: 0.8rem;
+    z-index: 2;
+}
+
+.send_item_sticker_0 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/8719/8719690.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker0 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/8719/8719690.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker0:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_1 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker1 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker1:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_2 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker2 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker2:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_3 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/8928/8928666.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker3 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/8928/8928666.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker3:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_4 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/9123/9123344.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker4 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/9123/9123344.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker4:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_5 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/5735/5735354.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker5 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/5735/5735354.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker5:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_6 {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/4472/4472834.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.send_item_sticker6 {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/4472/4472834.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+}
+
+.send_item_sticker6:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+/*  */
+
 .pre_letter_outContainer {
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 4.7rem;
     width: 20rem;
     height: 20rem;
     background-color: #262a3a;
@@ -609,4 +778,27 @@
     background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
     padding: 0rem 1rem;
     padding-top: 1rem;
+}
+
+.per_letter_outBox_active {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.per_letter_outBox {
+    visibility: visible;
+}
+
+.pre_letter_wrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
 }
