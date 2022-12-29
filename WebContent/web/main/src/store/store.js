@@ -301,7 +301,17 @@ function reducer(state, action) {
             isColor: false,
             isLetterPater: false,
             isSticker: false,
-            isPreLetterBox: false
+            isPreLetterBox: false,
+            author: '지구인',
+            stamp: 0,
+            isStamp: {
+                a: true,
+                b: false,
+                c: false,
+                d: false,
+                e: false,
+                f: false
+            }
         };
     };
     const newState = { ...state };
@@ -441,6 +451,18 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISPRELETTERBOX') {
         newState.isPreLetterBox = action.data;
+    };
+
+    if (action.type === 'CHANGE_AUTHOR') {
+        newState.author = action.data;
+    };
+
+    if (action.type === 'CHANGE_STAMP') {
+        newState.stamp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSTAMP') {
+        newState.isStamp = action.data;
     };
 
     return newState;

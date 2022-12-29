@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 import './Send.css'
 
 function Send() {
@@ -15,6 +16,9 @@ function Send() {
     // 
     const isSendPopUp = useSelector((state) => state.isSendPopUp);
     const isPreLetterBox = useSelector((state) => state.isPreLetterBox);
+    const author = useSelector((state) => state.author);
+    const stamp = useSelector((state) => state.stamp);
+    const isStamp = useSelector((state) => state.isStamp);
     // 
     const isLetterOption = useSelector((state) => state.isLetterOption);
     const isFontFamily = useSelector((state) => state.isFontFamily);
@@ -86,17 +90,176 @@ function Send() {
     };
 
     function PreLetter() {
+        const [preAuthor, setPreAuthor] = useState(author);
+        const [preIsStamp, setPreIsStamp] = useState(isStamp);
+        const [stampNum, setStampNum] = useState(stamp);
+        const settings = {
+            draggable: true,
+            swipe: true,
+            arrows: false,
+            dots: false,
+            infinite: false,
+            speed: 1250,
+            slidesToShow: 4,
+            slidesToScroll: 1
+        };
+
+        function changeAuthor(props) {
+            dispatch({ type: 'CHANGE_AUTHOR', data: props });
+        };
+
+        function changeStamp() {
+            dispatch({ type: 'CHANGE_ISSTAMP', data: preIsStamp });
+            dispatch({ type: 'CHANGE_STAMP', data: stampNum });
+        };
+
+        // pre letter stamp select
+        function selectStamp(props) {
+            let newStampItem = { ...preIsStamp };
+            switch (props) {
+                case 'stamp_1':
+                    newStampItem['a'] = true;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_2':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = true;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_3':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = true;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_4':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = true;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_5':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = true;
+                    newStampItem['f'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_6':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = true;
+                    setPreIsStamp(newStampItem);
+                    break;
+                default:
+                    break;
+            };
+        };
+
         useEffect(() => {
             makeLetter();
-        }, [])
+        }, []);
+
         return (
             <React.Fragment>
-                <div className={isPreLetterBox ? 'per_letter_outBox' : 'per_letter_outBox_active'}>
-                    <div className='pre_letter_wrap' onClick={() => {
-                        dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
-                    }}>
+                <div className={isPreLetterBox ? 'pre_letter_outBox' : 'pre_letter_outBox_active'}>
+                    <div className='pre_letter_wrap'>
+                        <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
+                            <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
+                                if (window.confirm('작성 페이지로 다시 이동할까요?')) {
+                                    changeAuthor(preAuthor);
+                                    changeStamp();
+                                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                                };
+                            }}></img>
+                            <div></div>
+                            <span>보내기</span>
+                        </div>
+                        <div className='pre_letter_title_outContainer'>
+                            <div className='pre_letter_title_img'>
+                                <span></span>
+                                <img alt='success' src='https://cdn-icons-png.flaticon.com/512/7518/7518748.png'></img>
+                            </div>
+                            <div className='pre_letter_title'>
+                                편지가 완성 되었어요!
+                            </div>
+                            <div className='pre_letter_title_img'>
+                                <img alt='gift' src='https://cdn-icons-png.flaticon.com/512/9004/9004955.png'></img>
+                                <span></span>
+                            </div>
+                        </div>
                         <div className='pre_letter_outContainer'>
                             <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
+                        </div>
+                        <div className='pre_letter_author_outContainer'>
+                            <h3 className='pre_letter_autho_title'>발신자 명</h3>
+                            <input className='pre_letter_author_input' type='text' maxLength={10} placeholder={author} onChange={(e) => {
+                                setPreAuthor(e.target.value);
+                            }}></input><span>{preAuthor.length}/10</span>
+                        </div>
+                        <div className='pre_letter_author_outContainer'>
+                            <h3 className='pre_letter_autho_title'>우표</h3>
+                            <div className='pre_letter_stamp_outContainer'>
+                                <Slider {...settings}>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_1');
+                                            setStampNum(0);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_2' className={preIsStamp.b ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_2');
+                                            setStampNum(1);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_3' className={preIsStamp.c ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_3');
+                                            setStampNum(2);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_4' className={preIsStamp.d ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_4');
+                                            setStampNum(3);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_5' className={preIsStamp.e ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_5');
+                                            setStampNum(4);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_6' className={preIsStamp.f ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_6');
+                                            setStampNum(5);
+                                        }}></div>
+                                    </div>
+                                </Slider>
+                            </div>
+                            <img alt='right_arrow' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                         </div>
                     </div>
                 </div>
@@ -656,17 +819,20 @@ function Send() {
         };
     };
 
-    console.log(stickerArray);
-
     return (
         <React.Fragment>
             <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
-                <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
+                <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
+                    if (window.confirm('작성을 취소 할까요?(작성 중이던 내용은 모두 삭제됩니다.)')) {
+                        navigater('/main');
+                    };
+                }}></img>
                 <h3>To. {userID}</h3>
                 <span onClick={() => {
                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                    inactiveLetterOption();
                 }}>완성하기</span>
             </div>
             <div id="send_textarea">

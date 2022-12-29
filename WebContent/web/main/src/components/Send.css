@@ -750,7 +750,7 @@
 
 .pre_letter_outContainer {
     margin: auto;
-    margin-top: 4.7rem;
+    margin-top: 1rem;
     width: 20rem;
     height: 20rem;
     background-color: #262a3a;
@@ -780,14 +780,14 @@
     padding-top: 1rem;
 }
 
-.per_letter_outBox_active {
+.pre_letter_outBox_active {
     pointer-events: none;
     touch-action: none;
     opacity: 0;
     transition: all 0.5s;
 }
 
-.per_letter_outBox {
+.pre_letter_outBox {
     visibility: visible;
 }
 
@@ -801,4 +801,109 @@
     left: 0;
     overflow: hidden;
     touch-action: none;
+}
+
+.pre_letter_title {
+    width: 6rem;
+    text-align: center;
+    font-size: 1.3rem;
+    margin: auto;
+}
+
+.pre_letter_title_img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pre_letter_title_outContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pre_letter_title_outContainer>div>img {
+    width: 2rem;
+    margin: auto;
+}
+
+.pre_letter_author_outContainer {
+    margin: auto;
+    width: 20rem;
+
+}
+
+.pre_letter_autho_title {
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pre_letter_author_input {
+    width: 10rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+    margin-left: 0.5rem;
+    border: none;
+    background-color: lightgray;
+    height: 1.5rem;
+    line-height: 1.5rem;
+
+}
+
+.pre_letter_author_outContainer>span {
+    margin-left: 0.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.pre_letter_stamp_outContainer {
+    margin: auto;
+    width: 15rem;
+    height: 5rem;
+}
+
+.pre_letter_stamp_innerContainer {
+    margin: auto;
+    background-size: contain;
+    width: 3.0rem;
+    height: 3.0rem;
+    border: 0.2rem solid rgb(255 255 255);
+}
+
+.pre_letter_stamp_innerContainer_active {
+    margin: auto;
+    background-size: contain;
+    width: 3.0rem;
+    height: 3.0rem;
+    border: 0.2rem solid black;
+}
+
+.pre_letter_author_outContainer>img {
+    position: relative;
+    top: -4.2rem;
+    left: 18rem;
+    width: 1.5rem;
+    transform: rotate(180deg);
+    opacity: 0.5;
+}
+
+#pre_letter_stamp_img_1 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236666.png');
+}
+
+#pre_letter_stamp_img_2 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236784.png');
+}
+
+#pre_letter_stamp_img_3 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236907.png');
+}
+
+#pre_letter_stamp_img_4 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236825.png');
+}
+
+#pre_letter_stamp_img_5 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/4071/4071641.png');
+}
+
+#pre_letter_stamp_img_6 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2722/2722007.png');
 }
