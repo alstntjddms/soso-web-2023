@@ -1,11 +1,11 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import './Send.css'
 
 function Send() {
-    const navigater = useNavigate();
+    // const navigater = useNavigate();
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
     const userID = useSelector((state) => state.userID);
@@ -19,6 +19,10 @@ function Send() {
     const author = useSelector((state) => state.author);
     const stamp = useSelector((state) => state.stamp);
     const isStamp = useSelector((state) => state.isStamp);
+    //
+    const isSendingPage = useSelector((state) => state.isSendingPage);
+    //
+    const isSendingEnd = useSelector((state) => state.isSendingEnd);
     // 
     const isLetterOption = useSelector((state) => state.isLetterOption);
     const isFontFamily = useSelector((state) => state.isFontFamily);
@@ -66,6 +70,8 @@ function Send() {
         c: false
     });
 
+    const bad_word = ['바보', '멍청이', '<', '>'];
+
     function SendPopUp() {
         return (
             <React.Fragment>
@@ -80,7 +86,7 @@ function Send() {
                                 textareaFocus.current.focus();
                             }}>편지쓰기</div>
                             <div className='send_popUP_main_btn' onClick={() => {
-                                navigater('/main');
+                                window.location.replace('/main');
                             }}>행성 만들기</div>
                         </div>
                     </div>
@@ -176,13 +182,25 @@ function Send() {
             };
         };
 
+        function filter() {
+            let compare_data = text;
+            for (let i = 0; i < bad_word.length; i++) {
+                for (let j = 0; j < compare_data.length; j++) {
+                    if (bad_word[i] === compare_data.substring(j, j + bad_word[i].length)) {
+                        compare_data = compare_data.replace(compare_data.substring(j, j + bad_word[i].length), '♡')
+                    };
+                };
+            };
+            dispatch({ type: 'CHANGE_TEXT', data: compare_data });
+        };
+
         useEffect(() => {
             makeLetter();
         }, []);
 
         return (
             <React.Fragment>
-                <div className={isPreLetterBox ? 'pre_letter_outBox' : 'pre_letter_outBox_active'}>
+                <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
                             <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
@@ -193,7 +211,15 @@ function Send() {
                                 };
                             }}></img>
                             <div></div>
-                            <span>보내기</span>
+                            <span onClick={() => {
+                                if (text === '') {
+                                    alert('편지가 비어 있습니다. 당신의 소중한 이야기를 들려주세요.');
+                                } else {
+                                    filter();
+                                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                                    dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+                                };
+                            }}>보내기</span>
                         </div>
                         <div className='pre_letter_title_outContainer'>
                             <div className='pre_letter_title_img'>
@@ -267,6 +293,75 @@ function Send() {
         );
     };
 
+    function SendingPage() {
+
+        function checkLetterData() {
+            let sendLetterData = {
+                'text': text,
+                'font': styleLetter['fontFamily'],
+                'align': styleLetter['textAlign'],
+                'size': styleLetter['fontSize'],
+                'color': styleLetter['color'],
+                'paper': styleLetter['backgroundImage'],
+                'icon': stamp,
+                'sticker': stickerArray,
+                'author': author
+            };
+            console.log(sendLetterData);
+            alert(sendLetterData);
+            alert(`text : ${text}
+             / font : ${styleLetter['fontFamily']} 
+             / align : ${styleLetter['textAlign']} 
+             / size : ${styleLetter['fontSize']} 
+             / color : ${styleLetter['color']}
+             / paper : ${styleLetter['backgroundImage']}
+             / icon : ${stamp}
+             / sticker : ${stickerArray}
+             / author : ${author}
+            `);
+            dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
+            dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+        };
+
+        useEffect(() => {
+            setTimeout(() => {
+                checkLetterData();
+            }, 3000);
+        }, []);
+
+        return (
+            <React.Fragment>
+                <div className={isSendingPage ? 'sending_page_outBox_active' : 'sending_page_outBox'}>
+                    <div className='sending_page_wrap'>
+                        <div className='sending_page_gif'></div>
+                        <h3 className='sending_page_h3'>편지 발송하는 중</h3>
+                        <h4 className='sending_page_h4'>...</h4>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    function SendingEnd() {
+        return (
+            <React.Fragment>
+                <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
+                    <div className='sending_end_wrap'>
+                        <div className='sending_end_img'></div>
+                        <h3 className='sending_end_h3'>발송을</h3>
+                        <h3 className='sending_end_h3_2'>완료했어요!</h3>
+                        <div className='sending_end_div' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: false });
+                            dispatch({ type: 'CHANGE_ISSENDINGEND', data: false });
+                            dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: false });
+                            window.location.replace('/main');
+                        }}>나도 행성 만들기</div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
     // make letter func
     function makeLetter() {
         let copyStickerArray = stickerArray;
@@ -301,9 +396,9 @@ function Send() {
             dispatch({ type: 'CHANGE_USERID', data: result.userID });
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            navigater('/main');
+            window.location.replace('/main');
         };
-    }, [dispatch, navigater]);
+    }, [dispatch]);
 
     useEffect(() => {
         get_query();
@@ -821,12 +916,14 @@ function Send() {
 
     return (
         <React.Fragment>
+            <SendingEnd></SendingEnd>
+            {isSendingPage ? <SendingPage></SendingPage> : ''}
             <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
             <div className='send_top_menu'>
                 <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
                     if (window.confirm('작성을 취소 할까요?(작성 중이던 내용은 모두 삭제됩니다.)')) {
-                        navigater('/main');
+                        window.location.replace('/main');
                     };
                 }}></img>
                 <h3>To. {userID}</h3>

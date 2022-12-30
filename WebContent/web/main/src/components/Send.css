@@ -780,14 +780,16 @@
     padding-top: 1rem;
 }
 
-.pre_letter_outBox_active {
+/*  */
+
+.pre_letter_outBox {
     pointer-events: none;
     touch-action: none;
     opacity: 0;
     transition: all 0.5s;
 }
 
-.pre_letter_outBox {
+.pre_letter_outBox_active {
     visibility: visible;
 }
 
@@ -806,7 +808,7 @@
 .pre_letter_title {
     width: 6rem;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: auto;
 }
 
@@ -906,4 +908,105 @@
 
 #pre_letter_stamp_img_6 {
     background-image: url('https://cdn-icons-png.flaticon.com/512/2722/2722007.png');
+}
+
+/*  */
+
+.sending_page_outBox_active {
+    visibility: visible;
+}
+
+.sending_page_outBox {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.sending_page_wrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.sending_page_gif {
+    margin: auto;
+    margin-top: 5rem;
+    background-image: url('../lib/KakaoTalk_20221220_175352851_01.gif');
+    width: 13rem;
+    height: 13rem;
+    background-size: cover;
+}
+
+.sending_page_h3 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.sending_page_h4 {
+    color: black;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/*  */
+
+.sending_end_active {
+    visibility: visible;
+}
+
+.sending_end {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.sending_end_wrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.sending_end_img {
+    margin: auto;
+    margin-top: 8rem;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3129/3129271.png');
+    width: 5rem;
+    height: 5rem;
+    background-size: cover;
+}
+
+.sending_end_h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.sending_end_h3_2 {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.sending_end_div {
+    margin: auto;
+    text-align: center;
+    margin-top: 2.0rem;
+    border: 1px solid black;
+    width: 10rem;
+    height: 3rem;
+    line-height: 3rem;
 }
