@@ -351,9 +351,6 @@ function Send() {
                         <h3 className='sending_end_h3'>발송을</h3>
                         <h3 className='sending_end_h3_2'>완료했어요!</h3>
                         <div className='sending_end_div' onClick={() => {
-                            dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: false });
-                            dispatch({ type: 'CHANGE_ISSENDINGEND', data: false });
-                            dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: false });
                             window.location.replace('/main');
                         }}>나도 행성 만들기</div>
                     </div>
