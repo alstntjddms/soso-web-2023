@@ -4,12 +4,30 @@
     text-align: center;
 }
 
-.redirect2_img {
+/* .redirect2_img {
     width: 20rem;
     margin-top: 6rem;
-}
+} */
 
 .redirect2_h3 {
     position: relative;
-    top: -5rem;
+    top: 0rem;
+}
+
+.redirect2_h4 {
+    margin: auto;
+    position: relative;
+    top: 0rem;
+    color: black;
+    width: 45%;
+    line-height: 1.5rem;
+}
+
+.redirect2_gif {
+    margin: auto;
+    margin-top: 5rem;
+    background-image: url('../lib/KakaoTalk_20221220_175352851_01.gif');
+    width: 13rem;
+    height: 13rem;
+    background-size: cover;
 }

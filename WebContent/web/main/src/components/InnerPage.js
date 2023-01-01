@@ -9,8 +9,11 @@ import Refresh from './Refresh';
 
 function InnerPage() {
     const dispatch = useDispatch();
+    // For component Letter box
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
+    const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
+
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
@@ -234,10 +237,8 @@ function InnerPage() {
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
-        const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
 
         function setSlickPageNum(i) {
-            console.log(i);
             if (i <= 8) {
                 setSlickPage(0);
             } else if (i >= 9 && i <= 17) {
@@ -281,7 +282,7 @@ function InnerPage() {
         };
 
         function enterAuthor(i) {
-            let copyAuthor = `보낸이. ${letterData[i].letterWriter}`;
+            let copyAuthor = `보낸이 ${letterData[i].letterWriter}`;
             let enterAuthor = document.querySelector('.author');
             enterAuthor.value = copyAuthor;
         };

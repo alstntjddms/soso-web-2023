@@ -33,7 +33,7 @@ function reducer(state, action) {
                 {
                     "letterId": "1",
                     "letterContent": "핀 적도 없는 벚꽃이 어느새 발치에 흩날린다. 짤은 생 단 한번도 제대로 꽃핀적 없이 나의 생은 어느새 마지막이 되었구나",
-                    "letterFont": "Ycomputer-Regular",
+                    "letterFont": "SpoqaHanSansNeo-Regular",
                     "letterFontColor": "orange",
                     "letterPaper": "url('https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg')",
                     "letterWriter": "Yuna",
@@ -57,7 +57,7 @@ function reducer(state, action) {
                 {
                     "letterId": "2",
                     "letterContent": "토닥토닥 비가 내리더니 바람과 햇살아래 새싹이 방긋 웃네요. 내게 날아온 봄소식 어여쁜 그림엽서를 그대와 공유합니다.",
-                    "letterFont": "Humanbumsuk",
+                    "letterFont": "GyeonggiBatang",
                     "letterFontColor": "violet",
                     "letterPaper": "url('https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg')",
                     "letterWriter": "egoing",
@@ -271,6 +271,7 @@ function reducer(state, action) {
                     ]
                 }
             ],
+            sendLetterData: [{}],
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -287,7 +288,32 @@ function reducer(state, action) {
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
-            isRestart: false
+            isRestart: false,
+            // send component
+            textLength: 0,
+            text: '',
+            stickerArray: [],
+            stickerNumber: 0,
+            isSendPopUp: true,
+            isLetterOption: false,
+            isFontFamily: false,
+            isRange: false,
+            isColor: false,
+            isLetterPaper: false,
+            isSticker: false,
+            isPreLetterBox: false,
+            author: '지구인',
+            stamp: 0,
+            isStamp: {
+                a: true,
+                b: false,
+                c: false,
+                d: false,
+                e: false,
+                f: false
+            },
+            isSendingPage: false,
+            isSendingEnd: false
         };
     };
     const newState = { ...state };
@@ -378,6 +404,75 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_LETTERDATA') {
         newState.letterData = action.data;
+    };
+    // send component
+
+    if (action.type === 'CHANGE_TEXTLENGTH') {
+        newState.textLength = action.data;
+    };
+
+    if (action.type === 'CHANGE_TEXT') {
+        newState.text = action.data;
+    };
+
+    if (action.type === 'CHANGE_STICKER') {
+        newState.stickerArray = action.data;
+    };
+
+    if (action.type === 'CHANGE_STICKER_NUMBER') {
+        newState.stickerNumber = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDPOPUP') {
+        newState.isSendPopUp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISLETTEROPTION') {
+        newState.isLetterOption = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISFONTFAMILY') {
+        newState.isFontFamily = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISRANGE') {
+        newState.isRange = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISCOLOR') {
+        newState.isColor = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISLETTERPAPER') {
+        newState.isLetterPaper = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSTICKER') {
+        newState.isSticker = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPRELETTERBOX') {
+        newState.isPreLetterBox = action.data;
+    };
+
+    if (action.type === 'CHANGE_AUTHOR') {
+        newState.author = action.data;
+    };
+
+    if (action.type === 'CHANGE_STAMP') {
+        newState.stamp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSTAMP') {
+        newState.isStamp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDINGPAGE') {
+        newState.isSendingPage = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDINGEND') {
+        newState.isSendingEnd = action.data;
     };
 
     return newState;
