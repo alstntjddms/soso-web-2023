@@ -6,6 +6,7 @@ import './Send.css'
 
 function Send() {
     // const navigater = useNavigate();
+    const isSendMain = useSelector((state) => state.isSendMain);
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
     const userID = useSelector((state) => state.userID);
@@ -202,6 +203,9 @@ function Send() {
             <React.Fragment>
                 <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
+                        {/*  */}
+                        <div className='send_page_back'></div>
+                        {/*  */}
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
                             <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
                                 if (window.confirm('작성 페이지로 다시 이동할까요?')) {
@@ -343,6 +347,7 @@ function Send() {
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
                     <div className='sending_end_wrap'>
+                        <div className='send_page_back'></div>
                         <div className='sending_end_img'></div>
                         <h3 className='sending_end_h3'>발송을</h3>
                         <h3 className='sending_end_h3_2'>완료했어요!</h3>
@@ -909,13 +914,9 @@ function Send() {
 
     return (
         <React.Fragment>
-            {/* <section className='section_shootingStar'>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-            </section> */}
-            {/* <div className='send_page_back'></div> */}
+            {/*  */}
+            <div className='send_page_back'></div>
+            {/*  */}
             <SendingEnd></SendingEnd>
             {isSendingPage ? <SendingPage></SendingPage> : ''}
             <PreLetter></PreLetter>
@@ -1083,15 +1084,15 @@ function Send() {
                     <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                         setPaper('url(\'https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432\')');
                         selectPaperItem('paper_1');
-                    }}><span>space</span></div>
+                    }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
                     <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                         setPaper('url(\'https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg\')');
                         selectPaperItem('paper_2');
-                    }}><span>space</span></div>
+                    }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
                     <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                         setPaper('url(\'https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg\')');
                         selectPaperItem('paper_3');
-                    }}><span>space</span></div>
+                    }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
                 </div>
                 <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
                     <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>

@@ -1,5 +1,6 @@
 .send_page_back {
     background-image: url(../lib/KakaoTalk_20230101_142900387.png);
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -10,7 +11,7 @@
 }
 
 .send_top_menu {
-    /* color: white; */
+    color: white;
     /*  */
     display: grid;
     grid-template-columns: 10% 60% 30%;
@@ -20,7 +21,7 @@
 }
 
 .send_top_menu>img {
-    /* background-color: white; */
+    background-color: white;
     /*  */
     margin-left: 1rem;
     width: 50%;
@@ -142,7 +143,7 @@
 /*  */
 
 .send_option_button {
-    /* background-color: white; */
+    background-color: white;
     /*  */
     position: absolute;
     top: 26rem;
@@ -161,7 +162,7 @@
     top: 25rem;
     width: 100%;
     opacity: 1;
-    background-color: white;
+    background-color: lightgray;
     transition: all 0.5s;
 }
 
@@ -173,7 +174,7 @@
     pointer-events: none;
     visibility: hidden;
     touch-action: none;
-    background-color: white;
+    background-color: lightgrey;
     transition: all 0.5s;
 }
 
@@ -195,7 +196,7 @@
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    background-color: white;
+    background-color: lightgrey;
     transition: all 0.5s;
 }
 
@@ -215,12 +216,12 @@
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    background-color: white;
+    background-color: lightgray;
 }
 
 .send_font_active,
 .send_paper_active {
-    background-color: white;
+    background-color: lightgrey;
     margin-top: 0.5rem;
     height: 10rem;
     display: grid;
@@ -231,7 +232,7 @@
 }
 
 .send_range_active {
-    background-color: white;
+    background-color: lightgray;
     margin-top: 0.5rem;
     height: 10rem;
     display: grid;
@@ -243,7 +244,7 @@
 
 .send_color_active,
 .send_sticker_active {
-    background-color: white;
+    background-color: lightgray;
     margin-top: 0.5rem;
     height: 10rem;
     display: grid;
@@ -401,11 +402,11 @@
 /*  */
 
 .send_item_color {
-    box-shadow: -0.2rem 0 0 0 rgb(172 173 177),
-        0.2rem 0 0 0 rgb(172 173 177),
-        0 -0.2rem 0 0 rgb(172 173 177),
-        0 0.2rem 0 0 rgb(172 173 177);
-    border: 0.2rem solid rgb(201 203 205);
+    box-shadow: -0.2rem 0 0 0 rgb(6 18 42),
+        0.2rem 0 0 0 rgb(6 18 42),
+        0 -0.2rem 0 0 rgb(6 18 42),
+        0 0.2rem 0 0 rgb(6 18 42);
+    /* border: 0.2rem solid rgb(201 203 205); */
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -419,7 +420,7 @@
         0.2rem 0 0 0 rgb(119, 118, 253),
         0 -0.2rem 0 0 rgb(119, 118, 253),
         0 0.2rem 0 0 rgb(119, 118, 253);
-    border: 0.2rem solid rgb(201 203 205);
+    /* border: 0.2rem solid rgb(201 203 205); */
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -491,16 +492,17 @@
 /*  */
 
 .send_item_paper {
-    box-shadow: -0.2rem 0 0 0 rgb(172 173 177),
-        0.2rem 0 0 0 rgb(172 173 177),
-        0 -0.2rem 0 0 rgb(172 173 177),
-        0 0.2rem 0 0 rgb(172 173 177);
+    box-shadow: -0.2rem 0 0 0 rgb(6, 18, 42),
+        0.2rem 0 0 0 rgb(6, 18, 42),
+        0 -0.2rem 0 0 rgb(6, 18, 42),
+        0 0.2rem 0 0 rgb(6, 18, 42);
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     width: 10rem;
     height: 4.5rem;
-    display: flex;
+    display: grid;
+    grid-template-rows: 30% 70%;
 }
 
 .send_item_paper_active {
@@ -513,14 +515,26 @@
     margin-bottom: 0.5rem;
     width: 10rem;
     height: 4.5rem;
-    display: flex;
+    display: grid;
+    grid-template-rows: 30% 70%;
 }
 
-.send_item_paper>span,
+/* .send_item_paper>span,
 .send_item_paper_active>span {
     position: relative;
     top: 0.5rem;
     left: 0.5rem;
+} */
+
+.send_item_paper_title {
+    border: none;
+    background-color: rgb(6, 18, 42);
+    color: white;
+    text-align: center;
+    vertical-align: baseline;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
 }
 
 #paper_1 {
@@ -823,6 +837,8 @@
 }
 
 .pre_letter_title {
+    color: white;
+    /*  */
     width: 6rem;
     text-align: center;
     font-size: 1.2rem;
@@ -851,6 +867,8 @@
 }
 
 .pre_letter_autho_title {
+    color: white;
+    /*  */
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -867,6 +885,8 @@
 }
 
 .pre_letter_author_outContainer>span {
+    color: white;
+    /*  */
     margin-left: 0.5rem;
     height: 1.5rem;
     line-height: 1.5rem;
@@ -883,7 +903,7 @@
     background-size: contain;
     width: 3.0rem;
     height: 3.0rem;
-    border: 0.2rem solid rgb(255 255 255);
+    border: 0.2rem solid black;
 }
 
 .pre_letter_stamp_innerContainer_active {
@@ -891,10 +911,12 @@
     background-size: contain;
     width: 3.0rem;
     height: 3.0rem;
-    border: 0.2rem solid black;
+    border: 0.2rem solid rgb(119, 118, 253);
 }
 
 .pre_letter_author_outContainer>img {
+    background-color: white;
+    /*  */
     position: relative;
     top: -4.2rem;
     left: 18rem;
@@ -904,26 +926,32 @@
 }
 
 #pre_letter_stamp_img_1 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236666.png');
 }
 
 #pre_letter_stamp_img_2 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236784.png');
 }
 
 #pre_letter_stamp_img_3 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236907.png');
 }
 
 #pre_letter_stamp_img_4 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/1236/1236825.png');
 }
 
 #pre_letter_stamp_img_5 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/4071/4071641.png');
 }
 
 #pre_letter_stamp_img_6 {
+    background-color: white;
     background-image: url('https://cdn-icons-png.flaticon.com/512/2722/2722007.png');
 }
 
@@ -1008,21 +1036,27 @@
 }
 
 .sending_end_h3 {
+    color: white;
+    /*  */
     text-align: center;
     margin-bottom: 0.5rem;
     margin-top: 2rem;
 }
 
 .sending_end_h3_2 {
+    color: white;
+    /*  */
     text-align: center;
     margin-top: 0.5rem;
 }
 
 .sending_end_div {
+    color: white;
+    /*  */
     margin: auto;
     text-align: center;
     margin-top: 2.0rem;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     width: 10rem;
     height: 3rem;
     line-height: 3rem;
