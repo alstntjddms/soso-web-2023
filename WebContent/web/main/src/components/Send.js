@@ -216,6 +216,8 @@ function Send() {
                             }}></img>
                             <div></div>
                             <span onClick={() => {
+                                changeAuthor(preAuthor);
+                                changeStamp();
                                 filter();
                                 dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                                 dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
