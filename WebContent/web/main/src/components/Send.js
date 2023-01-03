@@ -204,13 +204,13 @@ function Send() {
                 <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
                         {/*  */}
-                        {/* <div className='all_background_img'></div>
+                        <div className='all_background_img'></div>
                         <section className='section_shootingStar'>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
-                        </section> */}
+                        </section>
                         {/*  */}
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
                             <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
