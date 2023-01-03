@@ -1,15 +1,3 @@
-.send_page_back {
-    background-image: url(../lib/KakaoTalk_20230101_142900387.png);
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -10;
-    background-color: black;
-}
-
 .send_top_menu {
     color: white;
     /*  */

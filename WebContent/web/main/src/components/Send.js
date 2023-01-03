@@ -204,7 +204,13 @@ function Send() {
                 <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
                         {/*  */}
-                        <div className='send_page_back'></div>
+                        {/* <div className='all_background_img'></div>
+                        <section className='section_shootingStar'>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                        </section> */}
                         {/*  */}
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
                             <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
@@ -349,7 +355,13 @@ function Send() {
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
                     <div className='sending_end_wrap'>
-                        <div className='send_page_back'></div>
+                        <div className='all_background_img'></div>
+                        <section className='section_shootingStar'>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                        </section>
                         <div className='sending_end_img'></div>
                         <h3 className='sending_end_h3'>발송을</h3>
                         <h3 className='sending_end_h3_2'>완료했어요!</h3>
@@ -917,7 +929,13 @@ function Send() {
     return (
         <React.Fragment>
             {/*  */}
-            <div className='send_page_back'></div>
+            {/* <div className='all_background_img'></div>
+            <section className='section_shootingStar'>
+                <span className='shootingStar'></span>
+                <span className='shootingStar'></span>
+                <span className='shootingStar'></span>
+                <span className='shootingStar'></span>
+            </section> */}
             {/*  */}
             <SendingEnd></SendingEnd>
             {isSendingPage ? <SendingPage></SendingPage> : ''}

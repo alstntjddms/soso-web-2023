@@ -43,12 +43,13 @@ function Main() {
 
   return (
     <div className='main_background'>
+      {/* <div className='all_background_img'></div>
       <section className='section_shootingStar'>
         <span className='shootingStar'></span>
         <span className='shootingStar'></span>
         <span className='shootingStar'></span>
         <span className='shootingStar'></span>
-      </section>
+      </section> */}
       <ModalStory></ModalStory>
       <Menu></Menu>
       <InnerPage></InnerPage>

@@ -28,6 +28,13 @@ function App() {
 
   return (
     <React.Fragment>
+      <div className='all_background_img'></div>
+      <section className='section_shootingStar'>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
+        <span className='shootingStar'></span>
+      </section>
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/*" element={<Main />}></Route>
