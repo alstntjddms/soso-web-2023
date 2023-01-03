@@ -294,6 +294,7 @@ function reducer(state, action) {
             text: '',
             stickerArray: [],
             stickerNumber: 0,
+            isSendMain: false,
             isSendPopUp: true,
             isLetterOption: false,
             isFontFamily: false,
@@ -406,6 +407,10 @@ function reducer(state, action) {
         newState.letterData = action.data;
     };
     // send component
+
+    if (action.type === 'CHANGE_ISSENDMAIN') {
+        newState.isSendMain = action.data;
+    };
 
     if (action.type === 'CHANGE_TEXTLENGTH') {
         newState.textLength = action.data;

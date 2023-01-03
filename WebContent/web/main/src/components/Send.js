@@ -204,13 +204,13 @@ function Send() {
                 <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
                         {/*  */}
-                        <div className='all_background_img'></div>
+                        {/* <div className='all_background_img'></div>
                         <section className='section_shootingStar'>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
-                        </section>
+                        </section> */}
                         {/*  */}
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
                             <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
@@ -218,6 +218,7 @@ function Send() {
                                     changeAuthor(preAuthor);
                                     changeStamp();
                                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                                    dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
                                 };
                             }}></img>
                             <div></div>
@@ -355,13 +356,13 @@ function Send() {
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
                     <div className='sending_end_wrap'>
-                        <div className='all_background_img'></div>
+                        {/* <div className='all_background_img'></div>
                         <section className='section_shootingStar'>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
-                        </section>
+                        </section> */}
                         <div className='sending_end_img'></div>
                         <h3 className='sending_end_h3'>발송을</h3>
                         <h3 className='sending_end_h3_2'>완료했어요!</h3>
@@ -941,187 +942,190 @@ function Send() {
             {isSendingPage ? <SendingPage></SendingPage> : ''}
             <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
-            <div className='send_top_menu'>
-                <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
-                    if (window.confirm('작성을 취소 할까요?(작성 중이던 내용은 모두 삭제됩니다.)')) {
-                        window.location.replace('/main');
-                    };
-                }}></img>
-                <h3>To. {userID}</h3>
-                <span onClick={() => {
-                    if (text === '') {
-                        alert('편지가 비어 있습니다. 당신의 소중한 이야기를 들려주세요.');
-                    } else {
-                        dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
-                        inactiveLetterOption();
-                    };
-                }}>완성하기</span>
-            </div>
-            <div id="send_textarea">
-                <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
-                    dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
-                    dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
-                }}>
-                </textarea>
-                <div className='send_textLength'>{textLength}/100</div>
-            </div>
-            <div className='send_option_button' onClick={() => {
-                activeLetterOption();
-                selectLetterMenu('font');
-            }}></div>
-            <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
-                <div className='send_letter_option_innerContainer'>
-                    <div className='send_letter_option_menu'>
-                        <div className={letterMenu.font ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
-                            changeLetterOption('CHANGE_ISFONTFAMILY');
+            <div className={isSendMain ? 'send_main_fade' : 'send_main_active'}>
+                <div className='send_top_menu'>
+                    <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
+                        if (window.confirm('작성을 취소 할까요?(작성 중이던 내용은 모두 삭제됩니다.)')) {
+                            window.location.replace('/main');
+                        };
+                    }}></img>
+                    <h3>To. {userID}</h3>
+                    <span onClick={() => {
+                        if (text === '') {
+                            alert('편지가 비어 있습니다. 당신의 소중한 이야기를 들려주세요.');
+                        } else {
+                            dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                            inactiveLetterOption();
+                            dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
+                        };
+                    }}>완성하기</span>
+                </div>
+                <div id="send_textarea">
+                    <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
+                        dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
+                        dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
+                    }}>
+                    </textarea>
+                    <div className='send_textLength'>{textLength}/100</div>
+                </div>
+                <div className='send_option_button' onClick={() => {
+                    activeLetterOption();
+                    selectLetterMenu('font');
+                }}></div>
+                <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
+                    <div className='send_letter_option_innerContainer'>
+                        <div className='send_letter_option_menu'>
+                            <div className={letterMenu.font ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                                changeLetterOption('CHANGE_ISFONTFAMILY');
+                                selectLetterMenu('font');
+                            }}>글꼴</div>
+                            <div className={letterMenu.range ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                                changeLetterOption('CHANGE_ISRANGE');
+                                selectLetterMenu('range');
+                            }}>정렬</div>
+                            <div className={letterMenu.color ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                                changeLetterOption('CHANGE_ISCOLOR');
+                                selectLetterMenu('color');
+                            }}>색상</div>
+                            <div className={letterMenu.paper ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                                changeLetterOption('CHANGE_ISLETTERPAPER');
+                                selectLetterMenu('paper');
+                            }}>편지지</div>
+                            <div className={letterMenu.sticker ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
+                                changeLetterOption('CHANGE_ISSTICKER');
+                                selectLetterMenu('sticker');
+                            }}>스티커</div>
+                        </div>
+                        <div className='send_letter_menu_close' onClick={() => {
+                            inactiveLetterOption();
                             selectLetterMenu('font');
-                        }}>글꼴</div>
-                        <div className={letterMenu.range ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
-                            changeLetterOption('CHANGE_ISRANGE');
-                            selectLetterMenu('range');
-                        }}>정렬</div>
-                        <div className={letterMenu.color ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
-                            changeLetterOption('CHANGE_ISCOLOR');
-                            selectLetterMenu('color');
-                        }}>색상</div>
-                        <div className={letterMenu.paper ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
-                            changeLetterOption('CHANGE_ISLETTERPAPER');
-                            selectLetterMenu('paper');
-                        }}>편지지</div>
-                        <div className={letterMenu.sticker ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
-                            changeLetterOption('CHANGE_ISSTICKER');
-                            selectLetterMenu('sticker');
-                        }}>스티커</div>
+                        }}>
+                            ×
+                        </div>
                     </div>
-                    <div className='send_letter_menu_close' onClick={() => {
-                        inactiveLetterOption();
-                        selectLetterMenu('font');
-                    }}>
-                        ×
+                    <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
+                        <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
+                            setFontFamily('SpoqaHanSansNeo-Regular', '0.8rem');
+                            selectFontItem('fontItem_1');
+                        }}>
+                            <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
+                        <div className={fontItem.b ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'GyeonggiBatang' }} onClick={() => {
+                            setFontFamily('GyeonggiBatang', '0.8rem');
+                            selectFontItem('fontItem_2');
+                        }}>
+                            <div className='send_item_font_title'>경기천년바탕 R</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
+                        <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
+                            setFontFamily('NeoDunggeunmo', '0.8rem');
+                            selectFontItem('fontItem_3');
+                        }}>
+                            <div className='send_item_font_title'>Neo 둥근모</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
+                        <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
+                            setFontFamily('Saying_tobe_strong', '1.1rem');
+                            selectFontItem('fontItem_4');
+                        }}>
+                            <div className='send_item_font_title'>힘내라는 말보단</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
+                        <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
+                            setFontFamily('ROEHOE-CHAN', '1.0rem');
+                            selectFontItem('fontItem_5');
+                        }}>
+                            <div className='send_item_font_title'>노회찬체</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
+                        <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
+                            setFontFamily('SBAggroB', '0.9rem');
+                            selectFontItem('fontItem_6');
+                        }}>
+                            <div className='send_item_font_title'>어그로체 L</div>
+                            <div className='send_item_font_content'>안녕, 플래터</div>
+                        </div>
                     </div>
-                </div>
-                <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
-                    <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
-                        setFontFamily('SpoqaHanSansNeo-Regular', '0.8rem');
-                        selectFontItem('fontItem_1');
-                    }}>
-                        <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    <div className={isRange ? 'send_range_active' : 'send_range'}>
+                        <div className={rangeItem.left ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                            setRange('left');
+                            selectRangeItem('left');
+                        }}><div className='send_item_range_left'></div></div>
+                        <div className={rangeItem.center ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                            setRange('center');
+                            selectRangeItem('center');
+                        }}><div className='send_item_range_center'></div></div>
+                        <div className={rangeItem.right ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
+                            setRange('right');
+                            selectRangeItem('right');
+                        }}><div className='send_item_range_right'></div></div>
                     </div>
-                    <div className={fontItem.b ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'GyeonggiBatang' }} onClick={() => {
-                        setFontFamily('GyeonggiBatang', '0.8rem');
-                        selectFontItem('fontItem_2');
-                    }}>
-                        <div className='send_item_font_title'>경기천년바탕 R</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    <div className={isColor ? 'send_color_active' : 'send_color'}>
+                        <div id='color_1' className={colorItem.a ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(6 18 42)');
+                            selectColorItem('color_1');
+                        }}></div>
+                        <div id='color_2' className={colorItem.b ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(169 19 25)');
+                            selectColorItem('color_2');
+                        }}></div>
+                        <div id='color_3' className={colorItem.c ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(242 202 22)');
+                            selectColorItem('color_3');
+                        }}></div>
+                        <div id='color_4' className={colorItem.d ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(77 168 77)');
+                            selectColorItem('color_4');
+                        }}></div>
+                        <div id='color_5' className={colorItem.e ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(8 160 222)');
+                            selectColorItem('color_5');
+                        }}></div>
+                        <div id='color_6' className={colorItem.f ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(76 76 253)');
+                            selectColorItem('color_6');
+                        }}></div>
+                        <div id='color_7' className={colorItem.g ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(221 79 136)');
+                            selectColorItem('color_7');
+                        }}></div>
+                        <div id='color_8' className={colorItem.h ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(73 36 25)');
+                            selectColorItem('color_8');
+                        }}></div>
+                        <div id='color_9' className={colorItem.i ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(1 124 136)');
+                            selectColorItem('color_9');
+                        }}></div>
+                        <div id='color_10' className={colorItem.j ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
+                            setColor('rgb(220 233 243)');
+                            selectColorItem('color_10');
+                        }}></div>
                     </div>
-                    <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
-                        setFontFamily('NeoDunggeunmo', '0.8rem');
-                        selectFontItem('fontItem_3');
-                    }}>
-                        <div className='send_item_font_title'>Neo 둥근모</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
+                        <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432\')');
+                            selectPaperItem('paper_1');
+                        }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
+                        <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg\')');
+                            selectPaperItem('paper_2');
+                        }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
+                        <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg\')');
+                            selectPaperItem('paper_3');
+                        }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
                     </div>
-                    <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                        setFontFamily('Saying_tobe_strong', '1.1rem');
-                        selectFontItem('fontItem_4');
-                    }}>
-                        <div className='send_item_font_title'>힘내라는 말보단</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
+                    <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
+                        <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
+                        <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
+                        <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
+                        <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
+                        <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
+                        <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
+                        <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
                     </div>
-                    <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                        setFontFamily('ROEHOE-CHAN', '1.0rem');
-                        selectFontItem('fontItem_5');
-                    }}>
-                        <div className='send_item_font_title'>노회찬체</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
-                    </div>
-                    <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                        setFontFamily('SBAggroB', '0.9rem');
-                        selectFontItem('fontItem_6');
-                    }}>
-                        <div className='send_item_font_title'>어그로체 L</div>
-                        <div className='send_item_font_content'>안녕, 플래터</div>
-                    </div>
-                </div>
-                <div className={isRange ? 'send_range_active' : 'send_range'}>
-                    <div className={rangeItem.left ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
-                        setRange('left');
-                        selectRangeItem('left');
-                    }}><div className='send_item_range_left'></div></div>
-                    <div className={rangeItem.center ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
-                        setRange('center');
-                        selectRangeItem('center');
-                    }}><div className='send_item_range_center'></div></div>
-                    <div className={rangeItem.right ? 'send_item_range_active' : 'send_item_range'} onClick={() => {
-                        setRange('right');
-                        selectRangeItem('right');
-                    }}><div className='send_item_range_right'></div></div>
-                </div>
-                <div className={isColor ? 'send_color_active' : 'send_color'}>
-                    <div id='color_1' className={colorItem.a ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(6 18 42)');
-                        selectColorItem('color_1');
-                    }}></div>
-                    <div id='color_2' className={colorItem.b ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(169 19 25)');
-                        selectColorItem('color_2');
-                    }}></div>
-                    <div id='color_3' className={colorItem.c ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(242 202 22)');
-                        selectColorItem('color_3');
-                    }}></div>
-                    <div id='color_4' className={colorItem.d ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(77 168 77)');
-                        selectColorItem('color_4');
-                    }}></div>
-                    <div id='color_5' className={colorItem.e ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(8 160 222)');
-                        selectColorItem('color_5');
-                    }}></div>
-                    <div id='color_6' className={colorItem.f ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(76 76 253)');
-                        selectColorItem('color_6');
-                    }}></div>
-                    <div id='color_7' className={colorItem.g ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(221 79 136)');
-                        selectColorItem('color_7');
-                    }}></div>
-                    <div id='color_8' className={colorItem.h ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(73 36 25)');
-                        selectColorItem('color_8');
-                    }}></div>
-                    <div id='color_9' className={colorItem.i ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(1 124 136)');
-                        selectColorItem('color_9');
-                    }}></div>
-                    <div id='color_10' className={colorItem.j ? 'send_item_color_active' : 'send_item_color'} onClick={() => {
-                        setColor('rgb(220 233 243)');
-                        selectColorItem('color_10');
-                    }}></div>
-                </div>
-                <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
-                    <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                        setPaper('url(\'https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432\')');
-                        selectPaperItem('paper_1');
-                    }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
-                    <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                        setPaper('url(\'https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg\')');
-                        selectPaperItem('paper_2');
-                    }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
-                    <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                        setPaper('url(\'https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg\')');
-                        selectPaperItem('paper_3');
-                    }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
-                </div>
-                <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
-                    <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
-                    <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
-                    <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
-                    <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
-                    <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
-                    <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
-                    <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
                 </div>
             </div>
         </React.Fragment>

@@ -1,3 +1,7 @@
+.send_main_fade {
+    opacity: 0;
+}
+
 .send_top_menu {
     color: white;
     /*  */
@@ -815,7 +819,7 @@
 .pre_letter_wrap {
     width: 100%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0);
     z-index: 10;
     position: fixed;
     top: 0;
@@ -1005,7 +1009,7 @@
 .sending_end_wrap {
     width: 100%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0);
     z-index: 10;
     position: fixed;
     top: 0;
