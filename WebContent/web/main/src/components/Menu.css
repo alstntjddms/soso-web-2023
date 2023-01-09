@@ -365,7 +365,22 @@
 }
 
 .menu_plater_img {
-    position: relative;
-    left: 7%;
+    margin: auto;
     width: 75%;
+}
+
+.menu_plater_img_outContainer {
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+}
+
+.menu_plater_page>h5 {
+    text-align: center;
+    line-height: 0.5rem;
+    height: 0.5rem;
+}
+
+.menu_palter_bottom_pading {
+    height: 5rem;
 }

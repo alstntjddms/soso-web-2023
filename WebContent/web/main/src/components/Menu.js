@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Slider from "react-slick";
 import './Menu.css';
 
 function Menu() {
     const dispatch = useDispatch();
-    const [speck, setSpeck] = useState(0);
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
     const isInner = useSelector((state) => state.isInner);
@@ -12,6 +12,17 @@ function Menu() {
     const isPlater = useSelector((state) => state.isPlater);
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
+
+    const settings = {
+        draggable: true,
+        swipe: true,
+        arrows: false,
+        dots: false,
+        infinite: true,
+        speed: 1250,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
 
     function MembershipWithdrawal() {
         return (
@@ -49,14 +60,6 @@ function Menu() {
     function toggleMypage() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISMYPAGE', data: !isMypage });
-        // Speech Synthesis
-        setTimeout(() => {
-            if (speck === 0) {
-                const speech = new SpeechSynthesisUtterance(userData.nickname + '님 안녕하세요.');
-                window.speechSynthesis.speak(speech);
-                setSpeck(speck + 1);
-            };
-        }, 500);
     };
 
     function togglePlanetter() {
@@ -114,19 +117,43 @@ function Menu() {
                         <p className='menu_bar_mypage_box_p'>문의하기</p>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
-                        <p>Pl@ter</p>
                         <article className='menu_plater_page'>
                             <h5>삐삐-</h5>
                             <h5>지구와 교신 중…</h5>
-                            <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
-                            <h5>삐삐-</h5>
-                            <h5>지구와 교신 중…</h5>
-                            <h5>삐삐-</h5>
-                            <h5>지구와 교신 중…</h5>
-                            <h5>삐삐-</h5>
-                            <h5>지구와 교신 중…</h5>
-                            <h5>삐삐-</h5>
-                            <h5>지구와 교신 중…</h5>
+                            <div className='menu_plater_img_outContainer'>
+                                <Slider {...settings}>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                    </div>
+                                </Slider>
+                            </div>
+                            <h5>우주의 누군가에게 편지를</h5>
+                            <h5>쓰거나 받고 싶은 모두를 위해,</h5>
+                            <h5>PL@TER</h5>
+                            <div className='menu_plater_img_outContainer'>
+                                <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                            </div>
+                            <h5>10일 후에 도착 예정!</h5>
+                            <h5>모든 행성에 편지가 도착하기 까지는</h5>
+                            <h5>10일의 시간이 소요돼요.</h5>
+                            <h5>링크를 복사해 편지를 모집하거나 기대하며</h5>
+                            <h5>기다리다 보면 멋진 편지가 도착할 거예요.</h5>
+                            <div className='menu_plater_img_outContainer'>
+                                <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                            </div>
+                            <h5>편지를 멋지게 꾸며요!</h5>
+                            <h5>다양한 폰트부터 편지지, 스티커를 통해</h5>
+                            <h5>당신만의 멋진 편지를 작성해보세요.</h5>
+                            <div className='menu_palter_bottom_pading'></div>
                         </article>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
