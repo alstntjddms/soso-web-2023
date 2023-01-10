@@ -97,7 +97,7 @@ function Login() {
                         <h4 className='login_title'>로그인 해서 편지를 받아보세요</h4>
                         <img alt='login_kakao' className='login_kakao' src='http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg' onClick={() => { loginWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT) }}></img>
                         <div className='login_text'>
-                            <span onClick={toggleConditions}>이용약관</span><span>│</span><span onClick={toggleIndividual}>개인정보처리방침</span><span>│</span><a className='login_mailto' href='mailto:blue_notion@naver.com'><span>ContactUs</span></a>
+                            <span onClick={toggleConditions}>이용약관</span><span>│</span><span onClick={toggleIndividual}>개인정보처리방침</span><span>│</span><a className='go_to_notion_white' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><span>ContactUs</span></a>
                         </div>
                         <p className='login_name'>©소소한프로젝트</p>
                     </div>

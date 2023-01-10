@@ -384,3 +384,10 @@
 .menu_palter_bottom_pading {
     height: 5rem;
 }
+
+/*  */
+
+.go_to_notion {
+    color: black;
+    text-decoration: none;
+}

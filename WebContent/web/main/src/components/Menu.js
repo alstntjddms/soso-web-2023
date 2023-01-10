@@ -89,7 +89,7 @@ function Menu() {
                         <p onClick={toggleMypage}>마이페이지</p>
                         <p onClick={togglePlanetter}>Pl@ter</p>
                         <p onClick={toggleHowto} >이용 방법</p>
-                        <p>Contact Us</p>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><p>Contact Us</p></a>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <div className='menu_bar_mypage_box1'>
@@ -114,7 +114,7 @@ function Menu() {
                         <div className='menu_bar_mypage_line'></div>
                         <p className='menu_bar_mypage_box_p'>개인정보 처리 방침</p>
                         <div className='menu_bar_mypage_line'></div>
-                        <p className='menu_bar_mypage_box_p'>문의하기</p>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><p className='menu_bar_mypage_box_p'>문의하기</p></a>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
                         <article className='menu_plater_page'>

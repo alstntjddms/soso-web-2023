@@ -43,10 +43,10 @@
     color: white;
 }
 
-.login_mailto {
+/* .login_mailto {
     text-decoration: none;
     color: white;
-}
+} */
 
 .login_name {
     margin-top: 1rem;
@@ -111,4 +111,9 @@
     font-family: 'GangwonEdu_OTFBoldA';
     color: white;
     text-align: left;
+}
+
+.go_to_notion_white {
+    color: white;
+    text-decoration: none;
 }
