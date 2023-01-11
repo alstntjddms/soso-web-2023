@@ -11,6 +11,31 @@ function Redirect() {
     const urlParamsErro = new URL(window.location.href).searchParams;
     const nameErro = urlParamsErro.get('error_description');
 
+    // function requestToken() {
+    //     const body = {
+    //         grant_type: "authorization_code",
+    //         client_id: process.env.REACT_APP_REST_API_KEY,
+    //         redirect_uri: "",
+    //         code: name
+    //     };
+    //     const queryStringBody = Object.keys(body)
+    //         .map(k => encodeURIComponent(k) + "=" + encodeURI(body[k]))
+    //         .join("&");
+    //     fetch("https://kauth.kakao.com/oauth/token", {
+    //         method: "POST",
+    //         headers: {
+    //             'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    //         },
+    //         body: queryStringBody
+    //     })
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //             console.log(data.access_token);
+    //             usertoken = data.access_token;
+    //         });
+    // };
+
     useEffect(() => {
         setTimeout(() => {
             if (nameErro === 'User denied access') {

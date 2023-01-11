@@ -24,6 +24,19 @@ function Menu() {
         slidesToScroll: 1
     };
 
+    // function singOut() {
+    //     fetch("https://kapi.kakao.com/v1/user/unlink", {
+    //         method: "POST",
+    //         headers: {
+    //             Authorization: `Bearer ${usertoken}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //         });
+    // };
+
     function MembershipWithdrawal() {
         return (
             <div className={isMembershipWithdrawal ? "membershipWithdrawal" : "membershipWithdrawal_fade"}>
