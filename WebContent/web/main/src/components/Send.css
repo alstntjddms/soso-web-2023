@@ -246,6 +246,8 @@
     overflow-y: scroll;
     opacity: 1;
     transition: all 0.5s;
+    justify-items: center;
+    align-items: center;
 }
 
 .send_font,
@@ -559,7 +561,7 @@
 }
 
 .send_item_sticker_0 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/8719/8719690.png);
+    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-dog.gif?raw=true);
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -574,7 +576,7 @@
 .send_item_sticker0 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/8719/8719690.png);
+    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-dog.gif?raw=true);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -590,7 +592,7 @@
 }
 
 .send_item_sticker_1 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
+    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-pudding.gif?raw=true);
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -605,7 +607,7 @@
 .send_item_sticker1 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2662/2662908.png);
+    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-pudding.gif?raw=true);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -621,7 +623,7 @@
 }
 
 .send_item_sticker_2 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_bow(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -636,7 +638,7 @@
 .send_item_sticker2 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/2920/2920093.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_bow(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -652,7 +654,7 @@
 }
 
 .send_item_sticker_3 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/8928/8928666.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_hart(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -667,7 +669,7 @@
 .send_item_sticker3 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/8928/8928666.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_hart(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -683,7 +685,7 @@
 }
 
 .send_item_sticker_4 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/9123/9123344.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon1(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -698,7 +700,7 @@
 .send_item_sticker4 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/9123/9123344.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon1(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -714,7 +716,7 @@
 }
 
 .send_item_sticker_5 {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/5735/5735354.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon2(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -729,7 +731,7 @@
 .send_item_sticker5 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/5735/5735354.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon2(red).png?raw=true');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;

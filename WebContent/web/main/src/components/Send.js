@@ -509,7 +509,7 @@ function Send() {
                 };
                 xOffset = currentX;
                 yOffset = currentY;
-                if (currentX >= 140 || currentY >= 140 || currentX <= -140 || currentY <= -140) {
+                if (currentX >= 140 || currentY >= 170 || currentX <= -140 || currentY <= -170) {
                     alert('편지지 안쪽에 스티커를 붙여주세요.');
                 } else {
                     setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
