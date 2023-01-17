@@ -32,7 +32,7 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "1.0rem", "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url(https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432)" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "1.0rem", "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -68,7 +68,8 @@ function Send() {
     const [paperItem, setPaperItem] = useState({
         a: false,
         b: false,
-        c: false
+        c: false,
+        d: false
     });
 
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
@@ -908,18 +909,28 @@ function Send() {
                 newPaperItem['a'] = true;
                 newPaperItem['b'] = false;
                 newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
                 setPaperItem(newPaperItem);
                 break;
             case 'paper_2':
                 newPaperItem['a'] = false;
                 newPaperItem['b'] = true;
                 newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
                 setPaperItem(newPaperItem);
                 break;
             case 'paper_3':
                 newPaperItem['a'] = false;
                 newPaperItem['b'] = false;
                 newPaperItem['c'] = true;
+                newPaperItem['d'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_4':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = true;
                 setPaperItem(newPaperItem);
                 break;
             default:
@@ -1105,17 +1116,21 @@ function Send() {
                     </div>
                     <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
                         <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
                             selectPaperItem('paper_1');
                         }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
                         <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
                             selectPaperItem('paper_2');
                         }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
                         <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true\')');
                             selectPaperItem('paper_3');
                         }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
+                        <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true\')');
+                            selectPaperItem('paper_4');
+                        }}><div className='send_item_paper_title'>네 번째 편지지</div></div>
                     </div>
                     <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
                         <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>

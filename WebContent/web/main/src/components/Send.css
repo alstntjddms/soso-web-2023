@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 10% 60% 30%;
     margin-top: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     align-items: center;
 }
 
@@ -35,7 +35,7 @@
     margin: auto;
     margin-top: 1rem;
     width: 20rem;
-    height: 20rem;
+    height: 23rem;
     background-color: #262a3a;
     display: flex;
     align-items: center;
@@ -56,17 +56,19 @@
     resize: none;
     display: flex;
     margin: auto;
-    width: 15rem;
-    height: 14rem;
-    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+    width: 16rem;
+    height: 19rem;
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true');
     padding: 0rem 1rem;
     padding-top: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .send_textLength {
     position: absolute;
     left: 80%;
-    top: 92%;
+    top: 95%;
     color: aliceblue;
 }
 
@@ -138,7 +140,7 @@
     background-color: white;
     /*  */
     position: absolute;
-    top: 26rem;
+    top: 28rem;
     left: 2rem;
     background-image: url('https://cdn-icons-png.flaticon.com/512/3303/3303893.png');
     background-size: contain;
@@ -151,7 +153,7 @@
 
 .send_letter_option_active {
     position: absolute;
-    top: 25rem;
+    top: 26rem;
     width: 100%;
     opacity: 1;
     background-color: lightgray;
@@ -530,15 +532,19 @@
 }
 
 #paper_1 {
-    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true');
 }
 
 #paper_2 {
-    background-image: url('https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg');
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true');
 }
 
 #paper_3 {
-    background-image: url('https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg');
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true');
+}
+
+#paper_4 {
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true');
 }
 
 /*  */
@@ -775,7 +781,7 @@
     margin: auto;
     margin-top: 1rem;
     width: 20rem;
-    height: 20rem;
+    height: 23rem;
     background-color: #262a3a;
     display: flex;
     align-items: center;
@@ -796,11 +802,13 @@
     resize: none;
     display: flex;
     margin: auto;
-    width: 15rem;
-    height: 14rem;
-    background-image: url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432');
+    width: 16rem;
+    height: 19rem;
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true');
     padding: 0rem 1rem;
     padding-top: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*  */
