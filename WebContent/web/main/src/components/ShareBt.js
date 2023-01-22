@@ -15,8 +15,8 @@ function ShareBt() {
     }, [dispatch, userData.openDate]);
 
     const basicURL = 'https://angelo-s-library-2.netlify.app/';
-    const image_share = 'https://cdn-icons-png.flaticon.com/512/1111/1111905.png';
-    const title = 'PLATER - 기다려지는 소식';
+    const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
+    const title = 'PL@TER - 기다려지는 소식';
 
     // function of to share throught the kakaotalk message
     function kakaoShare() {
@@ -27,8 +27,8 @@ function ShareBt() {
         window.Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
-                title: 'PLATER',
-                description: 'PLATER-기다려지는 소식',
+                title: 'PL@TER',
+                description: 'PL@TER-기다려지는 소식',
                 imageUrl: image_share,
                 link: {
                     mobileWebUrl: basicURL,
@@ -37,14 +37,14 @@ function ShareBt() {
             },
             buttons: [
                 {
-                    title: 'PLATER-편지 보내기',
+                    title: 'PL@TER-편지 보내기',
                     link: {
                         mobileWebUrl: basicURL,
                         webUrl: basicURL,
                     },
                 },
                 {
-                    title: 'PLATER-놀러가기',
+                    title: 'PL@TER-놀러가기',
                     link: {
                         mobileWebUrl: basicURL,
                         webUrl: basicURL,
@@ -84,7 +84,7 @@ function ShareBt() {
     return (
         <React.Fragment>
             <div className={isShare ? 'shareButton_outContainer_active' : 'shareButton_outContainer'} onClick={() => { dispatch({ type: 'CHANGE_ISSHAREBT', data: !isShareBt }); }}>
-                <img className='shareButton_share' alt='share' src='https://cdn-icons-png.flaticon.com/512/4659/4659960.png'></img>
+                <img className='shareButton_share' alt='share' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/share.png?raw=true'></img>
             </div>
             <div className='shareButton_innerContainer'>
                 <img className={isShareBt ? 'shareButton_share_btn_url_active' : 'shareButton_share_btn'} alt='url' src='https://cdn-icons-png.flaticon.com/512/4906/4906292.png' onClick={urlCopy}></img>

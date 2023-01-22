@@ -1,10 +1,10 @@
 .refresh {
     position: absolute;
-    top: 39%;
+    top: 42%;
     left: 60%;
-    width: 1.2rem;
-    height: 1.2rem;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2091/2091540.png');
+    width: 0.8rem;
+    height: 0.8rem;
+    background-image: url('../lib/icon/refresh.png');
     background-size: cover;
     transform: rotate(-360deg);
     transition: all 1.0s;
@@ -12,11 +12,11 @@
 
 .refresh_active {
     position: absolute;
-    top: 39%;
+    top: 42%;
     left: 60%;
-    width: 1.2rem;
-    height: 1.2rem;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2091/2091540.png');
+    width: 0.8rem;
+    height: 0.8rem;
+    background-image: url('../lib/icon/refresh.png');
     background-size: cover;
     transform: rotate(360deg);
     transition: all 1.0s;

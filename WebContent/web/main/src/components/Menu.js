@@ -136,16 +136,16 @@ function Menu() {
                             <div className='menu_plater_img_outContainer'>
                                 <Slider {...settings}>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                                     </div>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                                     </div>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                                     </div>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                                     </div>
                                 </Slider>
                             </div>
@@ -153,7 +153,7 @@ function Menu() {
                             <h5>쓰거나 받고 싶은 모두를 위해,</h5>
                             <h5>PL@TER</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                             </div>
                             <h5>10일 후에 도착 예정!</h5>
                             <h5>모든 행성에 편지가 도착하기 까지는</h5>
@@ -161,7 +161,7 @@ function Menu() {
                             <h5>링크를 복사해 편지를 모집하거나 기대하며</h5>
                             <h5>기다리다 보면 멋진 편지가 도착할 거예요.</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://cdn-icons-png.flaticon.com/512/547/547433.png'></img>
+                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
                             </div>
                             <h5>편지를 멋지게 꾸며요!</h5>
                             <h5>다양한 폰트부터 편지지, 스티커를 통해</h5>

@@ -2,6 +2,7 @@
     z-index: 5;
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     background-color: transparent;
     position: fixed;
     top: 0;
@@ -14,6 +15,7 @@
     z-index: 5;
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -41,6 +43,7 @@
     background-color: rgba(255, 255, 255, 1.0);
     width: 10rem;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s;
@@ -53,6 +56,7 @@
     background-color: rgba(255, 255, 255, 1.0);
     width: 10rem;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     opacity: 1;
     transition: all 0.5s;
 }
@@ -64,6 +68,7 @@
     background-color: rgba(255, 255, 255, 1.0);
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     opacity: 1;
     transition: all 0.5s;
 }
@@ -270,7 +275,8 @@
 .membershipWithdrawal {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    /* height: 100vh; */
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 8;
     top: 0;
@@ -282,23 +288,24 @@
 
 .membershipWithdrawal_fade {
     opacity: 0;
-    transition: all 1.5s;
     pointer-events: none;
 }
 
 .membershipWithdrawal_outContainer {
     position: absolute;
     left: 50%;
-    top: 35%;
+    bottom: 0;
+    /* top: 35%; */
     width: 16rem;
     height: 16rem;
     background-color: rgba(255, 255, 255, 1.0);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     z-index: 9;
     border: 1px solid black;
     text-align: center;
     overflow: hidden;
     touch-action: none;
+    transition: all 1.5s;
 }
 
 .membershipWithdrawal_title {
@@ -359,7 +366,8 @@
 /*  */
 
 .menu_plater_page {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    /* height: 100vh; */
     width: 100%;
     overflow: auto;
 }
