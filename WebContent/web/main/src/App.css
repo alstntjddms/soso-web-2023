@@ -64,3 +64,74 @@ body {
     touch-action: none;
     overscroll-behavior-y: none;
 }
+
+/*  */
+
+.isFirstIngo_wrap {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isFirstIngo_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isFirstIngo_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 19.375rem;
+    height: 13.0rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isFirstIngo_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #090A14;
+}
+
+.isFirstIngo_p {
+    position: relative;
+    margin: auto;
+    top: 3.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    margin-bottom: 0.2rem;
+}
+
+.isFirstIngo_button_confirm {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    top: 4.125rem;    
+}

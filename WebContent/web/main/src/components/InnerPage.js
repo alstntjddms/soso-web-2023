@@ -18,6 +18,7 @@ function InnerPage() {
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
     const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
+    const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
     const isRestart = useSelector((state) => state.isRestart);
 
     useEffect(() => {
@@ -31,12 +32,36 @@ function InnerPage() {
     // case of a new member
     function SetSignal() {
         const isSendSignal = useSelector((state) => state.isSendSignal);
+        const [isPopUpOpenPlanet, setIsPopUpOpenPlanet] = useState(false);
         const [stringUserNickname, setStringUserNickname] = useState(String(userData.nickname));
         const [lengthUserNickname, setLengthUserNickname] = useState(Number(userData.nickname.length));
         const [startMonth, setStartMonth] = useState(null);
         const [startHours, setStartHours] = useState(null);
         const [endMonth, setEndMonth] = useState(null);
         const [endHours, setEndHours] = useState(null);
+
+        // popUp: open planet
+        function PopUpOpenPlanet() {
+            return (
+                <React.Fragment>
+                    <div className={isPopUpOpenPlanet ? "ispopupopenplanet" : "ispopupopenplanet_fade"}>
+                        <div className='ispopupopenplanet_outContainer'>
+                            <p className='ispopupopenplanet_title'>{stringUserNickname}(이)란 행성을</p>
+                            <p className='ispopupopenplanet_title'>개설할까요?</p>
+                            <p className='ispopupopenplanet_p'>행성의 이름과</p>
+                            <p className='ispopupopenplanet_p'>시간을 확인해주세요.</p>
+                            <div className='ispopupopenplanet_innerBox'>
+                                <div className='ispopupopenplanet_button_signOut' onClick={() => { setIsPopUpOpenPlanet(!isPopUpOpenPlanet); }}>취소</div>
+                                <div className='ispopupopenplanet_button_cancel' onClick={() => {
+                                    setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
+                                    sendSignal_confirm();
+                                }}>개설하기</div>
+                            </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
 
         function settingStartMonth() {
             setInterval(function () {
@@ -93,20 +118,19 @@ function InnerPage() {
             dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
         };
 
-        function sendSignal() {
-            if (window.confirm(`${stringUserNickname}(이)란 이름으로 행성을 개설할까요?`)) {
-                const now = new Date();
-                now.setDate(now.getDate() + 10);
-                const finalDate = Number(now.getTime());
-                dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
-                dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-                dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
-                dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            };
-        };
+        function sendSignal_confirm() {
+            const now = new Date();
+            now.setDate(now.getDate() + 10);
+            const finalDate = Number(now.getTime());
+            dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
+            dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+            dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
+            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+        }
 
         return (
             <React.Fragment>
+                <PopUpOpenPlanet></PopUpOpenPlanet>
                 <div className='noname_outContainer'>
                     <h3>아직 신호를 보내지 않았습니다.</h3>
                     <div className='noname_sendSignal' onClick={showCreateSendSingalPage}>신호 보내기</div>
@@ -154,7 +178,8 @@ function InnerPage() {
                             </div>
                         </div>
                         <div className='noname_sendSignal_startDiv'>
-                            <div className='noname_sendSignal_startDiv_button' onClick={sendSignal}>시작하기</div>
+                            <div className='noname_sendSignal_startDiv_button' onClick={
+                                () => { setIsPopUpOpenPlanet(!isPopUpOpenPlanet) }}>시작하기</div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +189,6 @@ function InnerPage() {
 
     // notify after receiver creation
     function CreateNameURL() {
-
         function urlCopy() {
             let Dummy_Tag = document.createElement("input");
             let Current_URL = window.location.href;
@@ -173,18 +197,36 @@ function InnerPage() {
             Dummy_Tag.select();
             document.execCommand("copy");
             document.body.removeChild(Dummy_Tag);
-            alert("링크가 복사되었습니다.\nThe link has been copied.");
             dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+            dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
+        };
+
+        function PopUpCopyLink() {
+            return (
+                <React.Fragment>
+                    <div className={isPopUpCopyLink ? "isPopupCopyLink" : "isPopupCopyLink_fade"}>
+                        <div className='isPopupCopyLink_outContainer'>
+                            <p className='isPopupCopyLink_title'>신호 복사 완료!</p>
+                            <p className='isPopupCopyLink_p'>링크가 복사 되었어요.</p>
+                            <div className='isPopupCopyLink_button_signOut' onClick={() => { dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink }); }}>확인</div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
         };
 
         return (
             <React.Fragment>
+                <PopUpCopyLink></PopUpCopyLink>
                 <div className={ModalCreateUrl ? "yesNameUrl" : "yesNameUrl_fade"}>
                     <div className='yesNameUrl_outContainer'>
-                        <img alt='close' className='yesNameUrl_img' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => { dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl }); }}></img>
                         <p className='yesNameUrl_title'>행성 개설 완료!</p>
-                        <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요!</p>
-                        <div className='yesNameUrl_button' onClick={urlCopy}>링크 복사</div>
+                        <p className='yesNameUrl_p'>행성 개설이 완료되었습니다.</p>
+                        <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요.</p>
+                        <div className='yesNameUrl_innerBox'>
+                            <div className='yesNameUrl_button_signOut' onClick={() => { dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl }); }}>확인</div>
+                            <div className='yesNameUrl_button_cancel' onClick={urlCopy}>신호 복사하기</div>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

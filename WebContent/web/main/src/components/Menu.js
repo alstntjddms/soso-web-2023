@@ -41,14 +41,13 @@ function Menu() {
         return (
             <div className={isMembershipWithdrawal ? "membershipWithdrawal" : "membershipWithdrawal_fade"}>
                 <div className='membershipWithdrawal_outContainer'>
-                    <p className='membershipWithdrawal_title'>서비스를</p>
-                    <p className='membershipWithdrawal_title'>탈퇴하시겠습니까?</p>
-                    <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는 모두 삭제됩니다.</p>
-                    <span className='membershipWithdrawal_HLine'></span>
-                    <span className='membershipWithdrawal_VLine'></span>
+                    <p className='membershipWithdrawal_title'>서비스를 탈퇴..</p>
+                    <p className='membershipWithdrawal_title'>하시겠습니까?</p>
+                    <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는</p>
+                    <p className='membershipWithdrawal_p'>모두 삭제되며 복구할 수 없어요.</p>
                     <div className='membershipWithdrawal_innerBox'>
-                        <div className='membershipWithdrawal_button' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴</div>
-                        <div className='membershipWithdrawal_button' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
+                        <div className='membershipWithdrawal_button_signOut' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴</div>
+                        <div className='membershipWithdrawal_button_cancel' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
                     </div>
                 </div>
             </div>

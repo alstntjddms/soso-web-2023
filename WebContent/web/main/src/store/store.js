@@ -272,6 +272,7 @@ function reducer(state, action) {
                 }
             ],
             sendLetterData: [{}],
+            isFirstInfo: false,
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -285,6 +286,7 @@ function reducer(state, action) {
             isShareBt: false,
             isNamePage: false,
             ModalCreateUrl: false,
+            isPopUpCopyLink : false,
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
@@ -321,6 +323,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_USERID') {
         newState.userID = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISFIRSTINFO') {
+        newState.isFirstInfo = action.data;
     };
 
     if (action.type === 'CHANGE_ISCONDITIONS') {
@@ -374,9 +380,13 @@ function reducer(state, action) {
     if (action.type === 'CHANGE_ISNAMEPAGE') {
         newState.isNamePage = action.data;
     };
-
+    
     if (action.type === 'CHANGE_MODALCREATEURL') {
         newState.ModalCreateUrl = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPOPUPCOPYLINK') {
+        newState.isPopUpCopyLink = action.data;
     };
 
     if (action.type === 'CHANGE_ISSENDSIGNAL') {

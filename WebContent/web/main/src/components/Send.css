@@ -231,7 +231,8 @@
 .send_range_active {
     background-color: lightgray;
     margin-top: 0.5rem;
-    height: 10rem;
+    height: calc(var(--vh, 1vh) * 30);
+    /* height: 10rem; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     overflow-y: scroll;
@@ -243,7 +244,8 @@
 .send_sticker_active {
     background-color: lightgray;
     margin-top: 0.5rem;
-    height: 10rem;
+    height: calc(var(--vh, 1vh) * 30);
+    /* height: 10rem; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     overflow-y: scroll;
