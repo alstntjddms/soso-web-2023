@@ -1162,23 +1162,19 @@
 
 .sending_page_gif {
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 7.375rem;
     background-image: url('../lib/etc/send/UFO-Loading.gif');
-    width: 13rem;
-    height: 13rem;
+    width: 12.5rem;
+    height: 12.5rem;
     background-size: cover;
 }
 
 .sending_page_h3 {
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.sending_page_h4 {
-    color: black;
-    text-align: center;
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: normal;
 }
 
 /*  */
@@ -1211,26 +1207,21 @@
 
 .sending_end_img {
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 7.375rem;
     background-image: url('../lib/etc/send/send_done.gif');
-    width: 5rem;
-    height: 5rem;
+    width: 12.5rem;
+    height: 12.5rem;
     background-size: cover;
 }
 
-.sending_end_h3 {
+.sending_end_p {
     color: white;
     /*  */
     text-align: center;
     margin-bottom: 0.5rem;
-    margin-top: 2rem;
-}
-
-.sending_end_h3_2 {
-    color: white;
-    /*  */
-    text-align: center;
     margin-top: 0.5rem;
+    font-weight: normal;
+    font-size: 1.25rem;
 }
 
 .sending_end_div {

@@ -132,8 +132,8 @@ function InnerPage() {
             <React.Fragment>
                 <PopUpOpenPlanet></PopUpOpenPlanet>
                 <div className='noname_outContainer'>
-                    <h4>아직 신호를 보내지</h4>
-                    <h4>않았습니다.</h4>
+                    <p>아직 신호를 보내지</p>
+                    <p>않았습니다.</p>
                     <div className='noname_sendSignal' onClick={showCreateSendSingalPage}>신호 보내기</div>
                     <div className={isSendSignal ? "noname_sendSignal_outContainer" : "noname_sendSignal_outContainer_fade"}>
                         <div className='noname_sendSignal_innerTitle'>

@@ -372,8 +372,7 @@ function Send() {
                             <span className='shootingStar'></span>
                         </section>
                         <div className='sending_page_gif'></div>
-                        <h3 className='sending_page_h3'>편지 발송하는 중</h3>
-                        <h4 className='sending_page_h4'>...</h4>
+                        <h3 className='sending_page_h3'>Loading..</h3>
                     </div>
                 </div>
             </React.Fragment>
@@ -392,8 +391,7 @@ function Send() {
                             <span className='shootingStar'></span>
                         </section>
                         <div className='sending_end_img'></div>
-                        <h3 className='sending_end_h3'>발송을</h3>
-                        <h3 className='sending_end_h3_2'>완료했어요!</h3>
+                        <p className='sending_end_p'>발송을 완료했어요!</p>
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
                         }}>나도 행성 만들기</div>

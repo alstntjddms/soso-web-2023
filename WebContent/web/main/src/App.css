@@ -52,7 +52,8 @@ body {
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    font-family: 'NeoDunggeunmo';
+    font-family: 'SpoqaHanSansNeo-Regular';
+    font-weight: normal;
     overflow: hidden;
     touch-action: none;
     overscroll-behavior-y: none;
@@ -102,6 +103,7 @@ body {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isFirstIngo_p {
@@ -113,7 +115,6 @@ body {
     font-size: 0.875rem;
     color: #828A93;
     margin-bottom: 0.2rem;
-    font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 .isFirstIngo_button_confirm {
