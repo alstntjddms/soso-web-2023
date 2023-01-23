@@ -16,6 +16,8 @@ function Send() {
     const stickerNumber = useSelector((state) => state.stickerNumber);
     // 
     const isSendPopUp = useSelector((state) => state.isSendPopUp);
+    const isSendPopUpCancel = useSelector((state) => state.isSendPopUpCancel);
+    const isSendPopUpCheck = useSelector((state) => state.isSendPopUpCheck);
     const isPreLetterBox = useSelector((state) => state.isPreLetterBox);
     const author = useSelector((state) => state.author);
     const stamp = useSelector((state) => state.stamp);
@@ -32,7 +34,7 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "1.0rem", "fontFamily": "GangwonEdu_OTFBoldA", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true')" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('../lib/paper/paper_white.png')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -77,22 +79,60 @@ function Send() {
     function SendPopUp() {
         return (
             <React.Fragment>
-                <div className={isSendPopUp ? 'send_popUp' : 'send_popUp_fade'}>
-                    <div className='send_popUp_outContainer'>
-                        <div className='send_popUp_InnerContainer'>
-                            <h3>{userID}님의 행성</h3>
-                            <h4>안녕하세요! 이곳은</h4>
-                            <h4>{userID}님의 행성이에요.</h4>
-                            <div className='send_popUP_send_btn' onClick={() => {
+                <div className={isSendPopUp ? "isSendPopUp" : "isSendPopUp_fade"}>
+                    <div className='isSendPopUp_outContainer'>
+                        <p className='isSendPopUp_title'>〈{userID}님의 행성〉</p>
+                        <p className='isSendPopUp_p'>어서오세요! 이곳은</p>
+                        <p className='isSendPopUp_p'>{userID}님의 행성입니다.</p>
+                        <div className='isSendPopUp_innerBox'>
+                            <div className='isSendPopUp_button_signOut' onClick={() => {
+                                window.location.replace('/main');
+                            }}>행성 개설하기</div>
+                            <div className='isSendPopUp_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUP', data: !isSendPopUp });
                                 textareaFocus.current.focus();
-                            }}>편지쓰기</div>
-                            <div className='send_popUP_main_btn' onClick={() => {
-                                window.location.replace('/main');
-                            }}>행성 만들기</div>
+                            }}>편지 작성하기</div>
                         </div>
                     </div>
                 </div>
+            </React.Fragment>
+        );
+    };
+
+    function SendPopUpCancel() {
+        return (
+            <React.Fragment>
+                <div className={isSendPopUpCancel ? "isSendPopUpCancel" : "isSendPopUpCancel_fade"}>
+                    <div className='isSendPopUpCancel_outContainer'>
+                        <p className='isSendPopUpCancel_title'>작성을 취소하겠습니까?</p>
+                        <p className='isSendPopUpCancel_p'>작성을 취소하면 작성 중이던</p>
+                        <p className='isSendPopUpCancel_p'>내용은 모두 삭제됩니다.</p>
+                        <div className='isSendPopUpCancel_innerBox'>
+                            <div className='isSendPopUpCancel_button_signOut' onClick={() => {
+                                window.location.replace('/main');
+                            }}>작성 취소</div>
+                            <div className='isSendPopUpCancel_button_cancel' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
+                            }}>편지 작성하기</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    function SendPopUpCheck() {
+        return (
+            <React.Fragment>
+                <div className={isSendPopUpCheck ? "isSendPopUpCheck" : "isSendPopUpCheck_fade"}>
+                    <div className='isSendPopUpCheck_outContainer'>
+                        <p className='isSendPopUpCheck_title'>편지가 비어 있습니다.</p>
+                        <p className='isSendPopUpCheck_p'>당신의 소중한 이야기를 들려주세요.</p>
+                            <div className='isSendPopUpCheck_button_cancel' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
+                            }}>계속 작성하기</div>
+                        </div>
+                    </div>
             </React.Fragment>
         );
     };
@@ -204,24 +244,20 @@ function Send() {
             <React.Fragment>
                 <div className={isPreLetterBox ? 'pre_letter_outBox_active' : 'pre_letter_outBox'}>
                     <div className='pre_letter_wrap'>
-                        {/*  */}
-                        {/* <div className='all_background_img'></div>
                         <section className='section_shootingStar'>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
-                        </section> */}
-                        {/*  */}
+                        </section>
                         <div className='send_top_menu' style={{ 'marginBottom': '0.5rem' }}>
-                            <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
-                                if (window.confirm('작성 페이지로 다시 이동할까요?')) {
-                                    changeAuthor(preAuthor);
-                                    changeStamp();
-                                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
-                                    dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
-                                };
+                            <img alt='backIMG' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/back.png?raw=true' onClick={() => {
+                                changeAuthor(preAuthor);
+                                changeStamp();
+                                dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                                dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
                             }}></img>
+                            <span>수정하기</span>
                             <div></div>
                             <span onClick={() => {
                                 changeAuthor(preAuthor);
@@ -230,19 +266,6 @@ function Send() {
                                 dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                                 dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                             }}>보내기</span>
-                        </div>
-                        <div className='pre_letter_title_outContainer'>
-                            <div className='pre_letter_title_img'>
-                                <span></span>
-                                <img alt='success' src='https://cdn-icons-png.flaticon.com/512/7518/7518748.png'></img>
-                            </div>
-                            <div className='pre_letter_title'>
-                                편지가 완성 되었어요!
-                            </div>
-                            <div className='pre_letter_title_img'>
-                                <img alt='gift' src='https://cdn-icons-png.flaticon.com/512/9004/9004955.png'></img>
-                                <span></span>
-                            </div>
                         </div>
                         <div className='pre_letter_outContainer'>
                             <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
@@ -343,6 +366,12 @@ function Send() {
             <React.Fragment>
                 <div className={isSendingPage ? 'sending_page_outBox_active' : 'sending_page_outBox'}>
                     <div className='sending_page_wrap'>
+                        <section className='section_shootingStar'>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                            <span className='shootingStar'></span>
+                        </section>
                         <div className='sending_page_gif'></div>
                         <h3 className='sending_page_h3'>편지 발송하는 중</h3>
                         <h4 className='sending_page_h4'>...</h4>
@@ -357,13 +386,12 @@ function Send() {
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
                     <div className='sending_end_wrap'>
-                        {/* <div className='all_background_img'></div>
                         <section className='section_shootingStar'>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
                             <span className='shootingStar'></span>
-                        </section> */}
+                        </section>
                         <div className='sending_end_img'></div>
                         <h3 className='sending_end_h3'>발송을</h3>
                         <h3 className='sending_end_h3_2'>완료했어요!</h3>
@@ -940,30 +968,28 @@ function Send() {
 
     return (
         <React.Fragment>
-            {/*  */}
-            {/* <div className='all_background_img'></div>
-            <section className='section_shootingStar'>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-                <span className='shootingStar'></span>
-            </section> */}
-            {/*  */}
             <SendingEnd></SendingEnd>
             {isSendingPage ? <SendingPage></SendingPage> : ''}
             <PreLetter></PreLetter>
             <SendPopUp></SendPopUp>
+            <SendPopUpCancel></SendPopUpCancel>
+            <SendPopUpCheck></SendPopUpCheck>
             <div className={isSendMain ? 'send_main_fade' : 'send_main_active'}>
+                <section className='section_shootingStar'>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                </section>
                 <div className='send_top_menu'>
-                    <img alt='backIMG' src='https://cdn-icons-png.flaticon.com/512/130/130882.png' onClick={() => {
-                        if (window.confirm('작성을 취소 할까요?(작성 중이던 내용은 모두 삭제됩니다.)')) {
-                            window.location.replace('/main');
-                        };
+                    <img alt='backIMG' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/back.png?raw=true' onClick={() => {
+                        dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
                     }}></img>
                     <h3>To. {userID}</h3>
+                    <span></span>
                     <span onClick={() => {
                         if (text === '') {
-                            alert('편지가 비어 있습니다. 당신의 소중한 이야기를 들려주세요.');
+                            dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
                         } else {
                             dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                             inactiveLetterOption();
@@ -972,12 +998,12 @@ function Send() {
                     }}>완성하기</span>
                 </div>
                 <div id="send_textarea">
-                    <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={100} placeholder='편지를 작성해주세요.(100자 이내)' onChange={(e) => {
+                    <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={400} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
                         dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                         dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                     }}>
                     </textarea>
-                    <div className='send_textLength'>{textLength}/100</div>
+                    <div className='send_textLength'>{textLength}/400</div>
                 </div>
                 <div className='send_option_button' onClick={() => {
                     activeLetterOption();
@@ -1016,42 +1042,42 @@ function Send() {
                     </div>
                     <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
                         <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
-                            setFontFamily('SpoqaHanSansNeo-Regular', '0.8rem');
+                            setFontFamily('SpoqaHanSansNeo-Regular', '0.875rem');
                             selectFontItem('fontItem_1');
                         }}>
                             <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.b ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'GyeonggiBatang' }} onClick={() => {
-                            setFontFamily('GyeonggiBatang', '0.8rem');
+                            setFontFamily('GyeonggiBatang', '0.875rem');
                             selectFontItem('fontItem_2');
                         }}>
                             <div className='send_item_font_title'>경기천년바탕 R</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
-                            setFontFamily('NeoDunggeunmo', '0.8rem');
+                            setFontFamily('NeoDunggeunmo', '0.8125rem');
                             selectFontItem('fontItem_3');
                         }}>
                             <div className='send_item_font_title'>Neo 둥근모</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                            setFontFamily('Saying_tobe_strong', '1.1rem');
+                            setFontFamily('Saying_tobe_strong', '1.0rem');
                             selectFontItem('fontItem_4');
                         }}>
                             <div className='send_item_font_title'>힘내라는 말보단</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                            setFontFamily('ROEHOE-CHAN', '1.0rem');
+                            setFontFamily('ROEHOE-CHAN', '0.875rem');
                             selectFontItem('fontItem_5');
                         }}>
                             <div className='send_item_font_title'>노회찬체</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                            setFontFamily('SBAggroB', '0.9rem');
+                            setFontFamily('SBAggroB', '0.8125rem');
                             selectFontItem('fontItem_6');
                         }}>
                             <div className='send_item_font_title'>어그로체 L</div>
@@ -1116,19 +1142,19 @@ function Send() {
                     </div>
                     <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
                         <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
+                            setPaper('url(\'../lib/paper/paper_city.gif\')');
                             selectPaperItem('paper_1');
                         }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
                         <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
+                            setPaper('url(\'../lib/paper/paper_curce.gif\')');
                             selectPaperItem('paper_2');
                         }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
                         <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true\')');
+                            setPaper('url(\'../lib/paper/paper_space.png\')');
                             selectPaperItem('paper_3');
                         }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
                         <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true\')');
+                            setPaper('url(\'../lib/paper/paper_white.png\')');
                             selectPaperItem('paper_4');
                         }}><div className='send_item_paper_title'>네 번째 편지지</div></div>
                     </div>

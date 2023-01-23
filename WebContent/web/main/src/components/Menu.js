@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './Menu.css';
@@ -12,6 +12,7 @@ function Menu() {
     const isPlater = useSelector((state) => state.isPlater);
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
+    const [isPopUpLogOut, setIsPopUpLogOut] = useState(false);
 
     const settings = {
         draggable: true,
@@ -39,18 +40,38 @@ function Menu() {
 
     function MembershipWithdrawal() {
         return (
-            <div className={isMembershipWithdrawal ? "membershipWithdrawal" : "membershipWithdrawal_fade"}>
-                <div className='membershipWithdrawal_outContainer'>
-                    <p className='membershipWithdrawal_title'>서비스를 탈퇴..</p>
-                    <p className='membershipWithdrawal_title'>하시겠습니까?</p>
-                    <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는</p>
-                    <p className='membershipWithdrawal_p'>모두 삭제되며 복구할 수 없어요.</p>
-                    <div className='membershipWithdrawal_innerBox'>
-                        <div className='membershipWithdrawal_button_signOut' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴</div>
-                        <div className='membershipWithdrawal_button_cancel' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
+            <React.Fragment>
+                <div className={isMembershipWithdrawal ? "membershipWithdrawal" : "membershipWithdrawal_fade"}>
+                    <div className='membershipWithdrawal_outContainer'>
+                        <p className='membershipWithdrawal_title'>서비스를 탈퇴..</p>
+                        <p className='membershipWithdrawal_title'>하시겠습니까?</p>
+                        <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는</p>
+                        <p className='membershipWithdrawal_p'>모두 삭제되며 복구할 수 없어요.</p>
+                        <div className='membershipWithdrawal_innerBox'>
+                            <div className='membershipWithdrawal_button_signOut' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴하기</div>
+                            <div className='membershipWithdrawal_button_cancel' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
+        );
+    };
+
+    function PopUPLogOut() {
+        return (
+            <React.Fragment>
+                <div className={isPopUpLogOut ? "isPopUpLogOut" : "isPopUpLogOut_fade"}>
+                    <div className='isPopUpLogOut_outContainer'>
+                        <p className='isPopUpLogOut_title'>로그아웃 하시겠습니까?</p>
+                        <p className='isPopUpLogOut_p'>로그아웃 해도 남은 시간은 지나</p>
+                        <p className='isPopUpLogOut_p'>갑니다. 다녀오세요!</p>
+                        <div className='isPopUpLogOut_innerBox'>
+                            <div className='isPopUpLogOut_button_signOut' onClick={() => { logoutWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT2); }}>로그아웃</div>
+                            <div className='isPopUpLogOut_button_cancel' onClick={() => { setIsPopUpLogOut(!isPopUpLogOut); }}>취소</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
         );
     };
 
@@ -93,6 +114,7 @@ function Menu() {
             <div className={isMenu ? "menu_wrap" : ""}>
                 <div className={isMenu ? "menu_wrap2" : ""} onClick={toggleMenu}></div>
                 <MembershipWithdrawal></MembershipWithdrawal>
+                <PopUPLogOut></PopUPLogOut>
                 <div className="menu_outContainer">
                     <div className={`menu_img${isMenu ? "_active" : ""}${isMypage || isPlater || isHowto ? "_plus" : ""}`} onClick={toggleMenu}></div>
                 </div>
@@ -101,7 +123,7 @@ function Menu() {
                         <p onClick={toggleMypage}>마이페이지</p>
                         <p onClick={togglePlanetter}>Pl@ter</p>
                         <p onClick={toggleHowto} >이용 방법</p>
-                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><p>Contact Us</p></a>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p>Contact Us</p></a>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <div className='menu_bar_mypage_box1'>
@@ -109,7 +131,7 @@ function Menu() {
                             <div></div>
                             <p className='menu_bar_mypage_box1_p'>{userData.nickname} 님</p>
                             <div className='menu_bar_mypage_box1_innerBox'>
-                                <div className='menu_bar_mypage_box1_logout' onClick={() => { logoutWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT2) }}>로그아웃</div>
+                                <div className='menu_bar_mypage_box1_logout' onClick={() => { setIsPopUpLogOut(!isPopUpLogOut); }}>로그아웃</div>
                             </div>
                         </div>
                         <div className='menu_bar_mypage_line1'></div>
@@ -126,7 +148,7 @@ function Menu() {
                         <div className='menu_bar_mypage_line'></div>
                         <p className='menu_bar_mypage_box_p'>개인정보 처리 방침</p>
                         <div className='menu_bar_mypage_line'></div>
-                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><p className='menu_bar_mypage_box_p'>문의하기</p></a>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p className='menu_bar_mypage_box_p'>문의하기</p></a>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
                         <article className='menu_plater_page'>

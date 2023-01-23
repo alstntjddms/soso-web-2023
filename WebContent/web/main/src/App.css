@@ -1,10 +1,3 @@
-@font-face {
-    font-family: 'GangwonEdu_OTFBoldA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* Spoqa Han Sans Neo R */
 @font-face {
     font-family: 'SpoqaHanSansNeo-Regular';
@@ -59,7 +52,7 @@ body {
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    font-family: 'GangwonEdu_OTFBoldA';
+    font-family: 'NeoDunggeunmo';
     overflow: hidden;
     touch-action: none;
     overscroll-behavior-y: none;
@@ -120,6 +113,7 @@ body {
     font-size: 0.875rem;
     color: #828A93;
     margin-bottom: 0.2rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 .isFirstIngo_button_confirm {
@@ -128,10 +122,9 @@ body {
     width: 16.375rem;
     height: 3.25rem;
     font-size: 1.0rem;
-    font-family: 'GangwonEdu_OTFBoldA';
     line-height: 3.25rem;
     background-color: #4A4AFF;
     color: #DBDBFF;
     border-radius: 0.75rem;
-    top: 4.125rem;    
+    top: 4.25rem;
 }

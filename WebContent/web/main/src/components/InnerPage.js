@@ -132,7 +132,8 @@ function InnerPage() {
             <React.Fragment>
                 <PopUpOpenPlanet></PopUpOpenPlanet>
                 <div className='noname_outContainer'>
-                    <h3>아직 신호를 보내지 않았습니다.</h3>
+                    <h4>아직 신호를 보내지</h4>
+                    <h4>않았습니다.</h4>
                     <div className='noname_sendSignal' onClick={showCreateSendSingalPage}>신호 보내기</div>
                     <div className={isSendSignal ? "noname_sendSignal_outContainer" : "noname_sendSignal_outContainer_fade"}>
                         <div className='noname_sendSignal_innerTitle'>
@@ -494,13 +495,15 @@ function InnerPage() {
         function NotYetLetter() {
             return (
                 <React.Fragment>
-                    <div className={isNotYetLetter ? 'notYetLetter_outContainer' : 'notYetLetter_outContainer_fade'}>
-                        <div className='notYetLetter_innerContainer'>
-                            <img alt='close' className='notYetLetter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                    <div className={isNotYetLetter ? "isNotYetLetter" : "isNotYetLetter_fade"}>
+                        <div className='isNotYetLetter_outContainer'>
+                            <p className='isNotYetLetter_title'>지구에서 편지가</p>
+                            <p className='isNotYetLetter_title'>오고 있습니다.</p>
+                            <p className='isNotYetLetter_p'>남은 시간이 모두 지나면</p>
+                            <p className='isNotYetLetter_p'>열어 볼 수 있어요.</p>
+                            <div className='isNotYetLetter_button_signOut' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: false });
-                            }}></img>
-                            <img alt='clock' className='notYetLetter_clcok' src='https://cdn-icons-png.flaticon.com/512/833/833602.png'></img>
-                            <span>지구에서 편지가 오고 있습니다.</span>
+                            }}>확인</div>
                         </div>
                     </div>
                 </React.Fragment>

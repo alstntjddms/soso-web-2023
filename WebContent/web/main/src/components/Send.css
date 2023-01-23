@@ -2,21 +2,34 @@
     opacity: 0;
 }
 
+.send_main_active {
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: -10;
+    background-color: black;
+}
+
 .send_top_menu {
     color: white;
     /*  */
     display: grid;
-    grid-template-columns: 10% 60% 30%;
+    grid-template-columns: 10% 30% 30% 30%;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     align-items: center;
 }
 
 .send_top_menu>img {
-    background-color: white;
+    background-color: transparent;
     /*  */
     margin-left: 1rem;
-    width: 50%;
+    width: 100%;
 }
 
 .send_top_menu>h3 {
@@ -47,7 +60,7 @@
 }
 
 .send_textbox {
-    font-family: 'GangwonEdu_OTFBoldA';
+    font-family: 'SpoqaHanSansNeo-Regular';
     position: absolute;
     text-align: left;
     line-height: 1.5rem;
@@ -58,7 +71,7 @@
     margin: auto;
     width: 16rem;
     height: 19rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true');
+    background-image: url('../lib/paper/paper_white.png');
     padding: 0rem 1rem;
     padding-top: 1rem;
     background-repeat: no-repeat;
@@ -67,72 +80,258 @@
 
 .send_textLength {
     position: absolute;
-    left: 80%;
+    left: 86%;
     top: 95%;
-    color: aliceblue;
+    color: #828A93;
+    font-size: 0.75rem;
 }
 
 /*  */
 
-.send_popUp {
-    visibility: visible;
-    transition: all 0.5s;
-}
-
-.send_popUp_fade {
-    touch-action: none;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.5s;
-}
-
-.send_popUp_outContainer {
+.isSendPopUp {
+    position: fixed;
     width: 100%;
-    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    position: fixed;
+    z-index: 8;
     top: 0;
     left: 0;
     overflow: hidden;
     touch-action: none;
+    transition: all 1.5s;
 }
 
-.send_popUp_InnerContainer {
-    width: 18rem;
-    height: 18rem;
-    background-color: rgba(255, 255, 255, 1.0);
+.isSendPopUp_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUp_outContainer {
     position: absolute;
     left: 50%;
-    top: 35%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 1px solid rgba(230, 230, 230, 1.0);
-}
-
-.send_popUp_InnerContainer>h3 {
-    color: black;
+    bottom: 0;
+    width: 19.375rem;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
     text-align: center;
-    margin-top: 2.5rem;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
 }
 
-.send_popUp_InnerContainer>h4 {
-    color: black;
-    text-align: center;
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-}
-
-.send_popUP_send_btn,
-.send_popUP_main_btn {
+.isSendPopUp_title {
+    position: relative;
     margin: auto;
-    margin-top: 1.2rem;
-    border: 1px solid black;
-    width: 6rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    top: 4rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #090A14;
+}
+
+.isSendPopUp_p {
+    position: relative;
+    margin: auto;
+    top: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.isSendPopUp_innerBox {
+    position: relative;
+    top: 6.125rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.isSendPopUp_button_signOut {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #DBDBFF;
+    color: #4A4AFF;
+    border-radius: 0.75rem;
+}
+
+.isSendPopUp_button_cancel {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+}
+
+/*  */
+
+.isSendPopUpCancel {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCancel_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUpCancel_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 19.375rem;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
     text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCancel_title {
+    position: relative;
+    margin: auto;
+    top: 4rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #090A14;
+}
+
+.isSendPopUpCancel_p {
+    position: relative;
+    margin: auto;
+    top: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.isSendPopUpCancel_innerBox {
+    position: relative;
+    top: 6.125rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.isSendPopUpCancel_button_signOut {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #DBDBFF;
+    color: #4A4AFF;
+    border-radius: 0.75rem;
+}
+
+.isSendPopUpCancel_button_cancel {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+}
+
+/*  */
+
+.isSendPopUpCheck {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCheck_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUpCheck_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 19.375rem;
+    height: 13.0rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCheck_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #090A14;
+}
+
+.isSendPopUpCheck_p {
+    position: relative;
+    margin: auto;
+    top: 3.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    margin-bottom: 0.2rem;
+}
+
+.isSendPopUpCheck_button_cancel {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    top: 5.125rem;
 }
 
 /*  */
@@ -141,13 +340,13 @@
     background-color: transparent;
     /*  */
     position: absolute;
-    top: 28rem;
+    top: 29rem;
     left: 2rem;
     background-image: url('../lib/etc/send/customize_btn.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 4rem;
-    height: 4rem;
+    height: 3rem;
 }
 
 /*  */
@@ -155,7 +354,6 @@
 .send_letter_option_active {
     position: absolute;
     bottom: 0;
-    /* top: 26rem; */
     width: 100%;
     opacity: 1;
     background-color: lightgray;
@@ -219,8 +417,8 @@
 .send_paper_active {
     background-color: lightgrey;
     margin-top: 0.5rem;
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
-    /* height: 10rem; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow-y: scroll;
@@ -231,8 +429,8 @@
 .send_range_active {
     background-color: lightgray;
     margin-top: 0.5rem;
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
-    /* height: 10rem; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     overflow-y: scroll;
@@ -244,8 +442,8 @@
 .send_sticker_active {
     background-color: lightgray;
     margin-top: 0.5rem;
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
-    /* height: 10rem; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     overflow-y: scroll;
@@ -375,7 +573,7 @@
 
 .send_item_range_left {
     margin: auto;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/847/847497.png');
+    background-image: url('../lib/etc/send/align_left.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 1.5rem;
@@ -384,7 +582,7 @@
 
 .send_item_range_center {
     margin: auto;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/847/847621.png');
+    background-image: url('../lib/etc/send/align_center.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 1.5rem;
@@ -393,7 +591,7 @@
 
 .send_item_range_right {
     margin: auto;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/847/847499.png');
+    background-image: url('../lib/etc/send/align_right.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 1.5rem;
@@ -407,7 +605,6 @@
         0.2rem 0 0 0 rgb(6 18 42),
         0 -0.2rem 0 0 rgb(6 18 42),
         0 0.2rem 0 0 rgb(6 18 42);
-    /* border: 0.2rem solid rgb(201 203 205); */
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -421,7 +618,6 @@
         0.2rem 0 0 0 rgb(119, 118, 253),
         0 -0.2rem 0 0 rgb(119, 118, 253),
         0 0.2rem 0 0 rgb(119, 118, 253);
-    /* border: 0.2rem solid rgb(201 203 205); */
     margin: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -520,13 +716,6 @@
     grid-template-rows: 30% 70%;
 }
 
-/* .send_item_paper>span,
-.send_item_paper_active>span {
-    position: relative;
-    top: 0.5rem;
-    left: 0.5rem;
-} */
-
 .send_item_paper_title {
     border: none;
     background-color: rgb(6, 18, 42);
@@ -539,15 +728,15 @@
 }
 
 #paper_1 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true');
+    background-image: url('../lib/paper/paper_city.gif');
 }
 
 #paper_2 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true');
+    background-image: url('../lib/paper/paper_curce.gif');
 }
 
 #paper_3 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true');
+    background-image: url('../lib/paper/paper_space.png');
 }
 
 #paper_4 {
@@ -557,7 +746,7 @@
 /*  */
 
 .send_close {
-    background-image: url(https://cdn-icons-png.flaticon.com/512/463/463612.png);
+    background-image: url('../lib/etc/send/delete_btn.png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 0.8rem;
@@ -566,7 +755,7 @@
 }
 
 .send_item_sticker_0 {
-    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-dog.gif?raw=true);
+    background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -581,7 +770,7 @@
 .send_item_sticker0 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-dog.gif?raw=true);
+    background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -597,7 +786,7 @@
 }
 
 .send_item_sticker_1 {
-    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-pudding.gif?raw=true);
+    background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -612,7 +801,7 @@
 .send_item_sticker1 {
     width: 3rem;
     height: 3rem;
-    background-image: url(https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker-pudding.gif?raw=true);
+    background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -628,7 +817,7 @@
 }
 
 .send_item_sticker_2 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_bow(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_bow\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -643,7 +832,7 @@
 .send_item_sticker2 {
     width: 3rem;
     height: 3rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_bow(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_bow\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -659,7 +848,7 @@
 }
 
 .send_item_sticker_3 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_hart(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_hart\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -674,7 +863,7 @@
 .send_item_sticker3 {
     width: 3rem;
     height: 3rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_hart(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_hart\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -690,7 +879,7 @@
 }
 
 .send_item_sticker_4 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon1(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -705,7 +894,7 @@
 .send_item_sticker4 {
     width: 3rem;
     height: 3rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon1(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -721,7 +910,7 @@
 }
 
 .send_item_sticker_5 {
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon2(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3rem;
@@ -736,7 +925,7 @@
 .send_item_sticker5 {
     width: 3rem;
     height: 3rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/sticker/sticker_ribon2(red).png?raw=true');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
@@ -800,7 +989,7 @@
 }
 
 .send_pre_textbox {
-    font-family: 'GangwonEdu_OTFBoldA';
+    font-family: 'SpoqaHanSansNeo-Regular';
     position: absolute;
     text-align: left;
     line-height: 1.5rem;
@@ -811,7 +1000,7 @@
     margin: auto;
     width: 16rem;
     height: 19rem;
-    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true');
+    background-image: url('../lib/paper/paper_white.png');
     padding: 0rem 1rem;
     padding-top: 1rem;
     background-repeat: no-repeat;
@@ -835,6 +1024,8 @@
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
     background-color: rgba(255, 255, 255, 0);
     z-index: 10;
     position: fixed;
@@ -842,30 +1033,6 @@
     left: 0;
     overflow: hidden;
     touch-action: none;
-}
-
-.pre_letter_title {
-    color: white;
-    /*  */
-    width: 6rem;
-    text-align: center;
-    font-size: 1.2rem;
-    margin: auto;
-}
-
-.pre_letter_title_img {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.pre_letter_title_outContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.pre_letter_title_outContainer>div>img {
-    width: 2rem;
-    margin: auto;
 }
 
 .pre_letter_author_outContainer {
@@ -883,7 +1050,7 @@
 
 .pre_letter_author_input {
     width: 10rem;
-    font-family: 'GangwonEdu_OTFBoldA';
+    font-family: 'SpoqaHanSansNeo-Regular';
     margin-left: 0.5rem;
     border: none;
     background-color: lightgray;
@@ -981,6 +1148,8 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     background-color: rgba(255, 255, 255, 1);
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -992,7 +1161,7 @@
 .sending_page_gif {
     margin: auto;
     margin-top: 5rem;
-    background-image: url('../lib/KakaoTalk_20221220_175352851_01.gif');
+    background-image: url('../lib/etc/send/UFO-Loading.gif');
     width: 13rem;
     height: 13rem;
     background-size: cover;
@@ -1028,6 +1197,8 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     background-color: rgba(255, 255, 255, 0);
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -1039,7 +1210,7 @@
 .sending_end_img {
     margin: auto;
     margin-top: 8rem;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/3129/3129271.png');
+    background-image: url('../lib/etc/send/send_done.gif');
     width: 5rem;
     height: 5rem;
     background-size: cover;

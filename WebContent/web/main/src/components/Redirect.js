@@ -73,12 +73,13 @@ function Redirect() {
     }, [name, nameErro, navigater, dispatch]);
 
     return (
-        <div className='redirect_outContainer'>
-            {/* <img alt='redirect_img' className='redirect_img' src='https://cdn.dribbble.com/users/563824/screenshots/3633228/media/d876c7712d969c0656302b16b16af2cc.gif'></img> */}
-            <div className='redirect_gif'></div>
-            <h3 className='redirect_h3'>로그인 중입니다...</h3>
-            <h4 className='redirect_h4'>[리빙포인트] 달에는 토끼가 떡을 만들고 있다.</h4>
-        </div>
+        <React.Fragment>
+            <div className='redirect_outContainer'>
+                <div className='redirect_gif'></div>
+                <h3 className='redirect_h3'>로그인 중입니다...</h3>
+                <h4 className='redirect_h4'>[리빙포인트] 달에는 토끼가 떡을 만들고 있다.</h4>
+            </div>
+        </React.Fragment>
     );
 };
 

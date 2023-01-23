@@ -286,7 +286,7 @@ function reducer(state, action) {
             isShareBt: false,
             isNamePage: false,
             ModalCreateUrl: false,
-            isPopUpCopyLink : false,
+            isPopUpCopyLink: false,
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
@@ -298,6 +298,8 @@ function reducer(state, action) {
             stickerNumber: 0,
             isSendMain: false,
             isSendPopUp: true,
+            isSendPopUpCancel: false,
+            isSendPopUpCheck: false,
             isLetterOption: false,
             isFontFamily: false,
             isRange: false,
@@ -380,7 +382,7 @@ function reducer(state, action) {
     if (action.type === 'CHANGE_ISNAMEPAGE') {
         newState.isNamePage = action.data;
     };
-    
+
     if (action.type === 'CHANGE_MODALCREATEURL') {
         newState.ModalCreateUrl = action.data;
     };
@@ -440,6 +442,14 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISSENDPOPUP') {
         newState.isSendPopUp = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDPOPUPCANCEL') {
+        newState.isSendPopUpCancel = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSENDPOPUPCHECK') {
+        newState.isSendPopUpCheck = action.data;
     };
 
     if (action.type === 'CHANGE_ISLETTEROPTION') {

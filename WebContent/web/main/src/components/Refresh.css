@@ -1,9 +1,9 @@
 .refresh {
     position: absolute;
-    top: 42%;
-    left: 60%;
-    width: 0.8rem;
-    height: 0.8rem;
+    top: 45%;
+    left: 62%;
+    width: 0.625rem;
+    height: 0.625rem;
     background-image: url('../lib/icon/refresh.png');
     background-size: cover;
     transform: rotate(-360deg);
@@ -12,10 +12,10 @@
 
 .refresh_active {
     position: absolute;
-    top: 42%;
-    left: 60%;
-    width: 0.8rem;
-    height: 0.8rem;
+    top: 45%;
+    left: 62%;
+    width: 0.625rem;
+    height: 0.625rem;
     background-image: url('../lib/icon/refresh.png');
     background-size: cover;
     transform: rotate(360deg);
