@@ -19,7 +19,7 @@
     color: white;
     /*  */
     display: grid;
-    grid-template-columns: 10% 30% 30% 30%;
+    grid-template-columns: 10% 60% 30%;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     align-items: center;
@@ -36,6 +36,8 @@
     margin-left: 1rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
+    font-size: 1.0rem;
+    font-weight: normal;
 }
 
 .send_top_menu>span {

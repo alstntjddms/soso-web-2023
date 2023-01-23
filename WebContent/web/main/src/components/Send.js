@@ -34,7 +34,7 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('../lib/paper/paper_white.png')" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -128,11 +128,11 @@ function Send() {
                     <div className='isSendPopUpCheck_outContainer'>
                         <p className='isSendPopUpCheck_title'>편지가 비어 있습니다.</p>
                         <p className='isSendPopUpCheck_p'>당신의 소중한 이야기를 들려주세요.</p>
-                            <div className='isSendPopUpCheck_button_cancel' onClick={() => {
-                                dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
-                            }}>계속 작성하기</div>
-                        </div>
+                        <div className='isSendPopUpCheck_button_cancel' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
+                        }}>계속 작성하기</div>
                     </div>
+                </div>
             </React.Fragment>
         );
     };
@@ -257,8 +257,7 @@ function Send() {
                                 dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                                 dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
                             }}></img>
-                            <span>수정하기</span>
-                            <div></div>
+                            <h3>수정하기</h3>
                             <span onClick={() => {
                                 changeAuthor(preAuthor);
                                 changeStamp();
@@ -986,7 +985,6 @@ function Send() {
                         dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
                     }}></img>
                     <h3>To. {userID}</h3>
-                    <span></span>
                     <span onClick={() => {
                         if (text === '') {
                             dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
@@ -1142,19 +1140,19 @@ function Send() {
                     </div>
                     <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
                         <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'../lib/paper/paper_city.gif\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
                             selectPaperItem('paper_1');
                         }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
                         <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'../lib/paper/paper_curce.gif\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
                             selectPaperItem('paper_2');
                         }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
                         <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'../lib/paper/paper_space.png\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true\')');
                             selectPaperItem('paper_3');
                         }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
                         <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'../lib/paper/paper_white.png\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true\')');
                             selectPaperItem('paper_4');
                         }}><div className='send_item_paper_title'>네 번째 편지지</div></div>
                     </div>
