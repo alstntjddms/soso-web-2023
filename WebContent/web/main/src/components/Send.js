@@ -81,7 +81,7 @@ function Send() {
             <React.Fragment>
                 <div className={isSendPopUp ? "isSendPopUp" : "isSendPopUp_fade"}>
                     <div className='isSendPopUp_outContainer'>
-                        <p className='isSendPopUp_title'>〈{userID}님의 행성〉</p>
+                        <p className='isSendPopUp_title'>〈 {userID}님의 행성 〉</p>
                         <p className='isSendPopUp_p'>어서오세요! 이곳은</p>
                         <p className='isSendPopUp_p'>{userID}님의 행성입니다.</p>
                         <div className='isSendPopUp_innerBox'>
@@ -993,19 +993,26 @@ function Send() {
                         };
                     }}>완성하기</span>
                 </div>
-                <div id="send_textarea">
-                    <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={400} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
-                        dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
-                        dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
-                    }}>
-                    </textarea>
+                <div>
+                    <div id="send_textarea">
+                        <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={400} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
+                            dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
+                            dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
+                        }}>
+                        </textarea>
+                    </div>
                     <div className='send_textLength'>{textLength}/400</div>
                 </div>
+
                 <div className='send_option_button' onClick={() => {
                     activeLetterOption();
                     selectLetterMenu('font');
                 }}></div>
                 <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
+                    <img className='send_letter_menu_close' alt='option_closed' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/send/closed_btn.png?raw=true' onClick={() => {
+                        inactiveLetterOption();
+                        selectLetterMenu('font');
+                    }}></img>
                     <div className='send_letter_option_innerContainer'>
                         <div className='send_letter_option_menu'>
                             <div className={letterMenu.font ? 'send_letter_menu_active' : 'send_letter_menu'} onClick={() => {
@@ -1028,12 +1035,6 @@ function Send() {
                                 changeLetterOption('CHANGE_ISSTICKER');
                                 selectLetterMenu('sticker');
                             }}>스티커</div>
-                        </div>
-                        <div className='send_letter_menu_close' onClick={() => {
-                            inactiveLetterOption();
-                            selectLetterMenu('font');
-                        }}>
-                            ×
                         </div>
                     </div>
                     <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
@@ -1140,19 +1141,19 @@ function Send() {
                         <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
                             selectPaperItem('paper_1');
-                        }}><div className='send_item_paper_title'>첫 번째 편지지</div></div>
+                        }}><div className='send_item_paper_title'>도시 편지지</div></div>
                         <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
                             selectPaperItem('paper_2');
-                        }}><div className='send_item_paper_title'>두 번째 편지지</div></div>
+                        }}><div className='send_item_paper_title'>저주 편지지</div></div>
                         <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true\')');
                             selectPaperItem('paper_3');
-                        }}><div className='send_item_paper_title'>세 번째 편지지</div></div>
+                        }}><div className='send_item_paper_title'>우주 편지지</div></div>
                         <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true\')');
                             selectPaperItem('paper_4');
-                        }}><div className='send_item_paper_title'>네 번째 편지지</div></div>
+                        }}><div className='send_item_paper_title'>하얀 편지지</div></div>
                     </div>
                     <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
                         <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>

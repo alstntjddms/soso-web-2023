@@ -19,6 +19,7 @@ function InnerPage() {
     const isNamePage = useSelector((state) => state.isNamePage);
     const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
     const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
+    const isYesName = useSelector((state) => state.isYesName);
     const isRestart = useSelector((state) => state.isRestart);
 
     useEffect(() => {
@@ -126,6 +127,7 @@ function InnerPage() {
             dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
             dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
             dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+            dispatch({ type: 'CHANGE_ISYESNAME', data: true });
         }
 
         return (
@@ -252,7 +254,8 @@ function InnerPage() {
                     dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
                     dispatch({ type: 'CHANGE_ISSHARE', data: false });
                     dispatch({ type: 'CHANGE_ISRESTART', data: true });
-                    setDday("편지를 열어보세요.");
+                    dispatch({ type: 'CHANGE_ISYESNAME', data: false });
+                    setDday("만료된 행성");
                 };
             }, 0);
         }, [Dday]);
@@ -265,9 +268,11 @@ function InnerPage() {
             <React.Fragment>
                 <div className='yesname_outContainer'>
                     <h3>작은별-{userData.nickname}</h3>
+                    <div className={ isYesName ? '' : 'yesname_outContainer_div_fade'}>
                     <Refresh></Refresh>
                     <h4>남은 시간</h4>
-                    <h4>{Dday}</h4>
+                    </div>
+                    <h4 className={ isYesName ? '' : 'h4_new'} >{Dday}</h4>
                 </div>
             </React.Fragment>
         );
@@ -325,7 +330,7 @@ function InnerPage() {
         };
 
         function enterAuthor(i) {
-            let copyAuthor = `보낸이 ${letterData[i].letterWriter}`;
+            let copyAuthor = `${letterData[i].letterWriter}`;
             let enterAuthor = document.querySelector('.author');
             enterAuthor.value = copyAuthor;
         };
@@ -465,18 +470,21 @@ function InnerPage() {
             return (
                 <React.Fragment>
                     <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
-                        <div className="letter_textarea">
-                            <img alt='block' className='letter_block' src='https://cdn-icons-png.flaticon.com/512/2089/2089793.png' onClick={() => { letterBlcok(render) }}></img>
-                            <img alt='close' className='letter_close' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={() => {
+                        <div className='letter_textarea_top'>
+                            <span className='letter_textarea_author_title'>From.</span>
+                            <input type='text' className='author' value={''} readOnly></input>
+                            <img alt='block' className='letter_block' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/trash_bin.png?raw=true' onClick={() => { letterBlcok(render) }}></img>
+                            <img alt='close' className='letter_close' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={() => {
                                 // openLetter(render);
                                 // setTimeout(() => {
                                 //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                 // }, 500);
                                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
                             }}></img>
+                        </div>
+                        <div className="letter_textarea">
                             <textarea style={setStyle} className="textbox" value={''} readOnly>
                             </textarea>
-                            <input type='text' className='author' value={''} readOnly></input>
                         </div>
                         <div className='googleAdsense'>
                             <Adsense
@@ -542,9 +550,9 @@ function InnerPage() {
         <React.Fragment>
             <ShareBt></ShareBt>
             {isNamePage ? <ShowMemberInf></ShowMemberInf> : <SetSignal></SetSignal>}
+            {isRestart ? <Restart></Restart> : <span></span>}
             {isNamePage ? <LetterBox></LetterBox> : <span></span>}
             <CreateNameURL></CreateNameURL>
-            {isRestart ? <Restart></Restart> : <span></span>}
         </React.Fragment>
     );
 };

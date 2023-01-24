@@ -16,7 +16,7 @@ function Restart() {
                     dispatch({ type: 'CHANGE_LETTERDATA', data: [] });
                     dispatch({ type: 'CHANGE_OPENDATE', data: 0 });
                 };
-            }}><img alt="plus" src="https://cdn-icons-png.flaticon.com/512/1828/1828819.png"></img>새 행성 만들기</div>
+            }}>새 행성 개설하기</div>
         </React.Fragment>
     );
 };

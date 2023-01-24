@@ -11,7 +11,7 @@ function reducer(state, action) {
                     "letterContent": "나뭇잎 흔들리며 불어오는 바람 누구를 스치고 지나왔는지 어디에서 시작되었는지 모르는 바람이 나를 스쳐간다. 이 바람은 나를 지나쳐 또 다른 곳으로 향하겠지 너를 다시 또 만날 수 있을까",
                     "letterFont": "GangwonEdu_OTFBoldA",
                     "letterFontColor": "black",
-                    "letterPaper": "url('https://t1.daumcdn.net/cfile/tistory/991CD6365C6D05C432')",
+                    "letterPaper": "url('')",
                     "letterWriter": "Angelo",
                     "letterIcon": "0",
                     "letterWriteDate": "1661837285640",
@@ -287,6 +287,7 @@ function reducer(state, action) {
             isNamePage: false,
             ModalCreateUrl: false,
             isPopUpCopyLink: false,
+            isYesName: true,
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
@@ -389,6 +390,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISPOPUPCOPYLINK') {
         newState.isPopUpCopyLink = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISYESNAME') {
+        newState.isYesName = action.data;
     };
 
     if (action.type === 'CHANGE_ISSENDSIGNAL') {

@@ -322,6 +322,7 @@ a {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .membershipWithdrawal_p {
@@ -351,6 +352,7 @@ a {
     background-color: #DBDBFF;
     color: #4A4AFF;
     border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .membershipWithdrawal_button_cancel {
@@ -364,6 +366,7 @@ a {
     color: #DBDBFF;
     border-radius: 0.75rem;
     margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */
@@ -412,6 +415,7 @@ a {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isPopUpLogOut_p {
@@ -441,6 +445,7 @@ a {
     background-color: #DBDBFF;
     color: #4A4AFF;
     border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isPopUpLogOut_button_cancel {
@@ -454,6 +459,7 @@ a {
     color: #DBDBFF;
     border-radius: 0.75rem;
     margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */

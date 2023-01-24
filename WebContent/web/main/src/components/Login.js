@@ -94,15 +94,26 @@ function Login() {
             <Individual></Individual>
             <div className='login_wrap'>
                 <div className='login_outContainer'>
+                    <section className='section_shootingStar'>
+                        <span className='shootingStar'></span>
+                        <span className='shootingStar'></span>
+                        <span className='shootingStar'></span>
+                        <span className='shootingStar'></span>
+                    </section>
                     <div className='login_innerContainer'>
-                        <img alt='login_img' className='login_img' src='https://cdn-icons-png.flaticon.com/512/6598/6598519.png'></img>
-                        <h4 className='login_title'>로그인 해서 편지를 받아보세요</h4>
-                        <img alt='login_kakao' className='login_kakao' src='http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg' onClick={() => { loginWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT) }}></img>
+                        <p className='login_title'>광활한 인터넷 우주 속</p>
+                        <p className='login_title'>편지를 보내고 싶다면,</p>
+                        <img alt='login_img' className='login_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
+                        <br></br>
+                        <img alt='login_img_title' className='login_img_title' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo_title.png?raw=true'></img>
+                        <br></br>
+                        <img alt='login_kakao' className='login_kakao' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/login/kakao_login_medium_narrow.png?raw=true' onClick={() => { loginWithKakao(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT) }}></img>
                         <div className='login_text'>
                             <span onClick={toggleConditions}>이용약관</span><span>│</span><span onClick={toggleIndividual}>개인정보처리방침</span><span>│</span><a className='go_to_notion_white' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' target={'_blank'}><span>ContactUs</span></a>
                         </div>
                         <p className='login_name'>©소소한프로젝트</p>
                     </div>
+                    <div className='login_img_bottom'></div>
                 </div>
             </div>
         </React.Fragment>

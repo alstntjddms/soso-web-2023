@@ -49,43 +49,43 @@
 #send_textarea {
     margin: auto;
     margin-top: 1rem;
-    width: 20rem;
-    height: 23rem;
+    width: 20.5rem;
+    height: 23.75rem;
     background-color: #262a3a;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 7px;
+    border-radius: 1.125rem;
     touch-action: none;
     position: relative;
+    border: none;
 }
 
 .send_textbox {
-    font-family: 'SpoqaHanSansNeo-Regular';
     position: absolute;
-    text-align: left;
-    line-height: 1.5rem;
-    border: 2px solid black;
-    border-radius: 2%;
-    resize: none;
-    display: flex;
     margin: auto;
-    width: 16rem;
-    height: 19rem;
+    border: none;
+    width: 16.625rem;
+    height: 20rem;
+    padding: 1rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
     background-image: url('../lib/paper/paper_white.png');
-    padding: 0rem 1rem;
-    padding-top: 1rem;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    text-align: left;
+    line-height: 1.5rem;
+    resize: none;
 }
 
 .send_textLength {
-    position: absolute;
-    left: 86%;
-    top: 95%;
+    position: relative;
     color: #828A93;
     font-size: 0.75rem;
+    text-align: end;
+    padding-right: 10%;
+    padding-top: 3%;
 }
 
 /*  */
@@ -133,6 +133,7 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isSendPopUp_p {
@@ -162,6 +163,7 @@
     background-color: #DBDBFF;
     color: #4A4AFF;
     border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isSendPopUp_button_cancel {
@@ -175,6 +177,7 @@
     color: #DBDBFF;
     border-radius: 0.75rem;
     margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */
@@ -222,6 +225,7 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isSendPopUpCancel_p {
@@ -251,6 +255,7 @@
     background-color: #DBDBFF;
     color: #4A4AFF;
     border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isSendPopUpCancel_button_cancel {
@@ -264,6 +269,7 @@
     color: #DBDBFF;
     border-radius: 0.75rem;
     margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */
@@ -310,6 +316,7 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #090A14;
+    font-family: 'NeoDunggeunmo';
 }
 
 .isSendPopUpCheck_p {
@@ -334,6 +341,7 @@
     color: #DBDBFF;
     border-radius: 0.75rem;
     top: 5.125rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */
@@ -342,7 +350,7 @@
     background-color: transparent;
     /*  */
     position: absolute;
-    top: 29rem;
+    top: 30rem;
     left: 2rem;
     background-image: url('../lib/etc/send/customize_btn.png');
     background-size: contain;
@@ -376,7 +384,7 @@
 
 .send_letter_option_innerContainer {
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 100%;
 }
 
 .send_letter_option_menu {
@@ -406,13 +414,20 @@
     transition: all 0.5s;
 }
 
-.send_letter_menu_close {
+/* .send_letter_menu_close {
     border: 1px solid black;
     width: 100%;
     height: 2rem;
     line-height: 2rem;
     text-align: center;
     background-color: lightgray;
+} */
+
+.send_letter_menu_close {
+    position: absolute;
+    width: 1.5rem;
+    right: 1rem;
+    top: -2rem;
 }
 
 .send_font_active,
@@ -558,6 +573,7 @@
     width: 3rem;
     height: 3rem;
     display: flex;
+    background-color: white;
 }
 
 .send_item_range_active {
@@ -578,8 +594,8 @@
     background-image: url('../lib/etc/send/align_left.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .send_item_range_center {
@@ -587,8 +603,8 @@
     background-image: url('../lib/etc/send/align_center.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .send_item_range_right {
@@ -596,8 +612,8 @@
     background-image: url('../lib/etc/send/align_right.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 /*  */
@@ -978,35 +994,36 @@
 .pre_letter_outContainer {
     margin: auto;
     margin-top: 1rem;
-    width: 20rem;
-    height: 23rem;
+    width: 20.5rem;
+    height: 23.75rem;
     background-color: #262a3a;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 7px;
+    border-radius: 1.125rem;
     touch-action: none;
     position: relative;
+    border: none;
 }
 
 .send_pre_textbox {
-    font-family: 'SpoqaHanSansNeo-Regular';
     position: absolute;
-    text-align: left;
-    line-height: 1.5rem;
-    border: 2px solid black;
-    border-radius: 2%;
-    resize: none;
-    display: flex;
     margin: auto;
-    width: 16rem;
-    height: 19rem;
+    width: 16.625rem;
+    height: 20rem;
+    padding: 1rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
     background-image: url('../lib/paper/paper_white.png');
-    padding: 0rem 1rem;
-    padding-top: 1rem;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    text-align: left;
+    line-height: 1.5rem;
+    resize: none;
+    touch-action: none;
+    pointer-events: none;
+    border: none;
 }
 
 /*  */
