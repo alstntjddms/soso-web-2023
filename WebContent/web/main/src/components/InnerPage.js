@@ -268,11 +268,11 @@ function InnerPage() {
             <React.Fragment>
                 <div className='yesname_outContainer'>
                     <h3>작은별-{userData.nickname}</h3>
-                    <div className={ isYesName ? '' : 'yesname_outContainer_div_fade'}>
-                    <Refresh></Refresh>
-                    <h4>남은 시간</h4>
+                    <div className={isYesName ? '' : 'yesname_outContainer_div_fade'}>
+                        <Refresh></Refresh>
+                        <h4>남은 시간</h4>
                     </div>
-                    <h4 className={ isYesName ? '' : 'h4_new'} >{Dday}</h4>
+                    <h4 className={isYesName ? '' : 'h4_new'} >{Dday}</h4>
                 </div>
             </React.Fragment>
         );
@@ -473,14 +473,14 @@ function InnerPage() {
                         <div className='letter_textarea_top'>
                             <span className='letter_textarea_author_title'>From.</span>
                             <input type='text' className='author' value={''} readOnly></input>
-                            <img alt='block' className='letter_block' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/trash_bin.png?raw=true' onClick={() => { letterBlcok(render) }}></img>
-                            <img alt='close' className='letter_close' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={() => {
+                            <div className='letter_block' onClick={() => { letterBlcok(render) }}></div>
+                            <div className='letter_close' onClick={() => {
                                 // openLetter(render);
                                 // setTimeout(() => {
                                 //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                 // }, 500);
                                 dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                            }}></img>
+                            }}></div>
                         </div>
                         <div className="letter_textarea">
                             <textarea style={setStyle} className="textbox" value={''} readOnly>

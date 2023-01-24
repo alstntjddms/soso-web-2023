@@ -148,7 +148,7 @@ function Send() {
             dots: false,
             infinite: false,
             speed: 1250,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1
         };
 
@@ -172,6 +172,12 @@ function Send() {
                     newStampItem['d'] = false;
                     newStampItem['e'] = false;
                     newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_2':
@@ -181,6 +187,12 @@ function Send() {
                     newStampItem['d'] = false;
                     newStampItem['e'] = false;
                     newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_3':
@@ -190,6 +202,12 @@ function Send() {
                     newStampItem['d'] = false;
                     newStampItem['e'] = false;
                     newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_4':
@@ -199,6 +217,12 @@ function Send() {
                     newStampItem['d'] = true;
                     newStampItem['e'] = false;
                     newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_5':
@@ -208,6 +232,12 @@ function Send() {
                     newStampItem['d'] = false;
                     newStampItem['e'] = true;
                     newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_6':
@@ -217,6 +247,102 @@ function Send() {
                     newStampItem['d'] = false;
                     newStampItem['e'] = false;
                     newStampItem['f'] = true;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_7':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = true;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_8':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = true;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_9':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = true;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_10':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = true;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_11':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = true;
+                    newStampItem['l'] = false;
+                    setPreIsStamp(newStampItem);
+                    break;
+                case 'stamp_12':
+                    newStampItem['a'] = false;
+                    newStampItem['b'] = false;
+                    newStampItem['c'] = false;
+                    newStampItem['d'] = false;
+                    newStampItem['e'] = false;
+                    newStampItem['f'] = false;
+                    newStampItem['g'] = false;
+                    newStampItem['h'] = false;
+                    newStampItem['i'] = false;
+                    newStampItem['j'] = false;
+                    newStampItem['k'] = false;
+                    newStampItem['l'] = true;
                     setPreIsStamp(newStampItem);
                     break;
                 default:
@@ -270,13 +396,16 @@ function Send() {
                             <textarea style={styleLetter} className='send_pre_textbox' readOnly></textarea>
                         </div>
                         <div className='pre_letter_author_outContainer'>
-                            <h3 className='pre_letter_autho_title'>발신자 명</h3>
-                            <input className='pre_letter_author_input' type='text' maxLength={10} placeholder={author} onChange={(e) => {
-                                setPreAuthor(e.target.value);
-                            }}></input><span>{preAuthor.length}/10</span>
+                            <p className='pre_letter_autho_title'>발신자 명</p>
+                            <div className='pre_letter_author_input_div'>
+                                <span className='pre_letter_author_input_title'>from.</span>
+                                <input className='pre_letter_author_input' type='text' maxLength={10} placeholder={author} onChange={(e) => {
+                                    setPreAuthor(e.target.value);
+                                }}></input><span className='pre_letter_author_input_length'>{preAuthor.length}/10</span>
+                            </div>
                         </div>
                         <div className='pre_letter_author_outContainer'>
-                            <h3 className='pre_letter_autho_title'>우표</h3>
+                            <p className='pre_letter_autho_title'>우표</p>
                             <div className='pre_letter_stamp_outContainer'>
                                 <Slider {...settings}>
                                     <div>
@@ -315,9 +444,44 @@ function Send() {
                                             setStampNum(5);
                                         }}></div>
                                     </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_7' className={preIsStamp.g ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_7');
+                                            setStampNum(6);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_8' className={preIsStamp.h ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_8');
+                                            setStampNum(7);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_9' className={preIsStamp.i ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_9');
+                                            setStampNum(8);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_10' className={preIsStamp.j ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_10');
+                                            setStampNum(9);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_11' className={preIsStamp.k ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_11');
+                                            setStampNum(10);
+                                        }}></div>
+                                    </div>
+                                    <div>
+                                        <div id='pre_letter_stamp_img_12' className={preIsStamp.l ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                            selectStamp('stamp_12');
+                                            setStampNum(11);
+                                        }}></div>
+                                    </div>
                                 </Slider>
                             </div>
-                            <img alt='right_arrow' src='https://cdn-icons-png.flaticon.com/512/130/130882.png'></img>
                         </div>
                     </div>
                 </div>
@@ -534,7 +698,7 @@ function Send() {
                 };
                 xOffset = currentX;
                 yOffset = currentY;
-                if (currentX >= 145 || currentY >= 165 || currentX <= -145 || currentY <= -165) {
+                if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
                     alert('편지지 안쪽에 스티커를 붙여주세요.');
                 } else {
                     setTranslate(Math.round(currentX), Math.round(currentY), dragItem);

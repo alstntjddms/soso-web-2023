@@ -316,7 +316,13 @@ function reducer(state, action) {
                 c: false,
                 d: false,
                 e: false,
-                f: false
+                f: false,
+                g: false,
+                h: false,
+                i: false,
+                j: false,
+                k: false,
+                l: false
             },
             isSendingPage: false,
             isSendingEnd: false
