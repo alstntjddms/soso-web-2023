@@ -392,27 +392,29 @@
     display: flex;
     overflow-x: auto;
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     border: 1px solid black;
 }
 
 .send_letter_menu {
-    min-width: 8rem;
-    height: 2rem;
-    line-height: 2rem;
+    min-width: 6.5rem;
+    height: 3rem;
+    line-height: 3rem;
     text-align: center;
     background-color: lightgrey;
     transition: all 0.5s;
+    font-size: 0.875rem;
 }
 
 .send_letter_menu_active {
     color: white;
-    min-width: 8rem;
-    height: 2rem;
-    line-height: 2rem;
+    min-width: 6.5rem;
+    height: 3rem;
+    line-height: 3rem;
     text-align: center;
     background-color: rgb(6, 18, 42);
     transition: all 0.5s;
+    font-size: 0.875rem;
 }
 
 /* .send_letter_menu_close {
@@ -434,7 +436,7 @@
 .send_font_active,
 .send_paper_active {
     background-color: lightgrey;
-    margin-top: 0.5rem;
+    margin-top: 1.0rem;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
     display: grid;
@@ -446,7 +448,7 @@
 
 .send_range_active {
     background-color: lightgray;
-    margin-top: 0.5rem;
+    margin-top: 1.0rem;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
     display: grid;
@@ -459,7 +461,7 @@
 .send_color_active,
 .send_sticker_active {
     background-color: lightgray;
-    margin-top: 0.5rem;
+    margin-top: 1.0rem;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 30);
     display: grid;
@@ -529,6 +531,7 @@
     width: 10rem;
     height: 4.5rem;
     grid-template-rows: 30% 70%;
+    background-color: white;
 }
 
 .send_item_font_active {
@@ -543,6 +546,7 @@
     width: 10rem;
     height: 4.5rem;
     grid-template-rows: 30% 70%;
+    background-color: white;
 }
 
 .send_item_font_title {
@@ -588,6 +592,7 @@
     width: 3rem;
     height: 3rem;
     display: flex;
+    background-color: white;
 }
 
 .send_item_range_left {
