@@ -139,10 +139,10 @@ function InnerPage() {
                     <div className='noname_sendSignal' onClick={showCreateSendSingalPage}>신호 보내기</div>
                     <div className={isSendSignal ? "noname_sendSignal_outContainer" : "noname_sendSignal_outContainer_fade"}>
                         <div className='noname_sendSignal_innerTitle'>
-                            <img alt='back_icon' className='noname_sendSignal_innerTitle_backIcon' src='https://cdn-icons-png.flaticon.com/512/8287/8287941.png' onClick={fadeCreateSendSingalPage}></img>
-                            <p className='noname_sendSignal_innerTitle_p'>안녕, 잘 지내?
+                            <img alt='back_icon' className='noname_sendSignal_innerTitle_backIcon' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/back.png?raw=true' onClick={fadeCreateSendSingalPage}></img>
+                            <p className='noname_sendSignal_innerTitle_p'>안녕하세요.
                                 <br></br>
-                                나는…
+                                제 이름은...
                             </p>
                         </div>
                         <div className='noname_sendSignal_innerName'>
@@ -248,7 +248,7 @@ function InnerPage() {
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                setDday(days + '일 ' + hours + '시간 ' + minutes + '분 ' + seconds + '초');
+                setDday(days + ' 일 ' + hours + ' : ' + minutes + ' : ' + seconds);
                 if (distance < 0) {
                     clearInterval(count);
                     dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
@@ -267,7 +267,7 @@ function InnerPage() {
         return (
             <React.Fragment>
                 <div className='yesname_outContainer'>
-                    <h3>작은별-{userData.nickname}</h3>
+                    <h3><span>{userData.nickname}</span></h3>
                     <div className={isYesName ? '' : 'yesname_outContainer_div_fade'}>
                         <Refresh></Refresh>
                         <h4>남은 시간</h4>

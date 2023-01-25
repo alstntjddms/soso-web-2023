@@ -9,9 +9,9 @@ function reducer(state, action) {
                 {
                     "letterId": "0",
                     "letterContent": "나뭇잎 흔들리며 불어오는 바람 누구를 스치고 지나왔는지 어디에서 시작되었는지 모르는 바람이 나를 스쳐간다. 이 바람은 나를 지나쳐 또 다른 곳으로 향하겠지 너를 다시 또 만날 수 있을까",
-                    "letterFont": "GangwonEdu_OTFBoldA",
+                    "letterFont": "SpoqaHanSansNeo-Regular",
                     "letterFontColor": "black",
-                    "letterPaper": "url('')",
+                    "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true')",
                     "letterWriter": "Angelo",
                     "letterIcon": "0",
                     "letterWriteDate": "1661837285640",
@@ -33,9 +33,9 @@ function reducer(state, action) {
                 {
                     "letterId": "1",
                     "letterContent": "핀 적도 없는 벚꽃이 어느새 발치에 흩날린다. 짤은 생 단 한번도 제대로 꽃핀적 없이 나의 생은 어느새 마지막이 되었구나",
-                    "letterFont": "SpoqaHanSansNeo-Regular",
+                    "letterFont": "GyeonggiBatang",
                     "letterFontColor": "orange",
-                    "letterPaper": "url('https://i.pinimg.com/474x/30/5d/7d/305d7d275a9d2afcd0b96c8ae0e90633.jpg')",
+                    "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true')",
                     "letterWriter": "Yuna",
                     "letterIcon": "1",
                     "letterWriteDate": "1661837285640",
@@ -57,9 +57,9 @@ function reducer(state, action) {
                 {
                     "letterId": "2",
                     "letterContent": "토닥토닥 비가 내리더니 바람과 햇살아래 새싹이 방긋 웃네요. 내게 날아온 봄소식 어여쁜 그림엽서를 그대와 공유합니다.",
-                    "letterFont": "GyeonggiBatang",
+                    "letterFont": "NeoDunggeunmo",
                     "letterFontColor": "violet",
-                    "letterPaper": "url('https://i.pinimg.com/550x/22/18/37/22183786744b98b92080db78180a5f6d.jpg')",
+                    "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true')",
                     "letterWriter": "egoing",
                     "letterIcon": "2",
                     "letterWriteDate": "1661837285640",
@@ -81,11 +81,11 @@ function reducer(state, action) {
                 {
                     "letterId": "3",
                     "letterContent": "내안이 당신의 향기로 가득찼습니다.",
-                    "letterFont": "1",
+                    "letterFont": "Saying_tobe_strong",
                     "letterFontColor": "1",
-                    "letterPaper": "1",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true",
                     "letterWriter": "Yuna",
-                    "letterIcon": "1",
+                    "letterIcon": "3",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -105,11 +105,11 @@ function reducer(state, action) {
                 {
                     "letterId": "4",
                     "letterContent": "자세히 보아야 예쁘다. 오래 보아야 사랑스럽다. 너도 그렇다.",
-                    "letterFont": "2",
+                    "letterFont": "ROEHOE-CHAN",
                     "letterFontColor": "2",
                     "letterPaper": "2",
                     "letterWriter": "egoing",
-                    "letterIcon": "2",
+                    "letterIcon": "4",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -129,11 +129,11 @@ function reducer(state, action) {
                 {
                     "letterId": "5",
                     "letterContent": "하늘은 바다 끝없이 넓고 푸른 바다 구름은 조각배 바람이 사공이 되어 노를 젓는다.",
-                    "letterFont": "1",
+                    "letterFont": "SBAggroB",
                     "letterFontColor": "1",
                     "letterPaper": "1",
                     "letterWriter": "Yuna",
-                    "letterIcon": "1",
+                    "letterIcon": "5",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -157,7 +157,7 @@ function reducer(state, action) {
                     "letterFontColor": "2",
                     "letterPaper": "2",
                     "letterWriter": "egoing",
-                    "letterIcon": "2",
+                    "letterIcon": "6",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -181,7 +181,7 @@ function reducer(state, action) {
                     "letterFontColor": "1",
                     "letterPaper": "1",
                     "letterWriter": "Yuna",
-                    "letterIcon": "1",
+                    "letterIcon": "7",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -205,7 +205,7 @@ function reducer(state, action) {
                     "letterFontColor": "2",
                     "letterPaper": "2",
                     "letterWriter": "egoing",
-                    "letterIcon": "2",
+                    "letterIcon": "8",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -229,7 +229,7 @@ function reducer(state, action) {
                     "letterFontColor": "2",
                     "letterPaper": "2",
                     "letterWriter": "egoing",
-                    "letterIcon": "2",
+                    "letterIcon": "9",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -253,7 +253,7 @@ function reducer(state, action) {
                     "letterFontColor": "2",
                     "letterPaper": "2",
                     "letterWriter": "egoing",
-                    "letterIcon": "2",
+                    "letterIcon": "10",
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
