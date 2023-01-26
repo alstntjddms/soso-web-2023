@@ -558,7 +558,7 @@ function Send() {
                         <p className='sending_end_p'>발송을 완료했어요!</p>
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
-                        }}>나도 행성 만들기</div>
+                        }}>나도 행성 개설하기</div>
                     </div>
                 </div>
             </React.Fragment>

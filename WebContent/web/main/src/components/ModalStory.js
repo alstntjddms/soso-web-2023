@@ -81,7 +81,7 @@ function ModalStory() {
                                 <div>
                                     <div className='modalStory_img4'></div>
                                     <p className="modalStory_p">"띠띠…띠 나에게 편지를 보내줘. 내 이름은 ― 지지직! "</p>
-                                    <div className='modalStory_startButton' onClick={toggleCheck}>시작하기</div>
+                                    <div className='modalStory_startButton' onClick={toggleCheck}>신호 보내기</div>
                                 </div>
                             </div>
                         </Slider>

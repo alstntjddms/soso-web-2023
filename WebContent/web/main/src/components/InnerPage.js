@@ -12,7 +12,7 @@ function InnerPage() {
     // For component Letter box
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
-    const [setStyle, setSetStyle] = useState({ "color": "", "fontFamily": "", "backgroundImage": "" });
+    const [setStyle, setSetStyle] = useState({ "fontFamily": "", "textAlign": "", "fontSize": "", "color": "", "backgroundImage": "" });
 
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
@@ -310,8 +310,10 @@ function InnerPage() {
 
         function changeLetterStyle(i) {
             let newStyle = { ...setStyle };
-            newStyle['color'] = letterData[i].letterFontColor;
             newStyle['fontFamily'] = letterData[i].letterFont;
+            newStyle['textAlign'] = letterData[i].letterFontAlign;
+            newStyle['fontSize'] = letterData[i].letterFontSize;
+            newStyle['color'] = letterData[i].letterFontColor;
             newStyle['backgroundImage'] = letterData[i].letterPaper;
             setSetStyle(newStyle);
         };
@@ -471,16 +473,18 @@ function InnerPage() {
                 <React.Fragment>
                     <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
                         <div className='letter_textarea_top'>
-                            <span className='letter_textarea_author_title'>From.</span>
+                            <div className='letter_textarea_author_title'>From.</div>
                             <input type='text' className='author' value={''} readOnly></input>
-                            <div className='letter_block' onClick={() => { letterBlcok(render) }}></div>
-                            <div className='letter_close' onClick={() => {
-                                // openLetter(render);
-                                // setTimeout(() => {
-                                //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                                // }, 500);
-                                dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                            }}></div>
+                            <div className='letter_icon_box'>
+                                <div className='letter_block' onClick={() => { letterBlcok(render) }}></div>
+                                <div className='letter_close' onClick={() => {
+                                    // openLetter(render);
+                                    // setTimeout(() => {
+                                    //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                    // }, 500);
+                                    dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                }}></div>
+                            </div>
                         </div>
                         <div className="letter_textarea">
                             <textarea style={setStyle} className="textbox" value={''} readOnly>

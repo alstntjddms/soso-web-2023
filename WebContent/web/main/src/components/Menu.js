@@ -153,41 +153,41 @@ function Menu() {
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
                         <article className='menu_plater_page'>
                             <h5>삐삐-</h5>
-                            <h5>지구와 교신 중…</h5>
+                            <p>지구와 교신 중…</p>
                             <div className='menu_plater_img_outContainer'>
                                 <Slider {...settings}>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
                                     </div>
                                     <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
-                                    </div>
-                                    <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
-                                    </div>
-                                    <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
+                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
                                     </div>
                                 </Slider>
                             </div>
-                            <h5>우주의 누군가에게 편지를</h5>
-                            <h5>쓰거나 받고 싶은 모두를 위해,</h5>
+                            <h5>광활한 인터넷 우주 속</h5>
+                            <h5>감성 충만한 편지를 보내고 싶다면,</h5>
                             <h5>PL@TER</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
+                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_2.gif?raw=true'></img>
                             </div>
-                            <h5>10일 후에 도착 예정!</h5>
-                            <h5>모든 행성에 편지가 도착하기 까지는</h5>
+                            <p>도착까지 D-10</p>
+                            <h5>모든 행성의 편지가 도착하기까지는</h5>
                             <h5>10일의 시간이 소요돼요.</h5>
-                            <h5>링크를 복사해 편지를 모집하거나 기대하며</h5>
-                            <h5>기다리다 보면 멋진 편지가 도착할 거예요.</h5>
+                            <h5>링크를 복사해 편지를 모으거나 기대하며</h5>
+                            <h5>기다리다 보면 멋진 편지가 도착할 거예요!</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true'></img>
+                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_3.gif?raw=true'></img>
                             </div>
-                            <h5>편지를 멋지게 꾸며요!</h5>
+                            <p>세상에 단 하나밖에 없는 편지</p>
                             <h5>다양한 폰트부터 편지지, 스티커를 통해</h5>
-                            <h5>당신만의 멋진 편지를 작성해보세요.</h5>
+                            <h5>당신만의 멋진 편지를 만들어보세요!</h5>
                             <div className='menu_palter_bottom_pading'></div>
+                            <p>자세한 이용 방법이</p>
+                            <p>궁금하다면 이쪽으로!</p>
+                            <a href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><div className='menu_palter_bottom_button'>
+                                이용방법 알아보기</div></a>
+                            <div className='menu_palter_bottom_pading_2'></div>
+                            <br></br>
                         </article>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
