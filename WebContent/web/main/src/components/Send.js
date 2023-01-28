@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Adsense } from '@ctrl/react-adsense';
+// import { Adsense } from '@ctrl/react-adsense';
 // import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import './Send.css'
@@ -561,7 +561,7 @@ function Send() {
                             window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
                     </div>
-                    <div className='googleAdsense'>
+                    {/* <div className='googleAdsense'>
                         <Adsense
                             client={process.env.REACT_APP_GOOGLE_ADSENSE}
                             slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
@@ -569,7 +569,7 @@ function Send() {
                             layout="in-article"
                             format="fluid"
                         />
-                    </div>
+                    </div> */}
                 </div>
             </React.Fragment>
         );
