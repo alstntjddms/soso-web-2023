@@ -40,6 +40,7 @@ function Redirect() {
         setTimeout(() => {
             if (nameErro === 'User denied access') {
                 alert('로그인에 실패하였습니다.');
+                dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/login');
             };
             const code = { code: name };
@@ -47,8 +48,8 @@ function Redirect() {
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch("https://plater.kr/api/kakao", {
-                method: "POST",
+            fetch('https://plater.kr/api/kakao', {
+                method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
                 credentials: 'same-origin',
@@ -59,14 +60,34 @@ function Redirect() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    console.log(data);
-                    dispatch({ type: 'CHANGE_USERID', data: data });
-                    alert(data);
-                    navigater('/main');
+                    console.log('암호화된 ID: ' + data);
+                    fetch('https://plater.kr/api/member', {
+                        method: 'POST',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                        },
+                        body: data
+                    })
+                        .then(plus_res => plus_res.json())
+                        .then((plus_data) => {
+                            console.log('비암호화된 ID: ' + plus_data);
+                            dispatch({ type: 'CHANGE_USERID', data: plus_data });
+                            navigater('/main');
+                        })
+                        .catch((plus_error) => {
+                            console.log('비암호화된 ID 오류: ' + plus_error);
+                            alert('서버가 불안정 하여 비암호화된 사용자 ID를 받아오지 못했습니다.');
+                            dispatch({ type: 'CHANGE_USERID', data: null });
+                            navigater('/login');
+                        })
                 })
                 .catch((error) => {
-                    console.log(error);
+                    console.log('암호화된 ID 오류: ' + error);
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');
+                    dispatch({ type: 'CHANGE_USERID', data: null });
                     navigater('/login');
                 });
         }, 2000);
