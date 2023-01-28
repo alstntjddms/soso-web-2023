@@ -899,6 +899,11 @@ h4 {
 }
 
 .googleAdsense {
+    /* position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center; */
     position: relative;
     margin-top: 0.5rem;
 }
