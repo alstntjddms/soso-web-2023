@@ -8,13 +8,14 @@
 .redirect_h3 {
     position: relative;
     top: 0rem;
+    color: white;
 }
 
 .redirect_h4 {
     margin: auto;
     position: relative;
     top: 0rem;
-    color: black;
+    color: white;
     width: 45%;
     line-height: 1.5rem;
 }

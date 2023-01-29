@@ -320,9 +320,12 @@ function InnerPage() {
 
         function changeIcon(i) {
             const copyLetter = [...letterData];
-            copyLetter[i].letterIcon = 'open';
+            copyLetter[i].letterOpenCheck = false;
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
             setRender(i);
+            // copyLetter[i].letterIcon = 'open';
+            // dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+            // setRender(i);
         };
 
         function enterDesc(i) {
@@ -407,7 +410,7 @@ function InnerPage() {
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                     setList2(<span>아직 편지가 도착하지 않았어요.</span>);
                     setList3(<span>아직 편지가 도착하지 않았어요.</span>);
@@ -416,12 +419,12 @@ function InnerPage() {
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                     setList3(<span>아직 편지가 도착하지 않았어요.</span>);
                     setList4(<span>아직 편지가 도착하지 않았어요.</span>);
@@ -429,39 +432,39 @@ function InnerPage() {
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList3(list3);
                     setList4(<span>아직 편지가 도착하지 않았어요.</span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < 27; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList3(list3);
                 };
                 for (let i = 27; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}></button>));
+                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList4(list4);
                 };
             } else {

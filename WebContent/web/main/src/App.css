@@ -57,6 +57,8 @@ body {
     overflow: hidden;
     touch-action: none;
     overscroll-behavior-y: none;
+    /* Flickering Neon Sign Effect using CSS Text & Box Shadow */
+    --neon-border-color: #08f;
 }
 
 /*  */

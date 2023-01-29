@@ -16,6 +16,7 @@ function reducer(state, action) {
                     "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true')",
                     "letterWriter": "Angelo",
                     "letterIcon": "0",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -42,6 +43,7 @@ function reducer(state, action) {
                     "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true')",
                     "letterWriter": "Yuna",
                     "letterIcon": "1",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -68,6 +70,7 @@ function reducer(state, action) {
                     "letterPaper": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true')",
                     "letterWriter": "egoing",
                     "letterIcon": "2",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
