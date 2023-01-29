@@ -988,7 +988,7 @@ h4 {
     border-radius: 1rem;
     width: 0.5rem;
     height: 0.5rem;
-    margin-top: -2rem;
+    margin-top: -1.8rem;
     animation: flicker 1.5s infinite alternate;
 }
 
@@ -998,7 +998,7 @@ h4 {
     border-radius: 1rem;
     width: 0.5rem;
     height: 0.5rem;
-    margin-top: -2rem;
+    margin-top: -1.8rem;
 }
 
 /* Animate neon flicker */
