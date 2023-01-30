@@ -36,6 +36,30 @@ function Redirect() {
     //         });
     // };
 
+    function RequestUserData(userId) {
+        fetch('https://plater.kr/api/memberbyuserid/' + userId, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((userData) => {
+                console.log(userData);
+                dispatch({ type: 'CHANGE_USERNICKNAME', data: String(userData.userNickName) });
+                dispatch({ type: 'CHANGE_OPENDATE', data: Number(userData.userOpenDate) });
+            })
+            .catch((userDate_error) => {
+                console.log(userDate_error);
+                alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
+                dispatch({ type: 'CHANGE_USERID', data: null });
+                navigater('/login');
+            });
+    };
+
     useEffect(() => {
         setTimeout(() => {
             if (nameErro === 'User denied access') {
@@ -67,14 +91,15 @@ function Redirect() {
                         cache: 'no-cache',
                         credentials: 'same-origin',
                         headers: {
-                            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                            'Content-Type': 'application/json'
                         },
-                        body: data
+                        body: JSON.stringify(data)
                     })
                         .then(plus_res => plus_res.json())
                         .then((plus_data) => {
                             console.log('비암호화된 ID: ' + plus_data);
                             dispatch({ type: 'CHANGE_USERID', data: plus_data });
+                            RequestUserData(plus_data);
                             navigater('/main');
                         })
                         .catch((plus_error) => {
@@ -90,8 +115,9 @@ function Redirect() {
                     dispatch({ type: 'CHANGE_USERID', data: null });
                     navigater('/login');
                 });
-        }, 2000);
-    }, [name, nameErro, navigater, dispatch]);
+        }, 500);
+    }, []);
+    // }, [name, nameErro, navigater, dispatch]);
 
     return (
         <React.Fragment>
