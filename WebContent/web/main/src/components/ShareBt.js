@@ -7,6 +7,7 @@ function ShareBt() {
     const userData = useSelector((state) => state.userData);
     const isShare = useSelector((state) => state.isShare);
     const isShareBt = useSelector((state) => state.isShareBt);
+    const userID = useSelector((state) => state.userID);
 
     useEffect(() => {
         if (userData.openDate !== 0) {
@@ -14,7 +15,7 @@ function ShareBt() {
         };
     }, [dispatch, userData.openDate]);
 
-    const basicURL = 'https://angelo-s-library-2.netlify.app/';
+    const basicURL = 'https://angelo-s-library-2.netlify.app/send?userID=' + userID;
     const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
     const title = 'PL@TER - 기다려지는 소식';
 

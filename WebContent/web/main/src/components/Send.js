@@ -10,7 +10,6 @@ function Send() {
     const isSendMain = useSelector((state) => state.isSendMain);
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
-    const userID = useSelector((state) => state.userID);
     const text = useSelector((state) => state.text);
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
@@ -34,6 +33,10 @@ function Send() {
     const isColor = useSelector((state) => state.isColor);
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
+    //
+    const [userOpenDateRequired, setUserOpenDateRequired] = useState(null);
+    const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
+    const [userNickName, setUserNickName] = useState(null);
     // 
     const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
@@ -82,9 +85,9 @@ function Send() {
             <React.Fragment>
                 <div className={isSendPopUp ? "isSendPopUp" : "isSendPopUp_fade"}>
                     <div className='isSendPopUp_outContainer'>
-                        <p className='isSendPopUp_title'>〈 {userID}님의 행성 〉</p>
+                        <p className='isSendPopUp_title'>〈 {userNickName}님의 행성 〉</p>
                         <p className='isSendPopUp_p'>어서오세요! 이곳은</p>
-                        <p className='isSendPopUp_p'>{userID}님의 행성입니다.</p>
+                        <p className='isSendPopUp_p'>{userNickName}님의 행성입니다.</p>
                         <div className='isSendPopUp_innerBox'>
                             <div className='isSendPopUp_button_signOut' onClick={() => {
                                 window.location.replace('/main');
@@ -611,6 +614,55 @@ function Send() {
         enterText.value = copyText;
     };
 
+    // Require INFO
+    function requireUserCheckData(props) {
+        fetch('https://plater.kr/api/memberbyuserid/' + props, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((userData) => {
+                console.log(userData);
+                setUserOpenDateRequired(userData.userOpenDate);
+                setUserLetterCountRequired(userData.userGetLetterCount);
+                setUserNickName(userData.userNickName);
+            })
+            .catch((userDate_error) => {
+                console.log(userDate_error);
+                alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
+                window.location.replace('/main');
+            });
+    };
+
+    // function finalCheck() {
+    //     const url = document.location.href;
+    //     const qs = url.substring(url.indexOf('?') + 1).split('&');
+    //     const result = {};
+    //     for (let i = 0; i < qs.length; i++) {
+    //         qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
+    //     };
+    //     requireUserCheckData(result.userID);
+    //     let now = new Date().getTime();
+    //     let distance = Number(userOpenDateRequired) - now;
+    //     if (distance > 0) {
+    //         if (userLetterCountRequired >= 36) {
+    //             alert('조금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+    //             window.location.replace('/main');
+    //         };
+    //     } else if (distance === 0) {
+    //         alert('조금 전에 행성이 초기화 되어 새로 개설되지 않았습니다. Pl@ter 페이지로 이동합니다.');
+    //         window.location.replace('/main');
+    //     } else {
+    //         alert('조금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+    //         window.location.replace('/main');
+    //     };
+    // };
+
     // ?userID=userID
     const get_query = useCallback(() => {
         const url = document.location.href;
@@ -620,13 +672,27 @@ function Send() {
             qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
         };
         console.log(result.userID);
-        if (result.userID !== undefined) {
-            dispatch({ type: 'CHANGE_USERID', data: result.userID });
-        } else {
-            alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/main');
-        };
-    }, [dispatch]);
+        // if (result.userID !== undefined) {
+        //     requireUserCheckData(result.userID);
+        //     let now = new Date().getTime();
+        //     let distance = Number(userOpenDateRequired) - now;
+        //     if (distance > 0) {
+        //         if (userLetterCountRequired >= 36) {
+        //             alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+        //             window.location.replace('/main');
+        //         };
+        //     } else if (distance === 0) {
+        //         alert('아직 초기화된 행성이 다시 개설되지 않았습니다. Pl@ter 페이지로 이동합니다.');
+        //         window.location.replace('/main');
+        //     } else {
+        //         alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+        //         window.location.replace('/main');
+        //     };
+        // } else {
+        //     alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
+        //     window.location.replace('/main');
+        // };
+    }, []);
 
     useEffect(() => {
         get_query();
@@ -1171,7 +1237,7 @@ function Send() {
                     <img alt='backIMG' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/back.png?raw=true' onClick={() => {
                         dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
                     }}></img>
-                    <h3>To. {userID}</h3>
+                    <h3>To. {userNickName}</h3>
                     <span onClick={() => {
                         if (text === '') {
                             dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
