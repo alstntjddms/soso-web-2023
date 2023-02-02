@@ -4,7 +4,7 @@ function reducer(state, action) {
     if (state === undefined) {
         return {
             userID: 'null',
-            userData: { 'nickname': 'null', 'openDate': 0 },
+            userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0 },
             letterData: [
                 {
                     "letterId": "0",
@@ -421,6 +421,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_OPENDATE') {
         newState.userData.openDate = action.data;
+    };
+
+    if (action.type === 'CHANGE_GETLETTER') {
+        newState.userData.getLetter = action.data;
     };
 
     if (action.type === 'CHANGE_ISLETTER') {

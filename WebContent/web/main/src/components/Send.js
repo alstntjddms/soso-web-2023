@@ -7,9 +7,9 @@ import './Send.css'
 
 function Send() {
     // const navigater = useNavigate();
-    const isSendMain = useSelector((state) => state.isSendMain);
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
+    const isSendMain = useSelector((state) => state.isSendMain);
     const text = useSelector((state) => state.text);
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
@@ -649,14 +649,11 @@ function Send() {
     //     requireUserCheckData(result.userID);
     //     let now = new Date().getTime();
     //     let distance = Number(userOpenDateRequired) - now;
-    //     if (distance > 0) {
-    //         if (userLetterCountRequired >= 36) {
+    //     if (distance >= 0) {
+    //         if (Number(userLetterCountRequired) >= 36) {
     //             alert('조금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
     //             window.location.replace('/main');
     //         };
-    //     } else if (distance === 0) {
-    //         alert('조금 전에 행성이 초기화 되어 새로 개설되지 않았습니다. Pl@ter 페이지로 이동합니다.');
-    //         window.location.replace('/main');
     //     } else {
     //         alert('조금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
     //         window.location.replace('/main');
@@ -672,26 +669,23 @@ function Send() {
             qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
         };
         console.log(result.userID);
-        // if (result.userID !== undefined) {
-        //     requireUserCheckData(result.userID);
-        //     let now = new Date().getTime();
-        //     let distance = Number(userOpenDateRequired) - now;
-        //     if (distance > 0) {
-        //         if (userLetterCountRequired >= 36) {
-        //             alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-        //             window.location.replace('/main');
-        //         };
-        //     } else if (distance === 0) {
-        //         alert('아직 초기화된 행성이 다시 개설되지 않았습니다. Pl@ter 페이지로 이동합니다.');
-        //         window.location.replace('/main');
-        //     } else {
-        //         alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-        //         window.location.replace('/main');
-        //     };
-        // } else {
-        //     alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-        //     window.location.replace('/main');
-        // };
+        if (result.userID !== undefined) {
+            requireUserCheckData(result.userID);
+            let now = new Date().getTime();
+            let distance = Number(userOpenDateRequired) - now;
+            if (distance >= 0) {
+                if (Number(userLetterCountRequired) >= 36) {
+                    alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+                    // window.location.replace('/main');
+                };
+            } else {
+                alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+                // window.location.replace('/main');
+            };
+        } else {
+            alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
+            // window.location.replace('/main');
+        };
     }, []);
 
     useEffect(() => {
