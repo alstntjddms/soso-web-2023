@@ -33,7 +33,7 @@ function Login() {
             <React.Fragment>
                 <div className={isConditions ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
                     <div className='login_conditions_outContainer'>
-                        <img alt='close' className='login_conditions_img' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={toggleConditions}></img>
+                        <img alt='close' className='login_conditions_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={toggleConditions}></img>
                         <p className='login_conditions_title'>이용약관</p>
                         <article className='login_conditions_article'>
                             <p>
@@ -63,7 +63,7 @@ function Login() {
             <React.Fragment>
                 <div className={isIndividual ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
                     <div className='login_conditions_outContainer'>
-                        <img alt='close' className='login_conditions_img' src='https://cdn-icons-png.flaticon.com/512/463/463612.png' onClick={toggleIndividual}></img>
+                        <img alt='close' className='login_conditions_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={toggleIndividual}></img>
                         <p className='login_conditions_title'>개인정보처리방침</p>
                         <article className='login_conditions_article'>
                             <p>

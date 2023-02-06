@@ -88,10 +88,10 @@ function ShareBt() {
                 <img className='shareButton_share' alt='share' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/share.png?raw=true'></img>
             </div>
             <div className='shareButton_innerContainer'>
-                <img className={isShareBt ? 'shareButton_share_btn_url_active' : 'shareButton_share_btn'} alt='url' src='https://cdn-icons-png.flaticon.com/512/4906/4906292.png' onClick={urlCopy}></img>
-                <img className={isShareBt ? 'shareButton_share_btn_kakao_active' : 'shareButton_share_btn'} alt='kakao' src='https://cdn-icons-png.flaticon.com/512/3669/3669973.png' onClick={kakaoShare}></img>
-                <img className={isShareBt ? 'shareButton_share_btn_facebook_active' : 'shareButton_share_btn'} alt='facebook' src='https://cdn-icons-png.flaticon.com/512/5968/5968764.png' onClick={shareFacebook}></img>
-                <img className={isShareBt ? 'shareButton_share_btn_twitter_active' : 'shareButton_share_btn'} alt='twitter' src='https://cdn-icons-png.flaticon.com/512/179/179342.png' onClick={shareTwitter}></img>
+                <img className={isShareBt ? 'shareButton_share_btn_url_active' : 'shareButton_share_btn'} alt='url' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/copy_link.png?raw=true' onClick={urlCopy}></img>
+                <img className={isShareBt ? 'shareButton_share_btn_kakao_active' : 'shareButton_share_btn'} alt='kakao' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/kakao.png?raw=true' onClick={kakaoShare}></img>
+                <img className={isShareBt ? 'shareButton_share_btn_facebook_active' : 'shareButton_share_btn'} alt='facebook' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/instagram.png?raw=true' onClick={shareFacebook}></img>
+                <img className={isShareBt ? 'shareButton_share_btn_twitter_active' : 'shareButton_share_btn'} alt='twitter' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/twitter.png?raw=true' onClick={shareTwitter}></img>
             </div>
         </React.Fragment>
     );

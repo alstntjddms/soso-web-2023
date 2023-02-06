@@ -12,7 +12,7 @@ function InnerPage() {
     // For component Letter box
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
-    const [setStyle, setSetStyle] = useState({ "fontFamily": "", "textAlign": "", "fontSize": "", "color": "", "backgroundImage": "" });
+    const [setStyle, setSetStyle] = useState({ "fontSize": "", "fontFamily": "", "color": "", "textAlign": "", "backgroundImage": "" });
 
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
@@ -34,12 +34,32 @@ function InnerPage() {
     function SetSignal() {
         const isSendSignal = useSelector((state) => state.isSendSignal);
         const [isPopUpOpenPlanet, setIsPopUpOpenPlanet] = useState(false);
+        const [isPopUpOpenPlanetName, setIsPopUpOpenPlanetName] = useState(false);
         const [stringUserNickname, setStringUserNickname] = useState(String(userData.nickname));
         const [lengthUserNickname, setLengthUserNickname] = useState(Number(userData.nickname.length));
         const [startMonth, setStartMonth] = useState(null);
         const [startHours, setStartHours] = useState(null);
         const [endMonth, setEndMonth] = useState(null);
         const [endHours, setEndHours] = useState(null);
+
+        // popUp: open planet No Name
+        function PopUpOpenPlanetNoName() {
+            return (
+                <React.Fragment>
+                    <div className={isPopUpOpenPlanetName ? "ispopupopenplanetnoname" : "ispopupopenplanetnoname_fade"}>
+                        <div className='ispopupopenplanetnoname_outContainer'>
+                            <p className='ispopupopenplanetnoname_title'>행성 이름이 비어있습니다.</p>
+                            <p className='ispopupopenplanetnoname_p'>이름이 없는 행성은 조금 울적할지도 몰라요.</p>
+                            <div className='ispopupopenplanetnoname_innerBox'>
+                                <div className='ispopupopenplanetnoname_button_cancel' onClick={() => {
+                                    setIsPopUpOpenPlanetName(!isPopUpOpenPlanetName);
+                                }}>돌아가기</div>
+                            </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
 
         // popUp: open planet
         function PopUpOpenPlanet() {
@@ -133,6 +153,7 @@ function InnerPage() {
         return (
             <React.Fragment>
                 <PopUpOpenPlanet></PopUpOpenPlanet>
+                <PopUpOpenPlanetNoName></PopUpOpenPlanetNoName>
                 <div className='noname_outContainer'>
                     <p>아직 신호를 보내지</p>
                     <p>않았습니다.</p>
@@ -177,12 +198,20 @@ function InnerPage() {
                                 <h6 className='noname_sendSignal_innerNotice_h6'>카카오톡을 통해 D-Day 알림을 받습니다.</h6>
                             </div>
                             <div>
+                                {/* icon */}
                                 <img alt='button_notice' className='noname_sendSignal_innerNotice_button' src='https://cdn-icons-png.flaticon.com/512/5720/5720465.png' onClick={() => { alert('아직 서비스 준비 중입니다.') }}></img>
                             </div>
                         </div>
                         <div className='noname_sendSignal_startDiv'>
                             <div className='noname_sendSignal_startDiv_button' onClick={
-                                () => { setIsPopUpOpenPlanet(!isPopUpOpenPlanet) }}>시작하기</div>
+                                () => {
+                                    console.log(lengthUserNickname);
+                                    if (lengthUserNickname === 0) {
+                                        setIsPopUpOpenPlanetName(!isPopUpOpenPlanetName);
+                                    } else {
+                                        setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
+                                    };
+                                }}>시작하기</div>
                         </div>
                     </div>
                 </div>

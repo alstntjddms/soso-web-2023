@@ -161,6 +161,7 @@ a {
     height: 1.5rem;
 }
 
+/* icon */
 .menu_img_active {
     background-image: url('https://cdn-icons-png.flaticon.com/512/2723/2723003.png');
     background-repeat: no-repeat;
@@ -170,6 +171,7 @@ a {
     background-color: white;
 }
 
+/* icon */
 .menu_img_active_plus {
     background-image: url('https://cdn-icons-png.flaticon.com/512/2723/2723003.png');
     background-repeat: no-repeat;

@@ -74,7 +74,7 @@
     text-align: left;
     font-size: 1rem;
     color: black;
-    background-image: url('../lib/paper/paper_white.png');
+    background-image: url('../lib/paper/paper_white.gif');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -773,11 +773,11 @@
 }
 
 #paper_3 {
-    background-image: url('../lib/paper/paper_space.png');
+    background-image: url('../lib/paper/paper_space.gif');
 }
 
 #paper_4 {
-    background-image: url('../lib/paper/paper_white.png');
+    background-image: url('../lib/paper/paper_white.gif');
 }
 
 /*  */
@@ -1051,7 +1051,7 @@
     text-align: left;
     font-size: 1rem;
     color: black;
-    background-image: url('../lib/paper/paper_white.png');
+    background-image: url('../lib/paper/paper_white.gif');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

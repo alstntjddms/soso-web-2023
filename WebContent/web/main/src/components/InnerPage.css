@@ -255,6 +255,98 @@
 
 /*  */
 
+.ispopupopenplanetnoname {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.ispopupopenplanetnoname_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ispopupopenplanetnoname_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 19.375rem;
+    height: 13rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.ispopupopenplanetnoname_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.ispopupopenplanetnoname_p {
+    position: relative;
+    margin: auto;
+    top: 3.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.ispopupopenplanetnoname_innerBox {
+    position: relative;
+    top: 4.875rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.ispopupopenplanetnoname_button_signOut {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #DBDBFF;
+    color: #4A4AFF;
+    border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.ispopupopenplanetnoname_button_cancel {
+    position: relative;
+    margin: auto;
+    width: 16.375rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+/*  */
+
 .noname_outContainer {
     position: relative;
     text-align: center;
@@ -548,7 +640,7 @@ h4 {
     color: white;
 }
 
-.letteropen {
+/* .letteropen {
     border: none;
     background-color: transparent;
     background-image: url(https://cdn-icons-png.flaticon.com/512/3071/3071819.png);
@@ -560,12 +652,12 @@ h4 {
     margin-right: 1.0rem;
     margin-top: 1.0rem;
     margin-bottom: 1.0rem;
-}
+} */
 
 .letterblock {
     border: none;
     background-color: transparent;
-    background-image: url(https://cdn-icons-png.flaticon.com/512/718/718672.png);
+    background-image: url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/stamp/block.png?raw=true');
     background-repeat: no-repeat;
     background-size: cover;
     width: 4.0rem;
@@ -803,7 +895,7 @@ h4 {
     text-align: left;
     font-size: 1rem;
     color: black;
-    background-image: url('../lib/paper/paper_white.png');
+    background-image: url('../lib/paper/paper_white.gif');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

@@ -38,7 +38,7 @@ function Send() {
     const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
     const [userNickName, setUserNickName] = useState(null);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true')" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -616,7 +616,7 @@ function Send() {
 
     // Require INFO
     function requireUserCheckData(props) {
-        fetch('https://plater.kr/api/memberbyuserid/' + props, {
+        fetch('https://plater.kr/api/member/' + props, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -1396,11 +1396,11 @@ function Send() {
                             selectPaperItem('paper_2');
                         }}><div className='send_item_paper_title'>저주 편지지</div></div>
                         <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.png?raw=true\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.gif?raw=true\')');
                             selectPaperItem('paper_3');
                         }}><div className='send_item_paper_title'>우주 편지지</div></div>
                         <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.png?raw=true\')');
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true\')');
                             selectPaperItem('paper_4');
                         }}><div className='send_item_paper_title'>하얀 편지지</div></div>
                     </div>
