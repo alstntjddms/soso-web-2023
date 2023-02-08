@@ -134,4 +134,6 @@
 .go_to_notion_white {
     color: white;
     text-decoration: none;
+    margin-left: 0rem;
+    font-size: 0.8rem;
 }

@@ -120,10 +120,12 @@ function Menu() {
                 </div>
                 <div className={`menu_bar${isMenu ? "_active" : ""}${isInner ? "_wide" : ""}`}>
                     <div className={isInner ? "menu_bar_inner_true" : "menu_bar_inner"}>
-                        <p onClick={toggleMypage}>마이페이지</p>
-                        <p onClick={togglePlanetter}>Pl@ter</p>
-                        <p onClick={toggleHowto} >이용 방법</p>
-                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p>Contact Us</p></a>
+                        <span className='menu_bar_icon_1'></span><p onClick={toggleMypage}>마이페이지</p>
+                        <span className='menu_bar_icon_2'></span><p onClick={togglePlanetter}>Pl@ter</p>
+                        <span className='menu_bar_icon_3'></span><p onClick={toggleHowto} >이용 방법</p>
+                        <span className='menu_bar_icon_4'></span>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}>
+                            <p>Contact Us</p></a>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <div className='menu_bar_mypage_box1'>
@@ -148,7 +150,7 @@ function Menu() {
                         <div className='menu_bar_mypage_line'></div>
                         <p className='menu_bar_mypage_box_p'>개인정보 처리 방침</p>
                         <div className='menu_bar_mypage_line'></div>
-                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p className='menu_bar_mypage_box_p'>문의하기</p></a>
+                        <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p style={{ marginTop: '-1.8rem' }} className='menu_bar_mypage_box_p'>문의하기</p></a>
                     </div>
                     <div className={isPlater ? "menu_bar_planetter" : "menu_bar_planetter_true"}>
                         <article className='menu_plater_page'>
