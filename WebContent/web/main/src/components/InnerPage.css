@@ -872,7 +872,7 @@ h4 {
 .letter_textarea {
     margin: auto;
     width: 20.5rem;
-    height: 23.75rem;
+    height: 22.75rem;
     background-color: white;
     display: flex;
     align-items: center;
@@ -889,7 +889,7 @@ h4 {
     margin: auto;
     border: none;
     width: 16.625rem;
-    height: 20rem;
+    height: 18rem;
     padding: 1rem;
     font-family: 'SpoqaHanSansNeo-Regular';
     text-align: left;
@@ -897,7 +897,7 @@ h4 {
     color: black;
     background-image: url('../lib/paper/paper_white.gif');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     display: flex;
     line-height: 1.5rem;
     resize: none;
@@ -958,8 +958,8 @@ h4 {
 }
 
 .item0 {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
@@ -969,8 +969,8 @@ h4 {
 }
 
 .item1 {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
@@ -980,8 +980,8 @@ h4 {
 }
 
 .item2 {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background-image: url('../lib/sticker/sticker_bow\(red\).png');
     background-repeat: no-repeat;
     background-size: contain;

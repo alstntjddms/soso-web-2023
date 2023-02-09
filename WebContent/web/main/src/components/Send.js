@@ -38,7 +38,7 @@ function Send() {
     const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
     const [userNickName, setUserNickName] = useState(null);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.85rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -75,7 +75,36 @@ function Send() {
         a: false,
         b: false,
         c: false,
-        d: true
+        d: true,
+        e: false,
+        f: false,
+        g: false,
+        h: false,
+        i: false,
+        j: false,
+        k: false,
+        l: false,
+        m: false,
+        n: false,
+        o: false,
+        p: false,
+        q: false,
+        r: false,
+        s: false,
+        t: false,
+        u: false,
+        v: false,
+        w: false,
+        x: false,
+        y: false,
+        z: false,
+        a1: false,
+        b1: false,
+        c1: false,
+        d1: false,
+        e1: false,
+        f1: false,
+        g1: false
     });
 
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
@@ -1184,6 +1213,35 @@ function Send() {
                 newPaperItem['b'] = false;
                 newPaperItem['c'] = false;
                 newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
                 setPaperItem(newPaperItem);
                 break;
             case 'paper_2':
@@ -1191,6 +1249,35 @@ function Send() {
                 newPaperItem['b'] = true;
                 newPaperItem['c'] = false;
                 newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
                 setPaperItem(newPaperItem);
                 break;
             case 'paper_3':
@@ -1198,6 +1285,35 @@ function Send() {
                 newPaperItem['b'] = false;
                 newPaperItem['c'] = true;
                 newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
                 setPaperItem(newPaperItem);
                 break;
             case 'paper_4':
@@ -1205,6 +1321,1079 @@ function Send() {
                 newPaperItem['b'] = false;
                 newPaperItem['c'] = false;
                 newPaperItem['d'] = true;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_5':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = true;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_6':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = true;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_7':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = true;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_8':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = true;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_9':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = true;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_10':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = true;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_11':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = true;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_12':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = true;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_13':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = true;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_14':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = true;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_15':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = true;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_16':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = true;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_17':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = true;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_18':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = true;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_19':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = true;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_20':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = true;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_21':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = true;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_22':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = true;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_23':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = true;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_24':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = true;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_25':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = true;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_26':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = true;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_27':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = true;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_28':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = true;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_29':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = true;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_30':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = true;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_31':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = true;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_32':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = true;
+                newPaperItem['g1'] = false;
+                setPaperItem(newPaperItem);
+                break;
+            case 'paper_33':
+                newPaperItem['a'] = false;
+                newPaperItem['b'] = false;
+                newPaperItem['c'] = false;
+                newPaperItem['d'] = false;
+                newPaperItem['e'] = false;
+                newPaperItem['f'] = false;
+                newPaperItem['g'] = false;
+                newPaperItem['h'] = false;
+                newPaperItem['i'] = false;
+                newPaperItem['j'] = false;
+                newPaperItem['k'] = false;
+                newPaperItem['l'] = false;
+                newPaperItem['m'] = false;
+                newPaperItem['n'] = false;
+                newPaperItem['o'] = false;
+                newPaperItem['p'] = false;
+                newPaperItem['q'] = false;
+                newPaperItem['r'] = false;
+                newPaperItem['s'] = false;
+                newPaperItem['t'] = false;
+                newPaperItem['u'] = false;
+                newPaperItem['v'] = false;
+                newPaperItem['w'] = false;
+                newPaperItem['x'] = false;
+                newPaperItem['y'] = false;
+                newPaperItem['z'] = false;
+                newPaperItem['a1'] = false;
+                newPaperItem['b1'] = false;
+                newPaperItem['c1'] = false;
+                newPaperItem['d1'] = false;
+                newPaperItem['e1'] = false;
+                newPaperItem['f1'] = false;
+                newPaperItem['g1'] = true;
                 setPaperItem(newPaperItem);
                 break;
             default:
@@ -1244,13 +2433,13 @@ function Send() {
                 </div>
                 <div>
                     <div id="send_textarea">
-                        <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={400} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
+                        <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={250} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
                             dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                             dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                         }}>
                         </textarea>
                     </div>
-                    <div className='send_textLength'>{textLength}/400</div>
+                    <div className='send_textLength'>{textLength}/250</div>
                 </div>
 
                 <div className='send_option_button' onClick={() => {
@@ -1288,7 +2477,7 @@ function Send() {
                     </div>
                     <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
                         <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
-                            setFontFamily('SpoqaHanSansNeo-Regular', '0.875rem');
+                            setFontFamily('SpoqaHanSansNeo-Regular', '0.85rem');
                             selectFontItem('fontItem_1');
                         }}>
                             <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
@@ -1302,28 +2491,28 @@ function Send() {
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
-                            setFontFamily('NeoDunggeunmo', '0.8125rem');
+                            setFontFamily('NeoDunggeunmo', '0.79rem');
                             selectFontItem('fontItem_3');
                         }}>
                             <div className='send_item_font_title'>Neo 둥근모</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                            setFontFamily('Saying_tobe_strong', '1.0rem');
+                            setFontFamily('Saying_tobe_strong', '1.48rem');
                             selectFontItem('fontItem_4');
                         }}>
                             <div className='send_item_font_title'>힘내라는 말보단</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                            setFontFamily('ROEHOE-CHAN', '0.875rem');
+                            setFontFamily('ROEHOE-CHAN', '0.865rem');
                             selectFontItem('fontItem_5');
                         }}>
                             <div className='send_item_font_title'>노회찬체</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                            setFontFamily('SBAggroB', '0.8125rem');
+                            setFontFamily('SBAggroB', '0.845rem');
                             selectFontItem('fontItem_6');
                         }}>
                             <div className='send_item_font_title'>어그로체 L</div>
@@ -1403,6 +2592,122 @@ function Send() {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true\')');
                             selectPaperItem('paper_4');
                         }}><div className='send_item_paper_title'>하얀 편지지</div></div>
+                        <div id='paper_5' className={paperItem.e ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_birthday.gif?raw=true\')');
+                            selectPaperItem('paper_5');
+                        }}><div className='send_item_paper_title'>생일 편지지</div></div>
+                        <div id='paper_6' className={paperItem.f ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_birthday_2.gif?raw=true\')');
+                            selectPaperItem('paper_6');
+                        }}><div className='send_item_paper_title'>생일 편지지2</div></div>
+                        <div id='paper_7' className={paperItem.g ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue.gif?raw=true\')');
+                            selectPaperItem('paper_7');
+                        }}><div className='send_item_paper_title'>파랑 편지지</div></div>
+                        <div id='paper_8' className={paperItem.h ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_8');
+                        }}><div className='send_item_paper_title'>푸른 편지지</div></div>
+                        <div id='paper_9' className={paperItem.i ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_cheese.gif?raw=true\')');
+                            selectPaperItem('paper_9');
+                        }}><div className='send_item_paper_title'>치즈 편지지</div></div>
+                        <div id='paper_10' className={paperItem.j ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_error.gif?raw=true\')');
+                            selectPaperItem('paper_10');
+                        }}><div className='send_item_paper_title'>오류 편지지</div></div>
+                        <div id='paper_11' className={paperItem.k ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_flower.gif?raw=true\')');
+                            selectPaperItem('paper_11');
+                        }}><div className='send_item_paper_title'>흰꽃 편지지</div></div>
+                        <div id='paper_12' className={paperItem.l ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_donut.gif?raw=true\')');
+                            selectPaperItem('paper_12');
+                        }}><div className='send_item_paper_title'>도넛 편지지</div></div>
+                        <div id='paper_13' className={paperItem.m ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_13');
+                        }}><div className='send_item_paper_title'>누런 편지지</div></div>
+                        <div id='paper_14' className={paperItem.n ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true\')');
+                            selectPaperItem('paper_14');
+                        }}><div className='send_item_paper_title'>들꽃 편지지</div></div>
+                        <div id='paper_15' className={paperItem.o ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_magenta.gif?raw=true\')');
+                            selectPaperItem('paper_15');
+                        }}><div className='send_item_paper_title'>자홍 편지지</div></div>
+                        <div id='paper_16' className={paperItem.p ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint.gif?raw=true\')');
+                            selectPaperItem('paper_16');
+                        }}><div className='send_item_paper_title'>민트 편지지</div></div>
+                        <div id='paper_17' className={paperItem.q ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_orange.gif?raw=true\')');
+                            selectPaperItem('paper_17');
+                        }}><div className='send_item_paper_title'>주황 편지지</div></div>
+                        <div id='paper_18' className={paperItem.r ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_18');
+                        }}><div className='send_item_paper_title'>초록 편지지</div></div>
+                        <div id='paper_19' className={paperItem.s ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_19');
+                        }}><div className='send_item_paper_title'>몽환 편지지</div></div>
+                        <div id='paper_20' className={paperItem.t ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pink_cloud.gif?raw=true\')');
+                            selectPaperItem('paper_20');
+                        }}><div className='send_item_paper_title'>구름 편지지</div></div>
+                        <div id='paper_21' className={paperItem.u ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_postit.gif?raw=true\')');
+                            selectPaperItem('paper_21');
+                        }}><div className='send_item_paper_title'>쪽지 편지지</div></div>
+                        <div id='paper_22' className={paperItem.v ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple.gif?raw=true\')');
+                            selectPaperItem('paper_22');
+                        }}><div className='send_item_paper_title'>보라 편지지</div></div>
+                        <div id='paper_23' className={paperItem.w ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_23');
+                        }}><div className='send_item_paper_title'>모란 편지지</div></div>
+                        <div id='paper_24' className={paperItem.x ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_rainbow.gif?raw=true\')');
+                            selectPaperItem('paper_24');
+                        }}><div className='send_item_paper_title'>무지개 편지지</div></div>
+                        <div id='paper_25' className={paperItem.y ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red.gif?raw=true\')');
+                            selectPaperItem('paper_25');
+                        }}><div className='send_item_paper_title'>붉은 편지지</div></div>
+                        <div id='paper_26' className={paperItem.z ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_26');
+                        }}><div className='send_item_paper_title'>분홍 편지지</div></div>
+                        <div id='paper_27' className={paperItem.a1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_sprout.gif?raw=true\')');
+                            selectPaperItem('paper_27');
+                        }}><div className='send_item_paper_title'>새싹 편지지</div></div>
+                        <div id='paper_28' className={paperItem.b1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true\')');
+                            selectPaperItem('paper_28');
+                        }}><div className='send_item_paper_title'>줄무늬 편지지</div></div>
+                        <div id='paper_29' className={paperItem.c1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_vivid.gif?raw=true\')');
+                            selectPaperItem('paper_29');
+                        }}><div className='send_item_paper_title'>비비드 편지지</div></div>
+                        <div id='paper_30' className={paperItem.d1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white_room.gif?raw=true\')');
+                            selectPaperItem('paper_30');
+                        }}><div className='send_item_paper_title'>하얀방 편지지</div></div>
+                        <div id='paper_31' className={paperItem.e1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_wrinkle.gif?raw=true\')');
+                            selectPaperItem('paper_31');
+                        }}><div className='send_item_paper_title'>구겨진 편지지</div></div>
+                        <div id='paper_32' className={paperItem.f1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_yellow.gif?raw=true\')');
+                            selectPaperItem('paper_32');
+                        }}><div className='send_item_paper_title'>노란 편지지</div></div>
+                        <div id='paper_33' className={paperItem.g1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/papre_green.gif?raw=true\')');
+                            selectPaperItem('paper_33');
+                        }}><div className='send_item_paper_title'>형광 편지지</div></div>
                     </div>
                     <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
                         <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
@@ -1412,6 +2717,54 @@ function Send() {
                         <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
                         <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
                         <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
+                        <button className='send_item_sticker_7' onClick={() => { createEl(stickerNumber, 7) }}></button>
+                        <button className='send_item_sticker_8' onClick={() => { createEl(stickerNumber, 8) }}></button>
+                        <button className='send_item_sticker_9' onClick={() => { createEl(stickerNumber, 9) }}></button>
+                        <button className='send_item_sticker_10' onClick={() => { createEl(stickerNumber, 10) }}></button>
+                        <button className='send_item_sticker_11' onClick={() => { createEl(stickerNumber, 11) }}></button>
+                        <button className='send_item_sticker_12' onClick={() => { createEl(stickerNumber, 12) }}></button>
+                        <button className='send_item_sticker_13' onClick={() => { createEl(stickerNumber, 13) }}></button>
+                        <button className='send_item_sticker_14' onClick={() => { createEl(stickerNumber, 14) }}></button>
+                        <button className='send_item_sticker_15' onClick={() => { createEl(stickerNumber, 15) }}></button>
+                        <button className='send_item_sticker_16' onClick={() => { createEl(stickerNumber, 16) }}></button>
+                        <button className='send_item_sticker_17' onClick={() => { createEl(stickerNumber, 17) }}></button>
+                        <button className='send_item_sticker_18' onClick={() => { createEl(stickerNumber, 18) }}></button>
+                        <button className='send_item_sticker_19' onClick={() => { createEl(stickerNumber, 19) }}></button>
+                        <button className='send_item_sticker_20' onClick={() => { createEl(stickerNumber, 20) }}></button>
+                        <button className='send_item_sticker_21' onClick={() => { createEl(stickerNumber, 21) }}></button>
+                        <button className='send_item_sticker_22' onClick={() => { createEl(stickerNumber, 22) }}></button>
+                        <button className='send_item_sticker_23' onClick={() => { createEl(stickerNumber, 23) }}></button>
+                        <button className='send_item_sticker_24' onClick={() => { createEl(stickerNumber, 24) }}></button>
+                        <button className='send_item_sticker_25' onClick={() => { createEl(stickerNumber, 25) }}></button>
+                        <button className='send_item_sticker_26' onClick={() => { createEl(stickerNumber, 26) }}></button>
+                        <button className='send_item_sticker_27' onClick={() => { createEl(stickerNumber, 27) }}></button>
+                        <button className='send_item_sticker_28' onClick={() => { createEl(stickerNumber, 28) }}></button>
+                        <button className='send_item_sticker_29' onClick={() => { createEl(stickerNumber, 29) }}></button>
+                        <button className='send_item_sticker_30' onClick={() => { createEl(stickerNumber, 30) }}></button>
+                        <button className='send_item_sticker_31' onClick={() => { createEl(stickerNumber, 31) }}></button>
+                        <button className='send_item_sticker_32' onClick={() => { createEl(stickerNumber, 32) }}></button>
+                        <button className='send_item_sticker_33' onClick={() => { createEl(stickerNumber, 33) }}></button>
+                        <button className='send_item_sticker_34' onClick={() => { createEl(stickerNumber, 34) }}></button>
+                        <button className='send_item_sticker_35' onClick={() => { createEl(stickerNumber, 35) }}></button>
+                        <button className='send_item_sticker_36' onClick={() => { createEl(stickerNumber, 36) }}></button>
+                        <button className='send_item_sticker_37' onClick={() => { createEl(stickerNumber, 37) }}></button>
+                        <button className='send_item_sticker_38' onClick={() => { createEl(stickerNumber, 38) }}></button>
+                        <button className='send_item_sticker_39' onClick={() => { createEl(stickerNumber, 39) }}></button>
+                        <button className='send_item_sticker_40' onClick={() => { createEl(stickerNumber, 40) }}></button>
+                        <button className='send_item_sticker_41' onClick={() => { createEl(stickerNumber, 41) }}></button>
+                        <button className='send_item_sticker_42' onClick={() => { createEl(stickerNumber, 42) }}></button>
+                        <button className='send_item_sticker_43' onClick={() => { createEl(stickerNumber, 43) }}></button>
+                        <button className='send_item_sticker_44' onClick={() => { createEl(stickerNumber, 44) }}></button>
+                        <button className='send_item_sticker_45' onClick={() => { createEl(stickerNumber, 45) }}></button>
+                        <button className='send_item_sticker_46' onClick={() => { createEl(stickerNumber, 46) }}></button>
+                        <button className='send_item_sticker_47' onClick={() => { createEl(stickerNumber, 47) }}></button>
+                        <button className='send_item_sticker_48' onClick={() => { createEl(stickerNumber, 48) }}></button>
+                        <button className='send_item_sticker_49' onClick={() => { createEl(stickerNumber, 49) }}></button>
+                        <button className='send_item_sticker_50' onClick={() => { createEl(stickerNumber, 50) }}></button>
+                        <button className='send_item_sticker_51' onClick={() => { createEl(stickerNumber, 51) }}></button>
+                        <button className='send_item_sticker_52' onClick={() => { createEl(stickerNumber, 52) }}></button>
+                        <button className='send_item_sticker_53' onClick={() => { createEl(stickerNumber, 53) }}></button>
+                        <button className='send_item_sticker_54' onClick={() => { createEl(stickerNumber, 54) }}></button>
                     </div>
                 </div>
             </div>
