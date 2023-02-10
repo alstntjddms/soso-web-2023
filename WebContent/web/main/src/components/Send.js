@@ -38,7 +38,7 @@ function Send() {
     const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
     const [userNickName, setUserNickName] = useState(null);
     // 
-    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.85rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
+    const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -106,9 +106,9 @@ function Send() {
         f1: false,
         g1: false
     });
-
+    //
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
-
+    // 
     function SendPopUp() {
         return (
             <React.Fragment>
@@ -2433,13 +2433,18 @@ function Send() {
                 </div>
                 <div>
                     <div id="send_textarea">
-                        <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={250} placeholder='편지를 작성해주세요.(400자 이내)' onChange={(e) => {
+                        <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={240} placeholder='※ 편지를 작성해주세요.&#13;&#10;※ 240자 또는 1쪽 이내' onChange={(e) => {
+                            if (e.target.scrollHeight > 320) {
+                                alert('아직 쪽을 넘겨서 작성하면 편지가 올바르게 전달되지 않습니다.');
+                                let modifiedText = e.target.value.slice(0, -1);
+                                e.target.value = modifiedText;
+                            };
                             dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                             dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                         }}>
                         </textarea>
                     </div>
-                    <div className='send_textLength'>{textLength}/250</div>
+                    <div className='send_textLength'>{textLength}/240</div>
                 </div>
 
                 <div className='send_option_button' onClick={() => {
@@ -2477,7 +2482,7 @@ function Send() {
                     </div>
                     <div className={isFontFamily ? 'send_font_active' : 'send_font'}>
                         <div className={fontItem.a ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SpoqaHanSansNeo-Regular' }} onClick={() => {
-                            setFontFamily('SpoqaHanSansNeo-Regular', '0.85rem');
+                            setFontFamily('SpoqaHanSansNeo-Regular', '0.875rem');
                             selectFontItem('fontItem_1');
                         }}>
                             <div className='send_item_font_title'>Spoqa Han Sans Neo R</div>
@@ -2491,28 +2496,28 @@ function Send() {
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.c ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'NeoDunggeunmo' }} onClick={() => {
-                            setFontFamily('NeoDunggeunmo', '0.79rem');
+                            setFontFamily('NeoDunggeunmo', '0.8125rem');
                             selectFontItem('fontItem_3');
                         }}>
                             <div className='send_item_font_title'>Neo 둥근모</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                            setFontFamily('Saying_tobe_strong', '1.48rem');
+                            setFontFamily('Saying_tobe_strong', '1.92rem');
                             selectFontItem('fontItem_4');
                         }}>
                             <div className='send_item_font_title'>힘내라는 말보단</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                            setFontFamily('ROEHOE-CHAN', '0.865rem');
+                            setFontFamily('ROEHOE-CHAN', '0.80rem');
                             selectFontItem('fontItem_5');
                         }}>
                             <div className='send_item_font_title'>노회찬체</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                            setFontFamily('SBAggroB', '0.845rem');
+                            setFontFamily('SBAggroB', '0.88rem');
                             selectFontItem('fontItem_6');
                         }}>
                             <div className='send_item_font_title'>어그로체 L</div>
