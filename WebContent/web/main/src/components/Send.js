@@ -2503,21 +2503,21 @@ function Send() {
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.d ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'Saying_tobe_strong' }} onClick={() => {
-                            setFontFamily('Saying_tobe_strong', '1.92rem');
+                            setFontFamily('Saying_tobe_strong', '1.20rem');
                             selectFontItem('fontItem_4');
                         }}>
                             <div className='send_item_font_title'>힘내라는 말보단</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.e ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'ROEHOE-CHAN' }} onClick={() => {
-                            setFontFamily('ROEHOE-CHAN', '0.80rem');
+                            setFontFamily('ROEHOE-CHAN', '0.98rem');
                             selectFontItem('fontItem_5');
                         }}>
                             <div className='send_item_font_title'>노회찬체</div>
                             <div className='send_item_font_content'>안녕, 플래터</div>
                         </div>
                         <div className={fontItem.f ? 'send_item_font_active' : 'send_item_font'} style={{ fontFamily: 'SBAggroB' }} onClick={() => {
-                            setFontFamily('SBAggroB', '0.88rem');
+                            setFontFamily('SBAggroB', '0.84rem');
                             selectFontItem('fontItem_6');
                         }}>
                             <div className='send_item_font_title'>어그로체 L</div>
