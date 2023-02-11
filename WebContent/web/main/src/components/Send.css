@@ -46,6 +46,20 @@
     font-size: 1.0rem;
 }
 
+.set_top_menu_completion_active {
+    color: white;
+    transition: all 0.5s;
+}
+
+.set_top_menu_completion {
+    color: #828A93;
+    touch-action: none;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+/*  */
+
 #send_textarea {
     margin: auto;
     margin-top: 0rem;
@@ -366,6 +380,7 @@
 
 .send_letter_option_active {
     position: absolute;
+    z-index: 1;
     bottom: 0;
     width: 100%;
     opacity: 1;
@@ -920,6 +935,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker0 {
@@ -928,11 +944,12 @@
     background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker0:active {
@@ -953,6 +970,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker1 {
@@ -961,11 +979,12 @@
     background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker1:active {
@@ -974,7 +993,7 @@
 }
 
 .send_item_sticker_2 {
-    background-image: url('../lib/sticker/sticker_bow\(red\).png');
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -986,19 +1005,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker2 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(red\).png');
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker2:active {
@@ -1007,7 +1028,7 @@
 }
 
 .send_item_sticker_3 {
-    background-image: url('../lib/sticker/sticker_hart\(red\).png');
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1019,19 +1040,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker3 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_hart\(red\).png');
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker3:active {
@@ -1040,7 +1063,7 @@
 }
 
 .send_item_sticker_4 {
-    background-image: url('../lib/sticker/sticker_ribon1\(red\).png');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1052,19 +1075,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker4 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(red\).png');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker4:active {
@@ -1073,7 +1098,7 @@
 }
 
 .send_item_sticker_5 {
-    background-image: url('../lib/sticker/sticker_ribon2\(red\).png');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1085,19 +1110,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker5 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(red\).png');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker5:active {
@@ -1118,6 +1145,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker6 {
@@ -1126,11 +1154,12 @@
     background-image: url('../lib/sticker/sticker_black_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker6:active {
@@ -1151,19 +1180,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker7 {
     width: 3.5rem;
-    height: 4.5rem;
+    height: 3.5rem;
     background-image: url('../lib/sticker/sticker_boom.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker7:active {
@@ -1184,6 +1215,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker8 {
@@ -1192,11 +1224,12 @@
     background-image: url('../lib/sticker/sticker_bow\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker8:active {
@@ -1217,6 +1250,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker9 {
@@ -1225,11 +1259,12 @@
     background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker9:active {
@@ -1250,6 +1285,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker10 {
@@ -1258,11 +1294,12 @@
     background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker10:active {
@@ -1283,6 +1320,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker11 {
@@ -1291,11 +1329,12 @@
     background-image: url('../lib/sticker/sticker_bow\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker11:active {
@@ -1316,19 +1355,21 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker12 {
-    width: 4.5rem;
+    width: 3.5rem;
     height: 3.5rem;
     background-image: url('../lib/sticker/sticker_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker12:active {
@@ -1349,6 +1390,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker13 {
@@ -1357,11 +1399,12 @@
     background-image: url('../lib/sticker/sticker_candy.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker13:active {
@@ -1382,6 +1425,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker14 {
@@ -1390,11 +1434,12 @@
     background-image: url('../lib/sticker/sticker_chocolate.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker14:active {
@@ -1415,6 +1460,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker15 {
@@ -1423,11 +1469,12 @@
     background-image: url('../lib/sticker/sticker_cup_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker15:active {
@@ -1448,6 +1495,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker16 {
@@ -1461,6 +1509,7 @@
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker16:active {
@@ -1481,6 +1530,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker17 {
@@ -1489,11 +1539,12 @@
     background-image: url('../lib/sticker/sticker_face_1.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker17:active {
@@ -1514,6 +1565,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker18 {
@@ -1522,11 +1574,12 @@
     background-image: url('../lib/sticker/sticker_face_2.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker18:active {
@@ -1548,6 +1601,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker19 {
@@ -1556,11 +1610,12 @@
     background-image: url('../lib/sticker/sticker_face_3.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker19:active {
@@ -1581,6 +1636,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker20 {
@@ -1589,11 +1645,12 @@
     background-image: url('../lib/sticker/sticker_face_4.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker20:active {
@@ -1614,6 +1671,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker21 {
@@ -1622,11 +1680,12 @@
     background-image: url('../lib/sticker/sticker_gold_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker21:active {
@@ -1647,6 +1706,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker22 {
@@ -1655,11 +1715,12 @@
     background-image: url('../lib/sticker/sticker_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker22:active {
@@ -1680,6 +1741,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker23 {
@@ -1688,11 +1750,12 @@
     background-image: url('../lib/sticker/sticker_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker23:active {
@@ -1713,6 +1776,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker24 {
@@ -1721,11 +1785,12 @@
     background-image: url('../lib/sticker/sticker_heart_red.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker24:active {
@@ -1746,6 +1811,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker25 {
@@ -1754,11 +1820,12 @@
     background-image: url('../lib/sticker/sticker_kiss.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker25:active {
@@ -1779,6 +1846,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker26 {
@@ -1787,11 +1855,12 @@
     background-image: url('../lib/sticker/sticker_lolipop.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker26:active {
@@ -1812,6 +1881,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker27 {
@@ -1820,11 +1890,12 @@
     background-image: url('../lib/sticker/sticker_moon.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker27:active {
@@ -1845,6 +1916,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker28 {
@@ -1853,11 +1925,12 @@
     background-image: url('../lib/sticker/sticker_mouse_lying.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker28:active {
@@ -1878,6 +1951,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker29 {
@@ -1886,11 +1960,12 @@
     background-image: url('../lib/sticker/sticker_mouse_standing.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker29:active {
@@ -1911,6 +1986,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker30 {
@@ -1919,11 +1995,12 @@
     background-image: url('../lib/sticker/sticker_pie.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker30:active {
@@ -1944,6 +2021,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker31 {
@@ -1952,11 +2030,12 @@
     background-image: url('../lib/sticker/sticker_poo.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker31:active {
@@ -1977,6 +2056,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker32 {
@@ -1985,11 +2065,12 @@
     background-image: url('../lib/sticker/sticker_red_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker32:active {
@@ -2010,6 +2091,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker33 {
@@ -2018,11 +2100,12 @@
     background-image: url('../lib/sticker/sticker_red_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker33:active {
@@ -2043,6 +2126,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker34 {
@@ -2051,11 +2135,12 @@
     background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker34:active {
@@ -2076,6 +2161,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker35 {
@@ -2084,11 +2170,12 @@
     background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker35:active {
@@ -2109,6 +2196,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker36 {
@@ -2117,11 +2205,12 @@
     background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker36:active {
@@ -2142,6 +2231,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker37 {
@@ -2150,11 +2240,12 @@
     background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker37:active {
@@ -2175,6 +2266,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker38 {
@@ -2183,11 +2275,12 @@
     background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker38:active {
@@ -2208,6 +2301,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker39 {
@@ -2216,11 +2310,12 @@
     background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker39:active {
@@ -2241,6 +2336,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker40 {
@@ -2249,11 +2345,12 @@
     background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker40:active {
@@ -2274,6 +2371,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker41 {
@@ -2282,11 +2380,12 @@
     background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker41:active {
@@ -2307,6 +2406,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker42 {
@@ -2315,11 +2415,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker42:active {
@@ -2340,6 +2441,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker43 {
@@ -2348,11 +2450,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker43:active {
@@ -2373,6 +2476,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker44 {
@@ -2381,11 +2485,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker44:active {
@@ -2406,6 +2511,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker45 {
@@ -2414,11 +2520,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker45:active {
@@ -2439,6 +2546,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker46 {
@@ -2447,11 +2555,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker46:active {
@@ -2472,6 +2581,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker47 {
@@ -2480,11 +2590,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker47:active {
@@ -2505,6 +2616,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker48 {
@@ -2513,11 +2625,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker48:active {
@@ -2538,6 +2651,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker49 {
@@ -2546,11 +2660,12 @@
     background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker49:active {
@@ -2571,6 +2686,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker50 {
@@ -2579,11 +2695,12 @@
     background-image: url('../lib/sticker/sticker_star_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker50:active {
@@ -2604,6 +2721,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker51 {
@@ -2612,11 +2730,12 @@
     background-image: url('../lib/sticker/sticker_suprise.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker51:active {
@@ -2637,6 +2756,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker52 {
@@ -2645,11 +2765,12 @@
     background-image: url('../lib/sticker/sticker_tears.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker52:active {
@@ -2670,6 +2791,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker53 {
@@ -2678,11 +2800,12 @@
     background-image: url('../lib/sticker/sticker_teddy_bear.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker53:active {
@@ -2703,6 +2826,7 @@
     margin-right: 0.375rem;
     margin-bottom: 0.5rem;
     padding: 0rem;
+    background-position: center;
 }
 
 .send_item_sticker54 {
@@ -2711,11 +2835,12 @@
     background-image: url('../lib/sticker/sticker_white_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .send_item_sticker54:active {

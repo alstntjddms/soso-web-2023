@@ -107,8 +107,10 @@ function Send() {
         g1: false
     });
     //
-    const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
+    const [completion, setCompletion] = useState(false);
     // 
+    const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
+    //
     function SendPopUp() {
         return (
             <React.Fragment>
@@ -643,9 +645,17 @@ function Send() {
         enterText.value = copyText;
     };
 
+    useEffect(()=>{
+        if(text === "") {
+            setCompletion(false);
+        } else {
+            setCompletion(true);
+        };
+    },[text]);
+
     // Require INFO
     function requireUserCheckData(props) {
-        fetch('https://plater.kr/api/member/' + props, {
+        fetch('http://plater.kr/api/member/' + props, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -719,6 +729,7 @@ function Send() {
 
     useEffect(() => {
         get_query();
+
     }, [get_query]);
 
     function locationData(data, id, X, Y, num) {
@@ -2421,7 +2432,7 @@ function Send() {
                         dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
                     }}></img>
                     <h3>To. {userNickName}</h3>
-                    <span onClick={() => {
+                    <span className={completion ? 'set_top_menu_completion_active' : 'set_top_menu_completion'} onClick={() => {
                         if (text === '') {
                             dispatch({ type: 'CHANGE_ISSENDPOPUPCHECK', data: !isSendPopUpCheck });
                         } else {
@@ -2434,6 +2445,7 @@ function Send() {
                 <div>
                     <div id="send_textarea">
                         <textarea style={styleLetter} ref={textareaFocus} className="send_textbox" maxLength={240} placeholder='※ 편지를 작성해주세요.&#13;&#10;※ 240자 또는 1쪽 이내' onChange={(e) => {
+                            inactiveLetterOption();
                             if (e.target.scrollHeight > 320) {
                                 alert('아직 쪽을 넘겨서 작성하면 편지가 올바르게 전달되지 않습니다.');
                                 let modifiedText = e.target.value.slice(0, -1);
@@ -2441,7 +2453,14 @@ function Send() {
                             };
                             dispatch({ type: 'CHANGE_TEXTLENGTH', data: e.target.value.length });
                             dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
-                        }}>
+                        }} onFocus={() => {
+                            inactiveLetterOption();
+                            // let focusEle = document.activeElement;
+                            // if (document.getElementsByClassName('send_textbox')[0] === focusEle) {
+                            //     inactiveLetterOption();
+                            // }; 
+                        }}
+                        >
                         </textarea>
                     </div>
                     <div className='send_textLength'>{textLength}/240</div>
