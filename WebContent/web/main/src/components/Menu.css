@@ -173,23 +173,21 @@ a>p {
 
 /* icon */
 .menu_img_active {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2723/2723003.png');
+    background-image: url('../lib/icon/back.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 1.3rem;
-    height: 1.3rem;
-    background-color: white;
+    width: 2.0rem;
+    height: 2.0rem;
 }
 
 /* icon */
 .menu_img_active_plus {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2723/2723003.png');
+    background-image: url('../lib/icon/back.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 2.0rem;
+    height: 2.0rem;
     transform: rotate(180deg);
-    background-color: white;
 }
 
 /*  */

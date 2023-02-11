@@ -184,7 +184,7 @@ function InnerPage() {
                                 <p className='noname_sendSignal_innerTime_view_month'>{startMonth}</p>
                                 <p className='noname_sendSignal_innerTime_view_hours'>{startHours}</p>
                             </div>
-                            <div className='noname_sendSignal_innerTime_view_pause'>~</div>
+                            <div className='noname_sendSignal_innerTime_view_pause'></div>
                             <div className='noname_sendSignal_innerTime_view_end'>
                                 <p className='noname_sendSignal_innerTime_view_p'>마감</p>
                                 <p className='noname_sendSignal_innerTime_view_month'>{endMonth}</p>

@@ -478,9 +478,11 @@
     height: 9rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    align-items: center;
 }
 
 .noname_sendSignal_innerTime_view_start {
+    font-family: 'NeoDunggeunmo';
     height: 7rem;
     width: 7rem;
     background-color: rgba(230, 230, 230, 1.0);
@@ -489,11 +491,14 @@
 }
 
 .noname_sendSignal_innerTime_view_pause {
-    height: 9rem;
-    line-height: 9rem;
+    background-image: url('../lib/icon/wave.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2rem;
 }
 
 .noname_sendSignal_innerTime_view_end {
+    font-family: 'NeoDunggeunmo';
     height: 7rem;
     width: 7rem;
     background-color: rgba(230, 230, 230, 1.0);
@@ -504,7 +509,7 @@
 .noname_sendSignal_innerTime_view_p {
     font-size: 1.0rem;
     margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
 }
 
 .noname_sendSignal_innerTime_view_month {

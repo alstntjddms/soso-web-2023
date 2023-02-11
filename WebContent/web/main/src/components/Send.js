@@ -184,7 +184,7 @@ function Send() {
             infinite: false,
             speed: 1250,
             slidesToShow: 5,
-            slidesToScroll: 1
+            slidesToScroll: 3
         };
 
         function changeAuthor(props) {
@@ -645,13 +645,13 @@ function Send() {
         enterText.value = copyText;
     };
 
-    useEffect(()=>{
-        if(text === "") {
+    useEffect(() => {
+        if (text === "") {
             setCompletion(false);
         } else {
             setCompletion(true);
         };
-    },[text]);
+    }, [text]);
 
     // Require INFO
     function requireUserCheckData(props) {
@@ -824,6 +824,8 @@ function Send() {
                 xOffset = currentX;
                 yOffset = currentY;
                 if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
+                    setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                    dragEnd(e);
                     alert('편지지 안쪽에 스티커를 붙여주세요.');
                 } else {
                     setTranslate(Math.round(currentX), Math.round(currentY), dragItem);

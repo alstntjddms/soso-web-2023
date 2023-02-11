@@ -94,6 +94,7 @@
     display: flex;
     line-height: 1.5rem;
     resize: none;
+    touch-action: pan-x;
 }
 
 .send_textLength {
