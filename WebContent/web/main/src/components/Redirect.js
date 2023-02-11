@@ -37,7 +37,7 @@ function Redirect() {
     // };
 
     function RequestUserData(userId) {
-        fetch('https://plater.kr/api/memberbyuserid/' + userId, {
+        fetch('https://plater.kr/api/member/' + userId, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
