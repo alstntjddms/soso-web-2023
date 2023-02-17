@@ -316,12 +316,14 @@ a>p {
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 19.375rem;
+    width: 100%;
     height: 19.375rem;
     background-color: rgba(255, 255, 255, 1.0);
     transform: translate(-50%, 0%);
     z-index: 9;
     border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     text-align: center;
     overflow: hidden;
     touch-action: none;
@@ -334,8 +336,8 @@ a>p {
     top: 2.75rem;
     font-size: 1.25rem;
     margin-bottom: 0.2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
     color: #090A14;
     font-family: 'NeoDunggeunmo';
 }
@@ -344,8 +346,8 @@ a>p {
     position: relative;
     margin: auto;
     top: 3.75rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
     font-size: 0.875rem;
     color: #828A93;
 }
@@ -360,7 +362,8 @@ a>p {
 .membershipWithdrawal_button_signOut {
     position: relative;
     margin: auto;
-    width: 16.375rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     height: 3.25rem;
     font-size: 1.0rem;
     line-height: 3.25rem;
@@ -373,7 +376,8 @@ a>p {
 .membershipWithdrawal_button_cancel {
     position: relative;
     margin: auto;
-    width: 16.375rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     height: 3.25rem;
     font-size: 1.0rem;
     line-height: 3.25rem;
@@ -409,12 +413,14 @@ a>p {
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 19.375rem;
+    width: 100%;
     height: 19.375rem;
     background-color: rgba(255, 255, 255, 1.0);
     transform: translate(-50%, 0%);
     z-index: 9;
     border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     text-align: center;
     overflow: hidden;
     touch-action: none;
@@ -427,8 +433,8 @@ a>p {
     top: 2.75rem;
     font-size: 1.25rem;
     margin-bottom: 0.2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
     color: #090A14;
     font-family: 'NeoDunggeunmo';
 }
@@ -437,8 +443,8 @@ a>p {
     position: relative;
     margin: auto;
     top: 3.75rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
     font-size: 0.875rem;
     color: #828A93;
 }
@@ -453,7 +459,9 @@ a>p {
 .isPopUpLogOut_button_signOut {
     position: relative;
     margin: auto;
-    width: 16.375rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
     height: 3.25rem;
     font-size: 1.0rem;
     line-height: 3.25rem;
@@ -466,7 +474,9 @@ a>p {
 .isPopUpLogOut_button_cancel {
     position: relative;
     margin: auto;
-    width: 16.375rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
     height: 3.25rem;
     font-size: 1.0rem;
     line-height: 3.25rem;

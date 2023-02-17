@@ -27,8 +27,8 @@ function App() {
             <p className='isFirstIngo_title'>모바일로 접속해 주세요.</p>
             <p className='isFirstIngo_p'>PL@TER는 모바일에 최적화 되어 있어요.</p>
             <p className='isFirstIngo_p'>PC 등으로 접속 시 오류가 발생할 수 있어요.</p>
-              <div className='isFirstIngo_button_confirm' onClick={() => { dispatch({ type: 'CHANGE_ISFIRSTINFO', data: !isFirstInfo }); }}>확인</div>
-            </div>
+            <div className='isFirstIngo_button_confirm' onClick={() => { dispatch({ type: 'CHANGE_ISFIRSTINFO', data: !isFirstInfo }); }}>확인</div>
+          </div>
         </div>
       </React.Fragment>
     );

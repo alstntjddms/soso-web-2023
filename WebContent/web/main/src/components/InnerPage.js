@@ -180,12 +180,20 @@ function InnerPage() {
                         </div>
                         <div className='noname_sendSignal_innerTime_view'>
                             <div className='noname_sendSignal_innerTime_view_start'>
+                                <div className='noname_sendSignal_innerTime_view_bolt_div'>
+                                    <div className='noname_sendSignal_innerTime_view_bolt_1'></div>
+                                    <div className='noname_sendSignal_innerTime_view_bolt_2'></div>
+                                </div>
                                 <p className='noname_sendSignal_innerTime_view_p'>시작</p>
                                 <p className='noname_sendSignal_innerTime_view_month'>{startMonth}</p>
                                 <p className='noname_sendSignal_innerTime_view_hours'>{startHours}</p>
                             </div>
                             <div className='noname_sendSignal_innerTime_view_pause'></div>
                             <div className='noname_sendSignal_innerTime_view_end'>
+                                <div className='noname_sendSignal_innerTime_view_bolt_div'>
+                                    <div className='noname_sendSignal_innerTime_view_bolt_1'></div>
+                                    <div className='noname_sendSignal_innerTime_view_bolt_2'></div>
+                                </div>
                                 <p className='noname_sendSignal_innerTime_view_p'>마감</p>
                                 <p className='noname_sendSignal_innerTime_view_month'>{endMonth}</p>
                                 <p className='noname_sendSignal_innerTime_view_hours'>{endHours}</p>
