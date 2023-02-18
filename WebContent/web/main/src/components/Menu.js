@@ -165,9 +165,6 @@ function Menu() {
                                     <div className='menu_plater_img_outContainer'>
                                         <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
                                     </div>
-                                    <div className='menu_plater_img_outContainer'>
-                                        <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
-                                    </div>
                                 </Slider>
                             </div>
                             <h5>광활한 인터넷 우주 속</h5>
@@ -190,7 +187,7 @@ function Menu() {
                             <div className='menu_palter_bottom_pading'></div>
                             <p>자세한 이용 방법이</p>
                             <p>궁금하다면 이쪽으로!</p>
-                            <a href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><div className='menu_palter_bottom_button'>
+                            <a style={{ textDecoration: 'none' }} href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><div className='menu_palter_bottom_button'>
                                 이용방법 알아보기</div></a>
                             <div className='menu_palter_bottom_pading_2'></div>
                             <br></br>

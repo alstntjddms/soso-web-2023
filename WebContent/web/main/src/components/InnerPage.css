@@ -454,7 +454,8 @@
 }
 
 #input_userName {
-    border: none;
+    border-radius: 0%;
+    border: 1px solid transparent;
     border-bottom: 1px solid #828A93;
     height: 1.5rem;
     line-height: 1.5rem;

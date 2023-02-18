@@ -424,7 +424,7 @@ function InnerPage() {
             initialSlide: slickPage,
             draggable: false,
             swipe: true,
-            arrows: true,
+            arrows: false,
             dots: true,
             infinite: false,
             speed: 1250,

@@ -8,8 +8,8 @@ function ModalStory() {
     const isStory = useSelector((state) => state.isStory);
 
     const settings = {
-        draggable: true,
-        swipe: true,
+        draggable: false,
+        swipe: false,
         arrows: true,
         dots: false,
         infinite: false,
