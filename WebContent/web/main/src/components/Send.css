@@ -380,17 +380,20 @@
 
 /*  */
 
+.send_option_button_div {
+    width: 20.5rem;
+    margin: auto;
+}
+
 .send_option_button {
+    margin-left: 1rem;
     background-color: transparent;
-    /*  */
-    position: absolute;
-    top: 28rem;
-    left: 2rem;
+    position: relative;
     background-image: url('../lib/etc/send/customize_btn.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 4rem;
-    height: 3rem;
+    width: 5rem;
+    height: 4rem;
 }
 
 /*  */
@@ -462,9 +465,9 @@
 
 .send_letter_menu_close {
     position: absolute;
-    width: 1.5rem;
+    width: 2.0rem;
     right: 1rem;
-    top: -2rem;
+    top: -3rem;
 }
 
 .send_font_active,

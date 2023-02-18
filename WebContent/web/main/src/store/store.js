@@ -287,6 +287,7 @@ function reducer(state, action) {
             isMenu: false,
             isInner: false,
             isMypage: false,
+            isMessage: false,
             isPlater: false,
             isHowto: false,
             isMembershipWithdrawal: false,
@@ -373,6 +374,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISMYPAGE') {
         newState.isMypage = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISMESSAGE') {
+        newState.isMessage = action.data;
     };
 
     if (action.type === 'CHANGE_ISPLATER') {

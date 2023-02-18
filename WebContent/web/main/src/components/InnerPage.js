@@ -173,10 +173,10 @@ function InnerPage() {
                                 setStringUserNickname(e.target.value);
                             }} value={stringUserNickname}></input><span className='inputUserNameLength'>{lengthUserNickname}/10</span>
                         </div>
-                        <div className='noname_sendSignal_line'></div>
+                        {/* <div className='noname_sendSignal_line'></div> */}
                         <div className='noname_sendSignal_innerTime'>
-                            <p className='noname_sendSignal_innerTime_p'>시작 - 마감</p>
-                            <h6 className='noname_sendSignal_innerTime_h6'>PLATER는 10일의 시간을 제공합니다.</h6>
+                            <p className='noname_sendSignal_innerTime_p'>시작 & 마감</p>
+                            <h6 className='noname_sendSignal_innerTime_h6'>10일 동안 편지를 받을 수 있습니다.</h6>
                         </div>
                         <div className='noname_sendSignal_innerTime_view'>
                             <div className='noname_sendSignal_innerTime_view_start'>
@@ -184,7 +184,7 @@ function InnerPage() {
                                     <div className='noname_sendSignal_innerTime_view_bolt_1'></div>
                                     <div className='noname_sendSignal_innerTime_view_bolt_2'></div>
                                 </div>
-                                <p className='noname_sendSignal_innerTime_view_p'>시작</p>
+                                <p className='noname_sendSignal_innerTime_view_p'>Start</p>
                                 <p className='noname_sendSignal_innerTime_view_month'>{startMonth}</p>
                                 <p className='noname_sendSignal_innerTime_view_hours'>{startHours}</p>
                             </div>
@@ -194,21 +194,20 @@ function InnerPage() {
                                     <div className='noname_sendSignal_innerTime_view_bolt_1'></div>
                                     <div className='noname_sendSignal_innerTime_view_bolt_2'></div>
                                 </div>
-                                <p className='noname_sendSignal_innerTime_view_p'>마감</p>
+                                <p className='noname_sendSignal_innerTime_view_p'>End</p>
                                 <p className='noname_sendSignal_innerTime_view_month'>{endMonth}</p>
                                 <p className='noname_sendSignal_innerTime_view_hours'>{endHours}</p>
                             </div>
                         </div>
-                        <div className='noname_sendSignal_line'></div>
+                        {/* <div className='noname_sendSignal_line'></div> */}
                         <div className='noname_sendSignal_innerNotice'>
-                            <div className='noname_sendSignal_innerNotice_innerbox'>
+                            {/* <div className='noname_sendSignal_innerNotice_innerbox'>
                                 <p className='noname_sendSignal_innerNotice_p'>알림 설정</p>
                                 <h6 className='noname_sendSignal_innerNotice_h6'>카카오톡을 통해 D-Day 알림을 받습니다.</h6>
                             </div>
                             <div>
-                                {/* icon */}
                                 <img alt='button_notice' className='noname_sendSignal_innerNotice_button' src='https://cdn-icons-png.flaticon.com/512/5720/5720465.png' onClick={() => { alert('아직 서비스 준비 중입니다.') }}></img>
-                            </div>
+                            </div> */}
                         </div>
                         <div className='noname_sendSignal_startDiv'>
                             <div className='noname_sendSignal_startDiv_button' onClick={

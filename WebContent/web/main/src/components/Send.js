@@ -2468,10 +2468,12 @@ function Send() {
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
 
+                <div className='send_option_button_div'>
                 <div className='send_option_button' onClick={() => {
                     activeLetterOption();
                     selectLetterMenu('font');
                 }}></div>
+                </div>
                 <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
                     <img className='send_letter_menu_close' alt='option_closed' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/send/closed_btn.png?raw=true' onClick={() => {
                         inactiveLetterOption();

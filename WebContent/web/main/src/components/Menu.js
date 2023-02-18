@@ -9,6 +9,7 @@ function Menu() {
     const isMenu = useSelector((state) => state.isMenu);
     const isInner = useSelector((state) => state.isInner);
     const isMypage = useSelector((state) => state.isMypage);
+    const isMessage = useSelector((state) => state.isMessage);
     const isPlater = useSelector((state) => state.isPlater);
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
@@ -140,7 +141,10 @@ function Menu() {
                         <div className='menu_bar_mypage_box2'>
                             <p className='menu_bar_mypage_box2_p'>카카오톡 알림</p>
                             <div className='menu_bar_mypage_box2_innerBox'>
-                                <div className='menu_bar_mypage_box2_notice' onClick={() => { alert('아직 서비스 준비 중입니다.') }}><div className='menu_bar_mypage_box2_notice_inner'></div></div>
+                                <div className='menu_bar_mypage_box2_notice' onClick={() => {
+                                    alert('카카오톡 알림 권한을 변경합니다.');
+                                    dispatch({ type: 'CHANGE_ISMESSAGE', data: !isMessage });
+                                }}><div className={isMessage ? 'menu_bar_mypage_box2_notice_inner_active' : 'menu_bar_mypage_box2_notice_inner'}></div></div>
                             </div>
                         </div>
                         <div className='menu_bar_mypage_line2'></div>
