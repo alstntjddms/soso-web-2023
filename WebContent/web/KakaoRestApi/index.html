@@ -15,15 +15,28 @@
     <a
         href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&redirect_uri=https://angelo-s-library.netlify.app/kakaorestapi/index.html">
         <button>Kakao Login</button></a>
+    <!-- <a
+        href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&redirect_uri=http://127.0.0.1:5500/WebContent/web/KakaoRestApi/index.html">
+        <button>Kakao 로그인</button></a> -->
     <a
         href="https://kauth.kakao.com/oauth/logout?client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&logout_redirect_uri=https://angelo-s-library.netlify.app/kakaorestapi/index.html">
         <button>Kakao Logout</button></a>
+    <!-- <a
+        href="https://kauth.kakao.com/oauth/logout?client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&logout_redirect_uri=http://127.0.0.1:5500/WebContent/web/KakaoRestApi/index.html">
+        <button>Kakao 로그아웃</button></a> -->
     <!-- <button onclick="sendCode()">Send Code</button> -->
-    <button onclick="requestToken()">Request Token</button>
-    <button onclick="dataPrint()">Data Print</button>
-    <button onclick="singOut()">Withdrawal</button>
-    <button onclick="sendMessage()">Send kakao message</button>
-
+    <button onclick="requestToken()">Token 요청</button>
+    <button onclick="dataPrint()">Data 출력</button>
+    <button onclick="singOut()">회원 탈퇴</button>
+    <button onclick="sendMessage()">Kakao 메시지 보내기</button>
+    <a
+        href="https://kauth.kakao.com/oauth/authorize?client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&redirect_uri=https://angelo-s-library.netlify.app/kakaorestapi/index.html&response_type=code&scope=talk_message"><button>동의
+            항목 추가</button></a>
+    <!-- <a
+        href="https://kauth.kakao.com/oauth/authorize?client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&redirect_uri=http://127.0.0.1:5500/WebContent/web/KakaoRestApi/index.html&response_type=code&scope=talk_message"><button>동의
+            항목 추가</button></a> -->
+    <button onclick="revolke()">동의 항목 철회</button>
+    <button onclick="scopes()">동의 항목 확인하기</button>
     <script>
         const urlParams = new URL(location.href).searchParams;
         const name = urlParams.get('code');
@@ -55,6 +68,7 @@
                 grant_type: "authorization_code",
                 client_id: "a42a6c91f7b1bb0d3f8e3daef2b6f24b",
                 redirect_uri: "https://angelo-s-library.netlify.app/kakaorestapi/index.html",
+                // redirect_uri: "http://127.0.0.1:5500/WebContent/web/KakaoRestApi/index.html",
                 code: name
             };
             const queryStringBody = Object.keys(body)
@@ -97,7 +111,7 @@
                 method: "POST",
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded',
-                    Authorization: `Bearer ${usertoken}`,
+                    Authorization: `Bearer ${usertoken}`
                 },
                 body: new URLSearchParams({
                     "template_object": JSON.stringify({
@@ -116,6 +130,34 @@
                     console.log(data);
                     alert('Kakao Talk message sent successfully.');
                 });
+        };
+
+        function revolke() {
+            fetch("https://kapi.kakao.com/v2/user/revoke/scopes", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    Authorization: `Bearer ${usertoken}`
+                },
+                body: 'scopes=["talk_message"]'
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data);
+                    alert('동의 항목(메시지 보내기) 철회가 완료되었습니다.')
+                })
+        };
+
+        function scopes() {
+            fetch("https://kapi.kakao.com/v2/user/scopes", {
+                method: "GET",
+                headers: { Authorization: `Bearer ${usertoken}` }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data);
+                    alert(data.scopes[1].display_name + ' : ' + data.scopes[1].agreed);
+                })
         };
 
         function dataPrint() {
