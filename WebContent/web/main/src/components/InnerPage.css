@@ -690,6 +690,9 @@ h4 {
 
 .letterBox_innerContainer_div>span {
     color: white;
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%, -50%);
 }
 
 /* .letteropen {
@@ -991,8 +994,8 @@ h4 {
     background-repeat: no-repeat;
     background-size: cover;
     top: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.0rem;
+    height: 2.0rem;
     margin: none;
 }
 
@@ -1003,8 +1006,8 @@ h4 {
     background-size: cover;
     margin-right: 0.75rem;
     top: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.0rem;
+    height: 2.0rem;
     background-color: transparent;
     margin: none;
 }

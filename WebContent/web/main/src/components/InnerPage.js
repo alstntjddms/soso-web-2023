@@ -440,18 +440,18 @@ function InnerPage() {
             const list4 = [];
 
             if (letterData.length === 0) {
-                setList(<span>아직 편지가 도착하지 않았어요.</span>);
-                setList2(<span>아직 편지가 도착하지 않았어요.</span>);
-                setList3(<span>아직 편지가 도착하지 않았어요.</span>);
-                setList4(<span>아직 편지가 도착하지 않았어요.</span>);
+                setList(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                setList2(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                setList3(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                setList4(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
                     list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
-                    setList2(<span>아직 편지가 도착하지 않았어요.</span>);
-                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
-                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList2(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                    setList3(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                    setList4(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                 };
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
@@ -463,8 +463,8 @@ function InnerPage() {
                     let li = letterData[i];
                     list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
-                    setList3(<span>아직 편지가 도착하지 않았어요.</span>);
-                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList3(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
+                    setList4(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                 };
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
@@ -481,7 +481,7 @@ function InnerPage() {
                     let li = letterData[i];
                     list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList3(list3);
-                    setList4(<span>아직 편지가 도착하지 않았어요.</span>);
+                    setList4(<span><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {

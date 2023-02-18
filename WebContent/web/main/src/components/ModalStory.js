@@ -8,10 +8,10 @@ function ModalStory() {
     const isStory = useSelector((state) => state.isStory);
 
     const settings = {
-        draggable: false,
-        swipe: false,
+        draggable: true,
+        swipe: true,
         arrows: true,
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 1250,
         slidesToShow: 1,
@@ -59,28 +59,33 @@ function ModalStory() {
                             <div className='modalStory_outDiv'>
                                 <div>
                                     <div className='modalStory_img1'></div>
-                                    <p className="modalStory_p">"외로워…"</p>
-                                    <p className="modalStory_p">작은 별이 달에게 푸념했습니다.</p>
+                                    <p className="modalStory_p_1_1">"외로워…"</p>
+                                    <p className="modalStory_p_1_2">작은별이 달에게 푸념했습니다.</p>
                                 </div>
                             </div>
                             <div className='modalStory_outDiv'>
                                 <div>
                                     <div className='modalStory_img2'></div>
-                                    <p className="modalStory_p">"옛날에는 지구인이 종종 찾아오곤 했단다."</p>
-                                    <p className="modalStory_p">달은 작은 별에게 지구의 이야기를 들려줬습니다.</p>
+                                    <p className="modalStory_p_2_1">"옛날에는 지구인이</p>
+                                    <p className="modalStory_p_2_2">종종 찾아오건 했지"</p>
+                                    <p className="modalStory_p_2_3">달은 작은별에게 지구의</p>
+                                    <p className="modalStory_p_2_4">이야기를 들려줬습니다.</p>
                                 </div>
                             </div>
                             <div className='modalStory_outDiv'>
                                 <div>
                                     <div className='modalStory_img3'></div>
-                                    <p className="modalStory_p">달의 이야기를 들은 작은 별은 지구인들이 궁금해졌습니다.</p>
-                                    <p className="modalStory_p">그래서 작은 별은 지구인들에게 신호를 보내기로 결심했어요.</p>
+                                    <p className="modalStory_p_3_1">작은별은 지구인을 동경하게</p>
+                                    <p className="modalStory_p_3_2">되었습니다. 작은별은 힘을 내</p>
+                                    <p className="modalStory_p_3_3">지구인들에게 신호를 보내기로</p>
+                                    <p className="modalStory_p_3_4">결심했어요.</p>
                                 </div>
                             </div>
                             <div className='modalStory_outDiv'>
                                 <div>
                                     <div className='modalStory_img4'></div>
-                                    <p className="modalStory_p">"띠띠…띠 나에게 편지를 보내줘. 내 이름은 ― 지지직! "</p>
+                                    <p className="modalStory_p_4_1">"나에게 편지를 보내줘.</p>
+                                    <p className="modalStory_p_4_2">내 이름은 -"</p>
                                     <div className='modalStory_startButton' onClick={toggleCheck}>신호 보내기</div>
                                 </div>
                             </div>
