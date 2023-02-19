@@ -706,8 +706,19 @@ h4 {
 .letterBox_innerContainer_div>span {
     color: white;
     position: absolute;
-    top: 25%;
+    top: 20%;
     transform: translate(-50%, -50%);
+}
+
+.letterEmptyIcon {
+    position: relative;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    background-image: url('../lib/icon/nomessage.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 /* .letteropen {
