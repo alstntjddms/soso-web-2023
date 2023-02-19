@@ -316,6 +316,7 @@ function InnerPage() {
 
     function LetterBox() {
         const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
+        const isLetterBlockConfirm = useSelector((state) => state.isLetterBlockConfirm);
         const isLetter = useSelector((state) => state.isLetter);
         const [list, setList] = useState([<span key={1} style={{ color: "white" }}>Loading...</span>]);
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
@@ -334,14 +335,38 @@ function InnerPage() {
             };
         };
 
+        function LetterBlockConfirm() {
+            return (
+                <React.Fragment>
+
+                    <div className={isLetterBlockConfirm ? "isLetterBlockConfirm" : "isLetterBlockConfirm_fade"}>
+                        <div className='isLetterBlockConfirm_outContainer'>
+                            <p className='isLetterBlockConfirm_title'>이 편지를</p>
+                            <p className='isLetterBlockConfirm_title'>차단하겠습니까?</p>
+                            <p className='isLetterBlockConfirm_p'>차단된 편지는 다시 읽을 수 없고</p>
+                            <p className='isLetterBlockConfirm_p'>서비스질 개선에 사용됩니다.</p>
+                            <div className='isLetterBlockConfirm_innerBox'>
+                                <div className='isLetterBlockConfirm_button_signOut' onClick={() => {
+                                    dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                    dispatch({ type: 'CHANGE_ISLETTERBLOCKCONFIRM', data: false });
+                                }}>취소</div>
+                                <div className='isLetterBlockConfirm_button_cancel' onClick={() => {
+                                    letterBlcok(render);
+                                    dispatch({ type: 'CHANGE_ISLETTERBLOCKCONFIRM', data: false });
+                                }}>차단하기</div>
+                            </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
         function letterBlcok(i) {
-            if (window.confirm('이 편지를 차단하겠습니까? (차단된 편지는 다시 읽을 수 없고 서비스질 개선에 사용됩니다.')) {
-                const copyLetter = [...letterData];
-                copyLetter[i].letterIcon = 'block';
-                dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-                dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                setRender(-1);
-            };
+            const copyLetter = [...letterData];
+            copyLetter[i].letterIcon = 'block';
+            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+            dispatch({ type: 'CHANGE_ISLETTER', data: false });
+            setRender(-1);
         };
 
         function changeLetterStyle(i) {
@@ -515,7 +540,10 @@ function InnerPage() {
                             <div className='letter_textarea_author_title'>From.</div>
                             <input type='text' className='author' value={''} readOnly></input>
                             <div className='letter_icon_box'>
-                                <div className='letter_block' onClick={() => { letterBlcok(render) }}></div>
+                                <div className='letter_block' onClick={() => {
+                                    // letterBlcok(render);
+                                    dispatch({ type: 'CHANGE_ISLETTERBLOCKCONFIRM', data: true });
+                                }}></div>
                                 <div className='letter_close' onClick={() => {
                                     // openLetter(render);
                                     // setTimeout(() => {
@@ -564,6 +592,7 @@ function InnerPage() {
         return (
             <React.Fragment>
                 <NotYetLetter></NotYetLetter>
+                <LetterBlockConfirm></LetterBlockConfirm>
                 <Letter></Letter>
                 <div className='letterBox_outContainer'>
                     <Slider {...settings}>

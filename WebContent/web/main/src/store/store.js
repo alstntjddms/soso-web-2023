@@ -301,6 +301,7 @@ function reducer(state, action) {
             isSendSignal: false,
             isLetter: false,
             isNotYetLetter: false,
+            isLetterBlockConfirm: false,
             isRestart: false,
             // send component
             textLength: 0,
@@ -438,6 +439,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISNOTYETLETTER') {
         newState.isNotYetLetter = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISLETTERBLOCKCONFIRM') {
+        newState.isLetterBlockConfirm = action.data;
     };
 
     if (action.type === 'CHANGE_ISRESTART') {
