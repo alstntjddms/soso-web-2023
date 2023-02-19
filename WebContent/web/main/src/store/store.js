@@ -4,7 +4,7 @@ function reducer(state, action) {
     if (state === undefined) {
         return {
             userID: 'null',
-            userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0 },
+            userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0, 'agreement': false },
             letterData: [
                 {
                     "letterId": "0",
@@ -285,9 +285,10 @@ function reducer(state, action) {
             isConditions: false,
             isIndividual: false,
             isMenu: false,
+            isYesAgreement: false,
+            isNoAgreement: false,
             isInner: false,
             isMypage: false,
-            isMessage: false,
             isPlater: false,
             isHowto: false,
             isMembershipWithdrawal: false,
@@ -369,16 +370,20 @@ function reducer(state, action) {
         newState.isMenu = action.data;
     };
 
+    if (action.type === 'CHANGE_ISYESAGREEMENT') {
+        newState.isYesAgreement = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISNOAGREEMENT') {
+        newState.isNoAgreement = action.data;
+    };
+
     if (action.type === 'CHANGE_ISINNER') {
         newState.isInner = action.data;
     };
 
     if (action.type === 'CHANGE_ISMYPAGE') {
         newState.isMypage = action.data;
-    };
-
-    if (action.type === 'CHANGE_ISMESSAGE') {
-        newState.isMessage = action.data;
     };
 
     if (action.type === 'CHANGE_ISPLATER') {
@@ -431,6 +436,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_GETLETTER') {
         newState.userData.getLetter = action.data;
+    };
+
+    if (action.type === 'CHANGE_AGREEMENT') {
+        newState.userData.agreement = action.data;
     };
 
     if (action.type === 'CHANGE_ISLETTER') {

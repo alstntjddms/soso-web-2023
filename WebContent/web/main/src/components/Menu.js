@@ -4,12 +4,14 @@ import Slider from "react-slick";
 import './Menu.css';
 
 function Menu() {
+    const [render, setRender] = useState(0);
     const dispatch = useDispatch();
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
+    const isYesAgreement = useSelector((state) => state.isYesAgreement);
+    const isNoAgreement = useSelector((state) => state.isNoAgreement);
     const isInner = useSelector((state) => state.isInner);
     const isMypage = useSelector((state) => state.isMypage);
-    const isMessage = useSelector((state) => state.isMessage);
     const isPlater = useSelector((state) => state.isPlater);
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
@@ -39,6 +41,58 @@ function Menu() {
     //         });
     // };
 
+    function YesAgreement() {
+        return (
+            <React.Fragment>
+                <div className={isYesAgreement ? "isYesAgreement" : "isYesAgreement_fade"}>
+                    <div className='isYesAgreement_outContainer'>
+                        <p className='isYesAgreement_title'>카카오톡 알림을</p>
+                        <p className='isYesAgreement_title'>받으시겠습니까?</p>
+                        <p className='isYesAgreement_p'>행성 만료, 공지사항 등을</p>
+                        <p className='isYesAgreement_p'>카카오톡 '나와의 채팅'으로 받을 수 있습니다.</p>
+                        <div className='isYesAgreement_innerBox'>
+                            <div className='isYesAgreement_button_signOut' onClick={() => {
+                                alert('API 요청 필요');
+                                setRender(render + 1);
+                                dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
+                                dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
+                            }}>동의하기</div>
+                            <div className='isYesAgreement_button_cancel' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
+                            }}>취소</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        )
+    };
+
+    function NoAgreement() {
+        return (
+            <React.Fragment>
+                <div className={isNoAgreement ? "isNoAgreement" : "isNoAgreement_fade"}>
+                    <div className='isNoAgreement_outContainer'>
+                        <p className='isNoAgreement_title'>카카오톡 알림</p>
+                        <p className='isNoAgreement_title'>동의를 해제하시겠습니까?</p>
+                        <p className='isNoAgreement_p'>동의 해제 시</p>
+                        <p className='isNoAgreement_p'>행성 만료, 공지사항 등을 받아 볼 수 없습니다</p>
+                        <div className='isNoAgreement_innerBox'>
+                            <div className='isNoAgreement_button_signOut' onClick={() => {
+                                alert('API 요청 필요');
+                                setRender(render - 1);
+                                dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
+                                dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
+                            }}>동의 해제하기</div>
+                            <div className='isNoAgreement_button_cancel' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
+                            }}>취소</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
     function MembershipWithdrawal() {
         return (
             <React.Fragment>
@@ -63,7 +117,8 @@ function Menu() {
             <React.Fragment>
                 <div className={isPopUpLogOut ? "isPopUpLogOut" : "isPopUpLogOut_fade"}>
                     <div className='isPopUpLogOut_outContainer'>
-                        <p className='isPopUpLogOut_title'>로그아웃 하시겠습니까?</p>
+                        <p className='isPopUpLogOut_title'>로그아웃..</p>
+                        <p className='isPopUpLogOut_title'>하시겠습니까?</p>
                         <p className='isPopUpLogOut_p'>로그아웃 해도 남은 시간은 지나</p>
                         <p className='isPopUpLogOut_p'>갑니다. 다녀오세요!</p>
                         <div className='isPopUpLogOut_innerBox'>
@@ -110,6 +165,10 @@ function Menu() {
         window.location.href = `https://kauth.kakao.com/oauth/logout?client_id=${key}&logout_redirect_uri=${url}`;
     };
 
+    function agreement(key, url) {
+        window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${key}&redirect_uri=${url}&response_type=code&scope=talk_message`;
+    };
+
     return (
         <React.Fragment>
             <div className={isMenu ? "menu_wrap" : ""}>
@@ -129,6 +188,8 @@ function Menu() {
                             <p>Contact Us</p></a>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
+                        <YesAgreement></YesAgreement>
+                        <NoAgreement></NoAgreement>
                         <div className='menu_bar_mypage_box1'>
                             <p className='menu_bar_mypage_box1_p'>안녕하세요!</p>
                             <div></div>
@@ -142,9 +203,12 @@ function Menu() {
                             <p className='menu_bar_mypage_box2_p'>카카오톡 알림</p>
                             <div className='menu_bar_mypage_box2_innerBox'>
                                 <div className='menu_bar_mypage_box2_notice' onClick={() => {
-                                    alert('카카오톡 알림 권한을 변경합니다.');
-                                    dispatch({ type: 'CHANGE_ISMESSAGE', data: !isMessage });
-                                }}><div className={isMessage ? 'menu_bar_mypage_box2_notice_inner_active' : 'menu_bar_mypage_box2_notice_inner'}></div></div>
+                                    if (userData.agreement === true) {
+                                        dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
+                                    } else {
+                                        dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
+                                    };
+                                }}><div className={userData.agreement ? 'menu_bar_mypage_box2_notice_inner_active' : 'menu_bar_mypage_box2_notice_inner'}></div></div>
                             </div>
                         </div>
                         <div className='menu_bar_mypage_line2'></div>
