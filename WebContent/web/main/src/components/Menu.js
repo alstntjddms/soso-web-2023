@@ -52,9 +52,10 @@ function Menu() {
                         <p className='isYesAgreement_p'>카카오톡 '나와의 채팅'으로 받을 수 있습니다.</p>
                         <div className='isYesAgreement_innerBox'>
                             <div className='isYesAgreement_button_signOut' onClick={() => {
-                                alert('API 요청 필요');
-                                setRender(render + 1);
+                                alert('API 요청 필요/동의 후 다시 로그인 해주세요.');
+                                agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT3);
                                 dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
+                                setRender(render + 1);
                                 dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
                             }}>동의하기</div>
                             <div className='isYesAgreement_button_cancel' onClick={() => {
@@ -79,8 +80,8 @@ function Menu() {
                         <div className='isNoAgreement_innerBox'>
                             <div className='isNoAgreement_button_signOut' onClick={() => {
                                 alert('API 요청 필요');
-                                setRender(render - 1);
                                 dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
+                                setRender(render - 1);
                                 dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
                             }}>동의 해제하기</div>
                             <div className='isNoAgreement_button_cancel' onClick={() => {
