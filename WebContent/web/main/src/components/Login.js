@@ -33,24 +33,10 @@ function Login() {
             <React.Fragment>
                 <div className={isConditions ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
                     <div className='login_conditions_outContainer'>
-                        <img alt='close' className='login_conditions_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={toggleConditions}></img>
+                        <div className='login_conditions_img' onClick={toggleConditions}></div>
                         <p className='login_conditions_title'>이용약관</p>
                         <article className='login_conditions_article'>
-                            <p>
-                                1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
+                            이용약관
                         </article>
                     </div>
                 </div>
@@ -63,24 +49,10 @@ function Login() {
             <React.Fragment>
                 <div className={isIndividual ? "login_conditions_wrap" : "login_conditions_wrap_fade"}>
                     <div className='login_conditions_outContainer'>
-                        <img alt='close' className='login_conditions_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/closed.png?raw=true' onClick={toggleIndividual}></img>
+                        <div className='login_conditions_img' onClick={toggleIndividual}></div>
                         <p className='login_conditions_title'>개인정보처리방침</p>
                         <article className='login_conditions_article'>
-                            <p>
-                                1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
-                            <p>
-                                1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                            </p>
+                            개인정보처리방침
                         </article>
                     </div>
                 </div>

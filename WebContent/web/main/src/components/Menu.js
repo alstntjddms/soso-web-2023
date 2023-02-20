@@ -10,6 +10,8 @@ function Menu() {
     const isMenu = useSelector((state) => state.isMenu);
     const isYesAgreement = useSelector((state) => state.isYesAgreement);
     const isNoAgreement = useSelector((state) => state.isNoAgreement);
+    const isPopUpHowTo = useSelector((state) => state.isPopUpHowTo);
+    const isPopUpInfo = useSelector((state) => state.isPopUpInfo);
     const isInner = useSelector((state) => state.isInner);
     const isMypage = useSelector((state) => state.isMypage);
     const isPlater = useSelector((state) => state.isPlater);
@@ -40,6 +42,43 @@ function Menu() {
     //             console.log(data)
     //         });
     // };
+
+    function PopUpHowTo() {
+        return (
+            <React.Fragment>
+                <div className={isPopUpHowTo ? "isPopUpHowTo" : "isPopUpHowTo_fade"}>
+                    <div className='isPopUpHowTo_outContainer'>
+                        <div className='isPopUpHowTo_closed' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISPOPUPHOWTO', data: !isPopUpHowTo });
+                        }}></div>
+                        <p className='isPopUpHowTo_title'>서비스 이용 약관</p>
+                        <article className='isPopUpHowTo_article'>
+                            서비스 이용 약관
+                        </article>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
+    function PopUpInfo() {
+        return (
+            <React.Fragment>
+                <div className={isPopUpInfo ? "isPopUpInfo" : "isPopUpInfo_fade"}>
+                    <div className='isPopUpInfo_outContainer'>
+                        <div className='isPopUpInfo_closed' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISPOPUPINFO', data: !isPopUpInfo });
+                        }}></div>
+                        <p className='isPopUpInfo_title'>개인정보 처리 방침</p>
+                        <article className='isPopUpInfo_article'>
+                            개인정보 처리 방침
+                        </article>
+                    </div>
+                </div>
+
+            </React.Fragment>
+        );
+    };
 
     function YesAgreement() {
         return (
@@ -191,6 +230,8 @@ function Menu() {
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <YesAgreement></YesAgreement>
                         <NoAgreement></NoAgreement>
+                        <PopUpHowTo></PopUpHowTo>
+                        <PopUpInfo></PopUpInfo>
                         <div className='menu_bar_mypage_box1'>
                             <p className='menu_bar_mypage_box1_p'>안녕하세요!</p>
                             <div></div>
@@ -215,9 +256,13 @@ function Menu() {
                         <div className='menu_bar_mypage_line2'></div>
                         <p className='menu_bar_mypage_box_p' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>회원탈퇴</p>
                         <div className='menu_bar_mypage_line'></div>
-                        <p className='menu_bar_mypage_box_p'>서비스 이용 약관</p>
+                        <p className='menu_bar_mypage_box_p' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISPOPUPHOWTO', data: !isPopUpHowTo });
+                        }}>서비스 이용 약관</p>
                         <div className='menu_bar_mypage_line'></div>
-                        <p className='menu_bar_mypage_box_p'>개인정보 처리 방침</p>
+                        <p className='menu_bar_mypage_box_p' onClick={() => {
+                            dispatch({ type: 'CHANGE_ISPOPUPINFO', data: !isPopUpInfo });
+                        }}>개인정보 처리 방침</p>
                         <div className='menu_bar_mypage_line'></div>
                         <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><p style={{ marginTop: '-1.8rem' }} className='menu_bar_mypage_box_p'>문의하기</p></a>
                     </div>

@@ -595,6 +595,156 @@ a>p {
 
 /*  */
 
+.isPopUpHowTo {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPopUpHowTo_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isPopUpHowTo_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPopUpHowTo_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isPopUpHowTo_article {
+    position: relative;
+    margin: auto;
+    height: 15rem;
+    top: 3.75rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    text-align: left;
+    overflow: scroll;
+}
+
+.isPopUpHowTo_closed {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    background-image: url('../lib/icon/closed.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}
+
+/*  */
+
+.isPopUpInfo {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPopUpInfo_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isPopUpInfo_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPopUpInfo_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isPopUpInfo_article {
+    position: relative;
+    margin: auto;
+    height: 15rem;
+    top: 3.75rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    text-align: left;
+    overflow: scroll;
+}
+
+.isPopUpInfo_closed {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    background-image: url('../lib/icon/closed.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}
+
+/*  */
+
 .isPopUpLogOut {
     position: fixed;
     width: 100%;

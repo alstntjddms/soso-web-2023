@@ -17,6 +17,12 @@ function Redirect2() {
     return (
         <React.Fragment>
             <div className='redirect2_outContainer'>
+                <section className='section_shootingStar'>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                </section>
                 <div className='redirect2_gif'></div>
                 <h3 className='redirect2_h3'>로그아웃 중입니다...</h3>
                 <h4 className='redirect2_h4'>[리빙포인트] 음식이 싱거울때는 소금을 넣으면 좋다.</h4>

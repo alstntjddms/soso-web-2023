@@ -122,6 +122,12 @@ function Redirect() {
     return (
         <React.Fragment>
             <div className='redirect_outContainer'>
+                <section className='section_shootingStar'>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                    <span className='shootingStar'></span>
+                </section>
                 <div className='redirect_gif'></div>
                 <h3 className='redirect_h3'>로그인 중입니다...</h3>
                 <h4 className='redirect_h4'>[리빙포인트] 달에는 토끼가 떡을 만들고 있다.</h4>

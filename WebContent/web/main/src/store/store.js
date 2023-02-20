@@ -287,6 +287,8 @@ function reducer(state, action) {
             isMenu: false,
             isYesAgreement: false,
             isNoAgreement: false,
+            isPopUpHowTo: false,
+            isPopUpInfo: false,
             isInner: false,
             isMypage: false,
             isPlater: false,
@@ -376,6 +378,14 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISNOAGREEMENT') {
         newState.isNoAgreement = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPOPUPHOWTO') {
+        newState.isPopUpHowTo = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPOPUPINFO') {
+        newState.isPopUpInfo = action.data;
     };
 
     if (action.type === 'CHANGE_ISINNER') {
