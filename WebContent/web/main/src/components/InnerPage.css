@@ -377,6 +377,7 @@
     color: white;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .noname_sendSignal {
@@ -388,6 +389,7 @@
     margin-top: 1.5rem;
     border-radius: 12px;
     color: white;
+    font-family: 'NeoDunggeunmo';
 }
 
 .noname_sendSignal_outContainer {
@@ -636,6 +638,7 @@
     line-height: 3.0rem;
     border: 1px solid black;
     border-radius: 0.7rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 /*  */
@@ -654,6 +657,7 @@
 
 .yesname_outContainer>h3 {
     margin-bottom: 2rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .yesname_outContainer>h3,

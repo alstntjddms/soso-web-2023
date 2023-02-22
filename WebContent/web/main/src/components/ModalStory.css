@@ -96,7 +96,6 @@
     margin-bottom: 0rem;
     text-align: center;
     font-size: 0.75rem;
-    font-family: 'NeoDunggeunmo';
 }
 
 .modalStory_p_2_1 {
@@ -133,7 +132,7 @@
     margin-top: 1rem;
     margin-bottom: 0rem;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.875rem;  
 }
 
 .modalStory_p_3_2 {
@@ -162,7 +161,7 @@
     margin-bottom: 0.25rem;
     text-align: center;
     font-size: 1.0rem;
-    letter-spacing: 0.1rem;
+    /* letter-spacing: 0.1rem; */
     font-family: 'NeoDunggeunmo';
 }
 
@@ -171,7 +170,7 @@
     margin-bottom: 1.0rem;
     text-align: center;
     font-size: 1.0rem;
-    letter-spacing: 0.1rem;
+    /* letter-spacing: 0.1rem; */
     font-family: 'NeoDunggeunmo';
 }
 

@@ -23,6 +23,7 @@
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     align-items: center;
+    font-family: 'NeoDunggeunmo';
 }
 
 .send_top_menu>img {
@@ -406,6 +407,7 @@
     opacity: 1;
     background-color: lightgray;
     transition: all 0.5s;
+    font-family: 'NeoDunggeunmo';
 }
 
 .send_letter_option {
@@ -2943,6 +2945,7 @@
 
 .pre_letter_author_input_div {
     border-bottom: 1px solid gray;
+    margin-bottom: 0.5rem;
 }
 
 .pre_letter_autho_title {
@@ -2950,6 +2953,7 @@
     margin-top: 0.2rem;
     /* margin-left: 0.5rem; */
     margin-bottom: 0.5rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .pre_letter_author_input_title {
@@ -3149,6 +3153,7 @@
     margin-top: 0.5rem;
     font-weight: normal;
     font-size: 1.25rem;
+    font-family: 'NeoDunggeunmo';
 }
 
 .sending_end_div {
