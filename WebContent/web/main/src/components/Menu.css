@@ -853,8 +853,16 @@ a>p {
 
 .menu_plater_img {
     margin: auto;
-    width: 75%;
-    margin-top: 1.5rem;
+    width: 90%;
+    margin-top: 1.0rem;
+    margin-bottom: 1.0rem;
+}
+
+.menu_plater_img_2 {
+    margin: auto;
+    width: 90%;
+    margin-top: 3.0rem;
+    margin-bottom: 1.0rem;
 }
 
 .menu_plater_img_outContainer {
@@ -951,4 +959,49 @@ a>p {
     background-repeat: no-repeat;
     width: 1rem;
     height: 1rem;
+}
+
+.newClass {
+    margin: auto;
+    top: 0%;
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    padding: 0rem;
+}
+
+.newClass li {
+    position: relative;
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.newClass li button {
+    font-size: 0rem;
+    line-height: 1rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.newClass li button::before {
+    font-size: 1.5rem;
+    line-height: 1rem;
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    content: '•';
+    text-align: center;
+    opacity: .75;
+    color: darkgray;
+}
+
+.newClass li.slick-active button:before {
+    opacity: .75;
+    color: white;
 }
