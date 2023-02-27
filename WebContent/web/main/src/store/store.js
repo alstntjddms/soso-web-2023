@@ -4,6 +4,7 @@ function reducer(state, action) {
     if (state === undefined) {
         return {
             userID: 'null',
+            ShareUserID: 'null',
             userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0, 'agreement': false },
             letterData: [
                 {
@@ -346,6 +347,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_USERID') {
         newState.userID = action.data;
+    };
+
+    if (action.type === 'CHANGE_SHAREUSERID') {
+        newState.ShareUserID = action.data;
     };
 
     if (action.type === 'CHANGE_ISFIRSTINFO') {

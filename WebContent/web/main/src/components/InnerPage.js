@@ -14,6 +14,8 @@ function InnerPage() {
     const [slickPage, setSlickPage] = useState(0);
     const [setStyle, setSetStyle] = useState({ "fontSize": "", "fontFamily": "", "color": "", "textAlign": "", "backgroundImage": "" });
 
+    const userID = useSelector((state) => state.userID);
+    const ShareUserID = useSelector((state) => state.ShareUserID);
     const userData = useSelector((state) => state.userData);
     const letterData = useSelector((state) => state.letterData);
     const isNamePage = useSelector((state) => state.isNamePage);
@@ -63,6 +65,26 @@ function InnerPage() {
 
         // popUp: open planet
         function PopUpOpenPlanet() {
+            function RequestShareUserID(userID) {
+                fetch('http://plater.kr/api/member/userid/' + userID, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then((userData) => {
+                        dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
+                    })
+                    .catch((userDate_error) => {
+                        console.log(userDate_error);
+                        alert('공유 가능한 userID를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+                    });
+            };
+
             return (
                 <React.Fragment>
                     <div className={isPopUpOpenPlanet ? "ispopupopenplanet" : "ispopupopenplanet_fade"}>
@@ -76,6 +98,7 @@ function InnerPage() {
                                 <div className='ispopupopenplanet_button_cancel' onClick={() => {
                                     setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
                                     sendSignal_confirm();
+                                    RequestShareUserID(userID);
                                 }}>개설하기</div>
                             </div>
                         </div>
@@ -212,7 +235,6 @@ function InnerPage() {
                         <div className='noname_sendSignal_startDiv'>
                             <div className='noname_sendSignal_startDiv_button' onClick={
                                 () => {
-                                    console.log(lengthUserNickname);
                                     if (lengthUserNickname === 0) {
                                         setIsPopUpOpenPlanetName(!isPopUpOpenPlanetName);
                                     } else {
@@ -228,9 +250,10 @@ function InnerPage() {
 
     // notify after receiver creation
     function CreateNameURL() {
+        
         function urlCopy() {
             let Dummy_Tag = document.createElement("input");
-            let Current_URL = window.location.href;
+            let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
             document.body.appendChild(Dummy_Tag);
             Dummy_Tag.value = Current_URL;
             Dummy_Tag.select();

@@ -72,7 +72,7 @@ function Redirect() {
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch('http://plater.kr/api/kakao', {
+            fetch('http://plater.kr/api/kakao/', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -85,20 +85,17 @@ function Redirect() {
                 .then(res => res.json())
                 .then((data) => {
                     console.log('암호화된 ID: ' + data);
-                    fetch('http://plater.kr/api/member/userid' + data, {
-                        method: 'GET'
-                    // }
-                    // fetch('http://plater.kr/api/member', {
-                    //     method: 'POST',
-                    //     mode: 'cors',
-                    //     cache: 'no-cache',
-                    //     credentials: 'same-origin',
-                    //     headers: {
-                    //         'Content-Type': 'application/json'
-                    //     },
-                    //     body: JSON.stringify(data)
+                    fetch('http://plater.kr/api/member/', {
+                        method: 'POST',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
                     })
-                        // .then(plus_res => plus_res.json())
+                        .then(plus_res => plus_res.json())
                         .then((plus_data) => {
                             console.log('비암호화된 ID: ' + plus_data);
                             dispatch({ type: 'CHANGE_USERID', data: plus_data });

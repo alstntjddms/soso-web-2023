@@ -8,6 +8,8 @@ function ShareBt() {
     const isShare = useSelector((state) => state.isShare);
     const isShareBt = useSelector((state) => state.isShareBt);
     const userID = useSelector((state) => state.userID);
+    const ShareUserID = useSelector((state) => state.ShareUserID);
+    const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
 
     useEffect(() => {
         if (userData.openDate !== 0) {
@@ -71,20 +73,43 @@ function ShareBt() {
             'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=400');
     };
 
+    function RequestShareUserID(userID) {
+        fetch('http://plater.kr/api/member/userid/' + userID, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((userData) => {
+                dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
+            })
+            .catch((userDate_error) => {
+                console.log(userDate_error);
+                alert('공유 가능한 userID를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+            });
+    };
+
     function urlCopy() {
         let Dummy_Tag = document.createElement("input");
-        let Current_URL = window.location.href;
+        let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
         document.body.appendChild(Dummy_Tag);
         Dummy_Tag.value = Current_URL;
         Dummy_Tag.select();
         document.execCommand("copy");
         document.body.removeChild(Dummy_Tag);
-        alert("링크가 복사되었습니다.\nThe link has been copied.");
+        dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
     };
 
     return (
         <React.Fragment>
-            <div className={isShare ? 'shareButton_outContainer_active' : 'shareButton_outContainer'} onClick={() => { dispatch({ type: 'CHANGE_ISSHAREBT', data: !isShareBt }); }}>
+            <div className={isShare ? 'shareButton_outContainer_active' : 'shareButton_outContainer'} onClick={() => {
+                RequestShareUserID(userID);
+                dispatch({ type: 'CHANGE_ISSHAREBT', data: !isShareBt });
+            }}>
                 <img className='shareButton_share' alt='share' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/icon/share.png?raw=true'></img>
             </div>
             <div className='shareButton_innerContainer'>
