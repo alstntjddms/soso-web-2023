@@ -152,6 +152,48 @@ a>p {
     pointer-events: none;
 }
 
+.menu_howto_page {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+    overflow: auto;
+}
+
+.menu_plater_img_2 {
+    margin: auto;
+    width: 18rem;
+    margin-top: 3.0rem;
+    margin-bottom: 1.0rem;
+}
+
+.howto_title {
+    font-family: 'NeoDunggeunmo';
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 0rem;
+    margin-top: 1.0rem;
+}
+
+.howto_p {
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.25rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.howto_slick_title {
+    font-family: 'NeoDunggeunmo';
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    margin-top: 2.0rem;
+}
+
+.howto_slick_p {
+    font-size: 0.75rem;
+    margin-bottom: 0.15rem;
+    margin-top: 0.15rem;
+}
+
 .menu_outContainer_active {
     z-index: 6;
     position: absolute;
@@ -162,6 +204,10 @@ a>p {
     justify-content: center;
     align-items: center;
     background-color: transparent;
+}
+
+.howto_div_margin {
+    height: 5rem;
 }
 
 .menu_img {
@@ -853,15 +899,17 @@ a>p {
 
 .menu_plater_img {
     margin: auto;
-    width: 90%;
+    width: 15rem;
+    height: 15rem;
     margin-top: 1.0rem;
     margin-bottom: 1.0rem;
 }
 
-.menu_plater_img_2 {
+.menu_plater_img_1 {
     margin: auto;
-    width: 90%;
-    margin-top: 3.0rem;
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1.0rem;
     margin-bottom: 1.0rem;
 }
 
@@ -963,7 +1011,7 @@ a>p {
 
 .newClass {
     margin: auto;
-    top: 0%;
+    top: 5%;
     list-style: none;
     position: absolute;
     width: 100%;
@@ -998,7 +1046,7 @@ a>p {
     content: '•';
     text-align: center;
     opacity: .75;
-    color: darkgray;
+    color: #828A93;
 }
 
 .newClass li.slick-active button:before {

@@ -2469,10 +2469,10 @@ function Send() {
                 </div>
 
                 <div className='send_option_button_div'>
-                <div className='send_option_button' onClick={() => {
-                    activeLetterOption();
-                    selectLetterMenu('font');
-                }}></div>
+                    <div className='send_option_button' onClick={() => {
+                        activeLetterOption();
+                        selectLetterMenu('font');
+                    }}></div>
                 </div>
                 <div className={isLetterOption ? 'send_letter_option_active' : 'send_letter_option'} >
                     <img className='send_letter_menu_close' alt='option_closed' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/send/closed_btn.png?raw=true' onClick={() => {
@@ -2604,22 +2604,90 @@ function Send() {
                         }}></div>
                     </div>
                     <div className={isLetterPaper ? 'send_paper_active' : 'send_paper'}>
-                        <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
-                            selectPaperItem('paper_1');
-                        }}><div className='send_item_paper_title'>도시 편지지</div></div>
-                        <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
-                            selectPaperItem('paper_2');
-                        }}><div className='send_item_paper_title'>저주 편지지</div></div>
-                        <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.gif?raw=true\')');
-                            selectPaperItem('paper_3');
-                        }}><div className='send_item_paper_title'>우주 편지지</div></div>
                         <div id='paper_4' className={paperItem.d ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true\')');
                             selectPaperItem('paper_4');
                         }}><div className='send_item_paper_title'>하얀 편지지</div></div>
+                        <div id='paper_7' className={paperItem.g ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue.gif?raw=true\')');
+                            selectPaperItem('paper_7');
+                        }}><div className='send_item_paper_title'>파랑 편지지</div></div>
+                        <div id='paper_33' className={paperItem.g1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/papre_green.gif?raw=true\')');
+                            selectPaperItem('paper_33');
+                        }}><div className='send_item_paper_title'>초록 편지지</div></div>
+                        <div id='paper_17' className={paperItem.q ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_orange.gif?raw=true\')');
+                            selectPaperItem('paper_17');
+                        }}><div className='send_item_paper_title'>주황 편지지</div></div>
+                        <div id='paper_25' className={paperItem.y ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red.gif?raw=true\')');
+                            selectPaperItem('paper_25');
+                        }}><div className='send_item_paper_title'>붉은 편지지</div></div>
+                        <div id='paper_22' className={paperItem.v ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple.gif?raw=true\')');
+                            selectPaperItem('paper_22');
+                        }}><div className='send_item_paper_title'>보라 편지지</div></div>
+                        <div id='paper_16' className={paperItem.p ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint.gif?raw=true\')');
+                            selectPaperItem('paper_16');
+                        }}><div className='send_item_paper_title'>민트 편지지</div></div>
+                        <div id='paper_15' className={paperItem.o ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_magenta.gif?raw=true\')');
+                            selectPaperItem('paper_15');
+                        }}><div className='send_item_paper_title'>자홍 편지지</div></div>
+                        <div id='paper_32' className={paperItem.f1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_yellow.gif?raw=true\')');
+                            selectPaperItem('paper_32');
+                        }}><div className='send_item_paper_title'>노란 편지지</div></div>
+                        <div id='paper_11' className={paperItem.k ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_flower.gif?raw=true\')');
+                            selectPaperItem('paper_11');
+                        }}><div className='send_item_paper_title'>목화 편지지</div></div>
+                        <div id='paper_23' className={paperItem.w ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_23');
+                        }}><div className='send_item_paper_title'>모란 편지지</div></div>
+                        <div id='paper_8' className={paperItem.h ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_8');
+                        }}><div className='send_item_paper_title'>푸른 편지지</div></div>
+                        <div id='paper_13' className={paperItem.m ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_13');
+                        }}><div className='send_item_paper_title'>누런 편지지</div></div>
+                        <div id='paper_26' className={paperItem.z ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_26');
+                        }}><div className='send_item_paper_title'>분홍 편지지</div></div>
+                        <div id='paper_18' className={paperItem.r ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_18');
+                        }}><div className='send_item_paper_title'>녹색 편지지</div></div>
+                        <div id='paper_19' className={paperItem.s ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pastel.gif?raw=true\')');
+                            selectPaperItem('paper_19');
+                        }}><div className='send_item_paper_title'>파스텔샤워 편지지</div></div>
+                        <div id='paper_12' className={paperItem.l ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_donut.gif?raw=true\')');
+                            selectPaperItem('paper_12');
+                        }}><div className='send_item_paper_title'>도넛 편지지</div></div>
+                        <div id='paper_28' className={paperItem.b1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true\')');
+                            selectPaperItem('paper_28');
+                        }}><div className='send_item_paper_title'>줄무늬 편지지</div></div>
+                        <div id='paper_20' className={paperItem.t ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pink_cloud.gif?raw=true\')');
+                            selectPaperItem('paper_20');
+                        }}><div className='send_item_paper_title'>구름 편지지</div></div>
+                        <div id='paper_27' className={paperItem.a1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_sprout.gif?raw=true\')');
+                            selectPaperItem('paper_27');
+                        }}><div className='send_item_paper_title'>새싹 편지지</div></div>
+                        <div id='paper_14' className={paperItem.n ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true\')');
+                            selectPaperItem('paper_14');
+                        }}><div className='send_item_paper_title'>들꽃 편지지</div></div>
                         <div id='paper_5' className={paperItem.e ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_birthday.gif?raw=true\')');
                             selectPaperItem('paper_5');
@@ -2628,171 +2696,103 @@ function Send() {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_birthday_2.gif?raw=true\')');
                             selectPaperItem('paper_6');
                         }}><div className='send_item_paper_title'>생일 편지지2</div></div>
-                        <div id='paper_7' className={paperItem.g ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue.gif?raw=true\')');
-                            selectPaperItem('paper_7');
-                        }}><div className='send_item_paper_title'>파랑 편지지</div></div>
-                        <div id='paper_8' className={paperItem.h ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_blue_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_8');
-                        }}><div className='send_item_paper_title'>푸른 편지지</div></div>
-                        <div id='paper_9' className={paperItem.i ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_cheese.gif?raw=true\')');
-                            selectPaperItem('paper_9');
-                        }}><div className='send_item_paper_title'>치즈 편지지</div></div>
-                        <div id='paper_10' className={paperItem.j ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_error.gif?raw=true\')');
-                            selectPaperItem('paper_10');
-                        }}><div className='send_item_paper_title'>오류 편지지</div></div>
-                        <div id='paper_11' className={paperItem.k ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_flower.gif?raw=true\')');
-                            selectPaperItem('paper_11');
-                        }}><div className='send_item_paper_title'>흰꽃 편지지</div></div>
-                        <div id='paper_12' className={paperItem.l ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_donut.gif?raw=true\')');
-                            selectPaperItem('paper_12');
-                        }}><div className='send_item_paper_title'>도넛 편지지</div></div>
-                        <div id='paper_13' className={paperItem.m ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_green_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_13');
-                        }}><div className='send_item_paper_title'>누런 편지지</div></div>
-                        <div id='paper_14' className={paperItem.n ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true\')');
-                            selectPaperItem('paper_14');
-                        }}><div className='send_item_paper_title'>들꽃 편지지</div></div>
-                        <div id='paper_15' className={paperItem.o ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_magenta.gif?raw=true\')');
-                            selectPaperItem('paper_15');
-                        }}><div className='send_item_paper_title'>자홍 편지지</div></div>
-                        <div id='paper_16' className={paperItem.p ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint.gif?raw=true\')');
-                            selectPaperItem('paper_16');
-                        }}><div className='send_item_paper_title'>민트 편지지</div></div>
-                        <div id='paper_17' className={paperItem.q ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_orange.gif?raw=true\')');
-                            selectPaperItem('paper_17');
-                        }}><div className='send_item_paper_title'>주황 편지지</div></div>
-                        <div id='paper_18' className={paperItem.r ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_18');
-                        }}><div className='send_item_paper_title'>초록 편지지</div></div>
-                        <div id='paper_19' className={paperItem.s ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_19');
-                        }}><div className='send_item_paper_title'>몽환 편지지</div></div>
-                        <div id='paper_20' className={paperItem.t ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_pink_cloud.gif?raw=true\')');
-                            selectPaperItem('paper_20');
-                        }}><div className='send_item_paper_title'>구름 편지지</div></div>
-                        <div id='paper_21' className={paperItem.u ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_postit.gif?raw=true\')');
-                            selectPaperItem('paper_21');
-                        }}><div className='send_item_paper_title'>쪽지 편지지</div></div>
-                        <div id='paper_22' className={paperItem.v ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple.gif?raw=true\')');
-                            selectPaperItem('paper_22');
-                        }}><div className='send_item_paper_title'>보라 편지지</div></div>
-                        <div id='paper_23' className={paperItem.w ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_purple_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_23');
-                        }}><div className='send_item_paper_title'>모란 편지지</div></div>
-                        <div id='paper_24' className={paperItem.x ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_rainbow.gif?raw=true\')');
-                            selectPaperItem('paper_24');
-                        }}><div className='send_item_paper_title'>무지개 편지지</div></div>
-                        <div id='paper_25' className={paperItem.y ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red.gif?raw=true\')');
-                            selectPaperItem('paper_25');
-                        }}><div className='send_item_paper_title'>붉은 편지지</div></div>
-                        <div id='paper_26' className={paperItem.z ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_red_pastel.gif?raw=true\')');
-                            selectPaperItem('paper_26');
-                        }}><div className='send_item_paper_title'>분홍 편지지</div></div>
-                        <div id='paper_27' className={paperItem.a1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_sprout.gif?raw=true\')');
-                            selectPaperItem('paper_27');
-                        }}><div className='send_item_paper_title'>새싹 편지지</div></div>
-                        <div id='paper_28' className={paperItem.b1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true\')');
-                            selectPaperItem('paper_28');
-                        }}><div className='send_item_paper_title'>줄무늬 편지지</div></div>
-                        <div id='paper_29' className={paperItem.c1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_vivid.gif?raw=true\')');
-                            selectPaperItem('paper_29');
-                        }}><div className='send_item_paper_title'>비비드 편지지</div></div>
                         <div id='paper_30' className={paperItem.d1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white_room.gif?raw=true\')');
                             selectPaperItem('paper_30');
                         }}><div className='send_item_paper_title'>하얀방 편지지</div></div>
+                        <div id='paper_9' className={paperItem.i ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_cheese.gif?raw=true\')');
+                            selectPaperItem('paper_9');
+                        }}><div className='send_item_paper_title'>치즈 편지지</div></div>
+                        <div id='paper_1' className={paperItem.a ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true\')');
+                            selectPaperItem('paper_1');
+                        }}><div className='send_item_paper_title'>도시 편지지</div></div>
+                        <div id='paper_3' className={paperItem.c ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_space.gif?raw=true\')');
+                            selectPaperItem('paper_3');
+                        }}><div className='send_item_paper_title'>우주 편지지</div></div>
+                        <div id='paper_10' className={paperItem.j ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_error.gif?raw=true\')');
+                            selectPaperItem('paper_10');
+                        }}><div className='send_item_paper_title'>오류 편지지</div></div>
+                        <div id='paper_21' className={paperItem.u ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_postit.gif?raw=true\')');
+                            selectPaperItem('paper_21');
+                        }}><div className='send_item_paper_title'>쪽지 편지지</div></div>
+                        <div id='paper_2' className={paperItem.b ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_curce.gif?raw=true\')');
+                            selectPaperItem('paper_2');
+                        }}><div className='send_item_paper_title'>저주 편지지</div></div>
                         <div id='paper_31' className={paperItem.e1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
                             setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_wrinkle.gif?raw=true\')');
                             selectPaperItem('paper_31');
                         }}><div className='send_item_paper_title'>구겨진 편지지</div></div>
-                        <div id='paper_32' className={paperItem.f1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_yellow.gif?raw=true\')');
-                            selectPaperItem('paper_32');
-                        }}><div className='send_item_paper_title'>노란 편지지</div></div>
-                        <div id='paper_33' className={paperItem.g1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
-                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/papre_green.gif?raw=true\')');
-                            selectPaperItem('paper_33');
-                        }}><div className='send_item_paper_title'>형광 편지지</div></div>
+                        <div id='paper_29' className={paperItem.c1 ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_vivid.gif?raw=true\')');
+                            selectPaperItem('paper_29');
+                        }}><div className='send_item_paper_title'>비비드 편지지</div></div>
+                        <div id='paper_24' className={paperItem.x ? 'send_item_paper_active' : 'send_item_paper'} onClick={() => {
+                            setPaper('url(\'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_rainbow.gif?raw=true\')');
+                            selectPaperItem('paper_24');
+                        }}><div className='send_item_paper_title'>무지개 편지지</div></div>
                     </div>
                     <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
-                        <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
                         <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
-                        <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
-                        <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
-                        <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
-                        <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
-                        <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
-                        <button className='send_item_sticker_7' onClick={() => { createEl(stickerNumber, 7) }}></button>
-                        <button className='send_item_sticker_8' onClick={() => { createEl(stickerNumber, 8) }}></button>
-                        <button className='send_item_sticker_9' onClick={() => { createEl(stickerNumber, 9) }}></button>
-                        <button className='send_item_sticker_10' onClick={() => { createEl(stickerNumber, 10) }}></button>
-                        <button className='send_item_sticker_11' onClick={() => { createEl(stickerNumber, 11) }}></button>
+                        <button className='send_item_sticker_15' onClick={() => { createEl(stickerNumber, 15) }}></button>
                         <button className='send_item_sticker_12' onClick={() => { createEl(stickerNumber, 12) }}></button>
                         <button className='send_item_sticker_13' onClick={() => { createEl(stickerNumber, 13) }}></button>
-                        <button className='send_item_sticker_14' onClick={() => { createEl(stickerNumber, 14) }}></button>
-                        <button className='send_item_sticker_15' onClick={() => { createEl(stickerNumber, 15) }}></button>
-                        <button className='send_item_sticker_16' onClick={() => { createEl(stickerNumber, 16) }}></button>
-                        <button className='send_item_sticker_17' onClick={() => { createEl(stickerNumber, 17) }}></button>
-                        <button className='send_item_sticker_18' onClick={() => { createEl(stickerNumber, 18) }}></button>
-                        <button className='send_item_sticker_19' onClick={() => { createEl(stickerNumber, 19) }}></button>
-                        <button className='send_item_sticker_20' onClick={() => { createEl(stickerNumber, 20) }}></button>
-                        <button className='send_item_sticker_21' onClick={() => { createEl(stickerNumber, 21) }}></button>
-                        <button className='send_item_sticker_22' onClick={() => { createEl(stickerNumber, 22) }}></button>
-                        <button className='send_item_sticker_23' onClick={() => { createEl(stickerNumber, 23) }}></button>
-                        <button className='send_item_sticker_24' onClick={() => { createEl(stickerNumber, 24) }}></button>
-                        <button className='send_item_sticker_25' onClick={() => { createEl(stickerNumber, 25) }}></button>
                         <button className='send_item_sticker_26' onClick={() => { createEl(stickerNumber, 26) }}></button>
-                        <button className='send_item_sticker_27' onClick={() => { createEl(stickerNumber, 27) }}></button>
-                        <button className='send_item_sticker_28' onClick={() => { createEl(stickerNumber, 28) }}></button>
-                        <button className='send_item_sticker_29' onClick={() => { createEl(stickerNumber, 29) }}></button>
                         <button className='send_item_sticker_30' onClick={() => { createEl(stickerNumber, 30) }}></button>
-                        <button className='send_item_sticker_31' onClick={() => { createEl(stickerNumber, 31) }}></button>
-                        <button className='send_item_sticker_32' onClick={() => { createEl(stickerNumber, 32) }}></button>
-                        <button className='send_item_sticker_33' onClick={() => { createEl(stickerNumber, 33) }}></button>
-                        <button className='send_item_sticker_34' onClick={() => { createEl(stickerNumber, 34) }}></button>
-                        <button className='send_item_sticker_35' onClick={() => { createEl(stickerNumber, 35) }}></button>
-                        <button className='send_item_sticker_36' onClick={() => { createEl(stickerNumber, 36) }}></button>
-                        <button className='send_item_sticker_37' onClick={() => { createEl(stickerNumber, 37) }}></button>
-                        <button className='send_item_sticker_38' onClick={() => { createEl(stickerNumber, 38) }}></button>
-                        <button className='send_item_sticker_39' onClick={() => { createEl(stickerNumber, 39) }}></button>
-                        <button className='send_item_sticker_40' onClick={() => { createEl(stickerNumber, 40) }}></button>
-                        <button className='send_item_sticker_41' onClick={() => { createEl(stickerNumber, 41) }}></button>
+                        <button className='send_item_sticker_14' onClick={() => { createEl(stickerNumber, 14) }}></button>
+                        <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
                         <button className='send_item_sticker_42' onClick={() => { createEl(stickerNumber, 42) }}></button>
                         <button className='send_item_sticker_43' onClick={() => { createEl(stickerNumber, 43) }}></button>
                         <button className='send_item_sticker_44' onClick={() => { createEl(stickerNumber, 44) }}></button>
                         <button className='send_item_sticker_45' onClick={() => { createEl(stickerNumber, 45) }}></button>
-                        <button className='send_item_sticker_46' onClick={() => { createEl(stickerNumber, 46) }}></button>
                         <button className='send_item_sticker_47' onClick={() => { createEl(stickerNumber, 47) }}></button>
                         <button className='send_item_sticker_48' onClick={() => { createEl(stickerNumber, 48) }}></button>
                         <button className='send_item_sticker_49' onClick={() => { createEl(stickerNumber, 49) }}></button>
-                        <button className='send_item_sticker_50' onClick={() => { createEl(stickerNumber, 50) }}></button>
-                        <button className='send_item_sticker_51' onClick={() => { createEl(stickerNumber, 51) }}></button>
-                        <button className='send_item_sticker_52' onClick={() => { createEl(stickerNumber, 52) }}></button>
-                        <button className='send_item_sticker_53' onClick={() => { createEl(stickerNumber, 53) }}></button>
+                        <button className='send_item_sticker_46' onClick={() => { createEl(stickerNumber, 46) }}></button>
+                        <button className='send_item_sticker_22' onClick={() => { createEl(stickerNumber, 22) }}></button>
+                        <button className='send_item_sticker_23' onClick={() => { createEl(stickerNumber, 23) }}></button>
+                        <button className='send_item_sticker_24' onClick={() => { createEl(stickerNumber, 24) }}></button>
                         <button className='send_item_sticker_54' onClick={() => { createEl(stickerNumber, 54) }}></button>
+                        <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
+                        <button className='send_item_sticker_50' onClick={() => { createEl(stickerNumber, 50) }}></button>
+                        <button className='send_item_sticker_21' onClick={() => { createEl(stickerNumber, 21) }}></button>
+                        <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
+                        <button className='send_item_sticker_29' onClick={() => { createEl(stickerNumber, 29) }}></button>
+                        <button className='send_item_sticker_28' onClick={() => { createEl(stickerNumber, 28) }}></button>
+                        <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
+                        <button className='send_item_sticker_8' onClick={() => { createEl(stickerNumber, 8) }}></button>
+                        <button className='send_item_sticker_9' onClick={() => { createEl(stickerNumber, 9) }}></button>
+                        <button className='send_item_sticker_10' onClick={() => { createEl(stickerNumber, 10) }}></button>
+                        <button className='send_item_sticker_11' onClick={() => { createEl(stickerNumber, 11) }}></button>
+                        <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
+                        <button className='send_item_sticker_34' onClick={() => { createEl(stickerNumber, 34) }}></button>
+                        <button className='send_item_sticker_35' onClick={() => { createEl(stickerNumber, 35) }}></button>
+                        <button className='send_item_sticker_36' onClick={() => { createEl(stickerNumber, 36) }}></button>
+                        <button className='send_item_sticker_37' onClick={() => { createEl(stickerNumber, 37) }}></button>
+                        <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
+                        <button className='send_item_sticker_38' onClick={() => { createEl(stickerNumber, 38) }}></button>
+                        <button className='send_item_sticker_39' onClick={() => { createEl(stickerNumber, 39) }}></button>
+                        <button className='send_item_sticker_40' onClick={() => { createEl(stickerNumber, 40) }}></button>
+                        <button className='send_item_sticker_41' onClick={() => { createEl(stickerNumber, 41) }}></button>
+                        <button className='send_item_sticker_20' onClick={() => { createEl(stickerNumber, 20) }}></button>
+                        <button className='send_item_sticker_19' onClick={() => { createEl(stickerNumber, 19) }}></button>
+                        <button className='send_item_sticker_18' onClick={() => { createEl(stickerNumber, 18) }}></button>
+                        <button className='send_item_sticker_17' onClick={() => { createEl(stickerNumber, 17) }}></button>
+                        <button className='send_item_sticker_32' onClick={() => { createEl(stickerNumber, 32) }}></button>
+                        <button className='send_item_sticker_33' onClick={() => { createEl(stickerNumber, 33) }}></button>
+                        <button className='send_item_sticker_53' onClick={() => { createEl(stickerNumber, 53) }}></button>
+                        <button className='send_item_sticker_25' onClick={() => { createEl(stickerNumber, 25) }}></button>
+                        <button className='send_item_sticker_52' onClick={() => { createEl(stickerNumber, 52) }}></button>
+                        <button className='send_item_sticker_16' onClick={() => { createEl(stickerNumber, 16) }}></button>
+                        <button className='send_item_sticker_51' onClick={() => { createEl(stickerNumber, 51) }}></button>
+                        <button className='send_item_sticker_7' onClick={() => { createEl(stickerNumber, 7) }}></button>
+                        <button className='send_item_sticker_31' onClick={() => { createEl(stickerNumber, 31) }}></button>
+                        <button className='send_item_sticker_27' onClick={() => { createEl(stickerNumber, 27) }}></button>
                     </div>
                 </div>
             </div>

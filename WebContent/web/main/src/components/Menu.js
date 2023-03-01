@@ -541,7 +541,7 @@ function Menu() {
                             <h5>감성 충만한 편지를 보내고 싶다면,</h5>
                             <h5>PL@TER</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_2.gif?raw=true'></img>
+                                <img className='menu_plater_img_1' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_2.gif?raw=true'></img>
                             </div>
                             <p>도착까지 D-10</p>
                             <h5>모든 행성의 편지가 도착하기까지는</h5>
@@ -549,7 +549,7 @@ function Menu() {
                             <h5>링크를 복사해 편지를 모으거나 기대하며</h5>
                             <h5>기다리다 보면 멋진 편지가 도착할 거예요!</h5>
                             <div className='menu_plater_img_outContainer'>
-                                <img className='menu_plater_img' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_3.gif?raw=true'></img>
+                                <img className='menu_plater_img_1' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main_3.gif?raw=true'></img>
                             </div>
                             <p>세상에 단 하나밖에 없는 편지</p>
                             <h5>다양한 폰트부터 편지지, 스티커를 통해</h5>
@@ -565,20 +565,69 @@ function Menu() {
                         </article>
                     </div>
                     <div className={isHowto ? "menu_bar_howto" : "menu_bar_howto_true"}>
-                        <p>이용방법</p>
-                        <div className='menu_plater_img_outContainer'>
-                            <Slider {...settings} dotsClass="newClass">
-                                <div className='menu_plater_img_outContainer'>
-                                    <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
-                                </div>
-                                <div className='menu_plater_img_outContainer'>
-                                    <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
-                                </div>
-                                <div className='menu_plater_img_outContainer'>
-                                    <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/detail/pl@ter_main.jpg?raw=true'></img>
-                                </div>
-                            </Slider>
-                        </div>
+                        <article className='menu_howto_page'>
+                            <p className='howto_title'>편지함 개설 방법</p>
+                            <p className='howto_p'>행성을 개설해볼까요?</p>
+                            <div className='menu_plater_img_outContainer'>
+                                <Slider {...settings} dotsClass="newClass">
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_1_1.png?raw=true'></img>
+                                        <p className='howto_slick_title'>행성 만들기</p>
+                                        <p className='howto_slick_p'>카카오 ID로 회원가입(로그인)을 한 다음</p>
+                                        <p className='howto_slick_p'>행성 개설 버튼을 클릭해요.</p>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_1_2.png?raw=true'></img>
+                                        <p className='howto_slick_title'>*주의*</p>
+                                        <p className='howto_slick_p'>행성의 시작 시간은 현재 시각으로만</p>
+                                        <p className='howto_slick_p'>설정됩니다. 시작 시간과 마감 시간을</p>
+                                        <p className='howto_slick_p'>꼭 확인해주세요!</p>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_1_3.png?raw=true'></img>
+                                        <p className='howto_slick_title'>10일 기다리기</p>
+                                        <p className='howto_slick_p'>행성을 만들었다면 상단의 공유 버튼을 통해</p>
+                                        <p className='howto_slick_p'>가족과 친구, 우주의 누군가에게 신호를 보내세요.</p>
+                                        <p className='howto_slick_p'>10일 간 멋진 편지를 모집해보세요.</p>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_1_4.png?raw=true'></img>
+                                        <p className='howto_slick_title'>편지 확인하기</p>
+                                        <p className='howto_slick_p'>열흘 후에는 편지가 모두 개봉돼요.</p>
+                                        <p className='howto_slick_p'>홈 화면의 우표를 클릭하면 열어볼 수 있어요.</p>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_1_5.png?raw=true'></img>
+                                        <p className='howto_slick_title'>새로운 행성 만들기</p>
+                                        <p className='howto_slick_p'>새로운 행성을 만들면 이전 행성은 자동 삭제돼요.</p>
+                                        <p className='howto_slick_p'>복구할 수 없으니 신중히 결정하세요!</p>
+                                    </div>
+                                </Slider>
+                                <div className='howto_div_margin'></div>
+                                <Slider {...settings} dotsClass="newClass">
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_2_1.png?raw=true'></img>
+                                        <p className='howto_slick_title'>편지 작성하기</p>
+                                        <p className='howto_slick_p'>편지를 작성하고 꾸미기 버튼을 눌러</p>
+                                        <p className='howto_slick_p'>마음껏 편지를 장식하세요.</p>
+                                    </div>
+                                    <div className='menu_plater_img_outContainer'>
+                                        <img className='menu_plater_img_2' alt='main_img' src='https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/etc/howto/howto_2_2.png?raw=true'></img>
+                                        <p className='howto_slick_title'>우표 붙이고 전송하기</p>
+                                        <p className='howto_slick_p'>장식을 끝마친 편지에</p>
+                                        <p className='howto_slick_p'>마음에 드는 우표를 붙여 전송하세요!</p>
+                                    </div>
+                                </Slider>
+                            </div>
+                            <div className='howto_div_margin'></div>
+                            <p className='howto_p'>다른 궁금한 정보가</p>
+                            <p className='howto_p'>있으신가요?</p>
+                            <a style={{ textDecoration: 'none' }} href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}><div className='menu_palter_bottom_button'>
+                                홈페이지 방문하기</div></a>
+                            <div className='menu_palter_bottom_pading_2'></div>
+                            <br></br>
+                            <br></br>
+                        </article>
                     </div>
                 </div>
             </div>
