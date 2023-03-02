@@ -43,15 +43,15 @@ function ShareBt() {
                 {
                     title: 'PL@TER-편지 보내기',
                     link: {
-                        mobileWebUrl: basicURL,
-                        webUrl: basicURL,
+                        mobileWebUrl: shareBasicURL,
+                        webUrl: shareBasicURL,
                     },
                 },
                 {
                     title: 'PL@TER-놀러가기',
                     link: {
-                        mobileWebUrl: 'https://angelo-s-library-2.netlify.app/main',
-                        webUrl: 'https://angelo-s-library-2.netlify.app/main',
+                        mobileWebUrl: basicURL,
+                        webUrl: basicURL,
                     },
                 },
             ],
