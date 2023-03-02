@@ -17,7 +17,8 @@ function ShareBt() {
         };
     }, [dispatch, userData.openDate]);
 
-    const basicURL = 'https://angelo-s-library-2.netlify.app/send?userID=' + userID;
+    const shareBasicURL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
+    const basicURL = 'https://angelo-s-library-2.netlify.app/main';
     const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
     const title = 'PL@TER - 기다려지는 소식';
 
@@ -34,8 +35,8 @@ function ShareBt() {
                 description: 'PL@TER-기다려지는 소식',
                 imageUrl: image_share,
                 link: {
-                    mobileWebUrl: basicURL,
-                    webUrl: basicURL,
+                    mobileWebUrl: shareBasicURL,
+                    webUrl: shareBasicURL,
                 },
             },
             buttons: [
@@ -49,8 +50,8 @@ function ShareBt() {
                 {
                     title: 'PL@TER-놀러가기',
                     link: {
-                        mobileWebUrl: basicURL,
-                        webUrl: basicURL,
+                        mobileWebUrl: 'https://angelo-s-library-2.netlify.app/main',
+                        webUrl: 'https://angelo-s-library-2.netlify.app/main',
                     },
                 },
             ],
@@ -60,14 +61,14 @@ function ShareBt() {
 
     // function of to share throught the twitter
     function shareTwitter() {
-        let url = encodeURIComponent(basicURL);
+        let url = encodeURIComponent(shareBasicURL);
         window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '소소한 프로젝트', 'width=400, height=400');
     };
 
     // function of to share throught the facebook
     function shareFacebook() {
         window.open('https://www.facebook.com/sharer/sharer.php?u='
-            + encodeURIComponent(basicURL)
+            + encodeURIComponent(shareBasicURL)
             + '&t=' + encodeURIComponent(title),
             'facebooksharedialog',
             'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=400');

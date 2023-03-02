@@ -250,7 +250,7 @@ function InnerPage() {
 
     // notify after receiver creation
     function CreateNameURL() {
-        
+
         function urlCopy() {
             let Dummy_Tag = document.createElement("input");
             let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
@@ -413,9 +413,48 @@ function InnerPage() {
         };
 
         function enterDesc(i) {
-            let copyText = letterData[i].letterContent;
+            // 
+            // let copyText = letterData[i].letterContent;
+            // let enterText = document.querySelector('.textbox');
+            // enterText.value = copyText;
+            // 
+            let copyText = [letterData[i].letterContent];
             let enterText = document.querySelector('.textbox');
-            enterText.value = copyText;
+            let typingBool = false;
+            let typingIdx = 0;
+            let liIndex = 0;
+            setTimeout(() => {
+                let arrayData = copyText[Object.keys(copyText)[liIndex]];
+                let arraySplitData = arrayData.split('');
+                let liLength = copyText.length;
+                if (typingBool === false) {
+                    typingBool = true;
+                    var tyInt = setInterval(typing, 150);
+                } function typing() {
+                    if (typingIdx < arrayData.length + 1) {
+                        enterText.value = arrayData.slice(undefined, typingIdx);
+                        typingIdx++;
+                    } else {
+                        if (liIndex < liLength - 1) {
+                            liIndex++;
+                            typingIdx = 0;
+                            typingBool = false;
+                            arrayData = copyText[Object.keys(copyText)[liIndex]]
+                            arraySplitData = arrayData.split('');
+                            clearInterval(tyInt);
+                            setTimeout(function () {
+                                tyInt = setInterval(typing, 150);
+                            }, 250);
+                        } else if (liIndex === liLength - 1) {
+                            clearInterval(tyInt);
+                            copyText.splice(0, 1);
+                            typingBool = false;
+                            typingIdx = 0;
+                            liIndex = 0;
+                        };
+                    };
+                };
+            }, 250);
         };
 
         function enterAuthor(i) {
