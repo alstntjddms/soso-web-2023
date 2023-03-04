@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import { Adsense } from '@ctrl/react-adsense';
+import Typewriter from 'typewriter-effect/dist/core';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
 import Restart from './Restart';
@@ -418,43 +419,50 @@ function InnerPage() {
             // let enterText = document.querySelector('.textbox');
             // enterText.value = copyText;
             // 
-            let copyText = [letterData[i].letterContent];
-            let enterText = document.querySelector('.textbox');
-            let typingBool = false;
-            let typingIdx = 0;
-            let liIndex = 0;
-            setTimeout(() => {
-                let arrayData = copyText[Object.keys(copyText)[liIndex]];
-                let arraySplitData = arrayData.split('');
-                let liLength = copyText.length;
-                if (typingBool === false) {
-                    typingBool = true;
-                    var tyInt = setInterval(typing, 150);
-                } function typing() {
-                    if (typingIdx < arrayData.length + 1) {
-                        enterText.value = arrayData.slice(undefined, typingIdx);
-                        typingIdx++;
-                    } else {
-                        if (liIndex < liLength - 1) {
-                            liIndex++;
-                            typingIdx = 0;
-                            typingBool = false;
-                            arrayData = copyText[Object.keys(copyText)[liIndex]]
-                            arraySplitData = arrayData.split('');
-                            clearInterval(tyInt);
-                            setTimeout(function () {
-                                tyInt = setInterval(typing, 150);
-                            }, 250);
-                        } else if (liIndex === liLength - 1) {
-                            clearInterval(tyInt);
-                            copyText.splice(0, 1);
-                            typingBool = false;
-                            typingIdx = 0;
-                            liIndex = 0;
-                        };
-                    };
-                };
-            }, 250);
+            // let copyText = [letterData[i].letterContent];
+            // let enterText = document.querySelector('.textbox');
+            // let typingBool = false;
+            // let typingIdx = 0;
+            // let liIndex = 0;
+            // setTimeout(() => {
+            //     let arrayData = copyText[Object.keys(copyText)[liIndex]];
+            //     let arraySplitData = arrayData.split('');
+            //     let liLength = copyText.length;
+            //     if (typingBool === false) {
+            //         typingBool = true;
+            //         var tyInt = setInterval(typing, 150);
+            //     } function typing() {
+            //         if (typingIdx < arrayData.length + 1) {
+            //             enterText.value = arrayData.slice(undefined, typingIdx);
+            //             typingIdx++;
+            //         } else {
+            //             if (liIndex < liLength - 1) {
+            //                 liIndex++;
+            //                 typingIdx = 0;
+            //                 typingBool = false;
+            //                 arrayData = copyText[Object.keys(copyText)[liIndex]]
+            //                 arraySplitData = arrayData.split('');
+            //                 clearInterval(tyInt);
+            //                 setTimeout(function () {
+            //                     tyInt = setInterval(typing, 150);
+            //                 }, 250);
+            //             } else if (liIndex === liLength - 1) {
+            //                 clearInterval(tyInt);
+            //                 copyText.splice(0, 1);
+            //                 typingBool = false;
+            //                 typingIdx = 0;
+            //                 liIndex = 0;
+            //             };
+            //         };
+            //     };
+            // }, 250);
+            // 
+            let copyText = letterData[i].letterContent;
+            let content = document.querySelector('.textbox');
+            new Typewriter(content, {
+                strings: copyText,
+                autoStart: true,
+            });
         };
 
         function enterAuthor(i) {
@@ -616,8 +624,10 @@ function InnerPage() {
                             </div>
                         </div>
                         <div className="letter_textarea">
-                            <textarea style={setStyle} className="textbox" value={''} readOnly>
-                            </textarea>
+                            <div style={setStyle} className="textbox" value={''} readOnly>
+                            </div>
+                            {/* <textarea style={setStyle} className="textbox" value={''} readOnly>
+                            </textarea> */}
                         </div>
                         <div className='googleAdsense'>
                             <Adsense
