@@ -96,6 +96,7 @@ function reducer(state, action) {
                     "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "Yuna",
                     "letterIcon": "3",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -117,9 +118,10 @@ function reducer(state, action) {
                     "letterContent": "자세히 보아야 예쁘다. 오래 보아야 사랑스럽다. 너도 그렇다.",
                     "letterFont": "ROEHOE-CHAN",
                     "letterFontColor": "2",
-                    "letterPaper": "2",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "egoing",
                     "letterIcon": "4",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -141,9 +143,10 @@ function reducer(state, action) {
                     "letterContent": "하늘은 바다 끝없이 넓고 푸른 바다 구름은 조각배 바람이 사공이 되어 노를 젓는다.",
                     "letterFont": "SBAggroB",
                     "letterFontColor": "1",
-                    "letterPaper": "1",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "Yuna",
                     "letterIcon": "5",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -165,9 +168,10 @@ function reducer(state, action) {
                     "letterContent": "얼굴 하나야 손가락 둘로 푹 가리지만 보고싶은 마음 호수만 하니 눈 감을 수 밖에",
                     "letterFont": "2",
                     "letterFontColor": "2",
-                    "letterPaper": "2",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "egoing",
                     "letterIcon": "6",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -189,9 +193,10 @@ function reducer(state, action) {
                     "letterContent": "대나무처럼 안을 비우면서도 키가 크는 법을 배운다. 몸과 마음이 가벼워진다.",
                     "letterFont": "1",
                     "letterFontColor": "1",
-                    "letterPaper": "1",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "Yuna",
                     "letterIcon": "7",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -213,9 +218,10 @@ function reducer(state, action) {
                     "letterContent": "넌 정말 아름다운 꽃이다. 네가 없다면 이 세상에 꽃은 없다. 너만 정말 꽃이다.",
                     "letterFont": "2",
                     "letterFontColor": "2",
-                    "letterPaper": "2",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "egoing",
                     "letterIcon": "8",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -237,9 +243,10 @@ function reducer(state, action) {
                     "letterContent": "두통이 심할 때, 감기가 왔을 때, 소화가 안 될 때. 예로부터 내려오는 민간요법이 있다. 퇴근하기.",
                     "letterFont": "2",
                     "letterFontColor": "2",
-                    "letterPaper": "2",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "egoing",
                     "letterIcon": "9",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -261,9 +268,10 @@ function reducer(state, action) {
                     "letterContent": "왜냐고 뭍는 네게 선뜻 대답하지 못하였다. 한참을 망설이다 나온 한 마디. 그냥.",
                     "letterFont": "2",
                     "letterFontColor": "2",
-                    "letterPaper": "2",
+                    "letterPaper": "https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true",
                     "letterWriter": "egoing",
                     "letterIcon": "10",
+                    "letterOpenCheck": true,
                     "letterWriteDate": "1661837285640",
                     "sticker": [
                         {
@@ -307,6 +315,7 @@ function reducer(state, action) {
             isNotYetLetter: false,
             isLetterBlockConfirm: false,
             isRestart: false,
+            isImagePreload: true,
             // send component
             textLength: 0,
             text: '',
@@ -471,6 +480,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISRESTART') {
         newState.isRestart = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISIMAGEPRELOAD') {
+        newState.isImagePreload = action.data;
     };
 
     if (action.type === 'CHANGE_LETTERDATA') {

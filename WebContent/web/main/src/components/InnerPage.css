@@ -983,11 +983,20 @@ h4 {
     background-image: url('../lib/paper/paper_white.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* display: flex; */
+    display: flex;
     line-height: 1.5rem;
     resize: none;
     touch-action: none;
     pointer-events: none;
+}
+
+.preloading {
+    z-index: 1;
+}
+
+.preloading_fade {
+    z-index: 0;
+    display: none;
 }
 
 .letter_textarea_author_title {

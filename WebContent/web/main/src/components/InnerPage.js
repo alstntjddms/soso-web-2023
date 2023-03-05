@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import { Adsense } from '@ctrl/react-adsense';
-import Typewriter from 'typewriter-effect/dist/core';
+// import Typewriter from 'typewriter-effect/dist/core';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
 import Restart from './Restart';
@@ -14,7 +14,6 @@ function InnerPage() {
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
     const [setStyle, setSetStyle] = useState({ "fontSize": "", "fontFamily": "", "color": "", "textAlign": "", "backgroundImage": "" });
-
     const userID = useSelector((state) => state.userID);
     const ShareUserID = useSelector((state) => state.ShareUserID);
     const userData = useSelector((state) => state.userData);
@@ -24,6 +23,7 @@ function InnerPage() {
     const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
     const isYesName = useSelector((state) => state.isYesName);
     const isRestart = useSelector((state) => state.isRestart);
+    const isImagePreload = useSelector((state) => state.isImagePreload);
 
     useEffect(() => {
         if (userData.openDate === 0) {
@@ -299,7 +299,6 @@ function InnerPage() {
     // case of an old member
     function ShowMemberInf() {
         const [Dday, setDday] = useState(Number(userData.openDate));
-
         const setDDay = useCallback(() => {
             let count = setInterval(function () {
                 let now = new Date().getTime();
@@ -393,6 +392,16 @@ function InnerPage() {
             setRender(-1);
         };
 
+        function resetLetterStyle() {
+            let newStyle = { ...setStyle };
+            newStyle['fontFamily'] = '';
+            newStyle['textAlign'] = '';
+            newStyle['fontSize'] = '';
+            newStyle['color'] = '';
+            newStyle['backgroundImage'] = '';
+            setSetStyle(newStyle);
+        };
+
         function changeLetterStyle(i) {
             let newStyle = { ...setStyle };
             newStyle['fontFamily'] = letterData[i].letterFont;
@@ -413,56 +422,56 @@ function InnerPage() {
             // setRender(i);
         };
 
-        function enterDesc(i) {
-            // 
-            // let copyText = letterData[i].letterContent;
-            // let enterText = document.querySelector('.textbox');
-            // enterText.value = copyText;
-            // 
-            // let copyText = [letterData[i].letterContent];
-            // let enterText = document.querySelector('.textbox');
-            // let typingBool = false;
-            // let typingIdx = 0;
-            // let liIndex = 0;
-            // setTimeout(() => {
-            //     let arrayData = copyText[Object.keys(copyText)[liIndex]];
-            //     let arraySplitData = arrayData.split('');
-            //     let liLength = copyText.length;
-            //     if (typingBool === false) {
-            //         typingBool = true;
-            //         var tyInt = setInterval(typing, 150);
-            //     } function typing() {
-            //         if (typingIdx < arrayData.length + 1) {
-            //             enterText.value = arrayData.slice(undefined, typingIdx);
-            //             typingIdx++;
-            //         } else {
-            //             if (liIndex < liLength - 1) {
-            //                 liIndex++;
-            //                 typingIdx = 0;
-            //                 typingBool = false;
-            //                 arrayData = copyText[Object.keys(copyText)[liIndex]]
-            //                 arraySplitData = arrayData.split('');
-            //                 clearInterval(tyInt);
-            //                 setTimeout(function () {
-            //                     tyInt = setInterval(typing, 150);
-            //                 }, 250);
-            //             } else if (liIndex === liLength - 1) {
-            //                 clearInterval(tyInt);
-            //                 copyText.splice(0, 1);
-            //                 typingBool = false;
-            //                 typingIdx = 0;
-            //                 liIndex = 0;
-            //             };
-            //         };
-            //     };
-            // }, 250);
-            // 
-            let copyText = letterData[i].letterContent;
-            let content = document.querySelector('.textbox');
-            new Typewriter(content, {
-                strings: copyText,
-                autoStart: true
-            });
+        function enterDesc(i, checkTyping) {
+            if (checkTyping === true) {
+                let copyText = [letterData[i].letterContent];
+                let enterText = document.querySelector('.textbox');
+                let typingBool = false;
+                let typingIdx = 0;
+                let liIndex = 0;
+                setTimeout(() => {
+                    let arrayData = copyText[Object.keys(copyText)[liIndex]];
+                    let arraySplitData = arrayData.split('');
+                    let liLength = copyText.length;
+                    if (typingBool === false) {
+                        typingBool = true;
+                        var tyInt = setInterval(typing, 150);
+                    } function typing() {
+                        if (typingIdx < arrayData.length + 1) {
+                            enterText.value = arrayData.slice(undefined, typingIdx);
+                            typingIdx++;
+                        } else {
+                            if (liIndex < liLength - 1) {
+                                liIndex++;
+                                typingIdx = 0;
+                                typingBool = false;
+                                arrayData = copyText[Object.keys(copyText)[liIndex]]
+                                arraySplitData = arrayData.split('');
+                                clearInterval(tyInt);
+                                setTimeout(function () {
+                                    tyInt = setInterval(typing, 150);
+                                }, 250);
+                            } else if (liIndex === liLength - 1) {
+                                clearInterval(tyInt);
+                                copyText.splice(0, 1);
+                                typingBool = false;
+                                typingIdx = 0;
+                                liIndex = 0;
+                            };
+                        };
+                    };
+                }, 250);
+                // let copyText = letterData[i].letterContent;
+                // let content = document.querySelector('.textbox');
+                // new Typewriter(content, {
+                //     strings: copyText,
+                //     autoStart: true
+                // });
+            } else {
+                let copyText = letterData[i].letterContent;
+                let enterText = document.querySelector('.textbox');
+                enterText.value = copyText;
+            };
         };
 
         function enterAuthor(i) {
@@ -471,7 +480,7 @@ function InnerPage() {
             enterAuthor.value = copyAuthor;
         };
 
-        function attach(i) {
+        function attach(i, checkTyping) {
             function setTranslate(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
             };
@@ -484,7 +493,7 @@ function InnerPage() {
                 stage.appendChild(item);
                 setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
             };
-            enterDesc(i);
+            enterDesc(i, checkTyping);
             enterAuthor(i);
         };
 
@@ -505,14 +514,30 @@ function InnerPage() {
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 setSlickPageNum(i);
-                changeIcon(i);
-                changeLetterStyle(i);
-                setTimeout(() => {
-                    attach(i);
-                }, 100);
+                checkLoad(i)
+                // changeIcon(i);
+                // changeLetterStyle(i);
+                // setTimeout(() => {
+                //     attach(i);
+                // }, 100);
             } else {
                 dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: true });
             };
+        };
+
+        function checkLoad(i) {
+            let src = letterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
+            let image = new Image();
+            image.addEventListener('load', function () {
+                dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                let checkTyping = letterData[i].letterOpenCheck;
+                changeIcon(i);
+                changeLetterStyle(i);
+                setTimeout(() => {
+                    attach(i, checkTyping);
+                }, 100);
+            });
+            image.src = src;
         };
 
         let settings = {
@@ -613,6 +638,8 @@ function InnerPage() {
                                 <div className='letter_block' onClick={() => {
                                     // letterBlcok(render);
                                     dispatch({ type: 'CHANGE_ISLETTERBLOCKCONFIRM', data: true });
+                                    dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                                    resetLetterStyle();
                                 }}></div>
                                 <div className='letter_close' onClick={() => {
                                     // openLetter(render);
@@ -620,14 +647,17 @@ function InnerPage() {
                                     //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                     // }, 500);
                                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
+                                    dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                                    resetLetterStyle();
                                 }}></div>
                             </div>
                         </div>
                         <div className="letter_textarea">
-                            <div style={setStyle} className="textbox" value={''} readOnly>
-                            </div>
-                            {/* <textarea style={setStyle} className="textbox" value={''} readOnly>
-                            </textarea> */}
+                            {/* <div style={setStyle} className="textbox" value={''} readOnly>
+                            </div> */}
+                            <textarea style={setStyle} className="textbox" value={''} readOnly>
+                            </textarea>
+                            <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>Loading...</span>
                         </div>
                         <div className='googleAdsense'>
                             <Adsense
