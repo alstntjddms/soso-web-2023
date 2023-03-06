@@ -299,14 +299,21 @@ a>p {
 
 .menu_bar_mypage_box2_notice {
     position: relative;
-    background-color: rgb(255, 255, 255);
+    background-color: #828A93;
+    width: 4rem;
+    height: 1.5rem;
+}
+
+.menu_bar_mypage_box2_notice_active {
+    position: relative;
+    background-color: #ffffff;
     width: 4rem;
     height: 1.5rem;
 }
 
 .menu_bar_mypage_box2_notice_inner {
     position: relative;
-    background-color: #828A93;
+    background-color: #ffffff;
     width: 2.0rem;
     height: 1.5rem;
 }

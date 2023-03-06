@@ -13,7 +13,7 @@ function InnerPage() {
     // For component Letter box
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
-    const [setStyle, setSetStyle] = useState({ "fontSize": "", "fontFamily": "", "color": "", "textAlign": "", "backgroundImage": "" });
+    const [setStyle, setSetStyle] = useState({ 'fontSize': '', 'fontFamily': '', 'color': '', 'textAlign': '', 'backgroundImage': '' });
     const userID = useSelector((state) => state.userID);
     const ShareUserID = useSelector((state) => state.ShareUserID);
     const userData = useSelector((state) => state.userData);

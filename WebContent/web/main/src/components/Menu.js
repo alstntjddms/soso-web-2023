@@ -510,7 +510,7 @@ function Menu() {
                         <div className='menu_bar_mypage_box2'>
                             <p className='menu_bar_mypage_box2_p'>카카오톡 알림</p>
                             <div className='menu_bar_mypage_box2_innerBox'>
-                                <div className='menu_bar_mypage_box2_notice' onClick={() => {
+                                <div className={userData.agreement ? 'menu_bar_mypage_box2_notice_active' : 'menu_bar_mypage_box2_notice'} onClick={() => {
                                     if (userData.agreement === true) {
                                         dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
                                     } else {
