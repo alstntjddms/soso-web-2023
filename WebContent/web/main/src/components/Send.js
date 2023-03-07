@@ -655,7 +655,7 @@ function Send() {
 
     // Require INFO
     function requireUserCheckData(props) {
-        fetch('http://plater.kr/api/member/' + props, {
+        fetch('http://plater.kr/api/member/external/userid/' + props, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -674,8 +674,29 @@ function Send() {
             .catch((userDate_error) => {
                 console.log(userDate_error);
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
-                window.location.replace('/main');
+                // window.location.replace('/main');
             });
+        // fetch('http://plater.kr/api/member/' + props, {
+        //     method: 'GET',
+        //     mode: 'cors',
+        //     cache: 'no-cache',
+        //     credentials: 'same-origin',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then((userData) => {
+        //         console.log(userData);
+        //         setUserOpenDateRequired(userData.userOpenDate);
+        //         setUserLetterCountRequired(userData.userGetLetterCount);
+        //         setUserNickName(userData.userNickName);
+        //     })
+        //     .catch((userDate_error) => {
+        //         console.log(userDate_error);
+        //         alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
+        //         window.location.replace('/main');
+        //     });
     };
 
     // function finalCheck() {
@@ -707,9 +728,9 @@ function Send() {
         for (let i = 0; i < qs.length; i++) {
             qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
         };
-        console.log(result.userID);
-        if (result.userID !== undefined) {
-            requireUserCheckData(result.userID);
+        console.log(qs[0][1]);
+        if (qs[0][1] !== undefined) {
+            requireUserCheckData(qs[0][1]);
             let now = new Date().getTime();
             let distance = Number(userOpenDateRequired) - now;
             if (distance >= 0) {
