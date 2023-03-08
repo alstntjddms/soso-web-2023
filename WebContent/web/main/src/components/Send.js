@@ -655,7 +655,12 @@ function Send() {
 
     // Require INFO
     function requireUserCheckData(props) {
-        fetch('http://plater.kr/api/member/external/userid/' + props, {
+        // 
+        // 사용자 별명, 개설일, 받은 편지를 모두 받아와서 정리 할 수 있도록 코드 수정 요망
+        // 
+        let a = 'kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D'
+        fetch('http://plater.kr/api/letter/userid/' + a, {
+        // fetch('http://plater.kr/api/member/external/userid/' + props, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -670,7 +675,7 @@ function Send() {
                 setUserOpenDateRequired(userData.userOpenDate);
                 setUserLetterCountRequired(userData.userGetLetterCount);
                 setUserNickName(userData.userNickName);
-            })
+             })
             .catch((userDate_error) => {
                 console.log(userDate_error);
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
