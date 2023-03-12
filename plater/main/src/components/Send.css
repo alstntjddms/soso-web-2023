@@ -1,0 +1,3182 @@
+.send_main_fade {
+    opacity: 0;
+}
+
+.send_main_active {
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: -10;
+    background-color: black;
+}
+
+.send_top_menu {
+    color: white;
+    /*  */
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    font-family: 'NeoDunggeunmo';
+}
+
+.send_top_menu>img {
+    background-color: transparent;
+    /*  */
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.send_top_menu>h3 {
+    margin-left: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    font-size: 1.0rem;
+    font-weight: normal;
+}
+
+.send_top_menu>span {
+    text-align: right;
+    margin-right: 1.5rem;
+    font-size: 1.0rem;
+}
+
+.set_top_menu_completion_active {
+    color: white;
+    transition: all 0.5s;
+}
+
+.set_top_menu_completion {
+    color: #828A93;
+    touch-action: none;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+/*  */
+
+#send_textarea {
+    margin: auto;
+    margin-top: 0rem;
+    width: 20.5rem;
+    height: 22.75rem;
+    /* background-color: #262a3a; */
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1.125rem;
+    touch-action: none;
+    position: relative;
+    border: none;
+}
+
+.send_textbox {
+    position: absolute;
+    margin: auto;
+    border: none;
+    width: 16.625rem;
+    height: 18rem;
+    padding: 1rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    background-image: url('../lib/paper/paper_white.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    line-height: 1.5rem;
+    resize: none;
+    touch-action: pan-x;
+}
+
+.send_textLength {
+    position: relative;
+    color: #828A93;
+    font-size: 0.75rem;
+    text-align: end;
+    padding-right: 10%;
+    padding-top: 0%;
+}
+
+/*  */
+
+.isSendPopUp {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUp_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUp_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUp_title {
+    position: relative;
+    margin: auto;
+    top: 4rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isSendPopUp_p {
+    position: relative;
+    margin: auto;
+    top: 5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.isSendPopUp_innerBox {
+    position: relative;
+    top: 6.125rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.isSendPopUp_button_signOut {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #DBDBFF;
+    color: #4A4AFF;
+    border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isSendPopUp_button_cancel {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+/*  */
+
+.isSendPopUpCancel {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCancel_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUpCancel_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCancel_title {
+    position: relative;
+    margin: auto;
+    top: 4rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isSendPopUpCancel_p {
+    position: relative;
+    margin: auto;
+    top: 5rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.isSendPopUpCancel_innerBox {
+    position: relative;
+    top: 6.125rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.isSendPopUpCancel_button_signOut {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #DBDBFF;
+    color: #4A4AFF;
+    border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isSendPopUpCancel_button_cancel {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+/*  */
+
+.isSendPopUpCheck {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCheck_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isSendPopUpCheck_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 13.0rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isSendPopUpCheck_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isSendPopUpCheck_p {
+    position: relative;
+    margin: auto;
+    top: 3.75rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    margin-bottom: 0.2rem;
+}
+
+.isSendPopUpCheck_button_cancel {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    /* width: 16.375rem; */
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #4A4AFF;
+    color: #DBDBFF;
+    border-radius: 0.75rem;
+    top: 5.125rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+/*  */
+
+.send_option_button_div {
+    width: 20.5rem;
+    margin: auto;
+}
+
+.send_option_button {
+    margin-left: 1rem;
+    background-color: transparent;
+    position: relative;
+    background-image: url('../lib/etc/send/customize_btn.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 4rem;
+}
+
+/*  */
+
+.send_letter_option_active {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    opacity: 1;
+    background-color: lightgray;
+    transition: all 0.5s;
+    font-family: 'NeoDunggeunmo';
+}
+
+.send_letter_option {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    touch-action: none;
+    background-color: lightgrey;
+    transition: all 0.5s;
+}
+
+.send_letter_option_innerContainer {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.send_letter_option_menu {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid black;
+}
+
+.send_letter_menu {
+    min-width: 6.5rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: lightgrey;
+    transition: all 0.5s;
+    font-size: 0.875rem;
+}
+
+.send_letter_menu_active {
+    color: white;
+    min-width: 6.5rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: rgb(6, 18, 42);
+    transition: all 0.5s;
+    font-size: 0.875rem;
+}
+
+/* .send_letter_menu_close {
+    border: 1px solid black;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    background-color: lightgray;
+} */
+
+.send_letter_menu_close {
+    position: absolute;
+    width: 2.0rem;
+    right: 1rem;
+    top: -3rem;
+}
+
+.send_font_active,
+.send_paper_active {
+    background-color: lightgrey;
+    margin-top: 1.75rem;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 30);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+/* .send_range_active {
+    background-color: lightgray;
+    margin-top: 1.0rem;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 30);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 1;
+    transition: all 0.5s;
+} */
+
+.send_color_active,
+.send_sticker_active,
+.send_range_active {
+    background-color: lightgray;
+    margin-top: 1.75rem;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 30);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 1;
+    transition: all 0.5s;
+    justify-items: center;
+    align-items: flex-start;
+    grid-template-rows: max-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.send_font,
+.send_paper {
+    background-color: white;
+    margin-top: 0.5rem;
+    height: 10rem;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    touch-action: none;
+    transition: all 0.5s;
+}
+
+/* .send_range {
+    background-color: white;
+    margin-top: 0.5rem;
+    height: 10rem;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    touch-action: none;
+    transition: all 0.5s;
+} */
+
+.send_color,
+.send_sticker,
+.send_range {
+    background-color: white;
+    margin-top: 0.5rem;
+    height: 10rem;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    touch-action: none;
+    transition: all 0.5s;
+}
+
+/*  */
+
+.send_item_font {
+    box-shadow: -0.2rem 0 0 0 rgb(6, 18, 42),
+        0.2rem 0 0 0 rgb(6, 18, 42),
+        0 -0.2rem 0 0 rgb(6, 18, 42),
+        0 0.2rem 0 0 rgb(6, 18, 42);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: grid;
+    width: 11.0rem;
+    height: 4.5rem;
+    grid-template-rows: 30% 70%;
+    background-color: white;
+}
+
+.send_item_font_active {
+    box-shadow: -0.2rem 0 0 0 rgb(119, 118, 253),
+        0.2rem 0 0 0 rgb(119, 118, 253),
+        0 -0.2rem 0 0 rgb(119, 118, 253),
+        0 0.2rem 0 0 rgb(119, 118, 253);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: grid;
+    width: 11.0rem;
+    height: 4.5rem;
+    grid-template-rows: 30% 70%;
+    background-color: white;
+}
+
+.send_item_font_title {
+    background-color: rgb(6, 18, 42);
+    color: white;
+    text-align: center;
+    vertical-align: baseline;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+}
+
+.send_item_font_content {
+    text-align: center;
+    margin: auto;
+    font-size: 1.0rem;
+}
+
+/*  */
+
+.send_item_range {
+    box-shadow: -0.2rem 0 0 0 rgb(6 18 42),
+        0.2rem 0 0 0 rgb(6 18 42),
+        0 -0.2rem 0 0 rgb(6 18 42),
+        0 0.2rem 0 0 rgb(6 18 42);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    background-color: white;
+}
+
+.send_item_range_active {
+    box-shadow: -0.2rem 0 0 0 rgb(119, 118, 253),
+        0.2rem 0 0 0 rgb(119, 118, 253),
+        0 -0.2rem 0 0 rgb(119, 118, 253),
+        0 0.2rem 0 0 rgb(119, 118, 253);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    background-color: white;
+}
+
+.send_item_range_left {
+    margin: auto;
+    background-image: url('../lib/etc/send/align_left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.send_item_range_center {
+    margin: auto;
+    background-image: url('../lib/etc/send/align_center.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.send_item_range_right {
+    margin: auto;
+    background-image: url('../lib/etc/send/align_right.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+/*  */
+
+.send_item_color {
+    box-shadow: -0.2rem 0 0 0 rgb(6 18 42),
+        0.2rem 0 0 0 rgb(6 18 42),
+        0 -0.2rem 0 0 rgb(6 18 42),
+        0 0.2rem 0 0 rgb(6 18 42);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+}
+
+.send_item_color_active {
+    box-shadow: -0.2rem 0 0 0 rgb(119, 118, 253),
+        0.2rem 0 0 0 rgb(119, 118, 253),
+        0 -0.2rem 0 0 rgb(119, 118, 253),
+        0 0.2rem 0 0 rgb(119, 118, 253);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+}
+
+.send_item_color::after,
+.send_item_color_active::after {
+    content: '';
+    margin-top: 0.5rem;
+    margin-left: -0.5rem;
+    width: 0.2rem;
+    height: 0.3rem;
+    background-color: rgb(255 255 255);
+}
+
+.send_item_color::before,
+.send_item_color_active::before {
+    content: '';
+    margin-top: 0.3rem;
+    margin-left: 0.4rem;
+    width: 0.3rem;
+    height: 0.2rem;
+    background-color: rgb(255 255 255);
+}
+
+#color_1 {
+    background-color: rgb(6 18 42);
+}
+
+#color_2 {
+    background-color: rgb(169 19 25);
+}
+
+#color_3 {
+    background-color: rgb(242 202 22);
+}
+
+#color_4 {
+    background-color: rgb(77 168 77);
+}
+
+#color_5 {
+    background-color: rgb(8 160 222);
+}
+
+#color_6 {
+    background-color: rgb(76 76 253);
+}
+
+#color_7 {
+    background-color: rgb(221 79 136);
+}
+
+#color_8 {
+    background-color: rgb(73 36 25);
+}
+
+#color_9 {
+    background-color: rgb(1 124 136);
+}
+
+#color_10 {
+    background-color: rgb(220 233 243);
+}
+
+/*  */
+
+.send_item_paper {
+    box-shadow: -0.2rem 0 0 0 rgb(6, 18, 42),
+        0.2rem 0 0 0 rgb(6, 18, 42),
+        0 -0.2rem 0 0 rgb(6, 18, 42),
+        0 0.2rem 0 0 rgb(6, 18, 42);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 11rem;
+    height: 4.5rem;
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+.send_item_paper_active {
+    box-shadow: -0.2rem 0 0 0 rgb(119, 118, 253),
+        0.2rem 0 0 0 rgb(119, 118, 253),
+        0 -0.2rem 0 0 rgb(119, 118, 253),
+        0 0.2rem 0 0 rgb(119, 118, 253);
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 11rem;
+    height: 4.5rem;
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+.send_item_paper_title {
+    border: none;
+    background-color: rgb(6, 18, 42);
+    color: white;
+    text-align: center;
+    vertical-align: baseline;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+}
+
+#paper_1 {
+    background-image: url('../lib/paper/paper_city.gif');
+}
+
+#paper_2 {
+    background-image: url('../lib/paper/paper_curce.gif');
+}
+
+#paper_3 {
+    background-image: url('../lib/paper/paper_space.gif');
+}
+
+#paper_4 {
+    background-image: url('../lib/paper/paper_white.gif');
+}
+
+#paper_5 {
+    background-image: url('../lib/paper/paper_birthday.gif');
+}
+
+#paper_6 {
+    background-image: url('../lib/paper/paper_birthday_2.gif');
+}
+
+#paper_7 {
+    background-image: url('../lib/paper/paper_blue.gif');
+}
+
+#paper_8 {
+    background-image: url('../lib/paper/paper_blue_pastel.gif');
+}
+
+#paper_9 {
+    background-image: url('../lib/paper/paper_cheese.gif');
+}
+
+#paper_10 {
+    background-image: url('../lib/paper/paper_error.gif');
+}
+
+#paper_11 {
+    background-image: url('../lib/paper/paper_flower.gif');
+}
+
+#paper_12 {
+    background-image: url('../lib/paper/paper_green_donut.gif');
+}
+
+#paper_13 {
+    background-image: url('../lib/paper/paper_green_pastel.gif');
+}
+
+#paper_14 {
+    background-image: url('../lib/paper/paper_little_flower.gif');
+}
+
+#paper_15 {
+    background-image: url('../lib/paper/paper_magenta.gif');
+}
+
+#paper_16 {
+    background-image: url('../lib/paper/paper_mint.gif');
+}
+
+#paper_17 {
+    background-image: url('../lib/paper/paper_orange.gif');
+}
+
+#paper_18 {
+    background-image: url('../lib/paper/paper_mint_pastel.gif');
+}
+
+#paper_19 {
+    background-image: url('../lib/paper/paper_pastel.gif');
+}
+
+#paper_20 {
+    background-image: url('../lib/paper/paper_pink_cloud.gif');
+}
+
+#paper_21 {
+    background-image: url('../lib/paper/paper_postit.gif');
+}
+
+#paper_22 {
+    background-image: url('../lib/paper/paper_purple.gif');
+}
+
+#paper_23 {
+    background-image: url('../lib/paper/paper_purple_pastel.gif');
+}
+
+#paper_24 {
+    background-image: url('../lib/paper/paper_rainbow.gif');
+}
+
+#paper_25 {
+    background-image: url('../lib/paper/paper_red.gif');
+}
+
+#paper_26 {
+    background-image: url('../lib/paper/paper_red_pastel.gif');
+}
+
+#paper_27 {
+    background-image: url('../lib/paper/paper_sprout.gif');
+}
+
+#paper_28 {
+    background-image: url('../lib/paper/paper_stripe.gif');
+}
+
+#paper_29 {
+    background-image: url('../lib/paper/paper_vivid.gif');
+}
+
+#paper_30 {
+    background-image: url('../lib/paper/paper_white_room.gif');
+}
+
+#paper_31 {
+    background-image: url('../lib/paper/paper_wrinkle.gif');
+}
+
+#paper_32 {
+    background-image: url('../lib/paper/paper_yellow.gif');
+}
+
+#paper_33 {
+    background-image: url('../lib/paper/papre_green.gif');
+}
+
+/*  */
+
+.send_close {
+    background-image: url('../lib/etc/send/delete_btn.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 0.8rem;
+    height: 0.8rem;
+    z-index: 2;
+}
+
+.send_item_sticker_0 {
+    background-image: url('../lib/sticker/sticker-dog.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker0 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker-dog.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker0:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_1 {
+    background-image: url('../lib/sticker/sticker-pudding.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker1 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker-pudding.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker1:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_2 {
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker2 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker2:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_3 {
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker3 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker3:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_4 {
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker4 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker4:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_5 {
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker5 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker5:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_6 {
+    background-image: url('../lib/sticker/sticker_black_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker6 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_black_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker6:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_7 {
+    background-image: url('../lib/sticker/sticker_boom.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker7 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_boom.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker7:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_8 {
+    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker8 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker8:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_9 {
+    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker9 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker9:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_10 {
+    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker10 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker10:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_11 {
+    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker11 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker11:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_12 {
+    background-image: url('../lib/sticker/sticker_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker12 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker12:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_13 {
+    background-image: url('../lib/sticker/sticker_candy.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker13 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_candy.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker13:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_14 {
+    background-image: url('../lib/sticker/sticker_chocolate.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker14 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_chocolate.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker14:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_15 {
+    background-image: url('../lib/sticker/sticker_cup_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker15 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_cup_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker15:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_16 {
+    background-image: url('../lib/sticker/sticker_danger.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker16 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_danger.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker16:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_17 {
+    background-image: url('../lib/sticker/sticker_face_1.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker17 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_1.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker17:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_18 {
+    background-image: url('../lib/sticker/sticker_face_2.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker18 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_2.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker18:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+
+.send_item_sticker_19 {
+    background-image: url('../lib/sticker/sticker_face_3.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker19 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_3.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker19:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_20 {
+    background-image: url('../lib/sticker/sticker_face_4.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker20 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_4.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker20:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_21 {
+    background-image: url('../lib/sticker/sticker_gold_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker21 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_gold_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker21:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_22 {
+    background-image: url('../lib/sticker/sticker_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker22 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker22:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_23 {
+    background-image: url('../lib/sticker/sticker_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker23 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker23:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_24 {
+    background-image: url('../lib/sticker/sticker_heart_red.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker24 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_red.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker24:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_25 {
+    background-image: url('../lib/sticker/sticker_kiss.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker25 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_kiss.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker25:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_26 {
+    background-image: url('../lib/sticker/sticker_lolipop.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker26 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_lolipop.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker26:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_27 {
+    background-image: url('../lib/sticker/sticker_moon.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker27 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_moon.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker27:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_28 {
+    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker28 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker28:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_29 {
+    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker29 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker29:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_30 {
+    background-image: url('../lib/sticker/sticker_pie.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker30 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_pie.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker30:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_31 {
+    background-image: url('../lib/sticker/sticker_poo.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker31 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_poo.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker31:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_32 {
+    background-image: url('../lib/sticker/sticker_red_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker32 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_red_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker32:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_33 {
+    background-image: url('../lib/sticker/sticker_red_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker33 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_red_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker33:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_34 {
+    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker34 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker34:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_35 {
+    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker35 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker35:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_36 {
+    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker36 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker36:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_37 {
+    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker37 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker37:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_38 {
+    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker38 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker38:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_39 {
+    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker39 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker39:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_40 {
+    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker40 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker40:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_41 {
+    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker41 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker41:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_42 {
+    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker42 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker42:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_43 {
+    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker43 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker43:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_44 {
+    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker44 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker44:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_45 {
+    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker45 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker45:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_46 {
+    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker46 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker46:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_47 {
+    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker47 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker47:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_48 {
+    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker48 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker48:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_49 {
+    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker49 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker49:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_50 {
+    background-image: url('../lib/sticker/sticker_star_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker50 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_star_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker50:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_51 {
+    background-image: url('../lib/sticker/sticker_suprise.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker51 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_suprise.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker51:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_52 {
+    background-image: url('../lib/sticker/sticker_tears.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker52 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_tears.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker52:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_53 {
+    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker53 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker53:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+.send_item_sticker_54 {
+    background-image: url('../lib/sticker/sticker_white_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease 1s;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+    background-position: center;
+}
+
+.send_item_sticker54 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_white_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.send_item_sticker54:active {
+    background-color: rgba(168, 218, 220, 1.00);
+    position: relative;
+}
+
+/*  */
+
+.pre_letter_outContainer {
+    margin: auto;
+    margin-top: 0rem;
+    width: 20.5rem;
+    height: 22.75rem;
+    /* background-color: #262a3a; */
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1.125rem;
+    touch-action: none;
+    position: relative;
+    border: none;
+}
+
+.send_pre_textbox {
+    position: absolute;
+    margin: auto;
+    width: 16.625rem;
+    height: 18rem;
+    padding: 1rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    background-image: url('../lib/paper/paper_white.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    line-height: 1.5rem;
+    resize: none;
+    touch-action: none;
+    pointer-events: none;
+    border: none;
+}
+
+/*  */
+
+.pre_letter_outBox {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.pre_letter_outBox_active {
+    visibility: visible;
+}
+
+.pre_letter_wrap {
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.pre_letter_author_outContainer {
+    margin: auto;
+    width: 20rem;
+}
+
+.pre_letter_author_input_div {
+    border-bottom: 1px solid gray;
+    margin-bottom: 0.5rem;
+}
+
+.pre_letter_autho_title {
+    color: white;
+    margin-top: 0.2rem;
+    /* margin-left: 0.5rem; */
+    margin-bottom: 0.5rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.pre_letter_author_input_title {
+    /* margin-left: 0.5rem; */
+    font-family: 'SpoqaHanSansNeo-Regular';
+    color: #828A93;
+    font-size: 0.8rem;
+}
+
+.pre_letter_author_input {
+    width: 13rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
+    margin-left: 0.5rem;
+    border: none;
+    background-color: transparent;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: white;
+}
+
+.pre_letter_author_input_length {
+    color: gray;
+    /*  */
+    margin-left: 0.5rem;
+    height: 1.0rem;
+    line-height: 1.0rem;
+}
+
+.pre_letter_stamp_outContainer {
+    margin: auto;
+    width: 25rem;
+    height: 5rem;
+}
+
+.pre_letter_stamp_innerContainer {
+    background-size: contain;
+    box-shadow: -0.2rem 0 0 0 rgba(202, 204, 206, 0.5), 0.2rem 0 0 0 rgba(202, 204, 206, 0.5), 0 -0.2rem 0 0 rgba(202, 204, 206, 0.5), 0 0.2rem 0 0 rgba(202, 204, 206, 0.5);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.5rem;
+    width: 4.0rem;
+    height: 4.0rem;
+    display: flex;
+    background-color: rgba(202, 204, 206, 0.5);
+}
+
+.pre_letter_stamp_innerContainer_active {
+    background-size: contain;
+    width: 4.0rem;
+    height: 4.0rem;
+    box-shadow: -0.2rem 0 0 0 rgb(119 118 253), 0.2rem 0 0 0 rgb(119 118 253), 0 -0.2rem 0 0 rgb(119 118 253), 0 0.2rem 0 0 rgb(119 118 253);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.5rem;
+    display: flex;
+    background-color: rgba(202, 204, 206, 1.0);
+}
+
+#pre_letter_stamp_img_1 {
+    background-image: url('../lib/stamp/stamp-airplane.gif');
+}
+
+#pre_letter_stamp_img_2 {
+    background-image: url('../lib/stamp/stamp-alien.gif');
+}
+
+#pre_letter_stamp_img_3 {
+    background-image: url('../lib/stamp/stamp-astronaut.gif');
+}
+
+#pre_letter_stamp_img_4 {
+    background-image: url('../lib/stamp/stamp-bottle.gif');
+}
+
+#pre_letter_stamp_img_5 {
+    background-image: url('../lib/stamp/stamp-moon.gif');
+}
+
+#pre_letter_stamp_img_6 {
+    background-image: url('../lib/stamp/stamp-poop.gif');
+}
+
+#pre_letter_stamp_img_7 {
+    background-image: url('../lib/stamp/stamp-saturn.gif');
+}
+
+#pre_letter_stamp_img_8 {
+    background-image: url('../lib/stamp/stamp-selfieman.gif');
+}
+
+#pre_letter_stamp_img_9 {
+    background-image: url('../lib/stamp/stamp-star.gif');
+}
+
+#pre_letter_stamp_img_10 {
+    background-image: url('../lib/stamp/stamp-sun.gif');
+}
+
+#pre_letter_stamp_img_11 {
+    background-image: url('../lib/stamp/stamp-tissue.gif');
+}
+
+#pre_letter_stamp_img_12 {
+    background-image: url('../lib/stamp/stamp-ufo.gif');
+}
+
+/*  */
+
+.sending_page_outBox_active {
+    visibility: visible;
+}
+
+.sending_page_outBox {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.sending_page_wrap {
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    /* background-color: rgba(255, 255, 255, 1); */
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.sending_page_gif {
+    margin: auto;
+    margin-top: 7.375rem;
+    background-image: url('../lib/etc/send/UFO-Loading.gif');
+    width: 12.5rem;
+    height: 12.5rem;
+    background-size: cover;
+}
+
+.sending_page_h3 {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: normal;
+}
+
+/*  */
+
+.sending_end_active {
+    visibility: visible;
+}
+
+.sending_end {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0;
+    transition: all 0.5s;
+    display: none;
+}
+
+.sending_end_wrap {
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('../lib/background/background_2.png');
+    background-size: cover;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.sending_end_img {
+    margin: auto;
+    margin-top: 7.375rem;
+    background-image: url('../lib/etc/send/send_done.gif');
+    width: 12.5rem;
+    height: 12.5rem;
+    background-size: cover;
+}
+
+.sending_end_p {
+    color: white;
+    /*  */
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: normal;
+    font-size: 1.25rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.sending_end_div {
+    color: white;
+    /*  */
+    margin: auto;
+    text-align: center;
+    margin-top: 2.0rem;
+    width: 15rem;
+    height: 3rem;
+    line-height: 3rem;
+    background-color: #4A4AFF;
+    border-radius: 0.5rem;
+    font-family: 'NeoDunggeunmo';
+    margin-bottom: 0.5rem;
+}
+
+/*  */
+
+/* .adfit {
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-bottom: 0.5rem;
+} */
