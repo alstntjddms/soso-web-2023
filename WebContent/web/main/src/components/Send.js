@@ -655,7 +655,7 @@ function Send() {
 
     // Require INFO
     function requireUserCheckData(props) {
-        fetch('http://plater.kr:8888/api/member/external/userid/' + props, {
+        fetch('https://plater.kr/api/member/external/userid/' + props, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -669,7 +669,7 @@ function Send() {
                 console.log(userData);
                 setUserOpenDateRequired(Number(userData.userOpenDate));
                 setUserNickName(String(userData.userNickName));
-                fetch('http://plater.kr:8888/api/member/external/lettercount/' + props, {
+                fetch('https://plater.kr/api/member/external/lettercount/' + props, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
