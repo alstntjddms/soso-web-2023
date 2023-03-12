@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="node_modules/eruda/eruda.js"></script>
+    <script>eruda.init();</script>
+    <title>kakaoLogin</title>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <a
+            href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&redirect_uri=http://13.209.184.10:8080/web/kakaologin/index.html">
+            <div
+                style="background-image: url(https://cdn-icons-png.flaticon.com/512/3669/3669990.png); background-repeat: no-repeat; background-size: contain; width: 5rem; height: 5rem; margin: 0.5rem;">
+            </div>
+        </a>
+        <a
+            href="https://kauth.kakao.com/oauth/logout?client_id=a42a6c91f7b1bb0d3f8e3daef2b6f24b&logout_redirect_uri=http://13.209.184.10:8080/web/kakaologin/index.html">
+            <div
+                style="background-image: url(https://cdn-icons-png.flaticon.com/512/1828/1828479.png); background-repeat: no-repeat; background-size: contain; width: 5rem; height: 5rem; margin: 0.5rem;">
+            </div>
+        </a>
+    </div>
+
+    <button onclick="sendCode()">Send Code</button>
+    <button onclick="requestToken()">Request Token</button>
+    <button onclick="singOut()">Sign Out</button>
+    <button onclick="dataPrint()">Data Print</button>
+
+    <script>
+
+        const urlParams = new URL(location.href).searchParams;
+        const name = urlParams.get('code');
+        let usertoken = '';
+
+        function sendCode() {
+            const code = { code: name };
+            console.log(code)
+            const queryStringBody = Object.keys(code)
+                .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
+                .join("&");
+            fetch("", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                },
+                body: queryStringBody
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+                });
+        };
+
+        function requestToken() {
+            const body = {
+                grant_type: "authorization_code",
+                client_id: "a42a6c91f7b1bb0d3f8e3daef2b6f24b",
+                redirect_uri: "http://13.209.184.10:8080/web/kakaologin/index.html",
+                code: name
+            };
+            const queryStringBody = Object.keys(body)
+                .map(k => encodeURIComponent(k) + "=" + encodeURI(body[k]))
+                .join("&");
+            fetch("https://kauth.kakao.com/oauth/token", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                },
+                body: queryStringBody
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+                    console.log(data.access_token)
+                    usertoken = data.access_token
+                });
+        };
+
+        function singOut() {
+            fetch("https://kapi.kakao.com/v1/user/unlink", {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${usertoken}`
+                }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+                });
+        };
+
+        function dataPrint() {
+            console.log(usertoken)
+            fetch("https://kapi.kakao.com/v2/user/me", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${usertoken}`,
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+                });
+        };
+    </script>
+</body>
+
+</html>

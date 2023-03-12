@@ -1,0 +1,17 @@
+.restart_btn {
+    position: relative;
+    margin: auto;
+    margin-bottom: 1.125rem;
+    top: calc(var(--vh, 1vh) * 16);
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    color: white;
+    font-family: 'NeoDunggeunmo';
+    line-height: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-radius: 0.75rem;
+    background-color: #4A4AFF;
+
+}

@@ -1,0 +1,155 @@
+.login_outContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-image: url('../lib/background/background_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.login_innerContainer {
+    width: 18rem;
+    height: 25rem;
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border: none;
+    text-align: center;
+}
+
+.login_img {
+    margin-top: 2rem;
+    width: 7rem;
+    margin-bottom: 0.875rem;
+}
+
+.login_img_title {
+    width: 5rem;
+    margin-bottom: 2.5rem;
+}
+
+.login_img_bottom {
+    position: absolute;
+    background-image: url('../lib/etc/login/login_img.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    width: 100%;
+    height: 22%;
+
+}
+
+.login_title {
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+    color: white;
+    font-family: 'NeoDunggeunmo';
+}
+
+.login_kakao {
+    width: 12rem;
+}
+
+.login_text {
+    font-size: 0.7rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+.login_name {
+    margin-top: 1rem;
+    font-size: 0.5rem;
+    color: darkgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* login_individual is also applied*/
+.login_conditions_wrap {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.login_conditions_wrap_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.login_conditions_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.login_conditions_img {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    background-image: url('../lib/icon/closed.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}
+
+.login_conditions_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.login_conditions_article {
+    position: relative;
+    margin: auto;
+    height: 15rem;
+    top: 3.75rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+    text-align: left;
+    overflow: scroll;
+}
+
+.go_to_notion_white {
+    color: white;
+    text-decoration: none;
+    margin-left: 0rem;
+    font-size: 0.8rem;
+}
