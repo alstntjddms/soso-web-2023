@@ -8,6 +8,8 @@ import Redirect from './components/Redirect';
 import Redirect2 from './components/Redirect2';
 import Send from './components/Send';
 
+// set PORT=33381 && => package.json Script for Start
+
 function App() {
   const navigater = useNavigate();
   const dispatch = useDispatch();
