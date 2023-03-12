@@ -67,7 +67,7 @@ function InnerPage() {
         // popUp: open planet
         function PopUpOpenPlanet() {
             function RequestShareUserID(userID) {
-                fetch('http://plater.kr/api/member/userid/' + userID, {
+                fetch('http://plater.kr:8888/api/member/userid/' + userID, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -174,7 +174,7 @@ function InnerPage() {
             dispatch({ type: 'CHANGE_ISYESNAME', data: true });
             // 오류가 존재합니다. 그리고 별명 수정도 필요합니다.
             // let userId = 'kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D'
-            // fetch('http://plater.kr/api/member/opendate', {
+            // fetch('http://plater.kr:8888/api/member/opendate', {
             //     method: 'POST',
             //     mode: 'cors',
             //     cache: 'no-cache',

@@ -37,7 +37,7 @@ function Redirect() {
     // };
 
     function RequestUserData(userId) {
-        fetch('http://plater.kr/api/member/' + userId, {
+        fetch('http://plater.kr:8888/api/member/' + userId, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -72,7 +72,7 @@ function Redirect() {
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch('http://plater.kr/api/kakao/', {
+            fetch('http://plater.kr:8888/api/kakao/', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -85,7 +85,7 @@ function Redirect() {
                 .then(res => res.json())
                 .then((data) => {
                     console.log('암호화된 ID: ' + data);
-                    fetch('http://plater.kr/api/member/', {
+                    fetch('http://plater.kr:8888/api/member/', {
                         method: 'POST',
                         mode: 'cors',
                         cache: 'no-cache',

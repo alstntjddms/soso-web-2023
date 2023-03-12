@@ -75,7 +75,7 @@ function ShareBt() {
     };
 
     function RequestShareUserID(userID) {
-        fetch('http://plater.kr/api/member/userid/' + userID, {
+        fetch('http://plater.kr:8888/api/member/userid/' + userID, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
