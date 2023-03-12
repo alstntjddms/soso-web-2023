@@ -1,0 +1,93 @@
+.shareButton_outContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    right: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0.5;
+}
+
+.shareButton_outContainer_active {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    right: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.shareButton_share {
+    width: 1.5rem;
+}
+
+.shareButton_innerContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    right: 0;
+    top: 2rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.shareButton_share_btn {
+    width: 50%;
+    margin: 0.1rem;
+    position: absolute;
+    top: -45%;
+    left: -60%;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    touch-action: none;
+    transition: all linear 0.2s;
+}
+
+.shareButton_share_btn_url_active {
+    width: 50%;
+    margin: 0.1rem;
+    position: absolute;
+    top: 15%;
+    left: -60%;
+    transition: all linear 0.2s;
+    z-index: 4;
+}
+
+.shareButton_share_btn_kakao_active {
+    width: 50%;
+    margin: 0.1rem;
+    position: absolute;
+    top: 75%;
+    left: -60%;
+    transition: all linear 0.2s;
+    z-index: 4;
+}
+
+.shareButton_share_btn_facebook_active {
+    width: 50%;
+    margin: 0.1rem;
+    position: absolute;
+    top: 135%;
+    left: -60%;
+    transition: all linear 0.2s;
+    z-index: 4;
+}
+
+.shareButton_share_btn_twitter_active {
+    width: 50%;
+    margin: 0.1rem;
+    position: absolute;
+    top: 195%;
+    left: -60%;
+    transition: all linear 0.2s;
+    z-index: 4;
+}
