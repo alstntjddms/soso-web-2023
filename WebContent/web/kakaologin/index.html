@@ -46,7 +46,7 @@
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch("/api/kakao", {
+            fetch("", {
                 method: "POST",
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
