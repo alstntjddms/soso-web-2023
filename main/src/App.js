@@ -15,9 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const userID = useSelector((state) => state.userID);
   const isFirstInfo = useSelector((state) => state.isFirstInfo);
-
-  console.log(userID);
-
+  
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 

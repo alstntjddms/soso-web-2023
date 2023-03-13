@@ -201,182 +201,86 @@ function Send() {
             let newStampItem = { ...preIsStamp };
             switch (props) {
                 case 'stamp_1':
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['a'] = true;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_2':
-                    newStampItem['a'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['b'] = true;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_3':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['c'] = true;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_4':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['d'] = true;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_5':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['e'] = true;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_6':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['f'] = true;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_7':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['g'] = true;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_8':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['h'] = true;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_9':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['i'] = true;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_10':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['j'] = true;
-                    newStampItem['k'] = false;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_11':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['k'] = true;
-                    newStampItem['l'] = false;
                     setPreIsStamp(newStampItem);
                     break;
                 case 'stamp_12':
-                    newStampItem['a'] = false;
-                    newStampItem['b'] = false;
-                    newStampItem['c'] = false;
-                    newStampItem['d'] = false;
-                    newStampItem['e'] = false;
-                    newStampItem['f'] = false;
-                    newStampItem['g'] = false;
-                    newStampItem['h'] = false;
-                    newStampItem['i'] = false;
-                    newStampItem['j'] = false;
-                    newStampItem['k'] = false;
+                    Object.keys(newStampItem).forEach(key => {
+                        newStampItem[key] = false;
+                    });
                     newStampItem['l'] = true;
                     setPreIsStamp(newStampItem);
                     break;
@@ -961,42 +865,37 @@ function Send() {
         let newLetterMenu = { ...letterMenu };
         switch (props) {
             case 'font':
+                Object.keys(newLetterMenu).forEach(key => {
+                    newLetterMenu[key] = false;
+                });
                 newLetterMenu['font'] = true;
-                newLetterMenu['range'] = false;
-                newLetterMenu['color'] = false;
-                newLetterMenu['paper'] = false;
-                newLetterMenu['sticker'] = false;
                 setLetterMenu(newLetterMenu);
                 break;
             case 'range':
-                newLetterMenu['font'] = false;
+                Object.keys(newLetterMenu).forEach(key => {
+                    newLetterMenu[key] = false;
+                });
                 newLetterMenu['range'] = true;
-                newLetterMenu['color'] = false;
-                newLetterMenu['paper'] = false;
-                newLetterMenu['sticker'] = false;
                 setLetterMenu(newLetterMenu);
                 break;
             case 'color':
-                newLetterMenu['font'] = false;
-                newLetterMenu['range'] = false;
+                Object.keys(newLetterMenu).forEach(key => {
+                    newLetterMenu[key] = false;
+                });
                 newLetterMenu['color'] = true;
-                newLetterMenu['paper'] = false;
-                newLetterMenu['sticker'] = false;
                 setLetterMenu(newLetterMenu);
                 break;
             case 'paper':
-                newLetterMenu['font'] = false;
-                newLetterMenu['range'] = false;
-                newLetterMenu['color'] = false;
+                Object.keys(newLetterMenu).forEach(key => {
+                    newLetterMenu[key] = false;
+                });
                 newLetterMenu['paper'] = true;
-                newLetterMenu['sticker'] = false;
                 setLetterMenu(newLetterMenu);
                 break;
             case 'sticker':
-                newLetterMenu['font'] = false;
-                newLetterMenu['range'] = false;
-                newLetterMenu['color'] = false;
-                newLetterMenu['paper'] = false;
+                Object.keys(newLetterMenu).forEach(key => {
+                    newLetterMenu[key] = false;
+                });
                 newLetterMenu['sticker'] = true;
                 setLetterMenu(newLetterMenu);
                 break;
@@ -1458,7 +1357,7 @@ function Send() {
                     </div>
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
-
+                {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
                         activeLetterOption();
