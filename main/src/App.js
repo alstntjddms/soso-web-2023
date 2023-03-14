@@ -8,14 +8,14 @@ import Redirect from './components/Redirect';
 import Redirect2 from './components/Redirect2';
 import Send from './components/Send';
 
+// set PORT=33381 && => package.json Script for Start
+
 function App() {
   const navigater = useNavigate();
   const dispatch = useDispatch();
   const userID = useSelector((state) => state.userID);
   const isFirstInfo = useSelector((state) => state.isFirstInfo);
-
-  console.log(userID);
-
+  
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 

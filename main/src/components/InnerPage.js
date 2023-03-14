@@ -67,7 +67,7 @@ function InnerPage() {
         // popUp: open planet
         function PopUpOpenPlanet() {
             function RequestShareUserID(userID) {
-                fetch('http://plater.kr:8888/api/member/userid/' + userID, {
+                fetch('https://plater.kr/api/member/userid/' + userID, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -164,45 +164,45 @@ function InnerPage() {
         };
 
         function sendSignal_confirm() {
-            const now = new Date();
-            now.setDate(now.getDate() + 10);
-            const finalDate = Number(now.getTime());
-            dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
-            dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-            dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
-            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            dispatch({ type: 'CHANGE_ISYESNAME', data: true });
+            // const now = new Date();
+            // now.setDate(now.getDate() + 10);
+            // const finalDate = Number(now.getTime());
+            // dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
+            // dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+            // dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
+            // dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+            // dispatch({ type: 'CHANGE_ISYESNAME', data: true });
             // 오류가 존재합니다. 그리고 별명 수정도 필요합니다.
-            // let userId = 'kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D'
-            // fetch('http://plater.kr:8888/api/member/opendate', {
-            //     method: 'POST',
-            //     mode: 'cors',
-            //     cache: 'no-cache',
-            //     credentials: 'same-origin',
-            //     headers: {
-            //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-            //     },
-            //     body: String(userId)
-            // })
-            //     .then(res => res.json())
-            //     .then((data) => {
-            //         console.log(data);
-            //         // 
-            //         const now = new Date();
-            //         now.setDate(now.getDate() + 10);
-            //         const finalDate = Number(now.getTime());
-            //         dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
-            //         dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-            //         dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
-            //         dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            //         dispatch({ type: 'CHANGE_ISYESNAME', data: true });
-            //         // 
-            //     })
-            //     .catch((error) => {
-            //         console.log(error);
-            //         alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
-            //         fadeCreateSendSingalPage();
-            //     });
+            let userId = 'kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D';
+            fetch('https://plater.kr/api/member/opendate', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                },
+                body: userId
+            })
+                // .then(res => res.json())
+                .then((data) => {
+                    console.log(data);
+                    // 
+                    const now = new Date();
+                    now.setDate(now.getDate() + 10);
+                    const finalDate = Number(now.getTime());
+                    dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
+                    dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+                    dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
+                    dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                    dispatch({ type: 'CHANGE_ISYESNAME', data: true });
+                    // 
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
+                    fadeCreateSendSingalPage();
+                });
         };
 
         return (
@@ -392,7 +392,6 @@ function InnerPage() {
         function LetterBlockConfirm() {
             return (
                 <React.Fragment>
-
                     <div className={isLetterBlockConfirm ? "isLetterBlockConfirm" : "isLetterBlockConfirm_fade"}>
                         <div className='isLetterBlockConfirm_outContainer'>
                             <p className='isLetterBlockConfirm_title'>이 편지를</p>

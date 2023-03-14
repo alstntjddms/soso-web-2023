@@ -329,7 +329,7 @@ a>p {
 .menu_bar_mypage_line2 {
     position: relative;
     left: 0%;
-    width: 100vw;
+    width: 85vw;
     height: 0.1rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -347,7 +347,7 @@ a>p {
 .menu_bar_mypage_line {
     position: relative;
     left: 0%;
-    width: 100vw;
+    width: 85vw;
     height: 0.1rem;
     margin-top: 2.0rem;
     margin-bottom: 2.0rem;
