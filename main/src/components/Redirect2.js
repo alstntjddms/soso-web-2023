@@ -8,6 +8,20 @@ function Redirect2() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        fetch('https://plater.kr/api/request/log?/web/logout', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(() => {
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         setTimeout(() => {
             dispatch({ type: 'CHANGE_USERID', data: null });
             navigater('/main');

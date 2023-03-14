@@ -10,6 +10,7 @@ function Send() {
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
     const isSendMain = useSelector((state) => state.isSendMain);
+    const openUserOpendate = useSelector((state) => state.openUserOpendate);
     const text = useSelector((state) => state.text);
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
@@ -34,7 +35,6 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
     //
-    const [userOpenDateRequired, setUserOpenDateRequired] = useState(null);
     const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
     const [userNickName, setUserNickName] = useState(null);
     // 
@@ -571,8 +571,8 @@ function Send() {
             .then(res => res.json())
             .then((userData) => {
                 console.log(userData);
-                setUserOpenDateRequired(Number(userData.userOpenDate));
                 setUserNickName(String(userData.userNickName));
+                dispatch({ type: 'CHANGE_OPENUSEROPENDATE', data: Number(userData.userOpenDate) });
                 fetch('https://plater.kr/api/member/external/lettercount/' + props, {
                     method: 'GET',
                     mode: 'cors',
@@ -619,7 +619,7 @@ function Send() {
     //         alert('조금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
     //         window.location.replace('/main');
     //     };
-    // };
+    // };  
 
     // ?userID=userID
     const get_query = useCallback(() => {
@@ -632,7 +632,10 @@ function Send() {
         if (qs[0][1] !== undefined) {
             requireUserCheckData(qs[0][1]);
             let now = new Date().getTime();
-            let distance = Number(userOpenDateRequired) - now;
+            let compareDate = Number(openUserOpendate);
+            console.log(compareDate);
+            let distance = compareDate - now;
+            console.log(distance);
             if (distance >= 0) {
                 if (Number(userLetterCountRequired) >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
@@ -650,7 +653,20 @@ function Send() {
 
     useEffect(() => {
         get_query();
-
+        fetch('https://plater.kr/api/request/log?/web/send', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(() => {
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }, [get_query]);
 
     function locationData(data, id, X, Y, num) {

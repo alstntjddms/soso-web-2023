@@ -18,6 +18,20 @@ function Main() {
         dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
       } else break;
     };
+    fetch('https://plater.kr/api/request/log?/web/main', {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(() => {
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [dispatch]);
 
   // Delete Cookie
