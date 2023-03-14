@@ -11,6 +11,20 @@ function Login() {
     const isIndividual = useSelector((state) => state.isIndividual);
 
     useEffect(() => {
+        fetch('https://plater.kr/api/request/log?/web/login', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(() => {
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         if (userID !== null) {
             navigater('/main');
         };

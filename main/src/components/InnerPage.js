@@ -164,30 +164,17 @@ function InnerPage() {
         };
 
         function sendSignal_confirm() {
-            // const now = new Date();
-            // now.setDate(now.getDate() + 10);
-            // const finalDate = Number(now.getTime());
-            // dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
-            // dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-            // dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
-            // dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            // dispatch({ type: 'CHANGE_ISYESNAME', data: true });
-            // 오류가 존재합니다. 그리고 별명 수정도 필요합니다.
-            let userId = 'kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D';
             fetch('https://plater.kr/api/member/opendate', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
                 credentials: 'same-origin',
                 headers: {
-                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                    'Content-Type': 'application/json'
                 },
-                body: userId
+                body: JSON.stringify(userID)
             })
-                // .then(res => res.json())
-                .then((data) => {
-                    console.log(data);
-                    // 
+                .then(() => {
                     const now = new Date();
                     now.setDate(now.getDate() + 10);
                     const finalDate = Number(now.getTime());
@@ -196,7 +183,6 @@ function InnerPage() {
                     dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
                     dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
                     dispatch({ type: 'CHANGE_ISYESNAME', data: true });
-                    // 
                 })
                 .catch((error) => {
                     console.log(error);
