@@ -10,7 +10,7 @@ function Send() {
     const dispatch = useDispatch();
     const textareaFocus = useRef('');
     const isSendMain = useSelector((state) => state.isSendMain);
-    const openUserOpendate = useSelector((state) => state.openUserOpendate);
+    const [shareUserID, setShareUserID] = useState(null);
     const text = useSelector((state) => state.text);
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
@@ -25,7 +25,6 @@ function Send() {
     const isStamp = useSelector((state) => state.isStamp);
     //
     const isSendingPage = useSelector((state) => state.isSendingPage);
-    //
     const isSendingEnd = useSelector((state) => state.isSendingEnd);
     // 
     const isLetterOption = useSelector((state) => state.isLetterOption);
@@ -35,10 +34,12 @@ function Send() {
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
     //
-    const [userLetterCountRequired, setUserLetterCountRequired] = useState(null);
     const [userNickName, setUserNickName] = useState(null);
+    const [openUserOpenDate, setOpenUserOpenDate] = useState(null);
+    const [userLetterCount, setUserLetterCount] = useState(null);
     // 
     const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
+    // 
     const [letterMenu, setLetterMenu] = useState({
         font: false,
         range: false,
@@ -429,6 +430,51 @@ function Send() {
     };
 
     function SendingPage() {
+        let newStickerArray = [...stickerArray];
+        for (let i = 0; i < newStickerArray.length; i++) {
+            delete newStickerArray[i].id
+        };
+        let letterData = {
+            'letter': {
+                'letterId': '',
+                'userId': String(shareUserID),
+                'letterContent': String(text),
+                'letterFont': String(styleLetter['fontFamily']),
+                'align': styleLetter['textAlign'],
+                'size': styleLetter['fontSize'],
+                'letterFontColor': String(styleLetter['color']),
+                'letterPaper': String(styleLetter['backgroundImage']),
+                'letterIcon': String(stamp),
+                'letterWriter': String(author)
+            },
+            'sticker': {
+                stickerArray
+            }
+        };
+
+        // function sendLetterFunc() {
+        //     fetch('https://plater.kr/api/letter', {
+        //         method: 'POST',
+        //         mode: 'cors',
+        //         cache: 'no-cache',
+        //         credentials: 'same-origin',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(letterData)
+        //     })
+        //         .then(res => res.json())
+        //         .then((data) => {
+        //             console.log(data);
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //             alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 다시 시도해주세요.');
+        //             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+        //             dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+        //             dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
+        //         });
+        // };
 
         function checkLetterData() {
             let sendLetterData = {
@@ -443,7 +489,7 @@ function Send() {
                 'author': author
             };
             console.log(sendLetterData);
-            alert(sendLetterData);
+            console.log(letterData);
             alert(`text : ${text}
              / font : ${styleLetter['fontFamily']} 
              / align : ${styleLetter['textAlign']} 
@@ -528,16 +574,16 @@ function Send() {
         );
     };
 
-    // make letter func
+    // Make Letter Func
     function makeLetter() {
         let copyStickerArray = stickerArray;
         for (let i = 0; i < copyStickerArray.length; i++) {
             let item = document.createElement('div');
             let stage = document.querySelector('.pre_letter_outContainer');
             item.setAttribute('id', '_' + copyStickerArray[i].id);
-            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].class);
+            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].stikerIcon);
             stage.appendChild(item);
-            setTranslate(Math.round(Number(copyStickerArray[i].X)), Math.round((Number(copyStickerArray[i].Y))), item);
+            setTranslate(Math.round(Number(copyStickerArray[i].stickerX)), Math.round((Number(copyStickerArray[i].stickerY))), item);
         };
 
         function setTranslate(xPos, yPos, el) {
@@ -570,9 +616,8 @@ function Send() {
         })
             .then(res => res.json())
             .then((userData) => {
-                console.log(userData);
                 setUserNickName(String(userData.userNickName));
-                dispatch({ type: 'CHANGE_OPENUSEROPENDATE', data: Number(userData.userOpenDate) });
+                setOpenUserOpenDate(Number(userData.userOpenDate));
                 fetch('https://plater.kr/api/member/external/lettercount/' + props, {
                     method: 'GET',
                     mode: 'cors',
@@ -584,8 +629,7 @@ function Send() {
                 })
                     .then(res => res.json())
                     .then((letterCount) => {
-                        console.log(letterCount);
-                        setUserLetterCountRequired(Number(letterCount));
+                        setUserLetterCount(Number(letterCount));
                     })
                     .catch((letterCount_error) => {
                         console.log(letterCount_error);
@@ -600,7 +644,7 @@ function Send() {
             });
     };
 
-    // function finalCheck() {
+    // Function FinalCheck() {
     //     const url = document.location.href;
     //     const qs = url.substring(url.indexOf('?') + 1).split('&');
     //     const result = {};
@@ -619,7 +663,23 @@ function Send() {
     //         alert('조금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
     //         window.location.replace('/main');
     //     };
-    // };  
+    // };
+
+    function firstCheck() {
+        if (openUserOpenDate !== null && userLetterCount !== null) {
+            let now = new Date().getTime();
+            let distance = openUserOpenDate - now;
+            if (distance >= 0) {
+                if (userLetterCount >= 36) {
+                    alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+                    // window.location.replace('/main');
+                };
+            } else {
+                alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+                // window.location.replace('/main');
+            };
+        };
+    };
 
     // ?userID=userID
     const get_query = useCallback(() => {
@@ -629,30 +689,22 @@ function Send() {
         for (let i = 0; i < qs.length; i++) {
             qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
         };
+        setShareUserID(qs[0][1]);
         if (qs[0][1] !== undefined) {
             requireUserCheckData(qs[0][1]);
-            let now = new Date().getTime();
-            let compareDate = Number(openUserOpendate);
-            console.log(compareDate);
-            let distance = compareDate - now;
-            console.log(distance);
-            if (distance >= 0) {
-                if (Number(userLetterCountRequired) >= 36) {
-                    alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    // window.location.replace('/main');
-                };
-            } else {
-                alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                // window.location.replace('/main');
-            };
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            // window.location.replace('/main');
+            window.location.replace('/main');
         };
     }, []);
 
     useEffect(() => {
+        firstCheck();
+    }, [openUserOpenDate, userLetterCount])
+
+    useEffect(() => {
         get_query();
+        // Log API
         fetch('https://plater.kr/api/request/log?/web/send', {
             method: 'GET',
             mode: 'cors',
@@ -667,24 +719,25 @@ function Send() {
             .catch((error) => {
                 console.log(error);
             });
+        // 
     }, [get_query]);
 
     function locationData(data, id, X, Y, num) {
         if (id === '') {
         } else {
             if (data.length === 0) {
-                data.push({ 'id': id, 'X': Math.round(X), 'Y': Math.round(Y), 'class': num });
+                data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
                 dispatch({ type: 'CHANGE_STICKER', data: data });
             } else {
                 if (data.some((e) => e.id === id)) {
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].id === id) {
-                            data[i] = { 'id': id, 'X': Math.round(X), 'Y': Math.round(Y), 'class': num };
+                            data[i] = { 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num };
                             dispatch({ type: 'CHANGE_STICKER', data: data });
                         };
                     };
                 } else {
-                    data.push({ 'id': id, 'X': Math.round(X), 'Y': Math.round(Y), 'class': num });
+                    data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
                     dispatch({ type: 'CHANGE_STICKER', data: data });
                 };
             };
@@ -783,7 +836,7 @@ function Send() {
         };
     };
 
-    // letter option active
+    // Letter Option Active
     function activeLetterOption() {
         if (isLetterOption === false) {
             dispatch({ type: 'CHANGE_ISLETTEROPTION', data: true });
@@ -791,7 +844,7 @@ function Send() {
         };
     };
 
-    // letter option inactive
+    // Letter Option Inactive
     function inactiveLetterOption() {
         if (isLetterOption === true) {
             dispatch({ type: 'CHANGE_ISLETTEROPTION', data: false });
@@ -803,7 +856,7 @@ function Send() {
         };
     };
 
-    // change letter option menu
+    // Change Letter Option Menu
     function changeLetterOption(props) {
         switch (props) {
             case 'CHANGE_ISFONTFAMILY':
@@ -847,7 +900,7 @@ function Send() {
         };
     };
 
-    // change fontFamily
+    // Change FontFamily
     function setFontFamily(props, size) {
         let newStyle = { ...styleLetter };
         newStyle['fontFamily'] = props;
@@ -855,28 +908,28 @@ function Send() {
         setStyleLetter(newStyle);
     };
 
-    // change range
+    // Change Range
     function setRange(props) {
         let newStyle = { ...styleLetter };
         newStyle['textAlign'] = props;
         setStyleLetter(newStyle);
     };
 
-    // change color
+    // Change Color
     function setColor(props) {
         let newStyle = { ...styleLetter };
         newStyle['color'] = props;
         setStyleLetter(newStyle);
     };
 
-    // change paper
+    // Change Paper
     function setPaper(props) {
         let newStyle = { ...styleLetter };
         newStyle['backgroundImage'] = props;
         setStyleLetter(newStyle);
     };
 
-    // letter_menu select
+    // Letter Menu Select
     function selectLetterMenu(props) {
         let newLetterMenu = { ...letterMenu };
         switch (props) {
@@ -920,7 +973,7 @@ function Send() {
         };
     };
 
-    // font_item select
+    // Font Item Select
     function selectFontItem(props) {
         let newFontItem = { ...fontItem };
         switch (props) {
@@ -971,7 +1024,7 @@ function Send() {
         };
     };
 
-    // range_item select
+    // Range Item Select
     function selectRangeItem(props) {
         let newRangeItem = { ...rangeItem };
         switch (props) {
@@ -1001,7 +1054,7 @@ function Send() {
         };
     };
 
-    // color_item select
+    // Color Item Select
     function selectColorItem(props) {
         let newColorItem = { ...colorItem };
         switch (props) {
@@ -1080,7 +1133,7 @@ function Send() {
         };
     };
 
-    // paper_item select
+    // Paper Item Select
     function selectPaperItem(props) {
         let newPaperItem = { ...paperItem };
         switch (props) {

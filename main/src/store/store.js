@@ -317,7 +317,6 @@ function reducer(state, action) {
             isRestart: false,
             isImagePreload: true,
             // send component
-            openUserOpendate: 0,
             textLength: 0,
             text: '',
             stickerArray: [],
@@ -498,10 +497,6 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_TEXTLENGTH') {
         newState.textLength = action.data;
-    };
-
-    if (action.type === 'CHANGE_OPENUSEROPENDATE') {
-        newState.openUserOpendate = action.data;
     };
 
     if (action.type === 'CHANGE_TEXT') {
