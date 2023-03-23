@@ -430,76 +430,55 @@ function Send() {
     };
 
     function SendingPage() {
-        let newStickerArray = [...stickerArray];
-        for (let i = 0; i < newStickerArray.length; i++) {
-            delete newStickerArray[i].id
-        };
-        let letterData = {
-            'letter': {
-                'letterId': '',
-                'userId': String(shareUserID),
-                'letterContent': String(text),
-                'letterFont': String(styleLetter['fontFamily']),
-                'align': styleLetter['textAlign'],
-                'size': styleLetter['fontSize'],
-                'letterFontColor': String(styleLetter['color']),
-                'letterPaper': String(styleLetter['backgroundImage']),
-                'letterIcon': String(stamp),
-                'letterWriter': String(author)
-            },
-            'sticker': {
-                stickerArray
-            }
-        };
 
-        // function sendLetterFunc() {
-        //     fetch('https://plater.kr/api/letter', {
-        //         method: 'POST',
-        //         mode: 'cors',
-        //         cache: 'no-cache',
-        //         credentials: 'same-origin',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(letterData)
-        //     })
-        //         .then(res => res.json())
-        //         .then((data) => {
-        //             console.log(data);
-        //         })
-        //         .catch((error) => {
-        //             console.log(error);
-        //             alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 다시 시도해주세요.');
-        //             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
-        //             dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
-        //             dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
-        //         });
-        // };
+        function sendLetterFunc(props) {
+            fetch('https://plater.kr/api/letter', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(props)
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 다시 시도해주세요.');
+                    dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
+                    dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
+                });
+        };
 
         function checkLetterData() {
-            let sendLetterData = {
-                'text': text,
-                'font': styleLetter['fontFamily'],
-                'align': styleLetter['textAlign'],
-                'size': styleLetter['fontSize'],
-                'color': styleLetter['color'],
-                'paper': styleLetter['backgroundImage'],
-                'icon': stamp,
-                'sticker': stickerArray,
-                'author': author
+            let sticker = [...stickerArray];
+            for (let i = 0; i < sticker.length; i++) {
+                delete sticker[i].id
             };
-            console.log(sendLetterData);
-            console.log(letterData);
-            alert(`text : ${text}
-             / font : ${styleLetter['fontFamily']} 
-             / align : ${styleLetter['textAlign']} 
-             / size : ${styleLetter['fontSize']} 
-             / color : ${styleLetter['color']}
-             / paper : ${styleLetter['backgroundImage']}
-             / icon : ${stamp}
-             / sticker : ${stickerArray}
-             / author : ${author}
-            `);
+            // let postSticker = [...stickerArray];
+            // for (let i = 0; i < postSticker.length; i++) {
+            //     delete postSticker[i].id
+            // };
+            // let sticker = [Object.assign({},postSticker)];
+            let letterData = {
+                'letter': {
+                    'userId': String(shareUserID),
+                    'letterContent': String(text),
+                    'letterFont': String(styleLetter['fontFamily']),
+                    'letterTextAlign': String(styleLetter['textAlign']),
+                    'letterFontSize': String(styleLetter['fontSize']),
+                    'letterFontColor': String(styleLetter['color']),
+                    'letterPaper': String(styleLetter['backgroundImage']),
+                    'letterWriter': String(author),
+                    'letterIcon': String(stamp)                 
+                },
+                sticker
+            };
+            sendLetterFunc(letterData);
             dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
@@ -726,18 +705,18 @@ function Send() {
         if (id === '') {
         } else {
             if (data.length === 0) {
-                data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
+                data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num });
                 dispatch({ type: 'CHANGE_STICKER', data: data });
             } else {
                 if (data.some((e) => e.id === id)) {
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].id === id) {
-                            data[i] = { 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num };
+                            data[i] = { 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num };
                             dispatch({ type: 'CHANGE_STICKER', data: data });
                         };
                     };
                 } else {
-                    data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
+                    data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num });
                     dispatch({ type: 'CHANGE_STICKER', data: data });
                 };
             };

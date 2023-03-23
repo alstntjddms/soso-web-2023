@@ -55,6 +55,26 @@ function Main() {
     setRender1(render1 + 1);
   };
 
+  function checkLetter() {
+    fetch('https://plater.kr/api/letter/userid/kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D', {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then((data) => {
+        console.log(data);
+        alert(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className='main_background'>
       <ModalStory></ModalStory>
@@ -67,6 +87,7 @@ function Main() {
       <NavLink end to="/login" onClick={() => {
         dispatch({ type: 'CHANGE_USERID', data: null });
       }}><img style={{ width: "10%", position: "absolute", top: "70%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/295/295128.png'></img></NavLink>
+      <img onClick={checkLetter} style={{ width: "10%", position: "absolute", top: "40%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/4426/4426138.png'></img>
     </div>
   );
 };
