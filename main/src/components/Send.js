@@ -444,7 +444,6 @@ function Send() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    console.log(data);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -456,11 +455,15 @@ function Send() {
         };
 
         function checkLetterData() {
-            let postSticker = [...stickerArray];
-            for (let i = 0; i < postSticker.length; i++) {
-                delete postSticker[i].id
+            let sticker = [...stickerArray];
+            for (let i = 0; i < sticker.length; i++) {
+                delete sticker[i].id
             };
-            let sticker = Object.assign({},postSticker);
+            // let postSticker = [...stickerArray];
+            // for (let i = 0; i < postSticker.length; i++) {
+            //     delete postSticker[i].id
+            // };
+            // let sticker = [Object.assign({},postSticker)];
             let letterData = {
                 'letter': {
                     'userId': String(shareUserID),
@@ -475,7 +478,6 @@ function Send() {
                 },
                 sticker
             };
-            console.log(letterData);
             sendLetterFunc(letterData);
             dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
@@ -703,18 +705,18 @@ function Send() {
         if (id === '') {
         } else {
             if (data.length === 0) {
-                data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
+                data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num });
                 dispatch({ type: 'CHANGE_STICKER', data: data });
             } else {
                 if (data.some((e) => e.id === id)) {
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].id === id) {
-                            data[i] = { 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num };
+                            data[i] = { 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num };
                             dispatch({ type: 'CHANGE_STICKER', data: data });
                         };
                     };
                 } else {
-                    data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stikerIcon': num });
+                    data.push({ 'id': id, 'stickerX': Math.round(X), 'stickerY': Math.round(Y), 'stickerIcon': num });
                     dispatch({ type: 'CHANGE_STICKER', data: data });
                 };
             };
