@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="checkLetterArray();">Create letterArray</button>
+    <button onclick="checkLetterData();">Create letterData</button>
+    <button onclick="firstCheck();">Check letterData </button>
+    <button onclick="console.log(letterData);">Check LetterData(origin)</button>
+    <button onclick="createLetterBox()">Create Letter Box</button>
+
+    <div class="letter_box">
+
+    </div>
+
+</body>
+
+<script>
+    const letterData = [];
+
+    async function openLetter(props) {
+        const eachLetter = {};
+        console.log(props);
+        if (letterData[props].userId === '') {
+            await fetch('https://plater.kr/api/letter/' + String(letterData[props].letterId), {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    Object.assign(eachLetter, data);
+                    fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[props].letterId), {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(res => res.json())
+                        .then((data) => {
+                            sticker = Object.assign({}, data)
+                            Object.assign(eachLetter, { sticker });
+                            letterData[props] = eachLetter;
+                            console.log(letterData);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        }
+        else {
+            console.log(letterData[props].letterId);
+        };
+        setTimeout(() => {
+            console.log('speed');
+        }, 500);
+    };
+
+    function createLetterBox() {
+        for (let i = 0; i < letterData.length; i++) {
+            let new_tag = document.createElement('ul');
+            new_tag.setAttribute('onclick', 'openLetter(' + Number(i) + ')');
+            new_tag.innerHTML = letterData[i].letterId
+            document.querySelector('.letter_box').appendChild(new_tag);
+        };
+    };
+
+    function checkLetterArray() {
+        fetch('https://plater.kr/api/letter/userid/kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((data) => {
+                letterData.push(...data);
+            });
+    };
+
+    function checkLetterData() {
+        fetch('https://plater.kr/api/letter/userid/kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((data) => {
+                letterData.push(...data);
+                for (let i = 0; i < letterData.length; i++) {
+                    fetch('https://plater.kr/api/sticker/letterid/' + letterData[i].letterId, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(res => res.json())
+                        .then((data) => {
+                            sticker = Object.assign({}, data)
+                            Object.assign(letterData[i], { sticker });
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                };
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    function firstCheck() {
+        let newLetterData = [...letterData];
+        for (let i = 0; i < newLetterData.length; i++) {
+            console.log(newLetterData[i]);
+        };
+    };
+</script>
+
+</html>

@@ -530,7 +530,7 @@ function InnerPage() {
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 setSlickPageNum(i);
-                checkLoad(i)
+                checkLoad(i);
                 // changeIcon(i);
                 // changeLetterStyle(i);
                 // setTimeout(() => {
