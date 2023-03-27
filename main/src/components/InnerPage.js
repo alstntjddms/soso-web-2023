@@ -362,7 +362,9 @@ function InnerPage() {
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
-
+        // 
+        const [eachLetter, setEachLetter] = useState({});
+        // 
         function setSlickPageNum(i) {
             if (i <= 8) {
                 setSlickPage(0);
@@ -421,7 +423,7 @@ function InnerPage() {
         function changeLetterStyle(i) {
             let newStyle = { ...setStyle };
             newStyle['fontFamily'] = letterData[i].letterFont;
-            newStyle['textAlign'] = letterData[i].letterFontAlign;
+            newStyle['textAlign'] = letterData[i].letterTextAlign;
             newStyle['fontSize'] = letterData[i].letterFontSize;
             newStyle['color'] = letterData[i].letterFontColor;
             newStyle['backgroundImage'] = letterData[i].letterPaper;
@@ -430,7 +432,7 @@ function InnerPage() {
 
         function changeIcon(i) {
             const copyLetter = [...letterData];
-            copyLetter[i].letterOpenCheck = false;
+            copyLetter[i].letterReadYn = false;
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
             setRender(i);
             // copyLetter[i].letterIcon = 'open';
@@ -501,6 +503,7 @@ function InnerPage() {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
             };
             let copyStrickerArray = letterData[i].sticker;
+            console.log(copyStrickerArray);
             for (let i = 0; i < copyStrickerArray.length; i++) {
                 let item = document.createElement('div');
                 let stage = document.querySelector('.letter_textarea');
@@ -523,14 +526,16 @@ function InnerPage() {
         //     };
         //   };
 
-        function openLetter(i) {
+        async function openLetter(i) {
             dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
             let distance = userData.openDate - now;
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 setSlickPageNum(i);
-                checkLoad(i);
+                // await RequestThisLetterData(i);
+                console.log(letterData);
+                await checkLoad(i);
                 // changeIcon(i);
                 // changeLetterStyle(i);
                 // setTimeout(() => {
@@ -541,12 +546,72 @@ function InnerPage() {
             };
         };
 
-        function checkLoad(i) {
+        async function RequestThisLetterData(i) {
+            if (letterData[i].userId === '') {
+                fetch('https://plater.kr/api/letter/' + String(letterData[i].letterId), {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then((data) => {
+                        setEachLetter(Object.assign(eachLetter, data));
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                await stickerSum(i, eachLetter);
+            };
+            setTimeout(() => {
+                let src = letterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
+                let image = new Image();
+                image.addEventListener('load', function () {
+                    dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                    let checkTyping = letterData[i].letterReadYn;
+                    changeIcon(i);
+                    changeLetterStyle(i);
+                    setTimeout(() => {
+                        attach(i, checkTyping);
+                    }, 100);
+                });
+                image.src = src;
+            }, 500);
+        };
+
+        async function stickerSum(i, eachLetter) {
+            const newLetterData = [...letterData];
+            await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[i].letterId), {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    let sticker = Object.assign({}, data)
+                    setEachLetter(Object.assign(eachLetter, { sticker }));
+                    newLetterData[i] = eachLetter;
+                    dispatch({ type: 'CHANGE_LETTERARRAY', data: newLetterData });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
+                });
+        };
+
+        async function checkLoad(i) {
             let src = letterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
             image.addEventListener('load', function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                let checkTyping = letterData[i].letterOpenCheck;
+                let checkTyping = letterData[i].letterReadYn;
                 changeIcon(i);
                 changeLetterStyle(i);
                 setTimeout(() => {
@@ -582,7 +647,7 @@ function InnerPage() {
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                     setList2(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                     setList3(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
@@ -591,12 +656,12 @@ function InnerPage() {
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                     setList3(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                     setList4(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
@@ -604,39 +669,39 @@ function InnerPage() {
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList3(list3);
                     setList4(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < 27; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList3(list3);
                 };
                 for (let i = 27; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterOpenCheck ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
                     setList4(list4);
                 };
             } else {
@@ -675,7 +740,7 @@ function InnerPage() {
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
                         </div>
-                        <div className='googleAdsense'>
+                        {/* <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}
                                 slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
@@ -683,7 +748,7 @@ function InnerPage() {
                                 layout="in-article"
                                 format="fluid"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </React.Fragment>
             );

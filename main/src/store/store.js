@@ -6,6 +6,7 @@ function reducer(state, action) {
             userID: 'null',
             ShareUserID: 'null',
             userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0, 'agreement': false },
+            // letterData: [],
             letterData: [
                 {
                     "letterId": "0",
@@ -353,6 +354,10 @@ function reducer(state, action) {
         };
     };
     const newState = { ...state };
+
+    if (action.type === 'CHANGE_LETTERARRAY') {
+        newState.letterData = action.data;
+    };
 
     if (action.type === 'CHANGE_USERID') {
         newState.userID = action.data;
