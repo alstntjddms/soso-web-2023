@@ -362,9 +362,7 @@ function InnerPage() {
         const [list2, setList2] = useState([<span key={2} style={{ color: "white" }}>Loading...</span>]);
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
-        // 
-        const [eachLetter, setEachLetter] = useState({});
-        // 
+
         function setSlickPageNum(i) {
             if (i <= 8) {
                 setSlickPage(0);
@@ -420,18 +418,18 @@ function InnerPage() {
             setSetStyle(newStyle);
         };
 
-        function changeLetterStyle(i) {
+        function changeLetterStyle(i, newLetterData) {
             let newStyle = { ...setStyle };
-            newStyle['fontFamily'] = letterData[i].letterFont;
-            newStyle['textAlign'] = letterData[i].letterTextAlign;
-            newStyle['fontSize'] = letterData[i].letterFontSize;
-            newStyle['color'] = letterData[i].letterFontColor;
-            newStyle['backgroundImage'] = letterData[i].letterPaper;
+            newStyle['fontFamily'] = newLetterData[i].letterFont;
+            newStyle['textAlign'] = newLetterData[i].letterTextAlign;
+            newStyle['fontSize'] = newLetterData[i].letterFontSize;
+            newStyle['color'] = newLetterData[i].letterFontColor;
+            newStyle['backgroundImage'] = newLetterData[i].letterPaper;
             setSetStyle(newStyle);
         };
 
-        function changeIcon(i) {
-            const copyLetter = [...letterData];
+        function changeIcon(i, newLetterData) {
+            const copyLetter = [...newLetterData];
             copyLetter[i].letterReadYn = false;
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
             setRender(i);
@@ -440,9 +438,9 @@ function InnerPage() {
             // setRender(i);
         };
 
-        function enterDesc(i, checkTyping) {
+        function enterDesc(i, checkTyping, newLetterData) {
             if (checkTyping === true) {
-                let copyText = [letterData[i].letterContent];
+                let copyText = [newLetterData[i].letterContent];
                 let enterText = document.querySelector('.textbox');
                 let typingBool = false;
                 let typingIdx = 0;
@@ -492,28 +490,39 @@ function InnerPage() {
             };
         };
 
-        function enterAuthor(i) {
-            let copyAuthor = `${letterData[i].letterWriter}`;
+        function enterAuthor(i, newLetterData) {
+            let copyAuthor = `${newLetterData[i].letterWriter}`;
             let enterAuthor = document.querySelector('.author');
             enterAuthor.value = copyAuthor;
         };
 
-        function attach(i, checkTyping) {
+        function attach(i, checkTyping, newLetterData) {
             function setTranslate(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
             };
-            let copyStrickerArray = letterData[i].sticker;
+            let copyStrickerArray = new Array(newLetterData[i].sticker);
+
+
+
+
+
+
+
+
+
+
             console.log(copyStrickerArray);
             for (let i = 0; i < copyStrickerArray.length; i++) {
+                console.log(copyStrickerArray[0][i].stickerIcon);
                 let item = document.createElement('div');
                 let stage = document.querySelector('.letter_textarea');
-                item.setAttribute('id', '_' + copyStrickerArray[i].stickerId);
-                item.setAttribute('class', 'item' + copyStrickerArray[i].stickerIcon);
+                item.setAttribute('id', '_' + copyStrickerArray[0][i].stickerId);
+                item.setAttribute('class', 'item' + copyStrickerArray[0][i].stickerIcon);
                 stage.appendChild(item);
-                setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
+                setTranslate(Math.round(Number(copyStrickerArray[0][i].stickerX)), Math.round((Number(copyStrickerArray[0][i].stickerY))), item);
             };
-            enterDesc(i, checkTyping);
-            enterAuthor(i);
+            enterDesc(i, checkTyping, newLetterData);
+            enterAuthor(i, newLetterData);
         };
 
         // function attachRemove(i) {
@@ -533,22 +542,17 @@ function InnerPage() {
             if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 setSlickPageNum(i);
-                // await RequestThisLetterData(i);
-                console.log(letterData);
-                await checkLoad(i);
-                // changeIcon(i);
-                // changeLetterStyle(i);
-                // setTimeout(() => {
-                //     attach(i);
-                // }, 100);
+                await RequestThisLetterData(i);
             } else {
                 dispatch({ type: 'CHANGE_ISNOTYETLETTER', data: true });
             };
         };
 
         async function RequestThisLetterData(i) {
+            let newEachLetter = null;
             if (letterData[i].userId === '') {
-                fetch('https://plater.kr/api/letter/' + String(letterData[i].letterId), {
+                let eachLetter = {};
+                await fetch('https://plater.kr/api/letter/' + String(letterData[i].letterId), {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -559,31 +563,19 @@ function InnerPage() {
                 })
                     .then(res => res.json())
                     .then((data) => {
-                        setEachLetter(Object.assign(eachLetter, data));
+                        newEachLetter = Object.assign(eachLetter, data);
                     })
                     .catch((error) => {
                         console.log(error);
+                        alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                     });
-                await stickerSum(i, eachLetter);
+                await stickerSum(i, newEachLetter);
             };
-            setTimeout(() => {
-                let src = letterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
-                let image = new Image();
-                image.addEventListener('load', function () {
-                    dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                    let checkTyping = letterData[i].letterReadYn;
-                    changeIcon(i);
-                    changeLetterStyle(i);
-                    setTimeout(() => {
-                        attach(i, checkTyping);
-                    }, 100);
-                });
-                image.src = src;
-            }, 500);
         };
 
-        async function stickerSum(i, eachLetter) {
+        async function stickerSum(i, newEachLetter) {
             const newLetterData = [...letterData];
+            // const finalEachLetter = {};
             await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[i].letterId), {
                 method: 'GET',
                 mode: 'cors',
@@ -595,27 +587,28 @@ function InnerPage() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    let sticker = Object.assign({}, data)
-                    setEachLetter(Object.assign(eachLetter, { sticker }));
-                    newLetterData[i] = eachLetter;
-                    dispatch({ type: 'CHANGE_LETTERARRAY', data: newLetterData });
+                    let sticker = Object.assign({}, data);
+                    Object.assign(newEachLetter, { sticker });
+                    newLetterData[i] = newEachLetter;
+                    // dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
                 })
                 .catch((error) => {
                     console.log(error);
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                 });
+            await checkLoad(i, newLetterData);
         };
 
-        async function checkLoad(i) {
-            let src = letterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
+        async function checkLoad(i, newLetterData) {
+            let src = newLetterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
             image.addEventListener('load', function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                let checkTyping = letterData[i].letterReadYn;
-                changeIcon(i);
-                changeLetterStyle(i);
+                let checkTyping = newLetterData[i].letterReadYn;
+                changeIcon(i, newLetterData);
+                changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
-                    attach(i, checkTyping);
+                    attach(i, checkTyping, newLetterData);
                 }, 100);
             });
             image.src = src;

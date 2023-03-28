@@ -560,7 +560,7 @@ function Send() {
             let item = document.createElement('div');
             let stage = document.querySelector('.pre_letter_outContainer');
             item.setAttribute('id', '_' + copyStickerArray[i].id);
-            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].stikerIcon);
+            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].stickerIcon);
             stage.appendChild(item);
             setTranslate(Math.round(Number(copyStickerArray[i].stickerX)), Math.round((Number(copyStickerArray[i].stickerY))), item);
         };

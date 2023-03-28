@@ -48,7 +48,7 @@ function Redirect() {
         })
             .then(res => res.json())
             .then((data) => {
-                dispatch({ type: 'CHANGE_LETTERARRAY', data: data });
+                dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
             .catch((error)=>{
                 console.log(error);
