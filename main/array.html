@@ -24,11 +24,36 @@
 <script>
     const letterData = [];
 
+    async function stickerSum(props, eachLetter, newLetterData) {
+        await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[props].letterId), {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((data) => {
+                sticker = Object.assign({}, data)
+                Object.assign(eachLetter, { sticker });
+                newLetterData[props] = eachLetter;
+                letterData.length = 0;
+                letterData.push(...newLetterData);
+                console.log(letterData);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     async function openLetter(props) {
         const eachLetter = {};
+        const newLetterData = [...letterData];
         console.log(props);
         if (letterData[props].userId === '') {
-            await fetch('https://plater.kr/api/letter/' + String(letterData[props].letterId), {
+            fetch('https://plater.kr/api/letter/' + String(letterData[props].letterId), {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -40,38 +65,16 @@
                 .then(res => res.json())
                 .then((data) => {
                     Object.assign(eachLetter, data);
-                    fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[props].letterId), {
-                        method: 'GET',
-                        mode: 'cors',
-                        cache: 'no-cache',
-                        credentials: 'same-origin',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                        .then(res => res.json())
-                        .then((data) => {
-                            sticker = Object.assign({}, data)
-                            Object.assign(eachLetter, { sticker });
-                            letterData[props] = eachLetter;
-                            console.log(letterData);
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-
+            await stickerSum(props, eachLetter, newLetterData);
         }
         else {
             console.log(letterData[props].letterId);
         };
-        setTimeout(() => {
-            console.log('speed');
-        }, 500);
+        console.log('done');
     };
 
     function createLetterBox() {

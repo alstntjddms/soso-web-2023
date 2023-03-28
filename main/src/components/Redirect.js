@@ -36,6 +36,28 @@ function Redirect() {
     //         });
     // };
 
+    function RequestLetterArray(userId) {
+        fetch('https://plater.kr/api/letter/userid/' + userId, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then((data) => {
+                dispatch({ type: 'CHANGE_LETTERARRAY', data: data });
+            })
+            .catch((error)=>{
+                console.log(error);
+                alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
+                dispatch({ type: 'CHANGE_USERID', data: null });
+                navigater('/login');
+            });
+    };
+
     function RequestUserData(userId) {
         fetch('https://plater.kr/api/member/' + userId, {
             method: 'GET',
@@ -51,6 +73,7 @@ function Redirect() {
                 console.log(userData);
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(userData.userNickName) });
                 dispatch({ type: 'CHANGE_OPENDATE', data: Number(userData.userOpenDate) });
+                // RequestLetterArray(userId);
             })
             .catch((userDate_error) => {
                 console.log(userDate_error);
