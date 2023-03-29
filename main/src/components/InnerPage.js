@@ -428,15 +428,12 @@ function InnerPage() {
             setSetStyle(newStyle);
         };
 
-        function changeIcon(i, newLetterData) {
-            const copyLetter = [...newLetterData];
-            copyLetter[i].letterReadYn = true;
-            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            setRender(i);
-            // copyLetter[i].letterIcon = 'open';
-            // dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            // setRender(i);
-        };
+        // function changeIcon(i, newLetterData) {
+        //     const copyLetter = [...newLetterData];
+        //     copyLetter[i].letterReadYn = true;
+        //     dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+        //     setRender(i);
+        // };
 
         function enterDesc(i, checkTyping, newLetterData) {
             if (checkTyping === false) {                
@@ -580,7 +577,7 @@ function InnerPage() {
                     // let sticker = Object.assign({}, data);
                     // Object.assign(newEachLetter, { sticker });
                     newLetterData[i] = newEachLetter;
-                    // dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
+                    dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
                 })
                 .catch((error) => {
                     console.log(error);
@@ -594,8 +591,8 @@ function InnerPage() {
             let image = new Image();
             image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                let checkTyping = newLetterData[i].letterReadYn;
-                changeIcon(i, newLetterData);
+                let checkTyping = letterData[i].letterReadYn;
+                // changeIcon(i, newLetterData);
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
                     attach(i, checkTyping, newLetterData);
