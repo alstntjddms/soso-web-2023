@@ -12,7 +12,7 @@ function Refresh() {
     const [refresh, setRefresh] = useState(false);
     // 
     function RLDA() {
-        fetch('https://plater.kr/api/letter/userid/kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D', {
+        fetch('https://plater.kr/api/letter/userid/pEMui3Dz3Pj1eCaIqVj8zgMSJSM3DMSJSM3D', {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',

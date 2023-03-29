@@ -418,7 +418,7 @@ function InnerPage() {
             setSetStyle(newStyle);
         };
 
-        function changeLetterStyle(i, newLetterData) {
+        async function changeLetterStyle(i, newLetterData) {
             let newStyle = { ...setStyle };
             newStyle['fontFamily'] = newLetterData[i].letterFont;
             newStyle['textAlign'] = newLetterData[i].letterTextAlign;
@@ -430,7 +430,7 @@ function InnerPage() {
 
         function changeIcon(i, newLetterData) {
             const copyLetter = [...newLetterData];
-            copyLetter[i].letterReadYn = false;
+            copyLetter[i].letterReadYn = true;
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
             setRender(i);
             // copyLetter[i].letterIcon = 'open';
@@ -439,7 +439,7 @@ function InnerPage() {
         };
 
         function enterDesc(i, checkTyping, newLetterData) {
-            if (checkTyping === true) {
+            if (checkTyping === false) {                
                 let copyText = [newLetterData[i].letterContent];
                 let enterText = document.querySelector('.textbox');
                 let typingBool = false;
@@ -484,7 +484,7 @@ function InnerPage() {
                 //     autoStart: true
                 // });
             } else {
-                let copyText = letterData[i].letterContent;
+                let copyText = newLetterData[i].letterContent;
                 let enterText = document.querySelector('.textbox');
                 enterText.value = copyText;
             };
@@ -500,26 +500,14 @@ function InnerPage() {
             function setTranslate(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
             };
-            let copyStrickerArray = new Array(newLetterData[i].sticker);
-
-
-
-
-
-
-
-
-
-
-            console.log(copyStrickerArray);
+            let copyStrickerArray = newLetterData[i].sticker;
             for (let i = 0; i < copyStrickerArray.length; i++) {
-                console.log(copyStrickerArray[0][i].stickerIcon);
                 let item = document.createElement('div');
                 let stage = document.querySelector('.letter_textarea');
-                item.setAttribute('id', '_' + copyStrickerArray[0][i].stickerId);
-                item.setAttribute('class', 'item' + copyStrickerArray[0][i].stickerIcon);
+                item.setAttribute('id', '_' + copyStrickerArray[i].stickerId);
+                item.setAttribute('class', 'item' + copyStrickerArray[i].stickerIcon);
                 stage.appendChild(item);
-                setTranslate(Math.round(Number(copyStrickerArray[0][i].stickerX)), Math.round((Number(copyStrickerArray[0][i].stickerY))), item);
+                setTranslate(Math.round(Number(copyStrickerArray[i].stickerX)), Math.round((Number(copyStrickerArray[i].stickerY))), item);
             };
             enterDesc(i, checkTyping, newLetterData);
             enterAuthor(i, newLetterData);
@@ -571,6 +559,7 @@ function InnerPage() {
                     });
                 await stickerSum(i, newEachLetter);
             };
+            checkLoad(i, letterData);
         };
 
         async function stickerSum(i, newEachLetter) {
@@ -587,8 +576,9 @@ function InnerPage() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    let sticker = Object.assign({}, data);
-                    Object.assign(newEachLetter, { sticker });
+                    newEachLetter.sticker = data;    
+                    // let sticker = Object.assign({}, data);
+                    // Object.assign(newEachLetter, { sticker });
                     newLetterData[i] = newEachLetter;
                     // dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
                 })
@@ -602,11 +592,11 @@ function InnerPage() {
         async function checkLoad(i, newLetterData) {
             let src = newLetterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
-            image.addEventListener('load', function () {
+            image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                 let checkTyping = newLetterData[i].letterReadYn;
                 changeIcon(i, newLetterData);
-                changeLetterStyle(i, newLetterData);
+                await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
                     attach(i, checkTyping, newLetterData);
                 }, 100);
@@ -640,7 +630,7 @@ function InnerPage() {
             } else if (letterData.length <= 9) {
                 for (let i = 0; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList(list);
                     setList2(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                     setList3(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
@@ -649,12 +639,12 @@ function InnerPage() {
             } else if (letterData.length <= 18) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList2(list2);
                     setList3(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                     setList4(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
@@ -662,39 +652,39 @@ function InnerPage() {
             } else if (letterData.length <= 27) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList3(list3);
                     setList4(<span><div className='letterEmptyIcon'></div><span>아직 편지가</span><br></br><br></br><span>도착하지 않았어요.</span></span>);
                 };
             } else if (letterData.length <= 36) {
                 for (let i = 0; i < 9; i++) {
                     let li = letterData[i];
-                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList(list);
                 };
                 for (let i = 9; i < 18; i++) {
                     let li = letterData[i];
-                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list2.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList2(list2);
                 };
                 for (let i = 18; i < 27; i++) {
                     let li = letterData[i];
-                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list3.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList3(list3);
                 };
                 for (let i = 27; i < letterData.length; i++) {
                     let li = letterData[i];
-                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon' : 'new_letter_icon_open'}></div></button>));
+                    list4.push(React.Children.toArray(<button key={li.letterId} data-id={li.letterId} className={"letter" + li.letterIcon} onClick={() => { openLetter(i) }}><div className={li.letterReadYn ? 'new_letter_icon_open' : 'new_letter_icon'}></div></button>));
                     setList4(list4);
                 };
             } else {
