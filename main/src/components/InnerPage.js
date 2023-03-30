@@ -178,11 +178,28 @@ function InnerPage() {
                     const now = new Date();
                     now.setDate(now.getDate() + 10);
                     const finalDate = Number(now.getTime());
-                    dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
                     dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-                    dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
-                    dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-                    dispatch({ type: 'CHANGE_ISYESNAME', data: true });
+                    fetch('https://plater.kr/api/member/' + userID + '/', {
+                        method: 'PATCH',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(String(stringUserNickname))
+                    })
+                        .then(() => {
+                            dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
+                            dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
+                            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                            dispatch({ type: 'CHANGE_ISYESNAME', data: true });
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
+                            fadeCreateSendSingalPage();
+                        })
                 })
                 .catch((error) => {
                     console.log(error);
@@ -400,12 +417,32 @@ function InnerPage() {
             );
         };
 
+        function shareLetterBlock(i) {
+            fetch('https://plater.kr/api/letter/block/' + String(letterData[i].letterId), {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('편지 차단이 정상적으로 진행되지 않았습니다. 다시 시도해주세요.');
+                });
+        };
+
         function letterBlcok(i) {
             const copyLetter = [...letterData];
             copyLetter[i].letterIcon = 'block';
             dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
             dispatch({ type: 'CHANGE_ISLETTER', data: false });
             setRender(-1);
+            shareLetterBlock(i);
         };
 
         function resetLetterStyle() {
@@ -722,7 +759,7 @@ function InnerPage() {
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
                         </div>
-                        {/* <div className='googleAdsense'>
+                        <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}
                                 slot={process.env.REACT_APP_GOOGLE_ADSENSE_SLOT}
@@ -730,7 +767,7 @@ function InnerPage() {
                                 layout="in-article"
                                 format="fluid"
                             />
-                        </div> */}
+                        </div>
                     </div>
                 </React.Fragment>
             );

@@ -431,7 +431,46 @@ function Send() {
 
     function SendingPage() {
 
-        function sendLetterFunc(props) {
+        async function FinalCheck(letterData) {
+            await fetch('https://plater.kr/api/member/external/userid/' + shareUserID, {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                let now = new Date().getTime();
+                let distance = Number(data.userOpenDate) - now;
+                if (distance >= 0) {
+                    fetch('https://plater.kr/api/member/external/lettercount/' + shareUserID, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (Number(data) >= 36) {
+                            alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+                            // window.location.replace('/main');
+                        };
+                    })                
+                } else {
+                    alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+                    // window.location.replace('/main');
+                };
+            });
+            await sendLetterFunc(letterData);
+        };
+
+        async function sendLetterFunc(props) {
             fetch('https://plater.kr/api/letter', {
                 method: 'POST',
                 mode: 'cors',
@@ -478,7 +517,7 @@ function Send() {
                 },
                 sticker
             };
-            sendLetterFunc(letterData);
+            FinalCheck(letterData);
             dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
@@ -622,27 +661,6 @@ function Send() {
                 window.location.replace('/main');
             });
     };
-
-    // Function FinalCheck() {
-    //     const url = document.location.href;
-    //     const qs = url.substring(url.indexOf('?') + 1).split('&');
-    //     const result = {};
-    //     for (let i = 0; i < qs.length; i++) {
-    //         qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]);
-    //     };
-    //     requireUserCheckData(result.userID);
-    //     let now = new Date().getTime();
-    //     let distance = Number(userOpenDateRequired) - now;
-    //     if (distance >= 0) {
-    //         if (Number(userLetterCountRequired) >= 36) {
-    //             alert('조금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-    //             window.location.replace('/main');
-    //         };
-    //     } else {
-    //         alert('조금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-    //         window.location.replace('/main');
-    //     };
-    // };
 
     function firstCheck() {
         if (openUserOpenDate !== null && userLetterCount !== null) {
