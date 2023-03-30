@@ -73,7 +73,7 @@ function Redirect() {
                 console.log(userData);
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(userData.userNickName) });
                 dispatch({ type: 'CHANGE_OPENDATE', data: Number(userData.userOpenDate) });
-                // RequestLetterArray(userId);
+                RequestLetterArray(userId);
             })
             .catch((userDate_error) => {
                 console.log(userDate_error);

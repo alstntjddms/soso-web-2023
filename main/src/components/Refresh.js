@@ -5,13 +5,11 @@ import './Refresh.css';
 
 function Refresh() {
     const dispatch = useDispatch();
-    // 
     const navigater = useNavigate();
-    const letterData = useSelector((state) => state.letterData);
-    // 
+    // const userID = useSelector((state) => state.userID);
     const [refresh, setRefresh] = useState(false);
-    // 
-    function RLDA() {
+
+    function RequestLetterDataArray() {
         fetch('https://plater.kr/api/letter/userid/pEMui3Dz3Pj1eCaIqVj8zgMSJSM3DMSJSM3D', {
             method: 'GET',
             mode: 'cors',
@@ -32,7 +30,7 @@ function Refresh() {
                 navigater('/login');
             });
     };
-    // 
+
     return (
         <React.Fragment>
             <div className={refresh ? "refresh_active" : "refresh"} onClick={() => {
@@ -40,10 +38,7 @@ function Refresh() {
                 setTimeout(() => {
                     setRefresh(!refresh);
                     dispatch({ type: 'CHANGE_LETTERDATA', data: [] });
-                    // 
-                    RLDA();
-                    console.log(letterData);
-                    // 
+                    RequestLetterDataArray();
                 }, 2000);
             }}></div>
         </React.Fragment>

@@ -436,7 +436,7 @@ function InnerPage() {
         // };
 
         function enterDesc(i, checkTyping, newLetterData) {
-            if (checkTyping === false) {                
+            if (checkTyping === false) {
                 let copyText = [newLetterData[i].letterContent];
                 let enterText = document.querySelector('.textbox');
                 let typingBool = false;
@@ -521,6 +521,7 @@ function InnerPage() {
         //   };
 
         async function openLetter(i) {
+            setRender(i);
             dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
             let distance = userData.openDate - now;
@@ -561,6 +562,7 @@ function InnerPage() {
 
         async function stickerSum(i, newEachLetter) {
             const newLetterData = [...letterData];
+            const originalCheckTyping = letterData[i].letterReadYn;
             // const finalEachLetter = {};
             await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[i].letterId), {
                 method: 'GET',
@@ -573,7 +575,7 @@ function InnerPage() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    newEachLetter.sticker = data;    
+                    newEachLetter.sticker = data;
                     // let sticker = Object.assign({}, data);
                     // Object.assign(newEachLetter, { sticker });
                     newLetterData[i] = newEachLetter;
@@ -583,15 +585,15 @@ function InnerPage() {
                     console.log(error);
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                 });
-            await checkLoad(i, newLetterData);
+            await checkLoad(i, newLetterData, originalCheckTyping);
         };
 
-        async function checkLoad(i, newLetterData) {
+        async function checkLoad(i, newLetterData, originalCheckTyping) {
             let src = newLetterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
             image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                let checkTyping = letterData[i].letterReadYn;
+                let checkTyping = originalCheckTyping;
                 // changeIcon(i, newLetterData);
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
