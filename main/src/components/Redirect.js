@@ -48,7 +48,7 @@ function Redirect() {
         })
             .then(res => res.json())
             .then((data) => {
-                dispatch({ type: 'CHANGE_LETTERARRAY', data: data });
+                dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
             .catch((error)=>{
                 console.log(error);
@@ -73,7 +73,7 @@ function Redirect() {
                 console.log(userData);
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(userData.userNickName) });
                 dispatch({ type: 'CHANGE_OPENDATE', data: Number(userData.userOpenDate) });
-                // RequestLetterArray(userId);
+                RequestLetterArray(userId);
             })
             .catch((userDate_error) => {
                 console.log(userDate_error);

@@ -1039,6 +1039,8 @@ h4 {
     margin: none;
 }
 
+/*  */
+
 .letter_block {
     position: relative;
     background-image: url('../lib/icon/trash_bin.png');
@@ -1058,9 +1060,12 @@ h4 {
     background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
+    z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .item1 {
@@ -1069,9 +1074,12 @@ h4 {
     background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
+    z-index: 1;
     position: absolute;
+    background-position: center;
 }
 
 .item2 {
@@ -1080,10 +1088,742 @@ h4 {
     background-image: url('../lib/sticker/sticker_bow\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
+    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
+    z-index: 1;
     position: absolute;
+    background-position: center;
 }
+.item3 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item4 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item5 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item6 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_black_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item7 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_boom.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item8 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item9 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item10 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item11 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item12 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item13 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_candy.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item14 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_chocolate.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item15 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_cup_cake.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item16 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_danger.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item17 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_1.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item18 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_2.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item19 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_3.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item20 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_face_4.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item21 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_gold_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item22 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item23 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item24 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_heart_red.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item25 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_kiss.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item26 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_lolipop.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item27 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_moon.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item28 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item29 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item30 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_pie.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item31 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_poo.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item32 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_red_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item33 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_red_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item34 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item35 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item36 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item37 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item38 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item39 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item40 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item41 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item42 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item43 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item44 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item45 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item46 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item47 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item48 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item49 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item50 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_star_line.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item51 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_suprise.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item52 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_tears.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item53 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+.item54 {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url('../lib/sticker/sticker_white_star.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border-radius: 50%; */
+    touch-action: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    background-position: center;
+}
+
+/*  */
 
 .googleAdsense {
     /* position: absolute;
