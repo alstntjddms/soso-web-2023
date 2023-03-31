@@ -37,7 +37,7 @@ function Send() {
     const [userNickName, setUserNickName] = useState(null);
     const [openUserOpenDate, setOpenUserOpenDate] = useState(null);
     const [userLetterCount, setUserLetterCount] = useState(null);
-    // 
+    // 편지 기본 설정 값
     const [styleLetter, setStyleLetter] = useState({ "fontSize": "0.875rem", "fontFamily": "SpoqaHanSansNeo-Regular", "color": "black", "textAlign": "left", "backgroundImage": "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_white.gif?raw=true')" });
     // 
     const [letterMenu, setLetterMenu] = useState({
@@ -109,9 +109,10 @@ function Send() {
     });
     //
     const [completion, setCompletion] = useState(false);
-    // 
+    // 편지 내용 선별 DB
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
-    //
+
+    // (팝업) 편지 작성 페이지 첫 안내 
     function SendPopUp() {
         return (
             <React.Fragment>
@@ -135,6 +136,7 @@ function Send() {
         );
     };
 
+    // (팝업) 편지 작성 취소
     function SendPopUpCancel() {
         return (
             <React.Fragment>
@@ -157,6 +159,7 @@ function Send() {
         );
     };
 
+    // (팝업) 편지 내용이 없는 경우
     function SendPopUpCheck() {
         return (
             <React.Fragment>
@@ -173,6 +176,7 @@ function Send() {
         );
     };
 
+    // 편지 미리보기 Component
     function PreLetter() {
         const [preAuthor, setPreAuthor] = useState(author);
         const [preIsStamp, setPreIsStamp] = useState(isStamp);
@@ -188,16 +192,18 @@ function Send() {
             slidesToScroll: 3
         };
 
+        // 작성자 변경 기능
         function changeAuthor(props) {
             dispatch({ type: 'CHANGE_AUTHOR', data: props });
         };
 
+        // 우표 선택 기능(표현)
         function changeStamp() {
             dispatch({ type: 'CHANGE_ISSTAMP', data: preIsStamp });
             dispatch({ type: 'CHANGE_STAMP', data: stampNum });
         };
 
-        // pre letter stamp select
+        // 우표 선택하는 기능
         function selectStamp(props) {
             let newStampItem = { ...preIsStamp };
             switch (props) {
@@ -290,6 +296,7 @@ function Send() {
             };
         };
 
+        // 편지 내용 선별 기능
         function filter() {
             let compare_data = text;
             for (let i = 0; i < bad_word.length; i++) {
@@ -429,9 +436,31 @@ function Send() {
         );
     };
 
-    function SendingPage() {
+    // 미리보기 편지 제작 기능
+    function makeLetter() {
+        let copyStickerArray = stickerArray;
+        for (let i = 0; i < copyStickerArray.length; i++) {
+            let item = document.createElement('div');
+            let stage = document.querySelector('.pre_letter_outContainer');
+            item.setAttribute('id', '_' + copyStickerArray[i].id);
+            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].stickerIcon);
+            stage.appendChild(item);
+            setTranslate(Math.round(Number(copyStickerArray[i].stickerX)), Math.round((Number(copyStickerArray[i].stickerY))), item);
+        };
+        // 스티커 미리보기 기능
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        };
+        // 편지 내용 삽입 기능
+        let copyText = text;
+        let enterText = document.querySelector('.send_pre_textbox');
+        enterText.value = copyText;
+    };
 
-        async function FinalCheck(letterData) {
+    // 편지 보내는 중 Component
+    function SendingPage() {
+        // 최종 사용자 정보 확인 기능(open, count) ////////// 배포 전 수정 필요
+        async function finalCheck(letterData) {
             await fetch('https://plater.kr/api/member/external/userid/' + shareUserID, {
                 method: 'GET',
                 mode: 'cors',
@@ -441,35 +470,35 @@ function Send() {
                     'Content-Type': 'application/json'
                 }
             })
-            .then((res) => res.json())
-            .then((data) => {
-                let now = new Date().getTime();
-                let distance = Number(data.userOpenDate) - now;
-                if (distance >= 0) {
-                    fetch('https://plater.kr/api/member/external/lettercount/' + shareUserID, {
-                        method: 'GET',
-                        mode: 'cors',
-                        cache: 'no-cache',
-                        credentials: 'same-origin',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        if (Number(data) >= 36) {
-                            alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                            // window.location.replace('/main');
-                        };
-                    })                
-                } else {
-                    alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                    // window.location.replace('/main');
-                };
-            });
+                .then((res) => res.json())
+                .then((data) => {
+                    let now = new Date().getTime();
+                    let distance = Number(data.userOpenDate) - now;
+                    if (distance >= 0) {
+                        fetch('https://plater.kr/api/member/external/lettercount/' + shareUserID, {
+                            method: 'GET',
+                            mode: 'cors',
+                            cache: 'no-cache',
+                            credentials: 'same-origin',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                if (Number(data) >= 36) {
+                                    alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
+                                    // window.location.replace('/main');
+                                };
+                            })
+                    } else {
+                        alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
+                        // window.location.replace('/main');
+                    };
+                });
             await sendLetterFunc(letterData);
         };
-
+        // 편지 보내기 기능
         async function sendLetterFunc(props) {
             fetch('https://plater.kr/api/letter', {
                 method: 'POST',
@@ -492,17 +521,12 @@ function Send() {
                     dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
                 });
         };
-
+        // 편지 내용 취합 기능
         function checkLetterData() {
             let sticker = [...stickerArray];
             for (let i = 0; i < sticker.length; i++) {
-                delete sticker[i].id
+                delete sticker[i].id;
             };
-            // let postSticker = [...stickerArray];
-            // for (let i = 0; i < postSticker.length; i++) {
-            //     delete postSticker[i].id
-            // };
-            // let sticker = [Object.assign({},postSticker)];
             let letterData = {
                 'letter': {
                     'userId': String(shareUserID),
@@ -513,11 +537,11 @@ function Send() {
                     'letterFontColor': String(styleLetter['color']),
                     'letterPaper': String(styleLetter['backgroundImage']),
                     'letterWriter': String(author),
-                    'letterIcon': String(stamp)                 
+                    'letterIcon': String(stamp)
                 },
                 sticker
             };
-            FinalCheck(letterData);
+            finalCheck(letterData);
             dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
             dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
@@ -546,7 +570,9 @@ function Send() {
         );
     };
 
+    // 편지 발송 완료 Component
     function SendingEnd() {
+        // 카카오 애드 관련 기능
         // useEffect(() => {
         //     let ins = document.createElement('ins');
         //     let scr = document.createElement('script');
@@ -592,27 +618,7 @@ function Send() {
         );
     };
 
-    // Make Letter Func
-    function makeLetter() {
-        let copyStickerArray = stickerArray;
-        for (let i = 0; i < copyStickerArray.length; i++) {
-            let item = document.createElement('div');
-            let stage = document.querySelector('.pre_letter_outContainer');
-            item.setAttribute('id', '_' + copyStickerArray[i].id);
-            item.setAttribute('class', 'send_item_sticker' + copyStickerArray[i].stickerIcon);
-            stage.appendChild(item);
-            setTranslate(Math.round(Number(copyStickerArray[i].stickerX)), Math.round((Number(copyStickerArray[i].stickerY))), item);
-        };
-
-        function setTranslate(xPos, yPos, el) {
-            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-        };
-        // Enter text
-        let copyText = text;
-        let enterText = document.querySelector('.send_pre_textbox');
-        enterText.value = copyText;
-    };
-
+    // 편지 내용 여부 확인 기능(랜더링 직후)
     useEffect(() => {
         if (text === "") {
             setCompletion(false);
@@ -621,7 +627,7 @@ function Send() {
         };
     }, [text]);
 
-    // Require INFO
+    // 사용자 정보 요청 기능
     function requireUserCheckData(props) {
         fetch('https://plater.kr/api/member/external/userid/' + props, {
             method: 'GET',
@@ -662,6 +668,7 @@ function Send() {
             });
     };
 
+    // 최초 사용자 정보 확인 기능(open, count) ////////// 배포 전 수정 필요
     function firstCheck() {
         if (openUserOpenDate !== null && userLetterCount !== null) {
             let now = new Date().getTime();
@@ -678,7 +685,7 @@ function Send() {
         };
     };
 
-    // ?userID=userID
+    // 사용자 공유 아이디 확인 기능(?userID=userID)
     const get_query = useCallback(() => {
         const url = document.location.href;
         const qs = url.substring(url.indexOf('?') + 1).split('&');
@@ -695,13 +702,14 @@ function Send() {
         };
     }, []);
 
+    // 최초 사용자 정보 확인 기능(랜더링 직후)
     useEffect(() => {
         firstCheck();
     }, [openUserOpenDate, userLetterCount])
 
+    // 사용자 공유 아이디 확인 기능(랜더링 직후) + 서버로 log 정보 보내는 기능(랜더링 직후)
     useEffect(() => {
         get_query();
-        // Log API
         fetch('https://plater.kr/api/request/log?/web/send', {
             method: 'GET',
             mode: 'cors',
@@ -716,9 +724,9 @@ function Send() {
             .catch((error) => {
                 console.log(error);
             });
-        // 
     }, [get_query]);
 
+    // (편지 작성) 스티커 배열 추가 기능
     function locationData(data, id, X, Y, num) {
         if (id === '') {
         } else {
@@ -742,6 +750,7 @@ function Send() {
         console.log(data);
     };
 
+    // (편지 작성) 스티커 삭제(배열 포함) 기능
     function remove(props) {
         let newData = stickerArray;
         let item = document.querySelector('#id' + props);
@@ -755,6 +764,7 @@ function Send() {
         console.log(stickerArray);
     };
 
+    // 스티커 추가 기능
     function createEl(props, num) {
         // Creating elements
         let item = document.createElement('div');
@@ -768,7 +778,6 @@ function Send() {
         let stageClose = document.querySelector('#id' + props);
         stageClose.appendChild(itemClose);
         dispatch({ type: 'CHANGE_STICKER_NUMBER', data: stickerNumber + 1 });
-
         // Function to move elements
         let dragItem = document.querySelector("#id" + props);
         let active = false;
@@ -784,7 +793,7 @@ function Send() {
         dragItem.addEventListener("mousedown", dragStart, false);
         dragItem.addEventListener("mouseup", dragEnd, false);
         dragItem.addEventListener("mousemove", drag, false);
-
+        // 스티커 이동 기능(1)
         function dragStart(e) {
             if (e.type === "touchstart") {
                 initialX = e.touches[0].clientX - xOffset;
@@ -797,7 +806,7 @@ function Send() {
                 active = true;
             };
         };
-
+        // 스티커 이동 기능(2)
         function drag(e) {
             if (active) {
                 e.preventDefault();
@@ -819,12 +828,12 @@ function Send() {
                 };
             };
         };
-
+        // 스티커 이동 기능(3)
         function setTranslate(xPos, yPos, el) {
             el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
             el.style.position = "relative";
         };
-
+        // 스티커 이동 기능(4)
         function dragEnd(e) {
             locationData(stickerArray, e.target.id, currentX, currentY, num);
             console.log(Math.round(currentX), Math.round(currentY));
@@ -833,7 +842,7 @@ function Send() {
         };
     };
 
-    // Letter Option Active
+    // (편지 작성) 편지 꾸미기 옵션 활성화 기능
     function activeLetterOption() {
         if (isLetterOption === false) {
             dispatch({ type: 'CHANGE_ISLETTEROPTION', data: true });
@@ -841,7 +850,7 @@ function Send() {
         };
     };
 
-    // Letter Option Inactive
+    // (편지 작성) 편지 꾸미기 옵션 비활성화 기능
     function inactiveLetterOption() {
         if (isLetterOption === true) {
             dispatch({ type: 'CHANGE_ISLETTEROPTION', data: false });
@@ -853,7 +862,7 @@ function Send() {
         };
     };
 
-    // Change Letter Option Menu
+    // (편지 작성) 편지 꾸미기 상세 옵션 선택 기능
     function changeLetterOption(props) {
         switch (props) {
             case 'CHANGE_ISFONTFAMILY':
@@ -897,7 +906,7 @@ function Send() {
         };
     };
 
-    // Change FontFamily
+    // (편지 작성) 폰트 변경 기능
     function setFontFamily(props, size) {
         let newStyle = { ...styleLetter };
         newStyle['fontFamily'] = props;
@@ -905,28 +914,28 @@ function Send() {
         setStyleLetter(newStyle);
     };
 
-    // Change Range
+    // (편지 작성) 정렬 변경 기능
     function setRange(props) {
         let newStyle = { ...styleLetter };
         newStyle['textAlign'] = props;
         setStyleLetter(newStyle);
     };
 
-    // Change Color
+    // (편지 작성) 색상 변경 기능
     function setColor(props) {
         let newStyle = { ...styleLetter };
         newStyle['color'] = props;
         setStyleLetter(newStyle);
     };
 
-    // Change Paper
+    // (편지 작성) 편지지 변경 기능
     function setPaper(props) {
         let newStyle = { ...styleLetter };
         newStyle['backgroundImage'] = props;
         setStyleLetter(newStyle);
     };
 
-    // Letter Menu Select
+    // (편지 작성) 편지 꾸미기 상세 옵션 선택 기능(표현)
     function selectLetterMenu(props) {
         let newLetterMenu = { ...letterMenu };
         switch (props) {
@@ -970,7 +979,7 @@ function Send() {
         };
     };
 
-    // Font Item Select
+    // (편지 작성) 폰트 변경 기능(표현)
     function selectFontItem(props) {
         let newFontItem = { ...fontItem };
         switch (props) {
@@ -1021,7 +1030,7 @@ function Send() {
         };
     };
 
-    // Range Item Select
+    // (편지 작성) 정렬 변경 기능(표현)
     function selectRangeItem(props) {
         let newRangeItem = { ...rangeItem };
         switch (props) {
@@ -1051,7 +1060,7 @@ function Send() {
         };
     };
 
-    // Color Item Select
+    // (편지 작성) 색상 변경 기능(표현)
     function selectColorItem(props) {
         let newColorItem = { ...colorItem };
         switch (props) {
@@ -1130,7 +1139,7 @@ function Send() {
         };
     };
 
-    // Paper Item Select
+    // (편지 작성) 편지지 변경 기능(표현)
     function selectPaperItem(props) {
         let newPaperItem = { ...paperItem };
         switch (props) {
@@ -1413,10 +1422,6 @@ function Send() {
                             dispatch({ type: 'CHANGE_TEXT', data: e.target.value });
                         }} onFocus={() => {
                             inactiveLetterOption();
-                            // let focusEle = document.activeElement;
-                            // if (document.getElementsByClassName('send_textbox')[0] === focusEle) {
-                            //     inactiveLetterOption();
-                            // }; 
                         }}
                         >
                         </textarea>

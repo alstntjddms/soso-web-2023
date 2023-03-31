@@ -11,31 +11,9 @@ function Redirect() {
     const urlParamsErro = new URL(window.location.href).searchParams;
     const nameErro = urlParamsErro.get('error_description');
 
-    // function requestToken() {
-    //     const body = {
-    //         grant_type: "authorization_code",
-    //         client_id: process.env.REACT_APP_REST_API_KEY,
-    //         redirect_uri: "",
-    //         code: name
-    //     };
-    //     const queryStringBody = Object.keys(body)
-    //         .map(k => encodeURIComponent(k) + "=" + encodeURI(body[k]))
-    //         .join("&");
-    //     fetch("https://kauth.kakao.com/oauth/token", {
-    //         method: "POST",
-    //         headers: {
-    //             'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-    //         },
-    //         body: queryStringBody
-    //     })
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             console.log(data.access_token);
-    //             usertoken = data.access_token;
-    //         });
-    // };
+    // console.log 삭제 필요.
 
+    // 받은 편지 배열 요청 기능
     function RequestLetterArray(userId) {
         fetch('https://plater.kr/api/letter/userid/' + userId, {
             method: 'GET',
@@ -50,14 +28,15 @@ function Redirect() {
             .then((data) => {
                 dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error);
-                alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
+                alert('정상적으로 사용자 편지 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/login');
             });
     };
 
+    // 사용자 정보 요청 기능
     function RequestUserData(userId) {
         fetch('https://plater.kr/api/member/' + userId, {
             method: 'GET',
@@ -69,10 +48,9 @@ function Redirect() {
             }
         })
             .then(res => res.json())
-            .then((userData) => {
-                console.log(userData);
-                dispatch({ type: 'CHANGE_USERNICKNAME', data: String(userData.userNickName) });
-                dispatch({ type: 'CHANGE_OPENDATE', data: Number(userData.userOpenDate) });
+            .then((data) => {
+                dispatch({ type: 'CHANGE_USERNICKNAME', data: String(data.userNickName) });
+                dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });
                 RequestLetterArray(userId);
             })
             .catch((userDate_error) => {
@@ -83,6 +61,7 @@ function Redirect() {
             });
     };
 
+    // (랜더링 직후) 사용자 로그인 기능
     useEffect(() => {
         setTimeout(() => {
             if (nameErro === 'User denied access') {
@@ -107,7 +86,6 @@ function Redirect() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    console.log('암호화된 ID: ' + data);
                     fetch('https://plater.kr/api/member/', {
                         method: 'POST',
                         mode: 'cors',
@@ -118,29 +96,30 @@ function Redirect() {
                         },
                         body: JSON.stringify(data)
                     })
-                        .then(plus_res => plus_res.json())
-                        .then((plus_data) => {
-                            console.log('비암호화된 ID: ' + plus_data);
-                            dispatch({ type: 'CHANGE_USERID', data: plus_data });
-                            RequestUserData(plus_data);
+                        .then(res => res.json())
+                        .then((data) => {
+                            // 
+                            console.log(data);
+                            // 
+                            dispatch({ type: 'CHANGE_USERID', data: data });
+                            RequestUserData(data);
                             navigater('/main');
                         })
-                        .catch((plus_error) => {
-                            console.log('비암호화된 ID 오류: ' + plus_error);
-                            alert('서버가 불안정 하여 비암호화된 사용자 ID를 받아오지 못했습니다.');
+                        .catch((error) => {
+                            console.log(error);
+                            alert('서버가 불안정 하여 사용자 아이디를 받아오지 못했습니다.');
                             dispatch({ type: 'CHANGE_USERID', data: null });
                             navigater('/login');
                         })
                 })
                 .catch((error) => {
-                    console.log('암호화된 ID 오류: ' + error);
+                    console.log(error);
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');
                     dispatch({ type: 'CHANGE_USERID', data: null });
                     navigater('/login');
                 });
         }, 500);
     }, []);
-    // }, [name, nameErro, navigater, dispatch]);
 
     return (
         <React.Fragment>

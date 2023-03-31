@@ -7,6 +7,7 @@ function Redirect2() {
     const navigater = useNavigate();
     const dispatch = useDispatch();
 
+    // 서버로 log 정보 보내는 기능(랜더링 직후)
     useEffect(() => {
         fetch('https://plater.kr/api/request/log?/web/logout', {
             method: 'GET',

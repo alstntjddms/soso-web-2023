@@ -11,10 +11,11 @@ function Main() {
   const dispatch = useDispatch();
   const isStory = useSelector((state) => state.isStory);
 
+  // (랜더링 직후) 사용자 쿠키 확인 기능 + 서버로 log 정보 보내는 기능
   useEffect(() => {
     const cookieData = document.cookie.split(';');
     for (let i = 0; i < cookieData.length; i++) {
-      if (cookieData[i].indexOf('plater') > -1) {
+      if (cookieData[i].indexOf('pl@ter') > -1) {
         dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
       } else break;
     };
@@ -34,45 +35,25 @@ function Main() {
       });
   }, [dispatch]);
 
-  // Delete Cookie
+  // 쿠키 삭제 기능
   function delCookie() {
-    alert('사용자의 쿠키 중 plater를 삭제했습니다.');
+    alert('사용자의 쿠키 중 pl@ter를 삭제했습니다.');
     const expires = new Date();
     expires.setDate(expires.getDate() - 1);
     const expiresDate = expires.toUTCString();
     let setCookie = '';
-    setCookie += 'plater=190301;';
+    setCookie += 'pl@ter=190301;';
     setCookie += 'Expires=' + expiresDate;
     document.cookie = setCookie;
   };
 
-  // Setting Time
+  // 편지 읽을 수 있도록 시간 조정 기능
   function settingTime() {
     alert('사용자의 openDate를 11일 전으로 설정했습니다.');
     const now = new Date();
     now.setDate(now.getDate() - 11);
     dispatch({ type: 'CHANGE_OPENDATE', data: Number(now.getTime()) });
     setRender1(render1 + 1);
-  };
-
-  function checkLetter() {
-    fetch('https://plater.kr/api/letter/userid/kD8yXnOdq9MSJSM2BHLOHa7rsbewMSJSM3DMSJSM3D', {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then((data) => {
-        console.log(data);
-        alert(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
@@ -87,7 +68,6 @@ function Main() {
       <NavLink end to="/login" onClick={() => {
         dispatch({ type: 'CHANGE_USERID', data: null });
       }}><img style={{ width: "10%", position: "absolute", top: "70%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/295/295128.png'></img></NavLink>
-      <img onClick={checkLetter} style={{ width: "10%", position: "absolute", top: "40%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/4426/4426138.png'></img>
     </div>
   );
 };
