@@ -69,8 +69,8 @@ function InnerPage() {
         // (팝업) 행성 개설 안내
         function PopUpOpenPlanet() {
             // 공유 가능 사용자 아이디 발급 기능
-            function RequestShareUserID(userID) {
-                fetch('https://plater.kr/api/member/userid/' + userID, {
+            async function RequestShareUserID(userID) {
+                await fetch('https://plater.kr/api/member/userid/' + userID, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -101,8 +101,8 @@ function InnerPage() {
                                 <div className='ispopupopenplanet_button_signOut' onClick={() => { setIsPopUpOpenPlanet(!isPopUpOpenPlanet); }}>취소</div>
                                 <div className='ispopupopenplanet_button_cancel' onClick={() => {
                                     setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
-                                    sendSignal_confirm();
                                     RequestShareUserID(userID);
+                                    sendSignal_confirm();                                    
                                 }}>개설하기</div>
                             </div>
                         </div>
@@ -173,9 +173,9 @@ function InnerPage() {
         };
 
         // 사용자 행성 생성 정보 전달 기능
-        function sendSignal_confirm() {
+        async function sendSignal_confirm() {
             // 사용자 개설일 정보 전달 기능
-            fetch('https://plater.kr/api/member/opendate', {
+            await fetch('https://plater.kr/api/member/opendate', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
