@@ -10,10 +10,10 @@ function Refresh() {
     const navigater = useNavigate();
     // const userID = useSelector((state) => state.userID);
     const [refresh, setRefresh] = useState(false);
-    
+
     // 받은 편지 배열 요청 기능
     function RequestLetterDataArray() {
-        fetch('https://plater.kr/api/letter/userid/pEMui3Dz3Pj1eCaIqVj8zgMSJSM3DMSJSM3D', {
+        fetch(`${process.env.REACT_APP_LETTER_ARRAY}pEMui3Dz3Pj1eCaIqVj8zgMSJSM3DMSJSM3D`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -26,8 +26,7 @@ function Refresh() {
             .then((data) => {
                 dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
-            .catch((error)=>{
-                console.log(error);
+            .catch((error) => {
                 alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/login');

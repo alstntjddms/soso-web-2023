@@ -461,7 +461,7 @@ function Send() {
     function SendingPage() {
         // 최종 사용자 정보 확인 기능(open, count) ////////// 배포 전 수정 필요
         async function finalCheck(letterData) {
-            await fetch('https://plater.kr/api/member/external/userid/' + shareUserID, {
+            await fetch(`${process.env.REACT_APP_USER_DATA_SHARE}${shareUserID}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -475,7 +475,7 @@ function Send() {
                     let now = new Date().getTime();
                     let distance = Number(data.userOpenDate) - now;
                     if (distance >= 0) {
-                        fetch('https://plater.kr/api/member/external/lettercount/' + shareUserID, {
+                        fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${shareUserID}`, {
                             method: 'GET',
                             mode: 'cors',
                             cache: 'no-cache',
@@ -491,16 +491,22 @@ function Send() {
                                     // window.location.replace('/main');
                                 };
                             })
+                            .catch((error) => {
+                                alert('정상적으로 편지 발송에 실패했습니다. 다시 편지를 보내주세요.');
+                            })
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
                         // window.location.replace('/main');
                     };
+                })
+                .catch((error) => {
+                    alert('정상적으로 편지 발송에 실패했습니다. 다시 편지를 보내주세요.');
                 });
             await sendLetterFunc(letterData);
         };
         // 편지 보내기 기능
         async function sendLetterFunc(props) {
-            fetch('https://plater.kr/api/letter', {
+            fetch(`${process.env.REACT_APP_REGISTER_LETTER}`, {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -514,7 +520,6 @@ function Send() {
                 .then((data) => {
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 다시 시도해주세요.');
                     dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
@@ -629,7 +634,7 @@ function Send() {
 
     // 사용자 정보 요청 기능
     function requireUserCheckData(props) {
-        fetch('https://plater.kr/api/member/external/userid/' + props, {
+        fetch(`${process.env.REACT_APP_USER_DATA_SHARE}${props}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -642,7 +647,7 @@ function Send() {
             .then((userData) => {
                 setUserNickName(String(userData.userNickName));
                 setOpenUserOpenDate(Number(userData.userOpenDate));
-                fetch('https://plater.kr/api/member/external/lettercount/' + props, {
+                fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${props}`, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -655,14 +660,12 @@ function Send() {
                     .then((letterCount) => {
                         setUserLetterCount(Number(letterCount));
                     })
-                    .catch((letterCount_error) => {
-                        console.log(letterCount_error);
+                    .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 다시 시도해주세요.');
                         window.location.replace('/main');
                     });
             })
-            .catch((userDate_error) => {
-                console.log(userDate_error);
+            .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
                 window.location.replace('/main');
             });
@@ -710,7 +713,7 @@ function Send() {
     // 사용자 공유 아이디 확인 기능(랜더링 직후) + 서버로 log 정보 보내는 기능(랜더링 직후)
     useEffect(() => {
         get_query();
-        fetch('https://plater.kr/api/request/log?/web/send', {
+        fetch(`${process.env.REACT_APP_REGISTER_LOG}send`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -722,7 +725,6 @@ function Send() {
             .then(() => {
             })
             .catch((error) => {
-                console.log(error);
             });
     }, [get_query]);
 
@@ -747,7 +749,6 @@ function Send() {
                 };
             };
         };
-        console.log(data);
     };
 
     // (편지 작성) 스티커 삭제(배열 포함) 기능
@@ -761,7 +762,6 @@ function Send() {
             };
         };
         item.remove();
-        console.log(stickerArray);
     };
 
     // 스티커 추가 기능
@@ -836,7 +836,6 @@ function Send() {
         // 스티커 이동 기능(4)
         function dragEnd(e) {
             locationData(stickerArray, e.target.id, currentX, currentY, num);
-            console.log(Math.round(currentX), Math.round(currentY));
             active = false;
             dragItem.style.position = "absolute";
         };

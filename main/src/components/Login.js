@@ -12,7 +12,7 @@ function Login() {
 
     // (랜더링 직후) 서버로 log 정보 보내는 기능 + 사용자 ID 확인 기능
     useEffect(() => {
-        fetch('https://plater.kr/api/request/log?/web/login', {
+        fetch(`${process.env.REACT_APP_REGISTER_LOG}login`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -24,7 +24,6 @@ function Login() {
             .then(() => {
             })
             .catch((error) => {
-                console.log(error);
             });
         if (userID !== null) {
             navigater('/main');

@@ -19,7 +19,7 @@ function Main() {
         dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
       } else break;
     };
-    fetch('https://plater.kr/api/request/log?/web/main', {
+    fetch(`${process.env.REACT_APP_REGISTER_LOG}main`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -31,7 +31,6 @@ function Main() {
       .then(() => {
       })
       .catch((error) => {
-        console.log(error);
       });
   }, [dispatch]);
 

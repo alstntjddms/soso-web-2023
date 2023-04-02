@@ -15,7 +15,7 @@ function Redirect() {
 
     // 받은 편지 배열 요청 기능
     function RequestLetterArray(userId) {
-        fetch('https://plater.kr/api/letter/userid/' + userId, {
+        fetch(`${process.env.REACT_APP_LETTER_ARRAY}${userId}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -29,7 +29,6 @@ function Redirect() {
                 dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
             .catch((error) => {
-                console.log(error);
                 alert('정상적으로 사용자 편지 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/login');
@@ -38,7 +37,7 @@ function Redirect() {
 
     // 사용자 정보 요청 기능
     function RequestUserData(userId) {
-        fetch('https://plater.kr/api/member/' + userId, {
+        fetch(`${process.env.REACT_APP_USER_DATA}${userId}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -53,8 +52,7 @@ function Redirect() {
                 dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });
                 RequestLetterArray(userId);
             })
-            .catch((userDate_error) => {
-                console.log(userDate_error);
+            .catch((error) => {
                 alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/login');
@@ -70,11 +68,10 @@ function Redirect() {
                 navigater('/login');
             };
             const code = { code: name };
-            console.log(code);
             const queryStringBody = Object.keys(code)
                 .map(k => encodeURIComponent(k) + "=" + encodeURI(code[k]))
                 .join("&");
-            fetch('https://plater.kr/api/kakao/', {
+            fetch(`${process.env.REACT_APP_KAKAO_LOGIN}`, {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -86,7 +83,7 @@ function Redirect() {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    fetch('https://plater.kr/api/member/', {
+                    fetch(`${process.env.REACT_APP_USERID}`, {
                         method: 'POST',
                         mode: 'cors',
                         cache: 'no-cache',
@@ -106,14 +103,12 @@ function Redirect() {
                             navigater('/main');
                         })
                         .catch((error) => {
-                            console.log(error);
                             alert('서버가 불안정 하여 사용자 아이디를 받아오지 못했습니다.');
                             dispatch({ type: 'CHANGE_USERID', data: null });
                             navigater('/login');
                         })
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');
                     dispatch({ type: 'CHANGE_USERID', data: null });
                     navigater('/login');

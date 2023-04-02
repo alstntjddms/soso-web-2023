@@ -17,8 +17,8 @@ function ShareBt() {
         };
     }, [dispatch, userData.openDate]);
 
-    const shareBasicURL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
-    const basicURL = 'https://angelo-s-library-2.netlify.app/main';
+    const shareBasicURL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
+    const basicURL = `${process.env.REACT_APP_BASIC_URL}`;
     const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
     const title = 'PL@TER - 기다려지는 소식';
 
@@ -76,7 +76,7 @@ function ShareBt() {
 
     // 공유 가능 사용자 아이디 발급 기능
     function RequestShareUserID(userID) {
-        fetch('https://plater.kr/api/member/userid/' + userID, {
+        fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -97,7 +97,7 @@ function ShareBt() {
     // 공유 URL 복사 기능
     function urlCopy() {
         let Dummy_Tag = document.createElement("input");
-        let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
+        let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
         document.body.appendChild(Dummy_Tag);
         Dummy_Tag.value = Current_URL;
         Dummy_Tag.select();

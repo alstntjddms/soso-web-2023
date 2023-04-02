@@ -70,7 +70,7 @@ function InnerPage() {
         function PopUpOpenPlanet() {
             // 공유 가능 사용자 아이디 발급 기능
             async function RequestShareUserID(userID) {
-                await fetch('https://plater.kr/api/member/userid/' + userID, {
+                await fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -83,8 +83,7 @@ function InnerPage() {
                     .then((userData) => {
                         dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
                     })
-                    .catch((userDate_error) => {
-                        console.log(userDate_error);
+                    .catch((error) => {
                         alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
                     });
             };
@@ -102,7 +101,7 @@ function InnerPage() {
                                 <div className='ispopupopenplanet_button_cancel' onClick={() => {
                                     setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
                                     RequestShareUserID(userID);
-                                    sendSignal_confirm();                                    
+                                    sendSignal_confirm();
                                 }}>개설하기</div>
                             </div>
                         </div>
@@ -175,7 +174,7 @@ function InnerPage() {
         // 사용자 행성 생성 정보 전달 기능
         async function sendSignal_confirm() {
             // 사용자 개설일 정보 전달 기능
-            await fetch('https://plater.kr/api/member/opendate', {
+            await fetch(`${process.env.REACT_APP_REGISTER_OPENDATE}`, {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -191,7 +190,7 @@ function InnerPage() {
                     const finalDate = Number(now.getTime());
                     dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
                     // 사용자 별명 정보 전달 기능
-                    fetch('https://plater.kr/api/member/' + userID + '/', {
+                    fetch(`${process.env.REACT_APP_REGISTER_NICKNAME}${userID}/`, {
                         method: 'PATCH',
                         mode: 'cors',
                         cache: 'no-cache',
@@ -208,13 +207,11 @@ function InnerPage() {
                             dispatch({ type: 'CHANGE_ISYESNAME', data: true });
                         })
                         .catch((error) => {
-                            console.log(error);
                             alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
                             fadeCreateSendSingalPage();
                         })
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
                     fadeCreateSendSingalPage();
                 });
@@ -291,7 +288,7 @@ function InnerPage() {
         // 사용자 공유 URL 제작 기능
         function urlCopy() {
             let Dummy_Tag = document.createElement("input");
-            let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
+            let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
             document.body.appendChild(Dummy_Tag);
             Dummy_Tag.value = Current_URL;
             Dummy_Tag.select();
@@ -438,7 +435,7 @@ function InnerPage() {
 
         // 편지 차단 기능(2)
         function shareLetterBlock(i) {
-            fetch('https://plater.kr/api/letter/block/' + String(letterData[i].letterId), {
+            fetch(`${process.env.REACT_APP_REGISTER_BLOCK}${String(letterData[i].letterId)}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -451,7 +448,6 @@ function InnerPage() {
                 .then((data) => {
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('편지 차단이 정상적으로 진행되지 않았습니다. 다시 시도해주세요.');
                 });
         };
@@ -576,7 +572,7 @@ function InnerPage() {
             let newEachLetter = null;
             if (letterData[i].userId === '') {
                 let eachLetter = {};
-                await fetch('https://plater.kr/api/letter/' + String(letterData[i].letterId), {
+                await fetch(`${process.env.REACT_APP_LETTER_DATA}${String(letterData[i].letterId)}`, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -590,7 +586,6 @@ function InnerPage() {
                         newEachLetter = Object.assign(eachLetter, data);
                     })
                     .catch((error) => {
-                        console.log(error);
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                     });
                 await stickerSum(i, newEachLetter);
@@ -602,8 +597,7 @@ function InnerPage() {
         async function stickerSum(i, newEachLetter) {
             const newLetterData = [...letterData];
             const originalCheckTyping = letterData[i].letterReadYn;
-            // const finalEachLetter = {};
-            await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[i].letterId), {
+            await fetch(`${process.env.REACT_APP_STICKER_DATA}${String(letterData[i].letterId)}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -619,7 +613,6 @@ function InnerPage() {
                     dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                 });
             await checkLoad(i, newLetterData, originalCheckTyping);
@@ -632,7 +625,6 @@ function InnerPage() {
             image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                 let checkTyping = originalCheckTyping;
-                // changeIcon(i, newLetterData);
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
                     attach(i, checkTyping, newLetterData);
