@@ -10,8 +10,9 @@ function Login() {
     const isConditions = useSelector((state) => state.isConditions);
     const isIndividual = useSelector((state) => state.isIndividual);
 
+    // (랜더링 직후) 서버로 log 정보 보내는 기능 + 사용자 ID 확인 기능
     useEffect(() => {
-        fetch('https://plater.kr/api/request/log?/web/login', {
+        fetch(`${process.env.REACT_APP_REGISTER_LOG}login`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -23,25 +24,28 @@ function Login() {
             .then(() => {
             })
             .catch((error) => {
-                console.log(error);
             });
         if (userID !== null) {
             navigater('/main');
         };
     }, [navigater, userID]);
 
+    // 카카오 로그인 기능
     function loginWithKakao(key, url) {
         window.location.href = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${key}&redirect_uri=${url}`;
     };
 
+    // 이용약관 기능(표현)
     function toggleConditions() {
         dispatch({ type: 'CHANGE_ISCONDITIONS', data: !isConditions });
     };
 
+    // 개인정보처리방침 기능(표현)
     function toggleIndividual() {
         dispatch({ type: 'CHANGE_ISINDIVIDUAL', data: !isIndividual });
     };
 
+    // (팝업) 이용약관
     function Conditions() {
         return (
             <React.Fragment>
@@ -222,6 +226,7 @@ function Login() {
         );
     };
 
+    // (팝업) 개인정보처리방침
     function Individual() {
         return (
             <React.Fragment>

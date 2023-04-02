@@ -13,6 +13,7 @@ function InnerPage() {
     // For component Letter box
     const [render, setRender] = useState(-1);
     const [slickPage, setSlickPage] = useState(0);
+    // 편지지 기본 설정 값
     const [setStyle, setSetStyle] = useState({ 'fontSize': '', 'fontFamily': '', 'color': '', 'textAlign': '', 'backgroundImage': '' });
     const userID = useSelector((state) => state.userID);
     const ShareUserID = useSelector((state) => state.ShareUserID);
@@ -25,6 +26,7 @@ function InnerPage() {
     const isRestart = useSelector((state) => state.isRestart);
     const isImagePreload = useSelector((state) => state.isImagePreload);
 
+    // 사용자 개설일 확인 기능
     useEffect(() => {
         if (userData.openDate === 0) {
             dispatch({ type: 'CHANGE_ISNAMEPAGE', data: false });
@@ -33,7 +35,7 @@ function InnerPage() {
         };
     }, [dispatch, userData.openDate]);
 
-    // case of a new member
+    // 신규 사용자 용 Component
     function SetSignal() {
         const isSendSignal = useSelector((state) => state.isSendSignal);
         const [isPopUpOpenPlanet, setIsPopUpOpenPlanet] = useState(false);
@@ -45,7 +47,7 @@ function InnerPage() {
         const [endMonth, setEndMonth] = useState(null);
         const [endHours, setEndHours] = useState(null);
 
-        // popUp: open planet No Name
+        // (팝업) 행성 개설 시 이름 기재 여부 확인
         function PopUpOpenPlanetNoName() {
             return (
                 <React.Fragment>
@@ -64,10 +66,11 @@ function InnerPage() {
             );
         };
 
-        // popUp: open planet
+        // (팝업) 행성 개설 안내
         function PopUpOpenPlanet() {
-            function RequestShareUserID(userID) {
-                fetch('https://plater.kr/api/member/userid/' + userID, {
+            // 공유 가능 사용자 아이디 발급 기능
+            async function RequestShareUserID(userID) {
+                await fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -80,9 +83,8 @@ function InnerPage() {
                     .then((userData) => {
                         dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
                     })
-                    .catch((userDate_error) => {
-                        console.log(userDate_error);
-                        alert('공유 가능한 userID를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+                    .catch((error) => {
+                        alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
                     });
             };
 
@@ -98,8 +100,8 @@ function InnerPage() {
                                 <div className='ispopupopenplanet_button_signOut' onClick={() => { setIsPopUpOpenPlanet(!isPopUpOpenPlanet); }}>취소</div>
                                 <div className='ispopupopenplanet_button_cancel' onClick={() => {
                                     setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
-                                    sendSignal_confirm();
                                     RequestShareUserID(userID);
+                                    sendSignal_confirm();
                                 }}>개설하기</div>
                             </div>
                         </div>
@@ -108,6 +110,7 @@ function InnerPage() {
             );
         };
 
+        // '일' 시작 생성 기능
         function settingStartMonth() {
             setInterval(function () {
                 let now = new Date();
@@ -117,6 +120,7 @@ function InnerPage() {
             }, 300);
         };
 
+        // '시간' 시작 생성 기능
         function settingStartHours() {
             setInterval(function () {
                 let now = new Date();
@@ -127,6 +131,7 @@ function InnerPage() {
             }, 300);
         };
 
+        // '일' 마감 생성 기능
         function settingEndtMonth() {
             setInterval(function () {
                 let now = new Date();
@@ -137,6 +142,7 @@ function InnerPage() {
             }, 300);
         };
 
+        // '시간' 마감 생성 기능
         function settingEndHours() {
             setInterval(function () {
                 let now = new Date();
@@ -147,6 +153,7 @@ function InnerPage() {
             }, 300);
         };
 
+        // 일자 생성 기능 통합
         function showCreateSendSingalPage() {
             dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
             settingStartMonth();
@@ -155,6 +162,7 @@ function InnerPage() {
             settingEndHours();
         };
 
+        // (팝업) 행성 개설 안내 비활성화 기능
         function fadeCreateSendSingalPage() {
             const originalUserNickname = String(userData.nickname);
             const originalUserNicknameLength = Number(userData.nickname.length);
@@ -163,8 +171,10 @@ function InnerPage() {
             dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
         };
 
-        function sendSignal_confirm() {
-            fetch('https://plater.kr/api/member/opendate', {
+        // 사용자 행성 생성 정보 전달 기능
+        async function sendSignal_confirm() {
+            // 사용자 개설일 정보 전달 기능
+            await fetch(`${process.env.REACT_APP_REGISTER_OPENDATE}`, {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -179,7 +189,8 @@ function InnerPage() {
                     now.setDate(now.getDate() + 10);
                     const finalDate = Number(now.getTime());
                     dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-                    fetch('https://plater.kr/api/member/' + userID + '/', {
+                    // 사용자 별명 정보 전달 기능
+                    fetch(`${process.env.REACT_APP_REGISTER_NICKNAME}${userID}/`, {
                         method: 'PATCH',
                         mode: 'cors',
                         cache: 'no-cache',
@@ -196,13 +207,11 @@ function InnerPage() {
                             dispatch({ type: 'CHANGE_ISYESNAME', data: true });
                         })
                         .catch((error) => {
-                            console.log(error);
                             alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
                             fadeCreateSendSingalPage();
                         })
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
                     fadeCreateSendSingalPage();
                 });
@@ -231,7 +240,6 @@ function InnerPage() {
                                 setStringUserNickname(e.target.value);
                             }} value={stringUserNickname}></input><span className='inputUserNameLength'>{lengthUserNickname}/10</span>
                         </div>
-                        {/* <div className='noname_sendSignal_line'></div> */}
                         <div className='noname_sendSignal_innerTime'>
                             <p className='noname_sendSignal_innerTime_p'>시작 & 마감</p>
                             <h6 className='noname_sendSignal_innerTime_h6'>10일 동안 편지를 받을 수 있습니다.</h6>
@@ -257,15 +265,7 @@ function InnerPage() {
                                 <p className='noname_sendSignal_innerTime_view_hours'>{endHours}</p>
                             </div>
                         </div>
-                        {/* <div className='noname_sendSignal_line'></div> */}
                         <div className='noname_sendSignal_innerNotice'>
-                            {/* <div className='noname_sendSignal_innerNotice_innerbox'>
-                                <p className='noname_sendSignal_innerNotice_p'>알림 설정</p>
-                                <h6 className='noname_sendSignal_innerNotice_h6'>카카오톡을 통해 D-Day 알림을 받습니다.</h6>
-                            </div>
-                            <div>
-                                <img alt='button_notice' className='noname_sendSignal_innerNotice_button' src='https://cdn-icons-png.flaticon.com/512/5720/5720465.png' onClick={() => { alert('아직 서비스 준비 중입니다.') }}></img>
-                            </div> */}
                         </div>
                         <div className='noname_sendSignal_startDiv'>
                             <div className='noname_sendSignal_startDiv_button' onClick={
@@ -283,12 +283,12 @@ function InnerPage() {
         );
     };
 
-    // notify after receiver creation
+    // (팝업) 행성 개설 완료 안내
     function CreateNameURL() {
-
+        // 사용자 공유 URL 제작 기능
         function urlCopy() {
             let Dummy_Tag = document.createElement("input");
-            let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
+            let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
             document.body.appendChild(Dummy_Tag);
             Dummy_Tag.value = Current_URL;
             Dummy_Tag.select();
@@ -298,6 +298,7 @@ function InnerPage() {
             dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
         };
 
+        // (팝업) 링크 복사
         function PopUpCopyLink() {
             return (
                 <React.Fragment>
@@ -330,8 +331,9 @@ function InnerPage() {
         );
     };
 
-    // case of an old member
+    // 기존 사용자 용 Component
     function ShowMemberInf() {
+        // 사용자 남은 시간 표현 기능
         const [Dday, setDday] = useState(Number(userData.openDate));
         const setDDay = useCallback(() => {
             let count = setInterval(function () {
@@ -353,6 +355,7 @@ function InnerPage() {
             }, 0);
         }, [Dday]);
 
+        // (랜더링 직후)
         useEffect(() => {
             setDDay();
         }, []);
@@ -371,6 +374,7 @@ function InnerPage() {
         );
     };
 
+    // 편지 박스 Component
     function LetterBox() {
         const isNotYetLetter = useSelector((state) => state.isNotYetLetter);
         const isLetterBlockConfirm = useSelector((state) => state.isLetterBlockConfirm);
@@ -380,6 +384,7 @@ function InnerPage() {
         const [list3, setList3] = useState([<span key={3} style={{ color: "white" }}>Loading...</span>]);
         const [list4, setList4] = useState([<span key={4} style={{ color: "white" }}>Loading...</span>]);
 
+        // 편지 박스 위치 설정 기능
         function setSlickPageNum(i) {
             if (i <= 8) {
                 setSlickPage(0);
@@ -392,6 +397,7 @@ function InnerPage() {
             };
         };
 
+        // (팝업) 편지 차단
         function LetterBlockConfirm() {
             return (
                 <React.Fragment>
@@ -417,8 +423,19 @@ function InnerPage() {
             );
         };
 
+        // 편지 차단 기능(1)
+        function letterBlcok(i) {
+            const copyLetter = [...letterData];
+            copyLetter[i].letterIcon = 'block';
+            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
+            dispatch({ type: 'CHANGE_ISLETTER', data: false });
+            setRender(-1);
+            shareLetterBlock(i);
+        };
+
+        // 편지 차단 기능(2)
         function shareLetterBlock(i) {
-            fetch('https://plater.kr/api/letter/block/' + String(letterData[i].letterId), {
+            fetch(`${process.env.REACT_APP_REGISTER_BLOCK}${String(letterData[i].letterId)}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -431,20 +448,11 @@ function InnerPage() {
                 .then((data) => {
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('편지 차단이 정상적으로 진행되지 않았습니다. 다시 시도해주세요.');
                 });
         };
 
-        function letterBlcok(i) {
-            const copyLetter = [...letterData];
-            copyLetter[i].letterIcon = 'block';
-            dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-            dispatch({ type: 'CHANGE_ISLETTER', data: false });
-            setRender(-1);
-            shareLetterBlock(i);
-        };
-
+        // 편지지 기본 설정 초기화 기능
         function resetLetterStyle() {
             let newStyle = { ...setStyle };
             newStyle['fontFamily'] = '';
@@ -455,6 +463,7 @@ function InnerPage() {
             setSetStyle(newStyle);
         };
 
+        // 편지지 설정 변경 기능
         async function changeLetterStyle(i, newLetterData) {
             let newStyle = { ...setStyle };
             newStyle['fontFamily'] = newLetterData[i].letterFont;
@@ -465,13 +474,7 @@ function InnerPage() {
             setSetStyle(newStyle);
         };
 
-        // function changeIcon(i, newLetterData) {
-        //     const copyLetter = [...newLetterData];
-        //     copyLetter[i].letterReadYn = true;
-        //     dispatch({ type: 'CHANGE_LETTERDATA', data: copyLetter });
-        //     setRender(i);
-        // };
-
+        // 편지 내용 삽입 및 타이핑 효과 기능
         function enterDesc(i, checkTyping, newLetterData) {
             if (checkTyping === false) {
                 let copyText = [newLetterData[i].letterContent];
@@ -524,12 +527,14 @@ function InnerPage() {
             };
         };
 
+        // 작성자 추가 기능
         function enterAuthor(i, newLetterData) {
             let copyAuthor = `${newLetterData[i].letterWriter}`;
             let enterAuthor = document.querySelector('.author');
             enterAuthor.value = copyAuthor;
         };
 
+        // 스티커 추가 기능
         function attach(i, checkTyping, newLetterData) {
             function setTranslate(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
@@ -547,16 +552,7 @@ function InnerPage() {
             enterAuthor(i, newLetterData);
         };
 
-        // function attachRemove(i) {
-        //     let removeText = '';
-        //     let enterRemove = document.querySelector('.letter_textarea');
-        //     enterRemove.value = removeText;
-        //     let copyStrickerArray = letterData[i].sticker;
-        //     for (let i = 0; i < copyStrickerArray.length; i++) {
-        //       document.getElementById('_' + copyStrickerArray[i].letterId).remove();
-        //     };
-        //   };
-
+        // 편지 열기 기능
         async function openLetter(i) {
             setRender(i);
             dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
@@ -571,11 +567,12 @@ function InnerPage() {
             };
         };
 
+        // 편지 정보 요청 기능
         async function RequestThisLetterData(i) {
             let newEachLetter = null;
             if (letterData[i].userId === '') {
                 let eachLetter = {};
-                await fetch('https://plater.kr/api/letter/' + String(letterData[i].letterId), {
+                await fetch(`${process.env.REACT_APP_LETTER_DATA}${String(letterData[i].letterId)}`, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -589,19 +586,18 @@ function InnerPage() {
                         newEachLetter = Object.assign(eachLetter, data);
                     })
                     .catch((error) => {
-                        console.log(error);
-                        alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
+                        alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                     });
                 await stickerSum(i, newEachLetter);
             };
             checkLoad(i, letterData);
         };
 
+        // 편지 정보와 스티커 정보를 병합하는 기능
         async function stickerSum(i, newEachLetter) {
             const newLetterData = [...letterData];
             const originalCheckTyping = letterData[i].letterReadYn;
-            // const finalEachLetter = {};
-            await fetch('https://plater.kr/api/sticker/letterid/' + String(letterData[i].letterId), {
+            await fetch(`${process.env.REACT_APP_STICKER_DATA}${String(letterData[i].letterId)}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -613,25 +609,22 @@ function InnerPage() {
                 .then(res => res.json())
                 .then((data) => {
                     newEachLetter.sticker = data;
-                    // let sticker = Object.assign({}, data);
-                    // Object.assign(newEachLetter, { sticker });
                     newLetterData[i] = newEachLetter;
                     dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
                 })
                 .catch((error) => {
-                    console.log(error);
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                 });
             await checkLoad(i, newLetterData, originalCheckTyping);
         };
 
+        // 편지지 로드 확인 기능
         async function checkLoad(i, newLetterData, originalCheckTyping) {
             let src = newLetterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
             image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                 let checkTyping = originalCheckTyping;
-                // changeIcon(i, newLetterData);
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
                     attach(i, checkTyping, newLetterData);
@@ -652,6 +645,7 @@ function InnerPage() {
             slidesToScroll: 1
         };
 
+        // (랜더링 직후) 편지 배열 표현 기능
         useEffect(() => {
             const list = [];
             const list2 = [];
@@ -727,6 +721,7 @@ function InnerPage() {
             };
         }, []);
 
+        // (팝업) 편지지
         function Letter() {
             return (
                 <React.Fragment>
@@ -736,16 +731,11 @@ function InnerPage() {
                             <input type='text' className='author' value={''} readOnly></input>
                             <div className='letter_icon_box'>
                                 <div className='letter_block' onClick={() => {
-                                    // letterBlcok(render);
                                     dispatch({ type: 'CHANGE_ISLETTERBLOCKCONFIRM', data: true });
                                     dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                                     resetLetterStyle();
                                 }}></div>
                                 <div className='letter_close' onClick={() => {
-                                    // openLetter(render);
-                                    // setTimeout(() => {
-                                    //     dispatch({ type: 'CHANGE_ISLETTER', data: false });
-                                    // }, 500);
                                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                     dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                                     resetLetterStyle();
@@ -773,6 +763,7 @@ function InnerPage() {
             );
         };
 
+        // (팝업) 편지를 읽지 못함을 알리는 안내
         function NotYetLetter() {
             return (
                 <React.Fragment>

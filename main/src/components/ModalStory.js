@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './ModalStory.css';
 
+// 쿠키 설정 기능 수정 필요(현재 1일로 설정)
+
 function ModalStory() {
     const dispatch = useDispatch();
     const isStory = useSelector((state) => state.isStory);
-
+    // Slick 설정 값
     const settings = {
         draggable: false,
         swipe: false,
@@ -18,11 +20,12 @@ function ModalStory() {
         slidesToScroll: 1
     };
 
+    // 창 닫기 기능
     function toggleCheck() {
         dispatch({ type: 'CHANGE_ISSTORY', data: !isStory });
     };
 
-    // Setting Cookie
+    // 쿠키 설정 기능
     function setCookie() {
         let checkCookie = document.querySelector('.modalStory_cookie_input');
         if (checkCookie.checked === true) {
@@ -30,7 +33,7 @@ function ModalStory() {
             expires.setDate(expires.getDate() + 1);
             const expiresDate = expires.toUTCString();
             let setCookie = '';
-            setCookie += 'plater=190301;';
+            setCookie += 'pl@ter=190301;';
             setCookie += 'Expires=' + expiresDate;
             document.cookie = setCookie;
         } else {
@@ -38,13 +41,13 @@ function ModalStory() {
         };
     };
 
-    // Delete Cookie
+    // 쿠키 삭제 기능
     function delCookie() {
         const expires = new Date();
         expires.setDate(expires.getDate() - 1);
         const expiresDate = expires.toUTCString();
         let setCookie = '';
-        setCookie += 'plater=190301;';
+        setCookie += 'pl@ter=190301;';
         setCookie += 'Expires=' + expiresDate;
         document.cookie = setCookie;
     };

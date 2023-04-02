@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './Menu.css';
 
+// 선택 동의 동의, 선택 기능 개발 필요
+// 회원 탈퇴 기능 개발 필요
+
 function Menu() {
     const [render, setRender] = useState(0);
     const dispatch = useDispatch();
@@ -18,7 +21,7 @@ function Menu() {
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
     const [isPopUpLogOut, setIsPopUpLogOut] = useState(false);
-
+    // Slick 설정 값
     const settings = {
         draggable: true,
         swipe: true,
@@ -32,19 +35,7 @@ function Menu() {
         autoplaySpeed: 5000,
     };
 
-    // function singOut() {
-    //     fetch("https://kapi.kakao.com/v1/user/unlink", {
-    //         method: "POST",
-    //         headers: {
-    //             Authorization: `Bearer ${usertoken}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //         });
-    // };
-
+    // (팝업) 이용안내
     function PopUpHowTo() {
         return (
             <React.Fragment>
@@ -227,6 +218,7 @@ function Menu() {
         );
     };
 
+    // (팝업) 개인정보처리방침
     function PopUpInfo() {
         return (
             <React.Fragment>
@@ -346,6 +338,7 @@ function Menu() {
         );
     };
 
+    // (팝업) 카카오톡 알림 동의 ////////// 수정 필요
     function YesAgreement() {
         return (
             <React.Fragment>
@@ -370,9 +363,10 @@ function Menu() {
                     </div>
                 </div>
             </React.Fragment>
-        )
+        );
     };
 
+    // (팝업) 카카오톡 알림 취소 ////////// 수정 필요
     function NoAgreement() {
         return (
             <React.Fragment>
@@ -399,6 +393,7 @@ function Menu() {
         );
     };
 
+    // (팝업) 서비스 탈퇴 기능 ////////// 수정 필요
     function MembershipWithdrawal() {
         return (
             <React.Fragment>
@@ -418,6 +413,7 @@ function Menu() {
         );
     };
 
+    // (팝업) 로그아웃 기능
     function PopUPLogOut() {
         return (
             <React.Fragment>
@@ -437,6 +433,7 @@ function Menu() {
         );
     };
 
+    // 매뉴 선택 기능
     function toggleMenu() {
         if (isInner === false) {
             dispatch({ type: 'CHANGE_ISMENU', data: !isMenu });
@@ -452,25 +449,30 @@ function Menu() {
         };
     };
 
+    // 매뉴-마이페이지 기능
     function toggleMypage() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISMYPAGE', data: !isMypage });
     };
 
+    // 매뉴-Pl@ter 기능
     function togglePlanetter() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISPLATER', data: !isPlater });
     };
 
+    // 매뉴-이용방법 기능
     function toggleHowto() {
         dispatch({ type: 'CHANGE_ISINNER', data: !isInner });
         dispatch({ type: 'CHANGE_ISHOWTO', data: !isHowto });
     };
 
+    // 로그아웃 기능
     function logoutWithKakao(key, url) {
         window.location.href = `https://kauth.kakao.com/oauth/logout?client_id=${key}&logout_redirect_uri=${url}`;
     };
 
+    // 카카오톡 알림 동의 기능 ////////// 수정 필요
     function agreement(key, url) {
         window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${key}&redirect_uri=${url}&response_type=code&scope=talk_message`;
     };

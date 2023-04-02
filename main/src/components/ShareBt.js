@@ -17,12 +17,12 @@ function ShareBt() {
         };
     }, [dispatch, userData.openDate]);
 
-    const shareBasicURL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
-    const basicURL = 'https://angelo-s-library-2.netlify.app/main';
+    const shareBasicURL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
+    const basicURL = `${process.env.REACT_APP_BASIC_URL}`;
     const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
     const title = 'PL@TER - 기다려지는 소식';
 
-    // function of to share throught the kakaotalk message
+    // 카카오톡 공유 기능
     function kakaoShare() {
         const KakaoJS = process.env.REACT_APP_JAVASCRIPT_KEY
         if (!window.Kakao.isInitialized()) {
@@ -41,14 +41,14 @@ function ShareBt() {
             },
             buttons: [
                 {
-                    title: 'PL@TER-편지 보내기',
+                    title: '편지 보내기',
                     link: {
                         mobileWebUrl: shareBasicURL,
                         webUrl: shareBasicURL,
                     },
                 },
                 {
-                    title: 'PL@TER-놀러가기',
+                    title: '행성 만들기',
                     link: {
                         mobileWebUrl: basicURL,
                         webUrl: basicURL,
@@ -59,13 +59,13 @@ function ShareBt() {
         });
     };
 
-    // function of to share throught the twitter
+    // 트위터 공유 기능
     function shareTwitter() {
         let url = encodeURIComponent(shareBasicURL);
         window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '소소한 프로젝트', 'width=400, height=400');
     };
 
-    // function of to share throught the facebook
+    // 페이스북 공유 기능
     function shareFacebook() {
         window.open('https://www.facebook.com/sharer/sharer.php?u='
             + encodeURIComponent(shareBasicURL)
@@ -74,8 +74,9 @@ function ShareBt() {
             'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=400');
     };
 
+    // 공유 가능 사용자 아이디 발급 기능
     function RequestShareUserID(userID) {
-        fetch('https://plater.kr/api/member/userid/' + userID, {
+        fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -85,18 +86,18 @@ function ShareBt() {
             }
         })
             .then(res => res.json())
-            .then((userData) => {
-                dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
+            .then((data) => {
+                dispatch({ type: 'CHANGE_SHAREUSERID', data: String(data) });
             })
-            .catch((userDate_error) => {
-                console.log(userDate_error);
-                alert('공유 가능한 userID를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+            .catch((error) => {
+                alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
             });
     };
 
+    // 공유 URL 복사 기능
     function urlCopy() {
         let Dummy_Tag = document.createElement("input");
-        let Current_URL = 'https://angelo-s-library-2.netlify.app/send?userID=' + ShareUserID;
+        let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
         document.body.appendChild(Dummy_Tag);
         Dummy_Tag.value = Current_URL;
         Dummy_Tag.select();

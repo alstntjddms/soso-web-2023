@@ -7,6 +7,8 @@ function Restart() {
     const isRestart = useSelector((state) => state.isRestart);
     const isNamePage = useSelector((state) => state.isNamePage);
 
+    // API 개발 요청(사용자 개설일을 0으로 수정)
+
     return (
         <React.Fragment>
             <div className="restart_btn" onClick={() => {

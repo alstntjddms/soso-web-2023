@@ -7,8 +7,9 @@ function Redirect2() {
     const navigater = useNavigate();
     const dispatch = useDispatch();
 
+    // 서버로 log 정보 보내는 기능(랜더링 직후)
     useEffect(() => {
-        fetch('https://plater.kr/api/request/log?/web/logout', {
+        fetch(`${process.env.REACT_APP_REGISTER_LOG}logout`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
@@ -20,7 +21,6 @@ function Redirect2() {
             .then(() => {
             })
             .catch((error) => {
-                console.log(error);
             });
         setTimeout(() => {
             dispatch({ type: 'CHANGE_USERID', data: null });
