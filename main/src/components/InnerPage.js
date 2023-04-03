@@ -86,6 +86,7 @@ function InnerPage() {
                     .catch((error) => {
                         alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
                     });
+                    await sendSignal_confirm();
             };
 
             return (
@@ -101,7 +102,6 @@ function InnerPage() {
                                 <div className='ispopupopenplanet_button_cancel' onClick={() => {
                                     setIsPopUpOpenPlanet(!isPopUpOpenPlanet);
                                     RequestShareUserID(userID);
-                                    sendSignal_confirm();
                                 }}>개설하기</div>
                             </div>
                         </div>
