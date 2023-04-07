@@ -25,6 +25,7 @@ function InnerPage() {
     const isYesName = useSelector((state) => state.isYesName);
     const isRestart = useSelector((state) => state.isRestart);
     const isImagePreload = useSelector((state) => state.isImagePreload);
+    const [startBtn, setStartBtn] = useState(true);
 
     // 사용자 개설일 확인 기능
     useEffect(() => {
@@ -70,6 +71,7 @@ function InnerPage() {
         function PopUpOpenPlanet() {
             // 공유 가능 사용자 아이디 발급 기능
             async function RequestShareUserID(userID) {
+                setStartBtn(false);
                 await fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
                     method: 'GET',
                     mode: 'cors',
@@ -86,7 +88,7 @@ function InnerPage() {
                     .catch((error) => {
                         alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
                     });
-                    await sendSignal_confirm();
+                await sendSignal_confirm();
             };
 
             return (
@@ -268,7 +270,7 @@ function InnerPage() {
                         <div className='noname_sendSignal_innerNotice'>
                         </div>
                         <div className='noname_sendSignal_startDiv'>
-                            <div className='noname_sendSignal_startDiv_button' onClick={
+                            <div className={startBtn ? 'noname_sendSignal_startDiv_button' : 'noname_sendSignal_startDiv_button_fade'} onClick={
                                 () => {
                                     if (lengthUserNickname === 0) {
                                         setIsPopUpOpenPlanetName(!isPopUpOpenPlanetName);
