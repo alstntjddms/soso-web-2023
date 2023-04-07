@@ -641,6 +641,23 @@
     font-family: 'NeoDunggeunmo';
 }
 
+.noname_sendSignal_startDiv_button_fade {
+    position: relative;
+    width: 18rem;
+    height: 3rem;
+    margin: auto;
+    top: -5%;
+    font-size: 1.0rem;
+    color: white;
+    background-color: lightgray;
+    line-height: 3.0rem;
+    border: 1px solid black;
+    border-radius: 0.7rem;
+    font-family: 'NeoDunggeunmo';
+    pointer-events: none;
+    touch-action: none;
+}
+
 /*  */
 
 .yesname_outContainer {
@@ -1095,6 +1112,7 @@ h4 {
     position: absolute;
     background-position: center;
 }
+
 .item3 {
     width: 3.5rem;
     height: 3.5rem;
