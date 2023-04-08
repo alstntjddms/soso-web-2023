@@ -295,22 +295,9 @@ function InnerPage() {
 
     // (팝업) 행성 개설 완료 안내
     function CreateNameURL() {
-        // 공유 가능한 사용자 주소 복사 기능
-        async function createUrl() {
-            let Dummy_Tag = document.createElement("input");
-            let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
-            document.body.appendChild(Dummy_Tag);
-            Dummy_Tag.value = Current_URL;
-            Dummy_Tag.select();
-            document.execCommand("copy");
-            document.body.removeChild(Dummy_Tag);
-            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
-        };
-        // 사용자 공유 URL 제작 기능
-        async function urlCopy(userID) {
-            // 공유 가능한 사용자 아이디 요청 기능
-            await fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
+        // 공유 가능한 사용자 아이디 요청 기능
+        function RequestShareUserIDforUrlCopy() {
+            fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -332,7 +319,21 @@ function InnerPage() {
                     alert('정상적으로 공유 가능한 사용자 링크를 받아오지 못했습니다. 공유하기 버튼을 이용해주세요.');
                     dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
                 });
-            await createUrl();
+        };
+        // 사용자 공유 URL 제작 기능
+        function urlCopy() {
+            RequestShareUserIDforUrlCopy();
+            setTimeout(() => {
+                let Dummy_Tag = document.createElement("input");
+                let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
+                document.body.appendChild(Dummy_Tag);
+                Dummy_Tag.value = Current_URL;
+                Dummy_Tag.select();
+                document.execCommand("copy");
+                document.body.removeChild(Dummy_Tag);
+                dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
+            }, 100);
         };
         // (팝업) 링크 복사
         function PopUpCopyLink() {
@@ -359,7 +360,7 @@ function InnerPage() {
                         <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요.</p>
                         <div className='yesNameUrl_innerBox'>
                             <div className='yesNameUrl_button_signOut' onClick={() => { dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl }); }}>확인</div>
-                            <div className='yesNameUrl_button_cancel' onClick={() => { urlCopy(userID); }}>신호 복사하기</div>
+                            <div className='yesNameUrl_button_cancel' onClick={urlCopy}>신호 복사하기</div>
                         </div>
                     </div>
                 </div>
