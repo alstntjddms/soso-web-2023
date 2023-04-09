@@ -470,7 +470,12 @@ function Send() {
                     'Content-Type': 'application/json'
                 }
             })
-                .then((res) => res.json())
+                .then((res) => {
+                    if(!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
                 .then((data) => {
                     let now = new Date().getTime();
                     let distance = Number(data.userOpenDate) - now;
@@ -484,7 +489,12 @@ function Send() {
                                 'Content-Type': 'application/json'
                             }
                         })
-                            .then((res) => res.json())
+                            .then((res) => {
+                                if(!res.ok) {
+                                    throw new Error();
+                                };
+                                return res.json();
+                            })
                             .then((data) => {
                                 if (Number(data) >= 36) {
                                     alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
@@ -492,7 +502,8 @@ function Send() {
                                 };
                             })
                             .catch((error) => {
-                                alert('정상적으로 편지 발송에 실패했습니다. 다시 편지를 보내주세요.');
+                                alert('정상적으로 편지 발송에 실패했습니다. 잠시 후 다시 편지를 보내주세요.');
+                                // 예외 처리 필요
                             })
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
@@ -500,7 +511,8 @@ function Send() {
                     };
                 })
                 .catch((error) => {
-                    alert('정상적으로 편지 발송에 실패했습니다. 다시 편지를 보내주세요.');
+                    alert('정상적으로 편지 발송에 실패했습니다. 잠시 후 다시 편지를 보내주세요.');
+                    // 예외 처리 필요
                 });
             await sendLetterFunc(letterData);
         };
@@ -516,11 +528,16 @@ function Send() {
                 },
                 body: JSON.stringify(props)
             })
-                .then(res => res.json())
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
                 .then((data) => {
                 })
                 .catch((error) => {
-                    alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 다시 시도해주세요.');
+                    alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 잠시 후 다시 시도해주세요.');
                     dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                     dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
@@ -643,7 +660,12 @@ function Send() {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
             .then((userData) => {
                 setUserNickName(String(userData.userNickName));
                 setOpenUserOpenDate(Number(userData.userOpenDate));
@@ -656,17 +678,22 @@ function Send() {
                         'Content-Type': 'application/json'
                     }
                 })
-                    .then(res => res.json())
+                    .then(res => {
+                        if(!res.ok) {
+                            throw new Error();
+                        };
+                        return res.json();
+                    })
                     .then((letterCount) => {
                         setUserLetterCount(Number(letterCount));
                     })
                     .catch((error) => {
-                        alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 다시 시도해주세요.');
+                        alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
                         window.location.replace('/main');
                     });
             })
             .catch((error) => {
-                alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 다시 시도해주세요.');
+                alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
                 window.location.replace('/main');
             });
     };

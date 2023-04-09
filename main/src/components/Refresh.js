@@ -22,14 +22,19 @@ function Refresh() {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
             .then((data) => {
                 dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
             .catch((error) => {
-                alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
-                dispatch({ type: 'CHANGE_USERID', data: null });
-                navigater('/login');
+                alert('정상적으로 사용자 편지 정보를 받아오지 못했습니다. 다시 시도해주세요.');
+                // dispatch({ type: 'CHANGE_USERID', data: null });
+                // navigater('/login');
             });
     };
 
