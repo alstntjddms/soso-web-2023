@@ -86,7 +86,7 @@ function InnerPage() {
                         dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
                     })
                     .catch((error) => {
-                        alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+                        // error 무시하고 진행, 실제 공유 가능 링크 생성 시 별도 기능 재실행 예정
                     });
                 await sendSignal_confirm();
             };
@@ -186,7 +186,10 @@ function InnerPage() {
                 },
                 body: JSON.stringify(userID)
             })
-                .then(() => {
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
                     const now = new Date();
                     now.setDate(now.getDate() + 10);
                     const finalDate = Number(now.getTime());
@@ -202,19 +205,24 @@ function InnerPage() {
                         },
                         body: JSON.stringify(String(stringUserNickname))
                     })
-                        .then(() => {
+                        .then((res) => {
+                            if (!res.ok) {
+                                throw new Error();
+                            };
                             dispatch({ type: 'CHANGE_USERNICKNAME', data: stringUserNickname });
                             dispatch({ type: 'CHANGE_ISSENDSIGNAL', data: !isSendSignal });
                             dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
                             dispatch({ type: 'CHANGE_ISYESNAME', data: true });
                         })
                         .catch((error) => {
-                            alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
+                            setStartBtn(true);
+                            alert('서버가 불안정 하여 행성 개설(행성 이름)에 실패했습니다. 다시 시도해주세요.');
                             fadeCreateSendSingalPage();
                         })
                 })
                 .catch((error) => {
-                    alert('서버가 불안정 하여 행성 개설에 실패했습니다. 다시 시도해주세요.');
+                    setStartBtn(true);
+                    alert('서버가 불안정 하여 행성 개설(개설 일자)에 실패했습니다. 다시 시도해주세요.');
                     fadeCreateSendSingalPage();
                 });
         };
@@ -287,19 +295,46 @@ function InnerPage() {
 
     // (팝업) 행성 개설 완료 안내
     function CreateNameURL() {
+        // 공유 가능한 사용자 아이디 요청 기능
+        function RequestShareUserIDforUrlCopy() {
+            fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
+                .then((userData) => {
+                    dispatch({ type: 'CHANGE_SHAREUSERID', data: String(userData) });
+                })
+                .catch((error) => {
+                    alert('정상적으로 공유 가능한 사용자 링크를 받아오지 못했습니다. 공유하기 버튼을 이용해주세요.');
+                    dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                });
+        };
         // 사용자 공유 URL 제작 기능
         function urlCopy() {
-            let Dummy_Tag = document.createElement("input");
-            let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
-            document.body.appendChild(Dummy_Tag);
-            Dummy_Tag.value = Current_URL;
-            Dummy_Tag.select();
-            document.execCommand("copy");
-            document.body.removeChild(Dummy_Tag);
-            dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
-            dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
+            RequestShareUserIDforUrlCopy();
+            setTimeout(() => {
+                let Dummy_Tag = document.createElement("input");
+                let Current_URL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
+                document.body.appendChild(Dummy_Tag);
+                Dummy_Tag.value = Current_URL;
+                Dummy_Tag.select();
+                document.execCommand("copy");
+                document.body.removeChild(Dummy_Tag);
+                dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
+            }, 100);
         };
-
         // (팝업) 링크 복사
         function PopUpCopyLink() {
             return (
@@ -446,7 +481,12 @@ function InnerPage() {
                     'Content-Type': 'application/json'
                 }
             })
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
                 .then((data) => {
                 })
                 .catch((error) => {
@@ -583,12 +623,18 @@ function InnerPage() {
                         'Content-Type': 'application/json'
                     }
                 })
-                    .then(res => res.json())
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error();
+                        };
+                        return res.json();
+                    })
                     .then((data) => {
                         newEachLetter = Object.assign(eachLetter, data);
                     })
                     .catch((error) => {
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
+                        dispatch({ type: 'CHANGE_ISLETTER', data: false });
                     });
                 await stickerSum(i, newEachLetter);
             };
@@ -608,7 +654,12 @@ function InnerPage() {
                     'Content-Type': 'application/json'
                 }
             })
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
                 .then((data) => {
                     newEachLetter.sticker = data;
                     newLetterData[i] = newEachLetter;
@@ -616,6 +667,7 @@ function InnerPage() {
                 })
                 .catch((error) => {
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
+                    dispatch({ type: 'CHANGE_ISLETTER', data: false });
                 });
             await checkLoad(i, newLetterData, originalCheckTyping);
         };

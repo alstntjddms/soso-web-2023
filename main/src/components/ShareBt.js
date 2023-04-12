@@ -85,7 +85,12 @@ function ShareBt() {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
             .then((data) => {
                 dispatch({ type: 'CHANGE_SHAREUSERID', data: String(data) });
             })

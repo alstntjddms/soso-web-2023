@@ -24,7 +24,12 @@ function Redirect() {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
             .then((data) => {
                 dispatch({ type: 'CHANGE_LETTERDATA', data: data });
             })
@@ -46,7 +51,12 @@ function Redirect() {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
             .then((data) => {
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(data.userNickName) });
                 dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });
@@ -81,7 +91,12 @@ function Redirect() {
                 },
                 body: queryStringBody
             })
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
                 .then((data) => {
                     fetch(`${process.env.REACT_APP_USERID}`, {
                         method: 'POST',
@@ -93,7 +108,12 @@ function Redirect() {
                         },
                         body: JSON.stringify(data)
                     })
-                        .then(res => res.json())
+                        .then(res => {
+                            if (!res.ok) {
+                                throw new Error();
+                            };
+                            return res.json();
+                        })
                         .then((data) => {
                             // 
                             console.log(data);
