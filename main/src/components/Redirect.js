@@ -31,7 +31,14 @@ function Redirect() {
                 return res.json();
             })
             .then((data) => {
-                dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                if (data.length > 37) {
+                    for (let i = 0; data.length - 36; i++) {
+                        data.pop();
+                    };
+                    dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                } else {
+                    dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                };
             })
             .catch((error) => {
                 alert('정상적으로 사용자 편지 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');

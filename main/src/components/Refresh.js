@@ -23,18 +23,25 @@ function Refresh() {
             }
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error();
                 };
                 return res.json();
             })
             .then((data) => {
-                dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                if (data.length > 37) {
+                    for (let i = 0; data.length - 36; i++) {
+                        data.pop();
+                    };
+                    dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                } else {
+                    dispatch({ type: 'CHANGE_LETTERDATA', data: data });
+                };
             })
             .catch((error) => {
                 alert('정상적으로 사용자 편지 정보를 받아오지 못했습니다. 다시 시도해주세요.');
-                // dispatch({ type: 'CHANGE_USERID', data: null });
-                // navigater('/login');
+                dispatch({ type: 'CHANGE_USERID', data: null });
+                navigater('/login');
             });
     };
 
