@@ -631,6 +631,7 @@ function InnerPage() {
                     })
                     .then((data) => {
                         newEachLetter = Object.assign(eachLetter, data);
+                        stickerSum(i, newEachLetter);                                               
                     })
                     .catch((error) => {
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
