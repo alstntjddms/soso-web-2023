@@ -538,14 +538,14 @@ function Send() {
                     return res.json();
                 })
                 .then((data) => {
+                    dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
+                    dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                 })
                 .catch((error) => {
                     alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 잠시 후 다시 시도해주세요.');
                     dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                 });
-            dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
-            dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
         // 편지 내용 취합 기능
         function checkLetterData() {

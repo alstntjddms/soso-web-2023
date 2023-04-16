@@ -3,17 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import './Refresh.css';
 
-// ReauestLetterDataArray 함수에 userID 추가(하드코딩 수정)
-
 function Refresh() {
     const dispatch = useDispatch();
     const navigater = useNavigate();
-    // const userID = useSelector((state) => state.userID);
+    const userID = useSelector((state) => state.userID);
     const [refresh, setRefresh] = useState(false);
 
     // 받은 편지 배열 요청 기능
     function RequestLetterDataArray() {
-        fetch(`${process.env.REACT_APP_LETTER_ARRAY}pEMui3Dz3Pj1eCaIqVj8zgMSJSM3DMSJSM3D`, {
+        fetch(`${process.env.REACT_APP_LETTER_ARRAY}${userID}`, {
             method: 'GET',
             mode: 'cors',
             cache: 'no-cache',
