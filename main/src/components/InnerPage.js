@@ -636,7 +636,7 @@ function InnerPage() {
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                         dispatch({ type: 'CHANGE_ISLETTER', data: false });
                     });
-                await stickerSum(i, newEachLetter);
+                // await stickerSum(i, newEachLetter);
             };
             checkLoad(i, letterData);
         };
@@ -664,12 +664,13 @@ function InnerPage() {
                     newEachLetter.sticker = data;
                     newLetterData[i] = newEachLetter;
                     dispatch({ type: 'CHANGE_LETTERDATA', data: newLetterData });
+                    checkLoad(i, newLetterData, originalCheckTyping);
                 })
                 .catch((error) => {
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                 });
-            await checkLoad(i, newLetterData, originalCheckTyping);
+            // await checkLoad(i, newLetterData, originalCheckTyping);
         };
 
         // 편지지 로드 확인 기능
