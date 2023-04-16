@@ -599,20 +599,20 @@ function Send() {
     // 편지 발송 완료 Component
     function SendingEnd() {
         // 카카오 애드 관련 기능
-        // useEffect(() => {
-        //     let ins = document.createElement('ins');
-        //     let scr = document.createElement('script');
-        //     ins.className = 'kakao_ad_area';
-        //     ins.style = "display:none; width:100%;";
-        //     scr.async = 'true';
-        //     scr.type = "text/javascript";
-        //     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-        //     ins.setAttribute('data-ad-width', '320');
-        //     ins.setAttribute('data-ad-height', '100');
-        //     ins.setAttribute('data-ad-unit', 'DAN-BB4EbobLalrwPI7o');
-        //     document.querySelector('.adfit').appendChild(ins);
-        //     document.querySelector('.adfit').appendChild(scr);
-        // }, [])
+        useEffect(() => {
+            let ins = document.createElement('ins');
+            let scr = document.createElement('script');
+            ins.className = 'kakao_ad_area';
+            ins.style = "display:none; width:100%;";
+            scr.async = 'true';
+            scr.type = "text/javascript";
+            scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+            ins.setAttribute('data-ad-width', '320');
+            ins.setAttribute('data-ad-height', '100');
+            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            document.querySelector('.adfit').appendChild(ins);
+            document.querySelector('.adfit').appendChild(scr);
+        }, [])
         return (
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
@@ -628,7 +628,7 @@ function Send() {
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
-                        {/* <div className="adfit"></div> */}
+                        <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}

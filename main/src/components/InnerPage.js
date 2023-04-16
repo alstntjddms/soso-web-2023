@@ -631,7 +631,7 @@ function InnerPage() {
                     })
                     .then((data) => {
                         newEachLetter = Object.assign(eachLetter, data);
-                        stickerSum(i, newEachLetter);                                               
+                        stickerSum(i, newEachLetter);
                     })
                     .catch((error) => {
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
@@ -679,7 +679,8 @@ function InnerPage() {
             let src = newLetterData[i].letterPaper.replace(/^url\(['"](.+)['"]\)/, '$1');
             let image = new Image();
             image.addEventListener('load', async function () {
-                dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: false });
+                // dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                 let checkTyping = originalCheckTyping;
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
@@ -779,6 +780,21 @@ function InnerPage() {
 
         // (팝업) 편지지
         function Letter() {
+            // 카카오 애드 관련 기능
+            useEffect(() => {
+                let ins = document.createElement('ins');
+                let scr = document.createElement('script');
+                ins.className = 'kakao_ad_area';
+                ins.style = "display:none; width:100%;";
+                scr.async = 'true';
+                scr.type = "text/javascript";
+                scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+                ins.setAttribute('data-ad-width', '320');
+                ins.setAttribute('data-ad-height', '100');
+                ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+                document.querySelector('.adfit').appendChild(ins);
+                document.querySelector('.adfit').appendChild(scr);
+            }, [])
             return (
                 <React.Fragment>
                     <div className={isLetter ? 'letter_outContainer' : 'letter_outContainer_fade'}>
@@ -805,6 +821,7 @@ function InnerPage() {
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
                         </div>
+                        <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}
