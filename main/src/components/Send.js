@@ -471,7 +471,7 @@ function Send() {
                 }
             })
                 .then((res) => {
-                    if(!res.ok) {
+                    if (!res.ok) {
                         throw new Error();
                     };
                     return res.json();
@@ -490,7 +490,7 @@ function Send() {
                             }
                         })
                             .then((res) => {
-                                if(!res.ok) {
+                                if (!res.ok) {
                                     throw new Error();
                                 };
                                 return res.json();
@@ -498,27 +498,30 @@ function Send() {
                             .then((data) => {
                                 if (Number(data) >= 36) {
                                     alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                                    // window.location.replace('/main');
+                                    window.location.replace('/main');
+                                } else {
+                                    sendLetterFunc(letterData);
                                 };
                             })
                             .catch((error) => {
                                 alert('정상적으로 편지 발송에 실패했습니다. 잠시 후 다시 편지를 보내주세요.');
-                                // 예외 처리 필요
+                                dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+                                dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                             })
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                        // window.location.replace('/main');
+                        window.location.replace('/main');
                     };
                 })
                 .catch((error) => {
                     alert('정상적으로 편지 발송에 실패했습니다. 잠시 후 다시 편지를 보내주세요.');
-                    // 예외 처리 필요
+                    dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+                    dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
                 });
-            await sendLetterFunc(letterData);
         };
         // 편지 보내기 기능
         async function sendLetterFunc(props) {
-            fetch(`${process.env.REACT_APP_REGISTER_LETTER}`, {
+            await fetch(`${process.env.REACT_APP_REGISTER_LETTER}`, {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
@@ -529,18 +532,19 @@ function Send() {
                 body: JSON.stringify(props)
             })
                 .then(res => {
-                    if(!res.ok) {
+                    if (!res.ok) {
                         throw new Error();
                     };
                     return res.json();
                 })
                 .then((data) => {
+                    dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
+                    dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                 })
                 .catch((error) => {
                     alert('서버가 불안정 하여 편지가 정상적으로 발송되지 않았습니다. 잠시 후 다시 시도해주세요.');
                     dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
                     dispatch({ type: 'CHANGE_ISPRELETTERBOX', data: !isPreLetterBox });
-                    dispatch({ type: 'CHANGE_ISSENDMAIN', data: !isSendMain });
                 });
         };
         // 편지 내용 취합 기능
@@ -564,8 +568,8 @@ function Send() {
                 sticker
             };
             finalCheck(letterData);
-            dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
-            dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
+            // dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
+            // dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
 
         useEffect(() => {
@@ -595,20 +599,20 @@ function Send() {
     // 편지 발송 완료 Component
     function SendingEnd() {
         // 카카오 애드 관련 기능
-        // useEffect(() => {
-        //     let ins = document.createElement('ins');
-        //     let scr = document.createElement('script');
-        //     ins.className = 'kakao_ad_area';
-        //     ins.style = "display:none; width:100%;";
-        //     scr.async = 'true';
-        //     scr.type = "text/javascript";
-        //     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-        //     ins.setAttribute('data-ad-width', '320');
-        //     ins.setAttribute('data-ad-height', '100');
-        //     ins.setAttribute('data-ad-unit', 'DAN-BB4EbobLalrwPI7o');
-        //     document.querySelector('.adfit').appendChild(ins);
-        //     document.querySelector('.adfit').appendChild(scr);
-        // }, [])
+        useEffect(() => {
+            let ins = document.createElement('ins');
+            let scr = document.createElement('script');
+            ins.className = 'kakao_ad_area';
+            ins.style = "display:none; width:100%;";
+            scr.async = 'true';
+            scr.type = "text/javascript";
+            scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+            ins.setAttribute('data-ad-width', '320');
+            ins.setAttribute('data-ad-height', '100');
+            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            document.querySelector('.adfit').appendChild(ins);
+            document.querySelector('.adfit').appendChild(scr);
+        }, [])
         return (
             <React.Fragment>
                 <div className={isSendingEnd ? 'sending_end_active' : 'sending_end'}>
@@ -624,7 +628,7 @@ function Send() {
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
-                        {/* <div className="adfit"></div> */}
+                        <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense
                                 client={process.env.REACT_APP_GOOGLE_ADSENSE}
@@ -661,7 +665,7 @@ function Send() {
             }
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error();
                 };
                 return res.json();
@@ -679,7 +683,7 @@ function Send() {
                     }
                 })
                     .then(res => {
-                        if(!res.ok) {
+                        if (!res.ok) {
                             throw new Error();
                         };
                         return res.json();
