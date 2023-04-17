@@ -13,6 +13,33 @@ function Redirect() {
 
     // console.log 삭제 필요.
 
+    // 사용자 동의 항목 요청 기능
+    function RequestUserMSG(userId) {
+        fetch(`${process.env.REACT_APP_USER_MSG}${userId}`, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
+            .then((data) => {
+                dispatch({ type: 'CHANGE_AGREEMENT', data: data });
+            })
+            .catch((error) => {
+                alert('정상적으로 사용자 동의 항목 정보를 응답 받지 못했습니다. 다시 로그인 해주세요.');
+                dispatch({ type: 'CHANGE_USERID', data: null });
+                navigater('/login');
+            });
+    };
+
     // 받은 편지 배열 요청 기능
     function RequestLetterArray(userId) {
         fetch(`${process.env.REACT_APP_LETTER_ARRAY}${userId}`, {
@@ -39,6 +66,7 @@ function Redirect() {
                 } else {
                     dispatch({ type: 'CHANGE_LETTERDATA', data: data });
                 };
+                RequestUserMSG(userId);
             })
             .catch((error) => {
                 alert('정상적으로 사용자 편지 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
@@ -133,7 +161,7 @@ function Redirect() {
                             alert('서버가 불안정 하여 사용자 아이디를 받아오지 못했습니다.');
                             dispatch({ type: 'CHANGE_USERID', data: null });
                             navigater('/login');
-                        })
+                        });
                 })
                 .catch((error) => {
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');

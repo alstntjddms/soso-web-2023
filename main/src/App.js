@@ -19,7 +19,7 @@ function App() {
   // 'vh' 자동 조정을 위한 기능(1)
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  
+
   function FirstInfo() {
     return (
       <React.Fragment>

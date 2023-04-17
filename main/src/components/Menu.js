@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import './Menu.css';
-
-// 선택 동의 동의, 선택 기능 개발 필요
-// 회원 탈퇴 기능 개발 필요
 
 function Menu() {
     const [render, setRender] = useState(0);
     const dispatch = useDispatch();
+    const navigater = useNavigate();
+    const userID = useSelector((state) => state.userID);
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
     const isYesAgreement = useSelector((state) => state.isYesAgreement);
@@ -338,7 +338,7 @@ function Menu() {
         );
     };
 
-    // (팝업) 카카오톡 알림 동의 ////////// 수정 필요
+    // (팝업) 카카오톡 알림 동의
     function YesAgreement() {
         return (
             <React.Fragment>
@@ -350,11 +350,7 @@ function Menu() {
                         <p className='isYesAgreement_p'>카카오톡 '나와의 채팅'으로 받을 수 있습니다.</p>
                         <div className='isYesAgreement_innerBox'>
                             <div className='isYesAgreement_button_signOut' onClick={() => {
-                                alert('API 요청 필요/동의 후 다시 로그인 해주세요.');
-                                agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT3);
-                                dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
-                                setRender(render + 1);
-                                dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
+                                AgreementMSG();
                             }}>동의하기</div>
                             <div className='isYesAgreement_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISYESAGREEMENT', data: !isYesAgreement });
@@ -366,7 +362,39 @@ function Menu() {
         );
     };
 
-    // (팝업) 카카오톡 알림 취소 ////////// 수정 필요
+    // 동의 항목 동의 기능
+    function AgreementMSG() {
+        fetch(`${process.env.REACT_APP_USER_SCOPE}`, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userID)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
+            .then((data) => {
+                alert('동의 항목 「동의」 완료 후, 다시 로그인 해주세요.');
+                agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT3);
+            })
+            .catch((error) => {
+                alert('서버가 불안정 하여 동의 항목 「동의」에 실패했습니다. 다시 시도해주세요.');
+            });
+    };
+
+    // 카카오톡 알림 동의 기능
+    function agreement(key, url) {
+        window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${key}&redirect_uri=${url}&response_type=code&scope=talk_message`;
+    };
+
+    // (팝업) 카카오톡 알림 취소
     function NoAgreement() {
         return (
             <React.Fragment>
@@ -378,10 +406,7 @@ function Menu() {
                         <p className='isNoAgreement_p'>행성 만료, 공지사항 등을 받아 볼 수 없습니다</p>
                         <div className='isNoAgreement_innerBox'>
                             <div className='isNoAgreement_button_signOut' onClick={() => {
-                                alert('API 요청 필요');
-                                dispatch({ type: 'CHANGE_AGREEMENT', data: !userData.agreement });
-                                setRender(render - 1);
-                                dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
+                                RevocationMSG();
                             }}>동의 해제하기</div>
                             <div className='isNoAgreement_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
@@ -393,7 +418,56 @@ function Menu() {
         );
     };
 
-    // (팝업) 서비스 탈퇴 기능 ////////// 수정 필요
+    // 동의 항목 취소 기능
+    function RevocationMSG() {
+        fetch(`${process.env.REACT_APP_REVOCATION_MSG}`, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userID)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
+            .then((data) => {
+                fetch(`${process.env.REACT_APP_USER_SCOPE}`, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userID)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error();
+                        };
+                        return res.json();
+                    })
+                    .then((data) => {
+                        dispatch({ type: 'CHANGE_AGREEMENT', data: false });
+                        setRender(render - 1);
+                        dispatch({ type: 'CHANGE_ISNOAGREEMENT', data: !isNoAgreement });
+                    })
+                    .catch((error) => {
+                        alert('서버가 불안정 하여 동의 항목 「취소」에 실패했습니다. 다시 시도해주세요.');
+                    });
+            })
+            .catch((error) => {
+                alert('서버가 불안정 하여 동의 항목 「취소」에 실패했습니다. 다시 시도해주세요.');
+            });
+    };
+
+    // (팝업) 서비스 탈퇴
     function MembershipWithdrawal() {
         return (
             <React.Fragment>
@@ -404,13 +478,39 @@ function Menu() {
                         <p className='membershipWithdrawal_p'>탈퇴 시 그동안 저장된 데이터는</p>
                         <p className='membershipWithdrawal_p'>모두 삭제되며 복구할 수 없어요.</p>
                         <div className='membershipWithdrawal_innerBox'>
-                            <div className='membershipWithdrawal_button_signOut' onClick={() => { alert('아직 서비스 준비 중입니다.') }}>탈퇴하기</div>
+                            <div className='membershipWithdrawal_button_signOut' onClick={() => { Withdraw(); }}>탈퇴하기</div>
                             <div className='membershipWithdrawal_button_cancel' onClick={() => { dispatch({ type: 'CHANGE_ISMEMBERSHIPWITHDRAWAL', data: !isMembershipWithdrawal }); }}>취소</div>
                         </div>
                     </div>
                 </div>
             </React.Fragment>
         );
+    };
+
+    // 회원 탈퇴 기능
+    function Withdraw() {
+        fetch(`${process.env.REACT_APP_WITHDRAW}`, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userID)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
+            .then((data) => {
+                window.location.replace("/");
+            })
+            .catch((error) => {
+                alert('서버가 불안정 하여 회원 탈퇴에 실패했습니다. 다시 시도해주세요.');
+            });
     };
 
     // (팝업) 로그아웃 기능
@@ -470,11 +570,6 @@ function Menu() {
     // 로그아웃 기능
     function logoutWithKakao(key, url) {
         window.location.href = `https://kauth.kakao.com/oauth/logout?client_id=${key}&logout_redirect_uri=${url}`;
-    };
-
-    // 카카오톡 알림 동의 기능 ////////// 수정 필요
-    function agreement(key, url) {
-        window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${key}&redirect_uri=${url}&response_type=code&scope=talk_message`;
     };
 
     return (

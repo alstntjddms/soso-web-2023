@@ -227,8 +227,28 @@ function InnerPage() {
                 });
         };
 
+        // 
+        useEffect(() => {
+            let ins = document.createElement('ins');
+            let scr = document.createElement('script');
+            ins.className = 'kakao_ad_area';
+            ins.style = "display:none; width:100%;";
+            scr.async = 'true';
+            scr.type = "text/javascript";
+            scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+            ins.setAttribute('data-ad-width', '320');
+            ins.setAttribute('data-ad-height', '100');
+            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            document.querySelector('.adfit').appendChild(ins);
+            document.querySelector('.adfit').appendChild(scr);
+        }, [])
+        // 
+
         return (
             <React.Fragment>
+                {/*  */}
+                <div className="adfit"></div>
+                {/*  */}
                 <PopUpOpenPlanet></PopUpOpenPlanet>
                 <PopUpOpenPlanetNoName></PopUpOpenPlanetNoName>
                 <div className='noname_outContainer'>
@@ -821,6 +841,7 @@ function InnerPage() {
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
                         </div>
+                        <br></br>
                         <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense

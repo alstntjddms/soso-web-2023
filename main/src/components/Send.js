@@ -628,6 +628,7 @@ function Send() {
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
+                        <br></br>
                         <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense
