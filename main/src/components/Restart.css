@@ -15,3 +15,100 @@
     background-color: #4A4AFF;
 
 }
+
+/*  */
+
+.isPlanetClosedConfirm {
+    position: fixed;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(1rem);
+    z-index: 8;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPlanetClosedConfirm_fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.isPlanetClosedConfirm_outContainer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 19.375rem;
+    background-color: rgba(255, 255, 255, 1.0);
+    transform: translate(-50%, 0%);
+    z-index: 9;
+    border-radius: 1.125rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    overflow: hidden;
+    touch-action: none;
+    transition: all 1.5s;
+}
+
+.isPlanetClosedConfirm_title {
+    position: relative;
+    margin: auto;
+    top: 2.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    color: #090A14;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isPlanetClosedConfirm_p {
+    position: relative;
+    margin: auto;
+    top: 3.75rem;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    font-size: 0.875rem;
+    color: #828A93;
+}
+
+.isPlanetClosedConfirm_innerBox {
+    position: relative;
+    top: 4.875rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.isPlanetClosedConfirm_button_signOut {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #ffdbdb;
+    color: #ff4a4a;
+    border-radius: 0.75rem;
+    font-family: 'NeoDunggeunmo';
+}
+
+.isPlanetClosedConfirm_button_cancel {
+    position: relative;
+    margin: auto;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    height: 3.25rem;
+    font-size: 1.0rem;
+    line-height: 3.25rem;
+    background-color: #ff4a4a;
+    color: #ffdbdb;
+    border-radius: 0.75rem;
+    margin-top: 0.375rem;
+    font-family: 'NeoDunggeunmo';
+}

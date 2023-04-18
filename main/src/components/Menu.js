@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import './Menu.css';
 
 function Menu() {
     const [render, setRender] = useState(0);
     const dispatch = useDispatch();
-    const navigater = useNavigate();
     const userID = useSelector((state) => state.userID);
     const userData = useSelector((state) => state.userData);
     const isMenu = useSelector((state) => state.isMenu);
@@ -381,8 +379,8 @@ function Menu() {
                 return res.json();
             })
             .then((data) => {
-                alert('동의 항목 「동의」 완료 후, 다시 로그인 해주세요.');
-                agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT3);
+                alert('동의 항목 「동의」 완료 후, 다시 로그인 됩니다.');
+                agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT);
             })
             .catch((error) => {
                 alert('서버가 불안정 하여 동의 항목 「동의」에 실패했습니다. 다시 시도해주세요.');
@@ -489,7 +487,7 @@ function Menu() {
 
     // 회원 탈퇴 기능
     function Withdraw() {
-        fetch(`${process.env.REACT_APP_WITHDRAW}`, {
+        fetch(`${process.env.REACT_APP_USER_SCOPE}`, {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -506,7 +504,28 @@ function Menu() {
                 return res.json();
             })
             .then((data) => {
-                window.location.replace("/");
+                fetch(`${process.env.REACT_APP_WITHDRAW}`, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userID)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error();
+                        };
+                        return res.json();
+                    })
+                    .then((data) => {
+                        window.location.replace("/");
+                    })
+                    .catch((error) => {
+                        alert('서버가 불안정 하여 회원 탈퇴에 실패했습니다. 다시 시도해주세요.');
+                    });
             })
             .catch((error) => {
                 alert('서버가 불안정 하여 회원 탈퇴에 실패했습니다. 다시 시도해주세요.');

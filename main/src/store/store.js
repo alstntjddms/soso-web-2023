@@ -33,6 +33,7 @@ function reducer(state, action) {
             isNotYetLetter: false,
             isLetterBlockConfirm: false,
             isRestart: false,
+            isPlanetClosed: false,
             isImagePreload: true,
             // send component
             textLength: 0,
@@ -198,6 +199,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISRESTART') {
         newState.isRestart = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPLANETCLOSED') {
+        newState.isPlanetClosed = action.data;
     };
 
     if (action.type === 'CHANGE_ISIMAGEPRELOAD') {

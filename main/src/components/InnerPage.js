@@ -247,7 +247,7 @@ function InnerPage() {
         return (
             <React.Fragment>
                 {/*  */}
-                <div className="adfit"></div>
+                <div style={{ position: 'relative', bottom: '-36rem' }} className="adfit"></div>
                 {/*  */}
                 <PopUpOpenPlanet></PopUpOpenPlanet>
                 <PopUpOpenPlanetNoName></PopUpOpenPlanetNoName>
