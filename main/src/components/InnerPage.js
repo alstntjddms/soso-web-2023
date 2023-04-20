@@ -29,9 +29,9 @@ function InnerPage() {
 
     // 사용자 개설일 확인 기능
     useEffect(() => {
-        if (userData.openDate === 0) {
+        if (userData.openDate === 875286000000) {
             dispatch({ type: 'CHANGE_ISNAMEPAGE', data: false });
-        } else if (userData.openDate !== 0) {
+        } else if (userData.openDate !== 875286000000) {
             dispatch({ type: 'CHANGE_ISNAMEPAGE', data: true });
         };
     }, [dispatch, userData.openDate]);
@@ -225,30 +225,10 @@ function InnerPage() {
                     alert('서버가 불안정 하여 행성 개설(개설 일자)에 실패했습니다. 다시 시도해주세요.');
                     fadeCreateSendSingalPage();
                 });
-        };
-
-        // 
-        useEffect(() => {
-            let ins = document.createElement('ins');
-            let scr = document.createElement('script');
-            ins.className = 'kakao_ad_area';
-            ins.style = "display:none; width:100%;";
-            scr.async = 'true';
-            scr.type = "text/javascript";
-            scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-            ins.setAttribute('data-ad-width', '320');
-            ins.setAttribute('data-ad-height', '100');
-            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
-            document.querySelector('.adfit').appendChild(ins);
-            document.querySelector('.adfit').appendChild(scr);
-        }, [])
-        // 
+        };       
 
         return (
             <React.Fragment>
-                {/*  */}
-                <div style={{ position: 'relative', bottom: '-36rem' }} className="adfit"></div>
-                {/*  */}
                 <PopUpOpenPlanet></PopUpOpenPlanet>
                 <PopUpOpenPlanetNoName></PopUpOpenPlanetNoName>
                 <div className='noname_outContainer'>

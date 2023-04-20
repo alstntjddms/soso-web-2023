@@ -9,7 +9,6 @@ import Redirect2 from './components/Redirect2';
 import Send from './components/Send';
 
 // set PORT=33381 && => package.json Script for Start
-// 잠시 사용자 기기 확인 기능 off
 
 function App() {
   const navigater = useNavigate();
@@ -45,7 +44,7 @@ function App() {
     // 사용자 기기 확인 기능
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     } else {
-      // dispatch({ type: 'CHANGE_ISFIRSTINFO', data: !isFirstInfo });
+      dispatch({ type: 'CHANGE_ISFIRSTINFO', data: !isFirstInfo });
     };
     if (userID === null) {
       navigater('/login');
