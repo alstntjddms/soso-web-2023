@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import './Main.css';
 import ModalStory from './ModalStory';
 import Menu from './Menu';
@@ -8,9 +8,13 @@ import InnerPage from './InnerPage';
 
 function Main() {
   const [render1, setRender1] = useState(0);
+  const navigater = useNavigate();
   const dispatch = useDispatch();
   const isStory = useSelector((state) => state.isStory);
-
+  const userID = useSelector((state) => state.userID);
+  // 
+  const ShareUserID = useSelector((state) => state.ShareUserID);
+  // 
   // (랜더링 직후) 사용자 쿠키 확인 기능 + 서버로 log 정보 보내는 기능
   useEffect(() => {
     const cookieData = document.cookie.split(';');
@@ -32,6 +36,9 @@ function Main() {
       })
       .catch((error) => {
       });
+    if (userID === null) {
+      navigater('/login');
+    };
   }, [dispatch]);
 
   // 쿠키 삭제 기능
@@ -60,7 +67,7 @@ function Main() {
       <ModalStory></ModalStory>
       <Menu></Menu>
       <InnerPage></InnerPage>
-      <NavLink end to="/send?userID=fpLNLOhMU4cElWo6FpMSJSM2BLMSJSM2FQMSJSM3DMSJSM3D" onClick={() => {
+      <NavLink end to={"/send?userID=" + ShareUserID} onClick={() => {
       }}><img style={{ width: "10%", position: "absolute", top: "50%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/9072/9072392.png'></img></NavLink>
       <img onClick={settingTime} style={{ width: "10%", position: "absolute", top: "60%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
       <img onClick={delCookie} style={{ width: "10%", position: "absolute", top: "80%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/1330/1330387.png'></img>

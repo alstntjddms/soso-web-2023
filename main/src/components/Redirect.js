@@ -11,7 +11,32 @@ function Redirect() {
     const urlParamsErro = new URL(window.location.href).searchParams;
     const nameErro = urlParamsErro.get('error_description');
 
-    // console.log 삭제 필요.
+    // console.log 삭제 필요. 공유 가능 사용자 아이디 발급 기능 삭제 필요.
+
+    // 공유 가능 사용자 아이디 발급 기능
+    function RequestShareUserID(userID) {
+        fetch(`${process.env.REACT_APP_SHARE_USERID}${userID}`, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error();
+                };
+                return res.json();
+            })
+            .then((data) => {
+                dispatch({ type: 'CHANGE_SHAREUSERID', data: String(data) });
+            })
+            .catch((error) => {
+                alert('공유 가능한 사용자 주소를 정상적으로 받아오지 못했습니다. 공유 버튼을 다시 눌러주세요.');
+            });
+    };
 
     // 사용자 동의 항목 요청 기능
     function RequestUserMSG(userId) {
@@ -32,6 +57,9 @@ function Redirect() {
             })
             .then((data) => {
                 dispatch({ type: 'CHANGE_AGREEMENT', data: data });
+                // 
+                RequestShareUserID(userId);
+                // 
             })
             .catch((error) => {
                 alert('정상적으로 사용자 동의 항목 정보를 응답 받지 못했습니다. 다시 로그인 해주세요.');

@@ -9,6 +9,8 @@ function reducer(state, action) {
             letterData: [],
             sendLetterData: [{}],
             isFirstInfo: false,
+            isSecondInfo: false,
+            isThirdInfo: false,
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -83,6 +85,14 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISFIRSTINFO') {
         newState.isFirstInfo = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSECONDINFO') {
+        newState.isSecondInfo = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISTHIRDINFO') {
+        newState.isThirdInfo = action.data;
     };
 
     if (action.type === 'CHANGE_ISCONDITIONS') {

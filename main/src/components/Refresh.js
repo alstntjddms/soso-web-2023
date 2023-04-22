@@ -46,6 +46,7 @@ function Refresh() {
     return (
         <React.Fragment>
             <div className={refresh ? "refresh_active" : "refresh"} onClick={() => {
+                dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
                 setRefresh(!refresh);
                 setTimeout(() => {
                     setRefresh(!refresh);

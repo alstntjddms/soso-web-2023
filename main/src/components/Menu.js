@@ -554,6 +554,7 @@ function Menu() {
 
     // 매뉴 선택 기능
     function toggleMenu() {
+        dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
         if (isInner === false) {
             dispatch({ type: 'CHANGE_ISMENU', data: !isMenu });
             dispatch({ type: 'CHANGE_ISINNER', data: false });
