@@ -3,12 +3,14 @@ import { legacy_createStore as createStore } from "redux";
 function reducer(state, action) {
     if (state === undefined) {
         return {
-            userID: 'null',
+            userID: null,
             ShareUserID: 'null',
-            userData: { 'nickname': 'null', 'openDate': 0, "getLetter": 0, 'agreement': false },
+            userData: { 'nickname': 'null', 'openDate': 875286000000, "getLetter": 0, 'agreement': false },
             letterData: [],
             sendLetterData: [{}],
             isFirstInfo: false,
+            isSecondInfo: false,
+            isThirdInfo: false,
             isConditions: false,
             isIndividual: false,
             isMenu: false,
@@ -33,6 +35,7 @@ function reducer(state, action) {
             isNotYetLetter: false,
             isLetterBlockConfirm: false,
             isRestart: false,
+            isPlanetClosed: false,
             isImagePreload: true,
             // send component
             textLength: 0,
@@ -82,6 +85,14 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISFIRSTINFO') {
         newState.isFirstInfo = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISSECONDINFO') {
+        newState.isSecondInfo = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISTHIRDINFO') {
+        newState.isThirdInfo = action.data;
     };
 
     if (action.type === 'CHANGE_ISCONDITIONS') {
@@ -198,6 +209,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISRESTART') {
         newState.isRestart = action.data;
+    };
+
+    if (action.type === 'CHANGE_ISPLANETCLOSED') {
+        newState.isPlanetClosed = action.data;
     };
 
     if (action.type === 'CHANGE_ISIMAGEPRELOAD') {

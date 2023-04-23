@@ -15,6 +15,7 @@ function Send() {
     const textLength = useSelector((state) => state.textLength);
     const stickerArray = useSelector((state) => state.stickerArray);
     const stickerNumber = useSelector((state) => state.stickerNumber);
+    const isThirdInfo = useSelector((state) => state.isThirdInfo);
     // 
     const isSendPopUp = useSelector((state) => state.isSendPopUp);
     const isSendPopUpCancel = useSelector((state) => state.isSendPopUpCancel);
@@ -111,6 +112,22 @@ function Send() {
     const [completion, setCompletion] = useState(false);
     // 편지 내용 선별 DB
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
+
+    // (팝업) 모바일 사용 권유
+    function ThirdInfo() {
+        return (
+            <React.Fragment>
+                <div className={isThirdInfo ? "isFirstIngo_wrap" : "isFirstIngo_fade"}>
+                    <div className='isFirstIngo_outContainer'>
+                        <p className='isFirstIngo_title'>모바일로 접속해 주세요.</p>
+                        <p className='isFirstIngo_p'>PL@TER는 모바일에 최적화 되어 있어요.</p>
+                        <p className='isFirstIngo_p'>PC 등으로 접속 시 오류가 발생할 수 있어요.</p>
+                        <div className='isFirstIngo_button_confirm' onClick={() => { dispatch({ type: 'CHANGE_ISTHIRDINFO', data: !isThirdInfo }); }}>확인</div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
 
     // (팝업) 편지 작성 페이지 첫 안내 
     function SendPopUp() {
@@ -628,6 +645,7 @@ function Send() {
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
+                        <br></br>
                         <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense
@@ -743,6 +761,11 @@ function Send() {
 
     // 사용자 공유 아이디 확인 기능(랜더링 직후) + 서버로 log 정보 보내는 기능(랜더링 직후)
     useEffect(() => {
+        // 사용자 기기 확인 기능
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        } else {
+            dispatch({ type: 'CHANGE_ISTHIRDINFO', data: !isThirdInfo });
+        };
         get_query();
         fetch(`${process.env.REACT_APP_REGISTER_LOG}send`, {
             method: 'GET',
@@ -1417,6 +1440,7 @@ function Send() {
             <SendPopUp></SendPopUp>
             <SendPopUpCancel></SendPopUpCancel>
             <SendPopUpCheck></SendPopUpCheck>
+            <ThirdInfo></ThirdInfo>
             <div className={isSendMain ? 'send_main_fade' : 'send_main_active'}>
                 <section className='section_shootingStar'>
                     <span className='shootingStar'></span>

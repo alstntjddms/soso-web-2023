@@ -29,9 +29,9 @@ function InnerPage() {
 
     // 사용자 개설일 확인 기능
     useEffect(() => {
-        if (userData.openDate === 0) {
+        if (userData.openDate === 875286000000 || userData.openDate === 0) {
             dispatch({ type: 'CHANGE_ISNAMEPAGE', data: false });
-        } else if (userData.openDate !== 0) {
+        } else if (userData.openDate !== 875286000000 && userData.openDate !== 0) {
             dispatch({ type: 'CHANGE_ISNAMEPAGE', data: true });
         };
     }, [dispatch, userData.openDate]);
@@ -821,6 +821,7 @@ function InnerPage() {
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
                         </div>
+                        <br></br>
                         <div className="adfit"></div>
                         <div className='googleAdsense'>
                             <Adsense

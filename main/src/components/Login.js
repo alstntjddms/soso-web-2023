@@ -9,9 +9,31 @@ function Login() {
     const userID = useSelector((state) => state.userID);
     const isConditions = useSelector((state) => state.isConditions);
     const isIndividual = useSelector((state) => state.isIndividual);
+    const isSecondInfo = useSelector((state) => state.isSecondInfo);
+
+    // (팝업) 모바일 사용 권유
+    function SecondInfo() {
+        return (
+            <React.Fragment>
+                <div className={isSecondInfo ? "isFirstIngo_wrap" : "isFirstIngo_fade"}>
+                    <div className='isFirstIngo_outContainer'>
+                        <p className='isFirstIngo_title'>모바일로 접속해 주세요.</p>
+                        <p className='isFirstIngo_p'>PL@TER는 모바일에 최적화 되어 있어요.</p>
+                        <p className='isFirstIngo_p'>PC 등으로 접속 시 오류가 발생할 수 있어요.</p>
+                        <div className='isFirstIngo_button_confirm' onClick={() => { dispatch({ type: 'CHANGE_ISSECONDINFO', data: !isSecondInfo }); }}>확인</div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
 
     // (랜더링 직후) 서버로 log 정보 보내는 기능 + 사용자 ID 확인 기능
     useEffect(() => {
+        // 사용자 기기 확인 기능
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        } else {
+            dispatch({ type: 'CHANGE_ISSECONDINFO', data: !isSecondInfo });
+        };
         fetch(`${process.env.REACT_APP_REGISTER_LOG}login`, {
             method: 'GET',
             mode: 'cors',
@@ -348,6 +370,7 @@ function Login() {
         <React.Fragment>
             <Conditions></Conditions>
             <Individual></Individual>
+            <SecondInfo></SecondInfo>
             <div className='login_wrap'>
                 <div className='login_outContainer'>
                     <section className='section_shootingStar'>

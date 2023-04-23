@@ -12,7 +12,7 @@ function ShareBt() {
     const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
 
     useEffect(() => {
-        if (userData.openDate !== 0) {
+        if (userData.openDate !== 875286000000 && userData.openDate !== 0) {
             dispatch({ type: 'CHANGE_ISSHARE', data: !isShare });
         };
     }, [dispatch, userData.openDate]);

@@ -19,7 +19,8 @@ function App() {
   // 'vh' 자동 조정을 위한 기능(1)
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  
+
+  // (팝업) 모바일 사용 권유
   function FirstInfo() {
     return (
       <React.Fragment>
@@ -45,10 +46,6 @@ function App() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     } else {
       dispatch({ type: 'CHANGE_ISFIRSTINFO', data: !isFirstInfo });
-    };
-    if (userID === null) {
-      navigater('/login');
-    } else {
     };
   }, [navigater, userID])
 
