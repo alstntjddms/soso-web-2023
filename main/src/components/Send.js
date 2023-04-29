@@ -476,7 +476,7 @@ function Send() {
 
     // 편지 보내는 중 Component
     function SendingPage() {
-        // 최종 사용자 정보 확인 기능(open, count) ////////// 배포 전 수정 필요
+        // 최종 사용자 정보 확인 기능(open, count)
         async function finalCheck(letterData) {
             await fetch(`${process.env.REACT_APP_USER_DATA_SHARE}${shareUserID}`, {
                 method: 'GET',
@@ -720,7 +720,7 @@ function Send() {
             });
     };
 
-    // 최초 사용자 정보 확인 기능(open, count) ////////// 배포 전 수정 필요
+    // 최초 사용자 정보 확인 기능(open, count)
     function firstCheck() {
         if (openUserOpenDate !== null && userLetterCount !== null) {
             let now = new Date().getTime();
@@ -728,11 +728,11 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    // window.location.replace('/main');
+                    window.location.replace('/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                // window.location.replace('/main');
+                window.location.replace('/main');
             };
         };
     };
