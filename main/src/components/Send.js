@@ -1752,7 +1752,7 @@ function Send() {
                             selectPaperItem('paper_24');
                         }}><div className='send_item_paper_title'>무지개 편지지</div></div>
                     </div>
-                    <div className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
+                    <div id='stickerBox' className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
                         <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
                         <button className='send_item_sticker_15' onClick={() => { createEl(stickerNumber, 15) }}></button>
                         <button className='send_item_sticker_12' onClick={() => { createEl(stickerNumber, 12) }}></button>
