@@ -1,35 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './App.css';
 
 function App() {
-  const [stickerArray, setStickerArray] = useState([]);
-  const stickerNUM = 5;
-
-  function notice(props) {
-    alert(props);
-  };
 
   useEffect(() => {
-    let stickerBox = document.querySelector('#stickerBox').innerHTML;
+    // let stickerBox = document.querySelector('#stickerBox').innerHTML;
+    // const origin = 5;
+    let newNumbers = [...numbers];
     if (stickerBox === '') {
-      let newStickerArray = [...stickerArray];
-      for (let i = 0; i < stickerNUM; i++) {
-        newStickerArray.push(React.Children.toArray(<button key={i} className={`send_item_sticker_${i}`} onClick={() => { notice(i) }}></button>));
+      for (let i = 0; i < origin; i++) {
+        newNumbers.push(i);
       };
-      setStickerArray(newStickerArray);
+      setNumbers(newNumbers);
     };
   }, [])
 
+  const [num, setNum] = useState(0);
+  const [numbers, setNumbers] = useState([]);
+
+  function notice(i, props) {
+    console.log(i, props);
+  };
+
+  const listItem = numbers.map(function (number) {
+    return <button className={`send_item_sticker_` + number} key={number} onClick={() => { notice(number, num) }}></button>
+  });
+
+
+
   return (
     <React.Fragment>
-      <div id='stickerBox'>{stickerArray}</div>
-      <div className='container'>
-        <div className='item'>첫 번째 페이지</div>
+      <div id='stickerBox'>{listItem}</div>
+      <button onClick={() => { setNum(num + 1); console.log(num); }}>A</button>
+      {/* <div className='container'>
+        <div className='item' onClick={() => { setNum(num + 1); }}>첫 번째 페이지</div>
         <div className='item'>두 번째 페이지</div>
         <div className='item'>세 번째 페이지</div>
       </div>
       <div className='container2'>
-        <div className='item2'>첫 번째 페이지</div>
+        <div className='item2' onClick={() => { notice1(0) }}>첫 번째 페이지</div>
         <div className='item2'>두 번째 페이지</div>
         <div className='item2'>세 번째 페이지</div>
       </div>
@@ -40,7 +49,7 @@ function App() {
         <div id='item2' className='item3_active'></div>
         <div id='item3' className='item3'></div>
         <div id='item3' className='item3_active'></div>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

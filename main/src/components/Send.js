@@ -34,6 +34,8 @@ function Send() {
     const isColor = useSelector((state) => state.isColor);
     const isLetterPaper = useSelector((state) => state.isLetterPaper);
     const isSticker = useSelector((state) => state.isSticker);
+    // 
+    const [stickerNUM, setStickerNUM] = useState([]);
     //
     const [userNickName, setUserNickName] = useState(null);
     const [openUserOpenDate, setOpenUserOpenDate] = useState(null);
@@ -112,6 +114,22 @@ function Send() {
     const [completion, setCompletion] = useState(false);
     // 편지 내용 선별 DB
     const bad_word = ['<', '>', '씨발', '시발', '♡년', '병신', '개새끼', '강간', '따먹', '로리', '쇼타', '씹', '앰창', '엠창', '좆', '창남', '창녀', '창놈', '창년', '걸레', '갈보', '멍청도', '보전깨', '빨통', '쌍놈', '쌍년', '썅년', '썅놈', '자살', '자해', '육변기', '느갭', '미친년', '미친놈', '염병', '♡빻', '재기', '젖', '성괴', '호로년', '호로잡년', '조건만남', '장애년', '좆창년', '♡련', '쪽바리', '니애미', '느금마', '니애비', '피싸개', '도태남', '부랄발작', '헤으응', '한남충', '한녀', '성매매', '장애인년', '니미', '사지절단', '엿', '맘충', '짱깨', '예수쟁이', '개독교', '똥꼬충', '소추', '두창', '죽어라', '떡치', '지년', '박고', '박아', '받이'];
+
+    // 스티커 옵션 생성 기능
+    useEffect(() => {
+        let stickerBox = document.querySelector('#stickerBox').innerHTML;
+        const origin = 55;
+        let newstickerNUM = [...stickerNUM];
+        if (stickerBox === '') {
+            for (let i = 0; i < origin; i++) {
+                newstickerNUM.push(i);
+            };
+            setStickerNUM(newstickerNUM);
+        };
+    }, [])
+    const stickerArrayOption = stickerNUM.map(function (i) {
+        return <button className={`send_item_sticker_` + i} key={i} onClick={() => { createEl(stickerNumber, i) }}></button>
+    });
 
     // (팝업) 모바일 사용 권유
     function ThirdInfo() {
@@ -1753,61 +1771,7 @@ function Send() {
                         }}><div className='send_item_paper_title'>무지개 편지지</div></div>
                     </div>
                     <div id='stickerBox' className={isSticker ? 'send_sticker_active' : 'send_sticker'}>
-                        <button className='send_item_sticker_1' onClick={() => { createEl(stickerNumber, 1) }}></button>
-                        <button className='send_item_sticker_15' onClick={() => { createEl(stickerNumber, 15) }}></button>
-                        <button className='send_item_sticker_12' onClick={() => { createEl(stickerNumber, 12) }}></button>
-                        <button className='send_item_sticker_13' onClick={() => { createEl(stickerNumber, 13) }}></button>
-                        <button className='send_item_sticker_26' onClick={() => { createEl(stickerNumber, 26) }}></button>
-                        <button className='send_item_sticker_30' onClick={() => { createEl(stickerNumber, 30) }}></button>
-                        <button className='send_item_sticker_14' onClick={() => { createEl(stickerNumber, 14) }}></button>
-                        <button className='send_item_sticker_3' onClick={() => { createEl(stickerNumber, 3) }}></button>
-                        <button className='send_item_sticker_42' onClick={() => { createEl(stickerNumber, 42) }}></button>
-                        <button className='send_item_sticker_43' onClick={() => { createEl(stickerNumber, 43) }}></button>
-                        <button className='send_item_sticker_44' onClick={() => { createEl(stickerNumber, 44) }}></button>
-                        <button className='send_item_sticker_45' onClick={() => { createEl(stickerNumber, 45) }}></button>
-                        <button className='send_item_sticker_47' onClick={() => { createEl(stickerNumber, 47) }}></button>
-                        <button className='send_item_sticker_48' onClick={() => { createEl(stickerNumber, 48) }}></button>
-                        <button className='send_item_sticker_49' onClick={() => { createEl(stickerNumber, 49) }}></button>
-                        <button className='send_item_sticker_46' onClick={() => { createEl(stickerNumber, 46) }}></button>
-                        <button className='send_item_sticker_22' onClick={() => { createEl(stickerNumber, 22) }}></button>
-                        <button className='send_item_sticker_23' onClick={() => { createEl(stickerNumber, 23) }}></button>
-                        <button className='send_item_sticker_24' onClick={() => { createEl(stickerNumber, 24) }}></button>
-                        <button className='send_item_sticker_54' onClick={() => { createEl(stickerNumber, 54) }}></button>
-                        <button className='send_item_sticker_6' onClick={() => { createEl(stickerNumber, 6) }}></button>
-                        <button className='send_item_sticker_50' onClick={() => { createEl(stickerNumber, 50) }}></button>
-                        <button className='send_item_sticker_21' onClick={() => { createEl(stickerNumber, 21) }}></button>
-                        <button className='send_item_sticker_0' onClick={() => { createEl(stickerNumber, 0) }}></button>
-                        <button className='send_item_sticker_29' onClick={() => { createEl(stickerNumber, 29) }}></button>
-                        <button className='send_item_sticker_28' onClick={() => { createEl(stickerNumber, 28) }}></button>
-                        <button className='send_item_sticker_2' onClick={() => { createEl(stickerNumber, 2) }}></button>
-                        <button className='send_item_sticker_8' onClick={() => { createEl(stickerNumber, 8) }}></button>
-                        <button className='send_item_sticker_9' onClick={() => { createEl(stickerNumber, 9) }}></button>
-                        <button className='send_item_sticker_10' onClick={() => { createEl(stickerNumber, 10) }}></button>
-                        <button className='send_item_sticker_11' onClick={() => { createEl(stickerNumber, 11) }}></button>
-                        <button className='send_item_sticker_4' onClick={() => { createEl(stickerNumber, 4) }}></button>
-                        <button className='send_item_sticker_34' onClick={() => { createEl(stickerNumber, 34) }}></button>
-                        <button className='send_item_sticker_35' onClick={() => { createEl(stickerNumber, 35) }}></button>
-                        <button className='send_item_sticker_36' onClick={() => { createEl(stickerNumber, 36) }}></button>
-                        <button className='send_item_sticker_37' onClick={() => { createEl(stickerNumber, 37) }}></button>
-                        <button className='send_item_sticker_5' onClick={() => { createEl(stickerNumber, 5) }}></button>
-                        <button className='send_item_sticker_38' onClick={() => { createEl(stickerNumber, 38) }}></button>
-                        <button className='send_item_sticker_39' onClick={() => { createEl(stickerNumber, 39) }}></button>
-                        <button className='send_item_sticker_40' onClick={() => { createEl(stickerNumber, 40) }}></button>
-                        <button className='send_item_sticker_41' onClick={() => { createEl(stickerNumber, 41) }}></button>
-                        <button className='send_item_sticker_20' onClick={() => { createEl(stickerNumber, 20) }}></button>
-                        <button className='send_item_sticker_19' onClick={() => { createEl(stickerNumber, 19) }}></button>
-                        <button className='send_item_sticker_18' onClick={() => { createEl(stickerNumber, 18) }}></button>
-                        <button className='send_item_sticker_17' onClick={() => { createEl(stickerNumber, 17) }}></button>
-                        <button className='send_item_sticker_32' onClick={() => { createEl(stickerNumber, 32) }}></button>
-                        <button className='send_item_sticker_33' onClick={() => { createEl(stickerNumber, 33) }}></button>
-                        <button className='send_item_sticker_53' onClick={() => { createEl(stickerNumber, 53) }}></button>
-                        <button className='send_item_sticker_25' onClick={() => { createEl(stickerNumber, 25) }}></button>
-                        <button className='send_item_sticker_52' onClick={() => { createEl(stickerNumber, 52) }}></button>
-                        <button className='send_item_sticker_16' onClick={() => { createEl(stickerNumber, 16) }}></button>
-                        <button className='send_item_sticker_51' onClick={() => { createEl(stickerNumber, 51) }}></button>
-                        <button className='send_item_sticker_7' onClick={() => { createEl(stickerNumber, 7) }}></button>
-                        <button className='send_item_sticker_31' onClick={() => { createEl(stickerNumber, 31) }}></button>
-                        <button className='send_item_sticker_27' onClick={() => { createEl(stickerNumber, 27) }}></button>
+                        {stickerArrayOption}
                     </div>
                 </div>
             </div>
