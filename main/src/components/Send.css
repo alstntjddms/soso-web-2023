@@ -945,7 +945,7 @@
 }
 
 .send_item_sticker_0 {
-    background-image: url('../lib/sticker/sticker-dog.gif');
+    background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -963,10 +963,9 @@
 .send_item_sticker0 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker-dog.gif');
+    background-image: url('../lib/sticker/sticker-pudding.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -980,7 +979,7 @@
 }
 
 .send_item_sticker_1 {
-    background-image: url('../lib/sticker/sticker-pudding.gif');
+    background-image: url('../lib/sticker/sticker_cup_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -998,10 +997,9 @@
 .send_item_sticker1 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker-pudding.gif');
+    background-image: url('../lib/sticker/sticker_cup_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1015,7 +1013,7 @@
 }
 
 .send_item_sticker_2 {
-    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
+    background-image: url('../lib/sticker/sticker_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1033,10 +1031,9 @@
 .send_item_sticker2 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
+    background-image: url('../lib/sticker/sticker_cake.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1050,7 +1047,7 @@
 }
 
 .send_item_sticker_3 {
-    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
+    background-image: url('../lib/sticker/sticker_candy.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1068,10 +1065,9 @@
 .send_item_sticker3 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
+    background-image: url('../lib/sticker/sticker_candy.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1085,7 +1081,7 @@
 }
 
 .send_item_sticker_4 {
-    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
+    background-image: url('../lib/sticker/sticker_lolipop.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1103,10 +1099,9 @@
 .send_item_sticker4 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
+    background-image: url('../lib/sticker/sticker_lolipop.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1120,7 +1115,7 @@
 }
 
 .send_item_sticker_5 {
-    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
+    background-image: url('../lib/sticker/sticker_pie.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1138,10 +1133,9 @@
 .send_item_sticker5 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
+    background-image: url('../lib/sticker/sticker_pie.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1155,7 +1149,7 @@
 }
 
 .send_item_sticker_6 {
-    background-image: url('../lib/sticker/sticker_black_star.gif');
+    background-image: url('../lib/sticker/sticker_chocolate.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1173,10 +1167,9 @@
 .send_item_sticker6 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_black_star.gif');
+    background-image: url('../lib/sticker/sticker_chocolate.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1190,7 +1183,7 @@
 }
 
 .send_item_sticker_7 {
-    background-image: url('../lib/sticker/sticker_boom.gif');
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1208,10 +1201,9 @@
 .send_item_sticker7 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_boom.gif');
+    background-image: url('../lib/sticker/sticker_hart\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1225,7 +1217,7 @@
 }
 
 .send_item_sticker_8 {
-    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1243,10 +1235,9 @@
 .send_item_sticker8 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1260,7 +1251,7 @@
 }
 
 .send_item_sticker_9 {
-    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1278,10 +1269,9 @@
 .send_item_sticker9 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1295,7 +1285,7 @@
 }
 
 .send_item_sticker_10 {
-    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1313,10 +1303,9 @@
 .send_item_sticker10 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1330,7 +1319,7 @@
 }
 
 .send_item_sticker_11 {
-    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1348,10 +1337,9 @@
 .send_item_sticker11 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1365,7 +1353,7 @@
 }
 
 .send_item_sticker_12 {
-    background-image: url('../lib/sticker/sticker_cake.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1383,10 +1371,9 @@
 .send_item_sticker12 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_cake.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1400,7 +1387,7 @@
 }
 
 .send_item_sticker_13 {
-    background-image: url('../lib/sticker/sticker_candy.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1418,10 +1405,9 @@
 .send_item_sticker13 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_candy.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1435,7 +1421,7 @@
 }
 
 .send_item_sticker_14 {
-    background-image: url('../lib/sticker/sticker_chocolate.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1453,10 +1439,9 @@
 .send_item_sticker14 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_chocolate.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1470,7 +1455,7 @@
 }
 
 .send_item_sticker_15 {
-    background-image: url('../lib/sticker/sticker_cup_cake.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1488,10 +1473,9 @@
 .send_item_sticker15 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_cup_cake.gif');
+    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1505,7 +1489,7 @@
 }
 
 .send_item_sticker_16 {
-    background-image: url('../lib/sticker/sticker_danger.gif');
+    background-image: url('../lib/sticker/sticker_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1523,10 +1507,9 @@
 .send_item_sticker16 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_danger.gif');
+    background-image: url('../lib/sticker/sticker_heart_black.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1540,7 +1523,7 @@
 }
 
 .send_item_sticker_17 {
-    background-image: url('../lib/sticker/sticker_face_1.gif');
+    background-image: url('../lib/sticker/sticker_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1558,10 +1541,9 @@
 .send_item_sticker17 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_face_1.gif');
+    background-image: url('../lib/sticker/sticker_heart_purple.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1575,7 +1557,7 @@
 }
 
 .send_item_sticker_18 {
-    background-image: url('../lib/sticker/sticker_face_2.gif');
+    background-image: url('../lib/sticker/sticker_heart_red.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1593,10 +1575,9 @@
 .send_item_sticker18 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_face_2.gif');
+    background-image: url('../lib/sticker/sticker_heart_red.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1611,7 +1592,7 @@
 
 
 .send_item_sticker_19 {
-    background-image: url('../lib/sticker/sticker_face_3.gif');
+    background-image: url('../lib/sticker/sticker_white_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1629,10 +1610,9 @@
 .send_item_sticker19 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_face_3.gif');
+    background-image: url('../lib/sticker/sticker_white_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1646,7 +1626,7 @@
 }
 
 .send_item_sticker_20 {
-    background-image: url('../lib/sticker/sticker_face_4.gif');
+    background-image: url('../lib/sticker/sticker_black_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1664,10 +1644,9 @@
 .send_item_sticker20 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_face_4.gif');
+    background-image: url('../lib/sticker/sticker_black_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1681,7 +1660,7 @@
 }
 
 .send_item_sticker_21 {
-    background-image: url('../lib/sticker/sticker_gold_star.gif');
+    background-image: url('../lib/sticker/sticker_star_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1699,10 +1678,9 @@
 .send_item_sticker21 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_gold_star.gif');
+    background-image: url('../lib/sticker/sticker_star_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1716,7 +1694,7 @@
 }
 
 .send_item_sticker_22 {
-    background-image: url('../lib/sticker/sticker_heart_black.gif');
+    background-image: url('../lib/sticker/sticker_gold_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1734,10 +1712,9 @@
 .send_item_sticker22 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_heart_black.gif');
+    background-image: url('../lib/sticker/sticker_gold_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1751,7 +1728,7 @@
 }
 
 .send_item_sticker_23 {
-    background-image: url('../lib/sticker/sticker_heart_purple.gif');
+    background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1769,10 +1746,9 @@
 .send_item_sticker23 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_heart_purple.gif');
+    background-image: url('../lib/sticker/sticker-dog.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1786,7 +1762,7 @@
 }
 
 .send_item_sticker_24 {
-    background-image: url('../lib/sticker/sticker_heart_red.gif');
+    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1804,10 +1780,9 @@
 .send_item_sticker24 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_heart_red.gif');
+    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1821,7 +1796,7 @@
 }
 
 .send_item_sticker_25 {
-    background-image: url('../lib/sticker/sticker_kiss.gif');
+    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1839,10 +1814,9 @@
 .send_item_sticker25 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_kiss.gif');
+    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1856,7 +1830,7 @@
 }
 
 .send_item_sticker_26 {
-    background-image: url('../lib/sticker/sticker_lolipop.gif');
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1874,10 +1848,9 @@
 .send_item_sticker26 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_lolipop.gif');
+    background-image: url('../lib/sticker/sticker_bow\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1891,7 +1864,7 @@
 }
 
 .send_item_sticker_27 {
-    background-image: url('../lib/sticker/sticker_moon.gif');
+    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1909,10 +1882,9 @@
 .send_item_sticker27 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_moon.gif');
+    background-image: url('../lib/sticker/sticker_bow\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1926,7 +1898,7 @@
 }
 
 .send_item_sticker_28 {
-    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
+    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1944,10 +1916,9 @@
 .send_item_sticker28 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_mouse_lying.gif');
+    background-image: url('../lib/sticker/sticker_bow\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1961,7 +1932,7 @@
 }
 
 .send_item_sticker_29 {
-    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
+    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -1979,10 +1950,9 @@
 .send_item_sticker29 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_mouse_standing.gif');
+    background-image: url('../lib/sticker/sticker_bow\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -1996,7 +1966,7 @@
 }
 
 .send_item_sticker_30 {
-    background-image: url('../lib/sticker/sticker_pie.gif');
+    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2014,10 +1984,9 @@
 .send_item_sticker30 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_pie.gif');
+    background-image: url('../lib/sticker/sticker_bow\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2031,7 +2000,7 @@
 }
 
 .send_item_sticker_31 {
-    background-image: url('../lib/sticker/sticker_poo.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2049,10 +2018,9 @@
 .send_item_sticker31 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_poo.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2066,7 +2034,7 @@
 }
 
 .send_item_sticker_32 {
-    background-image: url('../lib/sticker/sticker_red_line.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2084,10 +2052,9 @@
 .send_item_sticker32 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_red_line.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2101,7 +2068,7 @@
 }
 
 .send_item_sticker_33 {
-    background-image: url('../lib/sticker/sticker_red_star.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2119,10 +2086,9 @@
 .send_item_sticker33 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_red_star.gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2136,7 +2102,7 @@
 }
 
 .send_item_sticker_34 {
-    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2154,10 +2120,9 @@
 .send_item_sticker34 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(black\).gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2171,7 +2136,7 @@
 }
 
 .send_item_sticker_35 {
-    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2189,10 +2154,9 @@
 .send_item_sticker35 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2206,7 +2170,7 @@
 }
 
 .send_item_sticker_36 {
-    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2224,10 +2188,9 @@
 .send_item_sticker36 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(red\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2241,7 +2204,7 @@
 }
 
 .send_item_sticker_37 {
-    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2259,10 +2222,9 @@
 .send_item_sticker37 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon1\(white\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2276,7 +2238,7 @@
 }
 
 .send_item_sticker_38 {
-    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2294,10 +2256,9 @@
 .send_item_sticker38 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(black\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2311,7 +2272,7 @@
 }
 
 .send_item_sticker_39 {
-    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2329,10 +2290,9 @@
 .send_item_sticker39 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(pink\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2346,7 +2306,7 @@
 }
 
 .send_item_sticker_40 {
-    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2364,10 +2324,9 @@
 .send_item_sticker40 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(purple\).gif');
+    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2381,7 +2340,7 @@
 }
 
 .send_item_sticker_41 {
-    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
+    background-image: url('../lib/sticker/sticker_face_4.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2399,10 +2358,9 @@
 .send_item_sticker41 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_ribon2\(white\).gif');
+    background-image: url('../lib/sticker/sticker_face_4.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2416,7 +2374,7 @@
 }
 
 .send_item_sticker_42 {
-    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
+    background-image: url('../lib/sticker/sticker_face_3.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2434,10 +2392,9 @@
 .send_item_sticker42 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_black.gif');
+    background-image: url('../lib/sticker/sticker_face_3.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2451,7 +2408,7 @@
 }
 
 .send_item_sticker_43 {
-    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
+    background-image: url('../lib/sticker/sticker_face_2.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2469,10 +2426,9 @@
 .send_item_sticker43 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_blue.gif');
+    background-image: url('../lib/sticker/sticker_face_2.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2486,7 +2442,7 @@
 }
 
 .send_item_sticker_44 {
-    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
+    background-image: url('../lib/sticker/sticker_face_1.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2504,10 +2460,9 @@
 .send_item_sticker44 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_gray.gif');
+    background-image: url('../lib/sticker/sticker_face_1.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2521,7 +2476,7 @@
 }
 
 .send_item_sticker_45 {
-    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
+    background-image: url('../lib/sticker/sticker_red_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2539,10 +2494,9 @@
 .send_item_sticker45 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_green.gif');
+    background-image: url('../lib/sticker/sticker_red_line.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2556,7 +2510,7 @@
 }
 
 .send_item_sticker_46 {
-    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
+    background-image: url('../lib/sticker/sticker_red_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2574,10 +2528,9 @@
 .send_item_sticker46 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_line.gif');
+    background-image: url('../lib/sticker/sticker_red_star.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2591,7 +2544,7 @@
 }
 
 .send_item_sticker_47 {
-    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
+    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2609,10 +2562,9 @@
 .send_item_sticker47 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_orange.gif');
+    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2626,7 +2578,7 @@
 }
 
 .send_item_sticker_48 {
-    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
+    background-image: url('../lib/sticker/sticker_kiss.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2644,10 +2596,9 @@
 .send_item_sticker48 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_purple.gif');
+    background-image: url('../lib/sticker/sticker_kiss.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2661,7 +2612,7 @@
 }
 
 .send_item_sticker_49 {
-    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
+    background-image: url('../lib/sticker/sticker_tears.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2679,10 +2630,9 @@
 .send_item_sticker49 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_simple_heart_yellow.gif');
+    background-image: url('../lib/sticker/sticker_tears.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2696,7 +2646,7 @@
 }
 
 .send_item_sticker_50 {
-    background-image: url('../lib/sticker/sticker_star_line.gif');
+    background-image: url('../lib/sticker/sticker_danger.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2714,10 +2664,9 @@
 .send_item_sticker50 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_star_line.gif');
+    background-image: url('../lib/sticker/sticker_danger.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2752,7 +2701,6 @@
     background-image: url('../lib/sticker/sticker_suprise.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2766,7 +2714,7 @@
 }
 
 .send_item_sticker_52 {
-    background-image: url('../lib/sticker/sticker_tears.gif');
+    background-image: url('../lib/sticker/sticker_boom.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2784,10 +2732,9 @@
 .send_item_sticker52 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_tears.gif');
+    background-image: url('../lib/sticker/sticker_boom.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2801,7 +2748,7 @@
 }
 
 .send_item_sticker_53 {
-    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
+    background-image: url('../lib/sticker/sticker_poo.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2819,10 +2766,9 @@
 .send_item_sticker53 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_teddy_bear.gif');
+    background-image: url('../lib/sticker/sticker_poo.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
@@ -2836,7 +2782,7 @@
 }
 
 .send_item_sticker_54 {
-    background-image: url('../lib/sticker/sticker_white_star.gif');
+    background-image: url('../lib/sticker/sticker_moon.gif');
     background-repeat: no-repeat;
     background-size: contain;
     width: 3.5rem;
@@ -2854,10 +2800,9 @@
 .send_item_sticker54 {
     width: 3.5rem;
     height: 3.5rem;
-    background-image: url('../lib/sticker/sticker_white_star.gif');
+    background-image: url('../lib/sticker/sticker_moon.gif');
     background-repeat: no-repeat;
     background-size: contain;
-    /* border-radius: 50%; */
     touch-action: none;
     user-select: none;
     z-index: 1;
