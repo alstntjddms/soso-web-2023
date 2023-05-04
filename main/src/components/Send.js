@@ -216,16 +216,6 @@ function Send() {
         const [preAuthor, setPreAuthor] = useState(author);
         const [preIsStamp, setPreIsStamp] = useState(isStamp);
         const [stampNum, setStampNum] = useState(stamp);
-        const settings = {
-            draggable: true,
-            swipe: true,
-            arrows: false,
-            dots: false,
-            infinite: false,
-            speed: 1250,
-            slidesToShow: 5,
-            slidesToScroll: 3
-        };
 
         // 작성자 변경 기능
         function changeAuthor(props) {
@@ -389,80 +379,54 @@ function Send() {
                         <div className='pre_letter_author_outContainer'>
                             <p className='pre_letter_autho_title'>우표</p>
                             <div className='pre_letter_stamp_outContainer'>
-                                <Slider {...settings}>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_1');
-                                            setStampNum(0);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_2' className={preIsStamp.b ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_2');
-                                            setStampNum(1);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_3' className={preIsStamp.c ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_3');
-                                            setStampNum(2);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_4' className={preIsStamp.d ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_4');
-                                            setStampNum(3);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_5' className={preIsStamp.e ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_5');
-                                            setStampNum(4);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_6' className={preIsStamp.f ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_6');
-                                            setStampNum(5);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_7' className={preIsStamp.g ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_7');
-                                            setStampNum(6);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_8' className={preIsStamp.h ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_8');
-                                            setStampNum(7);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_9' className={preIsStamp.i ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_9');
-                                            setStampNum(8);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_10' className={preIsStamp.j ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_10');
-                                            setStampNum(9);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_11' className={preIsStamp.k ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_11');
-                                            setStampNum(10);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_12' className={preIsStamp.l ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_12');
-                                            setStampNum(11);
-                                        }}></div>
-                                    </div>
-                                </Slider>
+                                <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_1');
+                                    setStampNum(0);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_2' className={preIsStamp.b ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_2');
+                                    setStampNum(1);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_3' className={preIsStamp.c ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_3');
+                                    setStampNum(2);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_4' className={preIsStamp.d ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_4');
+                                    setStampNum(3);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_5' className={preIsStamp.e ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_5');
+                                    setStampNum(4);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_6' className={preIsStamp.f ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_6');
+                                    setStampNum(5);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_7' className={preIsStamp.g ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_7');
+                                    setStampNum(6);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_8' className={preIsStamp.h ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_8');
+                                    setStampNum(7);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_9' className={preIsStamp.i ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_9');
+                                    setStampNum(8);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_10' className={preIsStamp.j ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_10');
+                                    setStampNum(9);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_11' className={preIsStamp.k ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_11');
+                                    setStampNum(10);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_12' className={preIsStamp.l ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_12');
+                                    setStampNum(11);
+                                }}></div>
                             </div>
                         </div>
                     </div>
