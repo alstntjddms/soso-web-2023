@@ -306,7 +306,7 @@ a>p {
 
 .menu_bar_mypage_box2_notice_active {
     position: relative;
-    background-color: #ffffff;
+    background-color: #4A4Aff;
     width: 4rem;
     height: 1.5rem;
 }
@@ -320,7 +320,7 @@ a>p {
 
 .menu_bar_mypage_box2_notice_inner_active {
     position: relative;
-    background-color: #4A4Aff;
+    background-color: #ffffff;
     width: 2.0rem;
     height: 1.5rem;
     margin-left: 2rem;

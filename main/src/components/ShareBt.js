@@ -32,7 +32,7 @@ function ShareBt() {
             objectType: 'feed',
             content: {
                 title: 'PL@TER',
-                description: 'PL@TER-기다려지는 소식',
+                description: '기다려지는 소식',
                 imageUrl: image_share,
                 link: {
                     mobileWebUrl: shareBasicURL,

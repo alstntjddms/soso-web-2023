@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Adsense } from '@ctrl/react-adsense';
 // import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import './Send.css'
 
 function Send() {
@@ -118,7 +118,7 @@ function Send() {
     // 스티커 옵션 생성 기능
     useEffect(() => {
         let stickerBox = document.querySelector('#stickerBox').innerHTML;
-        const origin = 55;
+        const origin = 65;
         let newstickerNUM = [...stickerNUM];
         if (stickerBox === '') {
             for (let i = 0; i < origin; i++) {
@@ -377,7 +377,7 @@ function Send() {
                             </div>
                         </div>
                         <div className='pre_letter_author_outContainer'>
-                            <p className='pre_letter_autho_title'>우표</p>
+                            <p className='pre_letter_autho_title' style={{ marginTop: '1.0rem' }}>우표</p>
                             <div className='pre_letter_stamp_outContainer'>
                                 <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
                                     selectStamp('stamp_1');

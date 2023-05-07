@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './ModalStory.css';
 
-// 쿠키 설정 기능 수정 필요(현재 1일로 설정)
-
 function ModalStory() {
     const dispatch = useDispatch();
     const isStory = useSelector((state) => state.isStory);
@@ -30,7 +28,7 @@ function ModalStory() {
         let checkCookie = document.querySelector('.modalStory_cookie_input');
         if (checkCookie.checked === true) {
             const expires = new Date();
-            expires.setDate(expires.getDate() + 1);
+            expires.setDate(expires.getDate() + 10);
             const expiresDate = expires.toUTCString();
             let setCookie = '';
             setCookie += 'pl@ter=190301;';
@@ -93,7 +91,7 @@ function ModalStory() {
                                 </div>
                             </div>
                         </Slider>
-                        <div className='modalStory_cookie'><input className='modalStory_cookie_input' type='checkbox' onChange={setCookie}></input> 다시 보지 않기(1일 동안)</div>
+                        <div className='modalStory_cookie'><input className='modalStory_cookie_input' type='checkbox' onChange={setCookie}></input> 다시 보지 않기(10일 동안)</div>
                     </div>
                 </div>
             </div>
