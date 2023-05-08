@@ -5,8 +5,6 @@ function App() {
 
   return (
     <React.Fragment>
-      <div>
-      </div>
     </React.Fragment>
   );
 }

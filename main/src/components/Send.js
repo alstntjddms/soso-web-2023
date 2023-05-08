@@ -477,7 +477,13 @@ function Send() {
                 })
                 .then((data) => {
                     let now = new Date().getTime();
-                    let distance = Number(data.userOpenDate) - now;
+                    // 개설 시간을 10분 후로 설정
+                    let origin = new Date(data.userOpenDate);
+                    origin.setDate(origin.getDate() - 10);
+                    origin.setMinutes(origin.getMinutes() + 10);
+                    let distance = Number(origin) - now;
+                    // 
+                    // let distance = Number(data.userOpenDate) - now;
                     if (distance >= 0) {
                         fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${shareUserID}`, {
                             method: 'GET',
@@ -609,6 +615,7 @@ function Send() {
             ins.setAttribute('data-ad-width', '320');
             ins.setAttribute('data-ad-height', '100');
             ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            // ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
             document.querySelector('.adfit').appendChild(ins);
             document.querySelector('.adfit').appendChild(scr);
         }, [])
@@ -671,8 +678,14 @@ function Send() {
                 return res.json();
             })
             .then((userData) => {
+                // 개설 시간을 10분 후로 설정
+                let origin = new Date(userData.userOpenDate);
+                origin.setDate(origin.getDate() - 10);
+                origin.setMinutes(origin.getMinutes() + 10);
+                setOpenUserOpenDate(Number(origin));
+                // 
                 setUserNickName(String(userData.userNickName));
-                setOpenUserOpenDate(Number(userData.userOpenDate));
+                // setOpenUserOpenDate(Number(userData.userOpenDate));
                 fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${props}`, {
                     method: 'GET',
                     mode: 'cors',

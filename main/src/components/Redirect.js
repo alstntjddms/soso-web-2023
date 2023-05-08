@@ -121,8 +121,14 @@ function Redirect() {
                 return res.json();
             })
             .then((data) => {
+                // 개설 시간을 10분 후로 설정
+                let origin = new Date(data.userOpenDate);
+                origin.setDate(origin.getDate() - 10);
+                origin.setMinutes(origin.getMinutes() + 10);
+                dispatch({ type: 'CHANGE_OPENDATE', data: Number(origin) });
+                // 
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(data.userNickName) });
-                dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });
+                // dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });                
                 RequestLetterArray(userId);
             })
             .catch((error) => {

@@ -190,10 +190,17 @@ function InnerPage() {
                     if (!res.ok) {
                         throw new Error();
                     };
+                    // 개설 시간을 10분 후로 설정
                     const now = new Date();
-                    now.setDate(now.getDate() + 10);
+                    now.setMinutes(now.getMinutes() + 10);
                     const finalDate = Number(now.getTime());
                     dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+                    // 
+                    // const now = new Date();
+                    // now.setDate(now.getDate() + 10);
+                    // const finalDate = Number(now.getTime());
+                    // dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
+                    // 
                     // 사용자 별명 정보 전달 기능
                     fetch(`${process.env.REACT_APP_REGISTER_NICKNAME}${userID}/`, {
                         method: 'PATCH',
@@ -792,6 +799,7 @@ function InnerPage() {
                 ins.setAttribute('data-ad-width', '320');
                 ins.setAttribute('data-ad-height', '100');
                 ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+                // ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
                 document.querySelector('.adfit').appendChild(ins);
                 document.querySelector('.adfit').appendChild(scr);
             }, [])
