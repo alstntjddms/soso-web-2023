@@ -60,13 +60,21 @@ function App() {
       </section>
       <FirstInfo></FirstInfo>
       <Routes>
+        <Route path="/web" element={<Main />}></Route>
+        <Route path="/web/*" element={<Main />}></Route>
+        <Route path="/web/login" element={<Login />}></Route>
+        <Route path="/web/redirect" element={<Redirect />}></Route>
+        <Route path="/web/redirect2" element={<Redirect2 />}></Route>
+        <Route path="/web/send" element={<Send />}></Route>
+      </Routes>
+      {/* <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/*" element={<Main />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/redirect" element={<Redirect />}></Route>
         <Route path="/redirect2" element={<Redirect2 />}></Route>
         <Route path="/send" element={<Send />}></Route>
-      </Routes>
+      </Routes> */}
     </React.Fragment>
   );
 }

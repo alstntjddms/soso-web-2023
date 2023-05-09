@@ -503,7 +503,8 @@ function Send() {
                             .then((data) => {
                                 if (Number(data) >= 36) {
                                     alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                                    window.location.replace('/main');
+                                    window.location.replace('/web/main');
+                                    // window.location.replace('/main');
                                 } else {
                                     sendLetterFunc(letterData);
                                 };
@@ -515,7 +516,8 @@ function Send() {
                             })
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                        window.location.replace('/main');
+                        window.location.replace('/web/main');
+                        // window.location.replace('/main');
                     };
                 })
                 .catch((error) => {
@@ -614,8 +616,8 @@ function Send() {
             scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
             ins.setAttribute('data-ad-width', '320');
             ins.setAttribute('data-ad-height', '100');
-            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
-            // ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
+            // ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
             document.querySelector('.adfit').appendChild(ins);
             document.querySelector('.adfit').appendChild(scr);
         }, [])
@@ -632,7 +634,8 @@ function Send() {
                         <div className='sending_end_img'></div>
                         <p className='sending_end_p'>발송을 완료했어요!</p>
                         <div className='sending_end_div' onClick={() => {
-                            window.location.replace('/main');
+                            window.location.replace('/web/main');
+                            // window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
                         <br></br>
                         <div className="adfit"></div>
@@ -706,12 +709,14 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        window.location.replace('/main');
+                        window.location.replace('/web/main');
+                        // window.location.replace('/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                window.location.replace('/main');
+                window.location.replace('/web/main');
+                // window.location.replace('/main');
             });
     };
 
@@ -723,11 +728,13 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    window.location.replace('/main');
+                    window.location.replace('/web/main');
+                    // window.location.replace('/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                window.location.replace('/main');
+                window.location.replace('/web/main');
+                // window.location.replace('/main');
             };
         };
     };
@@ -745,7 +752,8 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/main');
+            window.location.replace('/web/main');
+            // window.location.replace('/main');
         };
     }, []);
 

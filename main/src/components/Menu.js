@@ -521,7 +521,8 @@ function Menu() {
                         return res.json();
                     })
                     .then((data) => {
-                        window.location.replace("/");
+                        window.location.replace("/web");
+                        // window.location.replace("/");
                     })
                     .catch((error) => {
                         alert('서버가 불안정 하여 회원 탈퇴에 실패했습니다. 다시 시도해주세요.');

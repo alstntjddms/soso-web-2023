@@ -37,7 +37,8 @@ function Main() {
       .catch((error) => {
       });
     if (userID === null) {
-      navigater('/login');
+      navigater('/web/login');
+      // navigater('/login');
     };
   }, [dispatch]);
 

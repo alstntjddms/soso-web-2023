@@ -48,7 +48,8 @@ function Login() {
             .catch((error) => {
             });
         if (userID !== null) {
-            navigater('/main');
+            navigater('/web/main');
+            // navigater('/main');
         };
     }, [navigater, userID]);
 

@@ -798,8 +798,8 @@ function InnerPage() {
                 scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
                 ins.setAttribute('data-ad-width', '320');
                 ins.setAttribute('data-ad-height', '100');
-                ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
-                // ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
+                // ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+                ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
                 document.querySelector('.adfit').appendChild(ins);
                 document.querySelector('.adfit').appendChild(scr);
             }, [])
