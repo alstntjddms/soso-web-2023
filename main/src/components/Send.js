@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Adsense } from '@ctrl/react-adsense';
 // import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import './Send.css'
 
 function Send() {
@@ -118,7 +118,7 @@ function Send() {
     // 스티커 옵션 생성 기능
     useEffect(() => {
         let stickerBox = document.querySelector('#stickerBox').innerHTML;
-        const origin = 55;
+        const origin = 65;
         let newstickerNUM = [...stickerNUM];
         if (stickerBox === '') {
             for (let i = 0; i < origin; i++) {
@@ -216,16 +216,6 @@ function Send() {
         const [preAuthor, setPreAuthor] = useState(author);
         const [preIsStamp, setPreIsStamp] = useState(isStamp);
         const [stampNum, setStampNum] = useState(stamp);
-        const settings = {
-            draggable: true,
-            swipe: true,
-            arrows: false,
-            dots: false,
-            infinite: false,
-            speed: 1250,
-            slidesToShow: 5,
-            slidesToScroll: 3
-        };
 
         // 작성자 변경 기능
         function changeAuthor(props) {
@@ -387,82 +377,56 @@ function Send() {
                             </div>
                         </div>
                         <div className='pre_letter_author_outContainer'>
-                            <p className='pre_letter_autho_title'>우표</p>
+                            <p className='pre_letter_autho_title' style={{ marginTop: '1.0rem' }}>우표</p>
                             <div className='pre_letter_stamp_outContainer'>
-                                <Slider {...settings}>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_1');
-                                            setStampNum(0);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_2' className={preIsStamp.b ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_2');
-                                            setStampNum(1);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_3' className={preIsStamp.c ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_3');
-                                            setStampNum(2);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_4' className={preIsStamp.d ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_4');
-                                            setStampNum(3);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_5' className={preIsStamp.e ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_5');
-                                            setStampNum(4);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_6' className={preIsStamp.f ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_6');
-                                            setStampNum(5);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_7' className={preIsStamp.g ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_7');
-                                            setStampNum(6);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_8' className={preIsStamp.h ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_8');
-                                            setStampNum(7);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_9' className={preIsStamp.i ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_9');
-                                            setStampNum(8);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_10' className={preIsStamp.j ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_10');
-                                            setStampNum(9);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_11' className={preIsStamp.k ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_11');
-                                            setStampNum(10);
-                                        }}></div>
-                                    </div>
-                                    <div>
-                                        <div id='pre_letter_stamp_img_12' className={preIsStamp.l ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
-                                            selectStamp('stamp_12');
-                                            setStampNum(11);
-                                        }}></div>
-                                    </div>
-                                </Slider>
+                                <div id='pre_letter_stamp_img_1' className={preIsStamp.a ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_1');
+                                    setStampNum(0);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_2' className={preIsStamp.b ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_2');
+                                    setStampNum(1);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_3' className={preIsStamp.c ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_3');
+                                    setStampNum(2);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_4' className={preIsStamp.d ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_4');
+                                    setStampNum(3);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_5' className={preIsStamp.e ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_5');
+                                    setStampNum(4);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_6' className={preIsStamp.f ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_6');
+                                    setStampNum(5);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_7' className={preIsStamp.g ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_7');
+                                    setStampNum(6);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_8' className={preIsStamp.h ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_8');
+                                    setStampNum(7);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_9' className={preIsStamp.i ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_9');
+                                    setStampNum(8);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_10' className={preIsStamp.j ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_10');
+                                    setStampNum(9);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_11' className={preIsStamp.k ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_11');
+                                    setStampNum(10);
+                                }}></div>
+                                <div id='pre_letter_stamp_img_12' className={preIsStamp.l ? 'pre_letter_stamp_innerContainer_active' : 'pre_letter_stamp_innerContainer'} onClick={() => {
+                                    selectStamp('stamp_12');
+                                    setStampNum(11);
+                                }}></div>
                             </div>
                         </div>
                     </div>
@@ -513,7 +477,13 @@ function Send() {
                 })
                 .then((data) => {
                     let now = new Date().getTime();
-                    let distance = Number(data.userOpenDate) - now;
+                    // 개설 시간을 10분 후로 설정
+                    let origin = new Date(data.userOpenDate);
+                    origin.setDate(origin.getDate() - 10);
+                    origin.setMinutes(origin.getMinutes() + 10);
+                    let distance = Number(origin) - now;
+                    // 
+                    // let distance = Number(data.userOpenDate) - now;
                     if (distance >= 0) {
                         fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${shareUserID}`, {
                             method: 'GET',
@@ -533,7 +503,8 @@ function Send() {
                             .then((data) => {
                                 if (Number(data) >= 36) {
                                     alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                                    window.location.replace('/main');
+                                    window.location.replace('/web/main');
+                                    // window.location.replace('/main');
                                 } else {
                                     sendLetterFunc(letterData);
                                 };
@@ -545,7 +516,8 @@ function Send() {
                             })
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                        window.location.replace('/main');
+                        window.location.replace('/web/main');
+                        // window.location.replace('/main');
                     };
                 })
                 .catch((error) => {
@@ -644,7 +616,8 @@ function Send() {
             scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
             ins.setAttribute('data-ad-width', '320');
             ins.setAttribute('data-ad-height', '100');
-            ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            // ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
+            ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
             document.querySelector('.adfit').appendChild(ins);
             document.querySelector('.adfit').appendChild(scr);
         }, [])
@@ -661,7 +634,8 @@ function Send() {
                         <div className='sending_end_img'></div>
                         <p className='sending_end_p'>발송을 완료했어요!</p>
                         <div className='sending_end_div' onClick={() => {
-                            window.location.replace('/main');
+                            window.location.replace('/web/main');
+                            // window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
                         <br></br>
                         <div className="adfit"></div>
@@ -707,8 +681,14 @@ function Send() {
                 return res.json();
             })
             .then((userData) => {
+                // 개설 시간을 10분 후로 설정
+                let origin = new Date(userData.userOpenDate);
+                origin.setDate(origin.getDate() - 10);
+                origin.setMinutes(origin.getMinutes() + 10);
+                setOpenUserOpenDate(Number(origin));
+                // 
                 setUserNickName(String(userData.userNickName));
-                setOpenUserOpenDate(Number(userData.userOpenDate));
+                // setOpenUserOpenDate(Number(userData.userOpenDate));
                 fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${props}`, {
                     method: 'GET',
                     mode: 'cors',
@@ -729,12 +709,14 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        window.location.replace('/main');
+                        window.location.replace('/web/main');
+                        // window.location.replace('/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                window.location.replace('/main');
+                window.location.replace('/web/main');
+                // window.location.replace('/main');
             });
     };
 
@@ -746,11 +728,13 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    window.location.replace('/main');
+                    window.location.replace('/web/main');
+                    // window.location.replace('/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                window.location.replace('/main');
+                window.location.replace('/web/main');
+                // window.location.replace('/main');
             };
         };
     };
@@ -768,7 +752,8 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/main');
+            window.location.replace('/web/main');
+            // window.location.replace('/main');
         };
     }, []);
 

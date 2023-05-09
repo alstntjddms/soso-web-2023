@@ -64,7 +64,8 @@ function Redirect() {
             .catch((error) => {
                 alert('정상적으로 사용자 동의 항목 정보를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
-                navigater('/login');
+                navigater('/web/login');
+                // navigater('/login');
             });
     };
 
@@ -99,7 +100,8 @@ function Redirect() {
             .catch((error) => {
                 alert('정상적으로 사용자 편지 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
-                navigater('/login');
+                navigater('/web/login');
+                // navigater('/login');
             });
     };
 
@@ -121,14 +123,21 @@ function Redirect() {
                 return res.json();
             })
             .then((data) => {
+                // 개설 시간을 10분 후로 설정
+                let origin = new Date(data.userOpenDate);
+                origin.setDate(origin.getDate() - 10);
+                origin.setMinutes(origin.getMinutes() + 10);
+                dispatch({ type: 'CHANGE_OPENDATE', data: Number(origin) });
+                // 
                 dispatch({ type: 'CHANGE_USERNICKNAME', data: String(data.userNickName) });
-                dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });
+                // dispatch({ type: 'CHANGE_OPENDATE', data: Number(data.userOpenDate) });                
                 RequestLetterArray(userId);
             })
             .catch((error) => {
                 alert('정상적으로 사용자 데이터를 응답 받지 못했습니다. 다시 로그인 해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
-                navigater('/login');
+                navigater('/web/login');
+                // navigater('/login');
             });
     };
 
@@ -138,7 +147,8 @@ function Redirect() {
             if (nameErro === 'User denied access') {
                 alert('로그인에 실패하였습니다.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
-                navigater('/login');
+                navigater('/web/login');
+                // navigater('/login');
             };
             const code = { code: name };
             const queryStringBody = Object.keys(code)
@@ -179,22 +189,25 @@ function Redirect() {
                         })
                         .then((data) => {
                             // 
-                            console.log(data);
+                            // console.log(data);
                             // 
                             dispatch({ type: 'CHANGE_USERID', data: data });
                             RequestUserData(data);
-                            navigater('/main');
+                            navigater('/web/main');
+                            // navigater('/main');
                         })
                         .catch((error) => {
                             alert('서버가 불안정 하여 사용자 아이디를 받아오지 못했습니다.');
                             dispatch({ type: 'CHANGE_USERID', data: null });
-                            navigater('/login');
+                            navigater('/web/login');
+                            // navigater('/login');
                         });
                 })
                 .catch((error) => {
                     alert('서버가 불안정 하여 로그인에 실패했습니다.');
                     dispatch({ type: 'CHANGE_USERID', data: null });
-                    navigater('/login');
+                    navigater('/web/login');
+                    // navigater('/login');
                 });
         }, 500);
     }, []);

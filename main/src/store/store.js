@@ -53,7 +53,7 @@ function reducer(state, action) {
             isLetterPaper: false,
             isSticker: false,
             isPreLetterBox: false,
-            author: '지구인',
+            author: '익명',
             stamp: 0,
             isStamp: {
                 a: true,

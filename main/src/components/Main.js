@@ -37,7 +37,8 @@ function Main() {
       .catch((error) => {
       });
     if (userID === null) {
-      navigater('/login');
+      navigater('/web/login');
+      // navigater('/login');
     };
   }, [dispatch]);
 
@@ -71,9 +72,6 @@ function Main() {
       }}><img style={{ width: "10%", position: "absolute", top: "50%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/9072/9072392.png'></img></NavLink>
       <img onClick={settingTime} style={{ width: "10%", position: "absolute", top: "60%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
       <img onClick={delCookie} style={{ width: "10%", position: "absolute", top: "80%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/1330/1330387.png'></img>
-      <NavLink end to="/login" onClick={() => {
-        dispatch({ type: 'CHANGE_USERID', data: null });
-      }}><img style={{ width: "10%", position: "absolute", top: "70%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/295/295128.png'></img></NavLink>
     </div>
   );
 };
