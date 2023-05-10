@@ -9,6 +9,7 @@ import Redirect2 from './components/Redirect2';
 import Send from './components/Send';
 
 // set PORT=33381 && => package.json Script for Start
+// homepage = https://plater.kr/web
 
 function App() {
   const navigater = useNavigate();
