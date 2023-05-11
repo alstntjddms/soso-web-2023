@@ -158,7 +158,8 @@ function Send() {
                         <p className='isSendPopUp_p'>{userNickName}님의 행성입니다.</p>
                         <div className='isSendPopUp_innerBox'>
                             <div className='isSendPopUp_button_signOut' onClick={() => {
-                                window.location.replace('/main');
+                                window.location.replace('/web/main');
+                                // window.location.replace('/main');
                             }}>행성 개설하기</div>
                             <div className='isSendPopUp_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUP', data: !isSendPopUp });
@@ -182,7 +183,8 @@ function Send() {
                         <p className='isSendPopUpCancel_p'>내용은 모두 삭제됩니다.</p>
                         <div className='isSendPopUpCancel_innerBox'>
                             <div className='isSendPopUpCancel_button_signOut' onClick={() => {
-                                window.location.replace('/main');
+                                window.location.replace('/web/main');
+                                // window.location.replace('/main');
                             }}>작성 취소</div>
                             <div className='isSendPopUpCancel_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });

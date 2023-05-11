@@ -68,7 +68,7 @@ function Main() {
       <ModalStory></ModalStory>
       <Menu></Menu>
       <InnerPage></InnerPage>
-      <NavLink end to={"/send?userID=" + ShareUserID} onClick={() => {
+      <NavLink end to={"/web/send?userID=" + ShareUserID} onClick={() => {
       }}><img style={{ width: "10%", position: "absolute", top: "50%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/9072/9072392.png'></img></NavLink>
       <img onClick={settingTime} style={{ width: "10%", position: "absolute", top: "60%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
       <img onClick={delCookie} style={{ width: "10%", position: "absolute", top: "80%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/1330/1330387.png'></img>
