@@ -770,7 +770,7 @@ function InnerPage() {
         }, []);
 
 
-        // (팝업) 편지지(수정 중)
+        // (팝업) 편지지
         function Letter() {
             // 카카오 애드 관련 기능
             useEffect(() => {
@@ -802,9 +802,6 @@ function InnerPage() {
                                 <div className='letter_close' onClick={() => {
                                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                     dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
-                                    // 
-                                    setRender(-1);
-                                    // 
                                     resetLetterStyle();
                                 }}></div>
                             </div>
