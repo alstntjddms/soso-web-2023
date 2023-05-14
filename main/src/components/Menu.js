@@ -522,7 +522,6 @@ function Menu() {
                     })
                     .then((data) => {
                         window.location.replace("/web");
-                        // window.location.replace("/");
                     })
                     .catch((error) => {
                         alert('서버가 불안정 하여 회원 탈퇴에 실패했습니다. 다시 시도해주세요.');
@@ -610,6 +609,7 @@ function Menu() {
                         <span className='menu_bar_icon_4'></span>
                         <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}>
                             <p>Contact Us</p></a>
+                        <div className='menu_bar_feedback'>의견 보내기</div>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <YesAgreement></YesAgreement>

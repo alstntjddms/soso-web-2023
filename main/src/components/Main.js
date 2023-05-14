@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Main.css';
 import ModalStory from './ModalStory';
 import Menu from './Menu';
@@ -12,9 +12,6 @@ function Main() {
   const dispatch = useDispatch();
   const isStory = useSelector((state) => state.isStory);
   const userID = useSelector((state) => state.userID);
-  // 
-  const ShareUserID = useSelector((state) => state.ShareUserID);
-  // 
   // (랜더링 직후) 사용자 쿠키 확인 기능 + 서버로 log 정보 보내는 기능
   useEffect(() => {
     const cookieData = document.cookie.split(';');
@@ -38,21 +35,8 @@ function Main() {
       });
     if (userID === null) {
       navigater('/web/login');
-      // navigater('/login');
     };
   }, [dispatch]);
-
-  // 쿠키 삭제 기능
-  function delCookie() {
-    alert('사용자의 쿠키 중 pl@ter를 삭제했습니다.');
-    const expires = new Date();
-    expires.setDate(expires.getDate() - 1);
-    const expiresDate = expires.toUTCString();
-    let setCookie = '';
-    setCookie += 'pl@ter=190301;';
-    setCookie += 'Expires=' + expiresDate;
-    document.cookie = setCookie;
-  };
 
   // 편지 읽을 수 있도록 시간 조정 기능
   function settingTime() {
@@ -68,10 +52,7 @@ function Main() {
       <ModalStory></ModalStory>
       <Menu></Menu>
       <InnerPage></InnerPage>
-      <NavLink end to={"/web/send?userID=" + ShareUserID} onClick={() => {
-      }}><img style={{ width: "10%", position: "absolute", top: "50%", left: "85%" }} alt='login' src='https://cdn-icons-png.flaticon.com/512/9072/9072392.png'></img></NavLink>
-      <img onClick={settingTime} style={{ width: "10%", position: "absolute", top: "60%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
-      <img onClick={delCookie} style={{ width: "10%", position: "absolute", top: "80%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/1330/1330387.png'></img>
+      <img onClick={settingTime} style={{ width: "10%", position: "absolute", bottom: "30%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
     </div>
   );
 };

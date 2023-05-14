@@ -40,7 +40,6 @@ function Refresh() {
                 alert('정상적으로 사용자 편지 정보를 받아오지 못했습니다. 다시 시도해주세요.');
                 dispatch({ type: 'CHANGE_USERID', data: null });
                 navigater('/web/login');
-                // navigater('/login');
             });
     };
 

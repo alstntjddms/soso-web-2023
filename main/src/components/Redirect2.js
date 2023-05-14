@@ -25,7 +25,6 @@ function Redirect2() {
         setTimeout(() => {
             dispatch({ type: 'CHANGE_USERID', data: null });
             navigater('/web/main');
-            // navigater('/main');
         }, 2500);
     }, [navigater, dispatch]);
 

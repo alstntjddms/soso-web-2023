@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import { Adsense } from '@ctrl/react-adsense';
-// import Typewriter from 'typewriter-effect/dist/core';
 import './InnerPage.css';
 import ShareBt from './ShareBt';
 import Restart from './Restart';
@@ -190,17 +189,10 @@ function InnerPage() {
                     if (!res.ok) {
                         throw new Error();
                     };
-                    // 개설 시간을 10분 후로 설정
                     const now = new Date();
-                    now.setMinutes(now.getMinutes() + 10);
+                    now.setDate(now.getDate() + 10);
                     const finalDate = Number(now.getTime());
                     dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-                    // 
-                    // const now = new Date();
-                    // now.setDate(now.getDate() + 10);
-                    // const finalDate = Number(now.getTime());
-                    // dispatch({ type: 'CHANGE_OPENDATE', data: finalDate });
-                    // 
                     // 사용자 별명 정보 전달 기능
                     fetch(`${process.env.REACT_APP_REGISTER_NICKNAME}${userID}/`, {
                         method: 'PATCH',
@@ -563,12 +555,6 @@ function InnerPage() {
                         };
                     };
                 }, 250);
-                // let copyText = letterData[i].letterContent;
-                // let content = document.querySelector('.textbox');
-                // new Typewriter(content, {
-                //     strings: copyText,
-                //     autoStart: true
-                // });
             } else {
                 let copyText = newLetterData[i].letterContent;
                 let enterText = document.querySelector('.textbox');
@@ -601,13 +587,14 @@ function InnerPage() {
             enterAuthor(i, newLetterData);
         };
 
-        // 편지 열기 기능
+        // 편지 열기 기능(수정 중)
         async function openLetter(i) {
             setRender(i);
             dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
             let distance = userData.openDate - now;
-            if (distance <= 0) {
+            if (distance < 0) {
+                // if (distance <= 0) {
                 dispatch({ type: 'CHANGE_ISLETTER', data: true });
                 setSlickPageNum(i);
                 await RequestThisLetterData(i);
@@ -644,7 +631,6 @@ function InnerPage() {
                         alert('편지 내용을 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                         dispatch({ type: 'CHANGE_ISLETTER', data: false });
                     });
-                // await stickerSum(i, newEachLetter);
             };
             checkLoad(i, letterData);
         };
@@ -678,7 +664,6 @@ function InnerPage() {
                     alert('편지 내 스티커 정보를 정상적으로 받아오지 못했습니다. 다시 편지를 열어주세요.');
                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                 });
-            // await checkLoad(i, newLetterData, originalCheckTyping);
         };
 
         // 편지지 로드 확인 기능
@@ -687,7 +672,6 @@ function InnerPage() {
             let image = new Image();
             image.addEventListener('load', async function () {
                 dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: false });
-                // dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
                 let checkTyping = originalCheckTyping;
                 await changeLetterStyle(i, newLetterData);
                 setTimeout(() => {
@@ -785,7 +769,8 @@ function InnerPage() {
             };
         }, []);
 
-        // (팝업) 편지지
+
+        // (팝업) 편지지(수정 중)
         function Letter() {
             // 카카오 애드 관련 기능
             useEffect(() => {
@@ -798,7 +783,6 @@ function InnerPage() {
                 scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
                 ins.setAttribute('data-ad-width', '320');
                 ins.setAttribute('data-ad-height', '100');
-                // ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
                 ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
                 document.querySelector('.adfit').appendChild(ins);
                 document.querySelector('.adfit').appendChild(scr);
@@ -818,13 +802,14 @@ function InnerPage() {
                                 <div className='letter_close' onClick={() => {
                                     dispatch({ type: 'CHANGE_ISLETTER', data: false });
                                     dispatch({ type: 'CHANGE_ISIMAGEPRELOAD', data: !isImagePreload });
+                                    // 
+                                    setRender(-1);
+                                    // 
                                     resetLetterStyle();
                                 }}></div>
                             </div>
                         </div>
                         <div className="letter_textarea">
-                            {/* <div style={setStyle} className="textbox" value={''} readOnly>
-                            </div> */}
                             <textarea style={setStyle} className="textbox" value={''} readOnly>
                             </textarea>
                             <span className={isImagePreload ? 'preloading' : 'preloading_fade'}>편지를 불러오고 있습니다...</span>
