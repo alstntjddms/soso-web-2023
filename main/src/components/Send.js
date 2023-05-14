@@ -1,8 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Adsense } from '@ctrl/react-adsense';
-// import { useNavigate } from "react-router-dom";
-// import Slider from "react-slick";
 import './Send.css'
 
 function Send() {
@@ -159,7 +157,6 @@ function Send() {
                         <div className='isSendPopUp_innerBox'>
                             <div className='isSendPopUp_button_signOut' onClick={() => {
                                 window.location.replace('/web/main');
-                                // window.location.replace('/main');
                             }}>행성 개설하기</div>
                             <div className='isSendPopUp_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUP', data: !isSendPopUp });
@@ -184,7 +181,6 @@ function Send() {
                         <div className='isSendPopUpCancel_innerBox'>
                             <div className='isSendPopUpCancel_button_signOut' onClick={() => {
                                 window.location.replace('/web/main');
-                                // window.location.replace('/main');
                             }}>작성 취소</div>
                             <div className='isSendPopUpCancel_button_cancel' onClick={() => {
                                 dispatch({ type: 'CHANGE_ISSENDPOPUPCANCEL', data: !isSendPopUpCancel });
@@ -458,7 +454,7 @@ function Send() {
         enterText.value = copyText;
     };
 
-    // 편지 보내는 중 Component
+    // 편지 보내는 중 Component(수정 중)
     function SendingPage() {
         // 최종 사용자 정보 확인 기능(open, count)
         async function finalCheck(letterData) {
@@ -479,14 +475,9 @@ function Send() {
                 })
                 .then((data) => {
                     let now = new Date().getTime();
-                    // 개설 시간을 10분 후로 설정
-                    let origin = new Date(data.userOpenDate);
-                    origin.setDate(origin.getDate() - 10);
-                    origin.setMinutes(origin.getMinutes() + 10);
-                    let distance = Number(origin) - now;
-                    // 
-                    // let distance = Number(data.userOpenDate) - now;
-                    if (distance >= 0) {
+                    let distance = Number(data.userOpenDate) - now;
+                    if (distance > 0) {
+                        // if (distance >= 0) {
                         fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${shareUserID}`, {
                             method: 'GET',
                             mode: 'cors',
@@ -506,7 +497,6 @@ function Send() {
                                 if (Number(data) >= 36) {
                                     alert('방금 전에 행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
                                     window.location.replace('/web/main');
-                                    // window.location.replace('/main');
                                 } else {
                                     sendLetterFunc(letterData);
                                 };
@@ -519,7 +509,6 @@ function Send() {
                     } else {
                         alert('방금 전에 행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
                         window.location.replace('/web/main');
-                        // window.location.replace('/main');
                     };
                 })
                 .catch((error) => {
@@ -577,8 +566,6 @@ function Send() {
                 sticker
             };
             finalCheck(letterData);
-            // dispatch({ type: 'CHANGE_ISSENDINGEND', data: !isSendingEnd });
-            // dispatch({ type: 'CHANGE_ISSENDINGPAGE', data: !isSendingPage });
         };
 
         useEffect(() => {
@@ -618,7 +605,6 @@ function Send() {
             scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
             ins.setAttribute('data-ad-width', '320');
             ins.setAttribute('data-ad-height', '100');
-            // ins.setAttribute('data-ad-unit', 'DAN-sM3Zwb7Z4mDxmKEl');
             ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
             document.querySelector('.adfit').appendChild(ins);
             document.querySelector('.adfit').appendChild(scr);
@@ -637,7 +623,6 @@ function Send() {
                         <p className='sending_end_p'>발송을 완료했어요!</p>
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/web/main');
-                            // window.location.replace('/main');
                         }}>나도 행성 개설하기</div>
                         <br></br>
                         <div className="adfit"></div>
@@ -683,14 +668,8 @@ function Send() {
                 return res.json();
             })
             .then((userData) => {
-                // 개설 시간을 10분 후로 설정
-                let origin = new Date(userData.userOpenDate);
-                origin.setDate(origin.getDate() - 10);
-                origin.setMinutes(origin.getMinutes() + 10);
-                setOpenUserOpenDate(Number(origin));
-                // 
                 setUserNickName(String(userData.userNickName));
-                // setOpenUserOpenDate(Number(userData.userOpenDate));
+                setOpenUserOpenDate(Number(userData.userOpenDate));
                 fetch(`${process.env.REACT_APP_LETTER_COUNT_SHARE}${props}`, {
                     method: 'GET',
                     mode: 'cors',
@@ -712,13 +691,11 @@ function Send() {
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
                         window.location.replace('/web/main');
-                        // window.location.replace('/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
                 window.location.replace('/web/main');
-                // window.location.replace('/main');
             });
     };
 
@@ -731,12 +708,10 @@ function Send() {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
                     window.location.replace('/web/main');
-                    // window.location.replace('/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
                 window.location.replace('/web/main');
-                // window.location.replace('/main');
             };
         };
     };
@@ -755,7 +730,6 @@ function Send() {
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
             window.location.replace('/web/main');
-            // window.location.replace('/main');
         };
     }, []);
 

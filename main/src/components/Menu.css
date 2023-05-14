@@ -1060,3 +1060,15 @@ a>p {
     opacity: .75;
     color: white;
 }
+
+/* */
+
+.menu_bar_feedback {
+    position: relative;
+    margin-top: 1.25rem;
+    margin-left: 1.5rem;
+    width: 100%;
+    color: white;
+    font-size: 0.875rem;
+    font-family: 'NeoDunggeunmo';
+}
