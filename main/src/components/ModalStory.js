@@ -61,9 +61,9 @@ function ModalStory() {
                             {/*  */}
                             <div className='modalStory_outDiv'>
                                 <div>
-                                    <div className='modalStory_img1' style={{ backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true')", backgroundSize: "cover", width: "50%", height: "10rem", marginTop: "0.5rem" }}></div>
-                                    <p className="modalStory_p_1_1" style={{ marginTop: "1rem" }}>OPEN BETA TEST</p>
-                                    <p className="modalStory_p_1_2">기간: 2023. 5. 22. ~ 2023. 6. 5.</p>
+                                    <div className='modalStory_img1' style={{ backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true')", backgroundSize: 'cover', width: '50%', height: '10rem', marginTop: '1.5rem' }}></div>
+                                    <p className="modalStory_p_1_1" style={{ marginTop: '1.5rem', fontSize: '1.5rem', marginBottom: '0.5rem' }}>OPEN BETA TEST</p>
+                                    <p className="modalStory_p_1_2" style={{ marginBottom: '0.5rem' }}>기간: 2023. 5. 22. ~ 2023. 6. 5.</p>
                                     <p className="modalStory_p_1_2">※ 상기 기간 종료 후 모든 데이터가 삭제 됩니다.</p>
                                 </div>
                             </div>
