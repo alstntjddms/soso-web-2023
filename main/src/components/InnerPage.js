@@ -569,7 +569,7 @@ function InnerPage() {
             enterAuthor.value = copyAuthor;
         };
 
-        // 스티커 추가 기능(수정 중)
+        // 스티커 추가 기능
         function attach(i, checkTyping, newLetterData) {
             function setTranslate(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
@@ -585,12 +585,11 @@ function InnerPage() {
             };
             enterDesc(i, checkTyping, newLetterData);
             enterAuthor(i, newLetterData);
-            setRender(i);
         };
 
         // 편지 열기 기능(수정 중)
         async function openLetter(i) {
-            // setRender(i);
+            setRender(i);
             dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
             let now = new Date().getTime();
             let distance = userData.openDate - now;
@@ -768,7 +767,7 @@ function InnerPage() {
                 };
             } else {
             };
-        }, []);
+        }, [letterData]);
 
 
         // (팝업) 편지지
