@@ -19,6 +19,7 @@ function Menu() {
     const isHowto = useSelector((state) => state.isHowto);
     const isMembershipWithdrawal = useSelector((state) => state.isMembershipWithdrawal);
     const [isPopUpLogOut, setIsPopUpLogOut] = useState(false);
+    const [isPopUpFeedBack, setIsPopUpFeedBack] = useState(false);
     // Slick 설정 값
     const settings = {
         draggable: true,
@@ -552,6 +553,35 @@ function Menu() {
         );
     };
 
+    // (팝업) 피드백 기능(수정 중)
+    function PopUPFeedBack() {
+        // 편지 내용 선별 DB
+        const bad_word = ['<', '>'];
+        const [feedBackLength, setFeedBackLength] = useState(0);
+        const [feedBackText, SetFeedBackText] = useState('');
+        return (
+            <React.Fragment>
+                <div className={isPopUpFeedBack ? "isPopUpFeedBack" : "isPopUpFeedBack_fade"}>
+                    <div className='isPopUpFeedBack_outContainer'>
+                        <p className='isPopUpFeedBack_title'>당신의 소중한</p>
+                        <p className='isPopUpFeedBack_title'>의견을 보내주세요.</p>
+                        <div className='isPopUpFeedBack_innerBox1'>
+                            <textarea className='isPopUpFeedBack_textarea' maxLength={200} placeholder='※ 당신의 소중한 의견을 보내주세요.&#13;&#10;※ 200자 이내' onChange={(e) => {
+                                setFeedBackLength(e.target.value.length);
+                                SetFeedBackText(e.target.value);
+                            }}></textarea>
+                            <div className='isPopUpFeedBack_textLength'>{feedBackLength}/200</div>
+                        </div>
+                        <div className='isPopUpFeedBack_innerBox'>
+                            <div className='isPopUpFeedBack_button_send' onClick={() => { alert('의견을 보내주셔서 감사합니다.'); }}>의견 보내기</div>
+                            <div className='isPopUpFeedBack_button_cancel' onClick={() => { setIsPopUpFeedBack(false); }}>취소</div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
     // 매뉴 선택 기능
     function toggleMenu() {
         dispatch({ type: 'CHANGE_ISSHAREBT', data: false });
@@ -599,17 +629,18 @@ function Menu() {
                 <MembershipWithdrawal></MembershipWithdrawal>
                 <PopUPLogOut></PopUPLogOut>
                 <div className="menu_outContainer">
-                    <div className={`menu_img${isMenu ? "_active" : ""}${isMypage || isPlater || isHowto ? "_plus" : ""}`} onClick={toggleMenu}></div>
+                    <div className={`menu_img${isMenu ? "_active" : ""}${isMypage || isPlater || isHowto ? "_plus" : ""}`} onClick={() => { toggleMenu(); setIsPopUpFeedBack(false); }}></div>
                 </div>
                 <div className={`menu_bar${isMenu ? "_active" : ""}${isInner ? "_wide" : ""}`}>
                     <div className={isInner ? "menu_bar_inner_true" : "menu_bar_inner"}>
+                        <PopUPFeedBack></PopUPFeedBack>
                         <span className='menu_bar_icon_1'></span><p onClick={toggleMypage}>마이페이지</p>
                         <span className='menu_bar_icon_2'></span><p onClick={togglePlanetter}>Pl@ter</p>
                         <span className='menu_bar_icon_3'></span><p onClick={toggleHowto} >이용 방법</p>
                         <span className='menu_bar_icon_4'></span>
                         <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}>
                             <p>Contact Us</p></a>
-                        <div className='menu_bar_feedback'>의견 보내기</div>
+                        <div className='menu_bar_feedback' onClick={() => { setIsPopUpFeedBack(true); }}>의견 보내기</div>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
                         <YesAgreement></YesAgreement>
