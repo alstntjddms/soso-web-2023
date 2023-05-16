@@ -624,10 +624,7 @@ function InnerPage() {
                         return res.json();
                     })
                     .then((data) => {
-                        // 
                         data.letterReadYn = true;
-                        console.log(data);
-                        // 
                         newEachLetter = Object.assign(eachLetter, data);
                         stickerSum(i, newEachLetter);
                     })
