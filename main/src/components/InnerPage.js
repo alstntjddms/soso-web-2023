@@ -603,7 +603,7 @@ function InnerPage() {
             };
         };
 
-        // 편지 정보 요청 기능
+        // 편지 정보 요청 기능(수정 중)
         async function RequestThisLetterData(i) {
             let newEachLetter = null;
             if (letterData[i].userId === '') {
@@ -624,6 +624,10 @@ function InnerPage() {
                         return res.json();
                     })
                     .then((data) => {
+                        // 
+                        data.letterReadYn = true;
+                        console.log(data);
+                        // 
                         newEachLetter = Object.assign(eachLetter, data);
                         stickerSum(i, newEachLetter);
                     })
@@ -767,7 +771,7 @@ function InnerPage() {
                 };
             } else {
             };
-        }, [letterData]);
+        }, []);
 
 
         // (팝업) 편지지
@@ -783,7 +787,7 @@ function InnerPage() {
                 scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
                 ins.setAttribute('data-ad-width', '320');
                 ins.setAttribute('data-ad-height', '100');
-                ins.setAttribute('data-ad-unit', 'DAN-ynvjcyFHlXsbbDzL');
+                ins.setAttribute('data-ad-unit', 'DAN-wwtMTOs6oLrop9iK');
                 document.querySelector('.adfit').appendChild(ins);
                 document.querySelector('.adfit').appendChild(scr);
             }, [])

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import './Menu.css';
@@ -555,10 +555,13 @@ function Menu() {
 
     // (팝업) 피드백 기능(수정 중)
     function PopUPFeedBack() {
-        // 편지 내용 선별 DB
-        const bad_word = ['<', '>'];
+        const feedBackFocus = useRef('');
+        const badWords = ['<', '>'];
         const [feedBackLength, setFeedBackLength] = useState(0);
         const [feedBackText, SetFeedBackText] = useState('');
+        useEffect(() => {
+            feedBackFocus.current.focus();
+        }, []);
         return (
             <React.Fragment>
                 <div className={isPopUpFeedBack ? "isPopUpFeedBack" : "isPopUpFeedBack_fade"}>
@@ -566,7 +569,7 @@ function Menu() {
                         <p className='isPopUpFeedBack_title'>당신의 소중한</p>
                         <p className='isPopUpFeedBack_title'>의견을 보내주세요.</p>
                         <div className='isPopUpFeedBack_innerBox1'>
-                            <textarea className='isPopUpFeedBack_textarea' maxLength={200} placeholder='※ 당신의 소중한 의견을 보내주세요.&#13;&#10;※ 200자 이내' onChange={(e) => {
+                            <textarea className='isPopUpFeedBack_textarea' ref={feedBackFocus} maxLength={200} placeholder='※ 당신의 소중한 의견을 보내주세요.&#13;&#10;※ 200자 이내' onChange={(e) => {
                                 setFeedBackLength(e.target.value.length);
                                 SetFeedBackText(e.target.value);
                             }}></textarea>
