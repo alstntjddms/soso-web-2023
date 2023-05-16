@@ -603,7 +603,7 @@ function InnerPage() {
             };
         };
 
-        // 편지 정보 요청 기능
+        // 편지 정보 요청 기능(수정 중)
         async function RequestThisLetterData(i) {
             let newEachLetter = null;
             if (letterData[i].userId === '') {
@@ -624,6 +624,10 @@ function InnerPage() {
                         return res.json();
                     })
                     .then((data) => {
+                        // 
+                        data.letterReadYn = true;
+                        console.log(data);
+                        // 
                         newEachLetter = Object.assign(eachLetter, data);
                         stickerSum(i, newEachLetter);
                     })
@@ -767,7 +771,7 @@ function InnerPage() {
                 };
             } else {
             };
-        }, [letterData]);
+        }, []);
 
 
         // (팝업) 편지지
