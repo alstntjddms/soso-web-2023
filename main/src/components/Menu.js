@@ -560,7 +560,9 @@ function Menu() {
         const [feedBackLength, setFeedBackLength] = useState(0);
         const [feedBackText, SetFeedBackText] = useState('');
         useEffect(() => {
-            feedBackFocus.current.focus();
+            if (isPopUpFeedBack === true) {
+                feedBackFocus.current.focus();
+            };
         }, []);
         return (
             <React.Fragment>
