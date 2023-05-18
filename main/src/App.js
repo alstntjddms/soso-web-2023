@@ -50,6 +50,30 @@ function App() {
     };
   }, [navigater, userID])
 
+  // Kakao AD 승인을 위한 Component
+  function KakaoAD() {
+    useEffect(() => {
+      let ins = document.createElement('ins');
+      let scr = document.createElement('script');
+      ins.className = 'kakao_ad_area';
+      ins.style = "display:none; width:100%;";
+      scr.async = 'true';
+      scr.type = "text/javascript";
+      scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+      ins.setAttribute('data-ad-width', '320');
+      ins.setAttribute('data-ad-height', '100');
+      ins.setAttribute('data-ad-unit', 'DAN-wwtMTOs6oLrop9iK');
+      document.querySelector('.adfit').appendChild(ins);
+      document.querySelector('.adfit').appendChild(scr);
+    }, []);
+
+    return (
+      <React.Fragment>
+        <div className="adfit" style={{ width: '100%', position: 'absolute', bottom: '-1%', left: '0%' }}></div>
+      </React.Fragment>
+    )
+  }
+
   return (
     <React.Fragment>
       <div className='all_background_img'></div>
@@ -60,6 +84,7 @@ function App() {
         <span className='shootingStar'></span>
       </section>
       <FirstInfo></FirstInfo>
+      <KakaoAD></KakaoAD>
       <Routes>
         <Route path="/web" element={<Main />}></Route>
         <Route path="/web/*" element={<Main />}></Route>
@@ -67,7 +92,7 @@ function App() {
         <Route path="/web/redirect" element={<Redirect />}></Route>
         <Route path="/web/redirect2" element={<Redirect2 />}></Route>
         <Route path="/web/send" element={<Send />}></Route>
-      </Routes>  
+      </Routes>
     </React.Fragment>
   );
 }
