@@ -65,13 +65,13 @@ function App() {
       ins.setAttribute('data-ad-width', '320');
       ins.setAttribute('data-ad-height', '100');
       ins.setAttribute('data-ad-unit', 'DAN-wwtMTOs6oLrop9iK');
-      document.querySelector('.adfit').appendChild(ins);
-      document.querySelector('.adfit').appendChild(scr);
+      document.querySelector('.adfitTest').appendChild(ins);
+      document.querySelector('.adfitTest').appendChild(scr);
     }, [a]);
 
     return (
       <React.Fragment>
-        <div className="adfit" style={{ width: '100%', position: 'absolute', bottom: '-1%', left: '0%' }}></div>
+        <div className="adfitTest" style={{ width: '100%', position: 'absolute', bottom: '-1%', left: '0%' }}></div>
       </React.Fragment>
     )
   }
