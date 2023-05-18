@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
@@ -16,6 +16,8 @@ function App() {
   const dispatch = useDispatch();
   const userID = useSelector((state) => state.userID);
   const isFirstInfo = useSelector((state) => state.isFirstInfo);
+  //
+  const a = 0;
 
   // 'vh' 자동 조정을 위한 기능(1)
   let vh = window.innerHeight * 0.01;
@@ -52,7 +54,7 @@ function App() {
 
   // Kakao AD 승인을 위한 Component
   function KakaoAD() {
-    if (userID !== null) {
+    useEffect(() => {
       let ins = document.createElement('ins');
       let scr = document.createElement('script');
       ins.className = 'kakao_ad_area';
@@ -65,7 +67,7 @@ function App() {
       ins.setAttribute('data-ad-unit', 'DAN-wwtMTOs6oLrop9iK');
       document.querySelector('.adfit').appendChild(ins);
       document.querySelector('.adfit').appendChild(scr);
-    };
+    }, [a]);
 
     return (
       <React.Fragment>
