@@ -52,7 +52,7 @@ function App() {
 
   // Kakao AD 승인을 위한 Component
   function KakaoAD() {
-    useEffect(() => {
+    if (userID !== null) {
       let ins = document.createElement('ins');
       let scr = document.createElement('script');
       ins.className = 'kakao_ad_area';
@@ -65,7 +65,7 @@ function App() {
       ins.setAttribute('data-ad-unit', 'DAN-wwtMTOs6oLrop9iK');
       document.querySelector('.adfit').appendChild(ins);
       document.querySelector('.adfit').appendChild(scr);
-    }, []);
+    };
 
     return (
       <React.Fragment>
