@@ -564,6 +564,44 @@ function Menu() {
                 feedBackFocus.current.focus();
             };
         }, []);
+
+        function FilterFeedback() {
+            let compare_data = feedBackText;
+            for (let i = 0; i < badWords.length; i++) {
+                for (let j = 0; j < compare_data.length; j++) {
+                    if (badWords[i] === compare_data.substring(j, j + badWords[i].length)) {
+                        compare_data = compare_data.replace(compare_data.substring(j, j + badWords[i].length), '♡')
+                    };
+                };
+            };
+            SendFeedback(compare_data);
+        };
+
+        function SendFeedback(props) {
+            console.log(props);
+            fetch(`${process.env.REACT_APP_FEEDBACK}${userID}/`, {
+                method: 'PATCH',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(String(props))
+            })
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    setIsPopUpFeedBack(false);
+                    SetFeedBackText('');
+                    alert('귀중한 의견을 보내주셔 감사합니다.');
+                })
+                .catch((error) => {
+                    alert('서버가 불안정해서 의견 접수에 실패했습니다. 다시 시도해주세요.');
+                });
+        };
+
         return (
             <React.Fragment>
                 <div className={isPopUpFeedBack ? "isPopUpFeedBack" : "isPopUpFeedBack_fade"}>
@@ -578,7 +616,7 @@ function Menu() {
                             <div className='isPopUpFeedBack_textLength'>{feedBackLength}/200</div>
                         </div>
                         <div className='isPopUpFeedBack_innerBox'>
-                            <div className='isPopUpFeedBack_button_send' onClick={() => { alert('의견을 보내주셔서 감사합니다.'); }}>의견 보내기</div>
+                            <div className='isPopUpFeedBack_button_send' onClick={() => { FilterFeedback(); }}>의견 보내기</div>
                             <div className='isPopUpFeedBack_button_cancel' onClick={() => { setIsPopUpFeedBack(false); }}>취소</div>
                         </div>
                     </div>
