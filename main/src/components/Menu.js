@@ -565,7 +565,7 @@ function Menu() {
             };
         }, []);
 
-        async function FilterFeedback() {
+        function FilterFeedback() {
             let compare_data = feedBackText;
             for (let i = 0; i < badWords.length; i++) {
                 for (let j = 0; j < compare_data.length; j++) {
@@ -574,11 +574,11 @@ function Menu() {
                     };
                 };
             };
-            SetFeedBackText(compare_data);
-            await SendFeedback();
+            SendFeedback(compare_data);
         };
 
-        async function SendFeedback() {
+        function SendFeedback(props) {
+            console.log(props);
             fetch(`${process.env.REACT_APP_FEEDBACK}${userID}/`, {
                 method: 'PATCH',
                 mode: 'cors',
@@ -587,7 +587,7 @@ function Menu() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(String(feedBackText))
+                body: JSON.stringify(String(props))
             })
                 .then((res) => {
                     if (!res.ok) {

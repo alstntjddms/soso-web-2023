@@ -3,7 +3,7 @@ import { legacy_createStore as createStore } from "redux";
 function reducer(state, action) {
     if (state === undefined) {
         return {
-            userID: 'null',
+            userID: null,
             ShareUserID: 'null',
             userData: { 'nickname': 'null', 'openDate': 875286000000, "getLetter": 0, 'agreement': false },
             letterData: [],
