@@ -553,7 +553,7 @@ function Menu() {
         );
     };
 
-    // (팝업) 피드백 기능(수정 중)
+    // (팝업) 피드백 기능
     function PopUPFeedBack() {
         const feedBackFocus = useRef('');
         const badWords = ['<', '>'];
@@ -579,8 +579,8 @@ function Menu() {
 
         function SendFeedback(props) {
             console.log(props);
-            fetch(`${process.env.REACT_APP_FEEDBACK}${userID}/`, {
-                method: 'PATCH',
+            fetch(`${process.env.REACT_APP_FEEDBACK}/${userID}/`, {
+                method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
                 credentials: 'same-origin',
@@ -683,6 +683,7 @@ function Menu() {
                         <span className='menu_bar_icon_4'></span>
                         <a className='go_to_notion' href='https://elfin-shelf-a6a.notion.site/PL-TER-83d6a7213845476f84c780d863591e90' rel="noopener noreferrer" target={'_blank'}>
                             <p>Contact Us</p></a>
+                        <span className='menu_bar_icon_5'></span>
                         <div className='menu_bar_feedback' onClick={() => { setIsPopUpFeedBack(true); }}>의견 보내기</div>
                     </div>
                     <div className={isMypage ? "menu_bar_mypage" : "menu_bar_mypage_true"}>
