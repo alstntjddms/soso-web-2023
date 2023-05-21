@@ -1016,6 +1016,16 @@ a>p {
     height: 1rem;
 }
 
+.menu_bar_icon_5 {
+    position: absolute;
+    margin-top: 0.3rem;
+    background-image: url('../lib/icon/menu_feedback.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1rem;
+    height: 1rem;
+}
+
 .newClass {
     margin: auto;
     top: 5%;
