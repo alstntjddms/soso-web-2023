@@ -578,6 +578,7 @@ function Menu() {
         };
 
         function SendFeedback(props) {
+            console.log(props);
             fetch(`${process.env.REACT_APP_FEEDBACK}/${userID}/`, {
                 method: 'POST',
                 mode: 'cors',

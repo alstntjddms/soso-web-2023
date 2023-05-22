@@ -38,11 +38,21 @@ function Main() {
     };
   }, [dispatch]);
 
+  // 편지 읽을 수 있도록 시간 조정 기능
+  function settingTime() {
+    alert('사용자의 openDate를 11일 전으로 설정했습니다.');
+    const now = new Date();
+    now.setDate(now.getDate() - 11);
+    dispatch({ type: 'CHANGE_OPENDATE', data: Number(now.getTime()) });
+    setRender1(render1 + 1);
+  };
+
   return (
     <div className='main_background'>
       <ModalStory></ModalStory>
       <Menu></Menu>
       <InnerPage></InnerPage>
+      <img onClick={settingTime} style={{ width: "10%", position: "absolute", bottom: "30%", left: "85%" }} alt='cookie' src='https://cdn-icons-png.flaticon.com/512/896/896266.png'></img>
     </div>
   );
 };
