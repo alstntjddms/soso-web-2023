@@ -24,9 +24,5 @@ yarn-error.log*
 
 .eslintcache
 
-<<<<<<< HEAD
-# # API KEY
-=======
 # API KEY
->>>>>>> parent of 3e0e16105 (Revert "dd")
 # .env
