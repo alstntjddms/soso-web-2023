@@ -43,7 +43,7 @@ function reducer(state, action) {
             stickerArray: [],
             stickerNumber: 0,
             isSendMain: false,
-            isSendPopUp: true,
+            isSendPopUp: false,
             isSendPopUpCancel: false,
             isSendPopUpCheck: false,
             isLetterOption: false,
