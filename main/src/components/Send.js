@@ -735,7 +735,11 @@ function Send() {
 
     // 최초 사용자 정보 확인 기능(랜더링 직후)
     useEffect(() => {
-        firstCheck();
+        setTimeout(() => {
+            dispatch({ type: 'CHANGE_ISSENDPOPUP', data: true });
+            firstCheck();
+        }, 100);
+        // firstCheck();
     }, [openUserOpenDate, userLetterCount])
 
     // 사용자 공유 아이디 확인 기능(랜더링 직후) + 서버로 log 정보 보내는 기능(랜더링 직후)
