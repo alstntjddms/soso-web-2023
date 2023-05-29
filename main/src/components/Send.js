@@ -738,7 +738,7 @@ function Send() {
         setTimeout(() => {
             dispatch({ type: 'CHANGE_ISSENDPOPUP', data: true });
             firstCheck();
-        }, 100);
+        }, 500);
         // firstCheck();
     }, [openUserOpenDate, userLetterCount])
 
