@@ -1,0 +1,25 @@
+.capture {
+    margin: auto;
+    border: 1px solid black;
+    width: 10rem;
+    height: 10rem;
+    background-color: bisque;
+}
+
+.inner {
+    margin: auto;
+    margin-top: 1rem;
+    border: 1px solid black;
+    width: 8rem;
+    height: 8rem;
+    background-color: brown;
+}
+
+.sticker {
+    margin: auto;
+    position: absolute;
+    border: 1px solid black;
+    width: 2rem;
+    height: 2rem;
+    top: 7.5rem;
+}
