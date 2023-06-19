@@ -585,7 +585,7 @@ function Send() {
                             <span className='shootingStar'></span>
                         </section>
                         <div className='sending_page_gif'></div>
-                        <h3 className='sending_page_h3'>Loading..</h3>
+                        <h3 className='sending_page_h3'>편지 보내는 중...</h3>
                     </div>
                 </div>
             </React.Fragment>
