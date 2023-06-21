@@ -9,10 +9,10 @@ function App() {
 
   useEffect(() => {
     let inApp = /KAKAOTALK|Instagram|NAVER|Whale|Snapchat|Line|everytimeApp|SamsungBrowser/i.test(navigator.userAgent);
-    alert(inApp);
+    // alert(inApp);
     if (inApp === true) {
       alert('인앱 브라우저의 경우 오류가 발생할 수 있습니다.')
-      window.location.href='intent://www.abc.com#Intent;scheme=http;package=com.android.chrome;end'
+      window.location.href = 'intent://www.abc.com#Intent;scheme=http;package=com.android.chrome;end'
     };
 
     // if (isAndroid) {
@@ -47,6 +47,14 @@ function App() {
       console.error("이미지 저장에 실패했습니다. 사유: ", error);
     };
   };
+
+  // let now = 1687349981380;
+  let after = 1688133981380;
+  let nowDay = new Date();
+  let afterDay = new Date(Number(after));
+  let calculate = Math.abs(afterDay.getTime() - nowDay.getTime());
+  calculate = Math.ceil(calculate / (1000 * 60 * 60 * 24));
+  console.log(calculate);
 
   return (
     <React.Fragment>

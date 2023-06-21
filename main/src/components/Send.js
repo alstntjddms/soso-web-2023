@@ -592,8 +592,15 @@ function Send() {
         );
     };
 
-    // 편지 발송 완료 Component
+    // 편지 발송 완료 Component(수정 중)
     function SendingEnd() {
+        //   let after = 1688133981380;
+        //   let nowDay = new Date();
+        //   let afterDay = new Date(Number(after));
+        //   let calculate = Math.abs(afterDay.getTime() - nowDay.getTime());
+        //   calculate = Math.ceil(calculate / (1000 * 60 * 60 * 24));
+        //   console.log(calculate);
+
         // 카카오 애드 관련 기능
         useEffect(() => {
             let ins = document.createElement('ins');
@@ -690,12 +697,12 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        window.location.replace('/web/main');
+                        // window.location.replace('/web/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             });
     };
 
@@ -707,11 +714,11 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    window.location.replace('/web/main');
+                    // window.location.replace('/web/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             };
         };
     };
@@ -729,7 +736,7 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/web/main');
+            // window.location.replace('/web/main');
         };
     }, []);
 
@@ -1415,6 +1422,10 @@ function Send() {
         };
     };
 
+    // 템플릿 설정 기능(수정 중)
+    function template() {
+    };
+
     return (
         <React.Fragment>
             <SendingEnd></SendingEnd>
@@ -1465,6 +1476,11 @@ function Send() {
                     </div>
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
+                {/*  */}
+                {/*  */}
+                <div style={{ color: "white" }} onClick={() => { template() }}>template</div>
+                {/*  */}
+                {/*  */}
                 {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
