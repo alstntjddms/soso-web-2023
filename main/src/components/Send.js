@@ -1424,6 +1424,10 @@ function Send() {
 
     // 템플릿 설정 기능(수정 중)
     function template() {
+        // 스티커 배열을 찾아서 하위 내용을 확인하고 삭제해
+        let newData = stickerArray;
+        newData = [];
+        dispatch({ type: 'CHANGE_STICKER', data: newData });
     };
 
     return (
