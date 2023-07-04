@@ -1424,11 +1424,105 @@ function Send() {
 
     // 템플릿 설정 기능(수정 중)
     function template() {
-        // 스티커 배열을 찾아서 하위 내용을 확인하고 삭제해
-        let newData = stickerArray;
-        newData = [];
-        dispatch({ type: 'CHANGE_STICKER', data: newData });
+        initialzation();
+        // 스티커 배열, 스티커 숫자, 스티커 아이템 초기화 및 삭제
+        function initialzation() {
+            let newData = stickerArray;
+            newData = [];
+            dispatch({ type: 'CHANGE_STICKER', data: newData });
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: 0 });
+            let content = document.querySelector('#send_textarea').childNodes;
+            delItem(content.length);
+            // 스티커 아이템 삭제
+            function delItem(props) {
+                if (props > 1) {
+                    for (let i = 0; i < props - 1; i++) {
+                        let item = document.querySelector('#id' + i);
+                        item.remove();
+                    };
+                };
+            };
+        };
+
+        createEl(0, 1)
+
+        function createEl(props, num) {
+            // Creating elements
+            let item = document.createElement('div');
+            let itemClose = document.createElement('div');
+            let stage = document.querySelector('#send_textarea');
+            item.setAttribute('id', 'id' + props);
+            item.setAttribute('class', 'send_item_sticker' + num);
+            itemClose.setAttribute('class', 'send_close');
+            itemClose.addEventListener('click', () => { remove(props) });
+            stage.appendChild(item);
+            let stageClose = document.querySelector('#id' + props);
+            stageClose.appendChild(itemClose);
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: stickerNumber + 1 });
+            // Function to move elements
+            let dragItem = document.querySelector("#id" + props);
+            let active = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+            dragItem.addEventListener("touchstart", dragStart, false);
+            dragItem.addEventListener("touchend", dragEnd, false);
+            dragItem.addEventListener("touchmove", drag, false);
+            dragItem.addEventListener("mousedown", dragStart, false);
+            dragItem.addEventListener("mouseup", dragEnd, false);
+            dragItem.addEventListener("mousemove", drag, false);
+            // 스티커 이동 기능(1)
+            function dragStart(e) {
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                };
+                if (e.target === dragItem) {
+                    active = true;
+                };
+            };
+            // 스티커 이동 기능(2)
+            function drag(e) {
+                if (active) {
+                    e.preventDefault();
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    };
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                        dragEnd(e);
+                        alert('편지지 안쪽에 스티커를 붙여주세요.');
+                    } else {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                    };
+                };
+            };
+            // 스티커 이동 기능(3)
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+                el.style.position = "relative";
+            };
+            // 스티커 이동 기능(4)
+            function dragEnd(e) {
+                locationData(stickerArray, e.target.id, currentX, currentY, num);
+                active = false;
+                dragItem.style.position = "absolute";
+            };
+        };
     };
+
 
     return (
         <React.Fragment>
