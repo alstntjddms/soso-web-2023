@@ -1424,7 +1424,14 @@ function Send() {
 
     // 템플릿 설정 기능(수정 중)
     function template() {
+
+        let tempalteStickerArray = [
+            { stickerNumber: 0, stickerIcon: 0, stickerXpos: 100, stickerYpos: 100 },
+            { stickerNumber: 1, stickerIcon: 1, stickerXpos: -100, stickerYpos: -100 }
+        ];
+
         initialzation();
+
         // 스티커 배열, 스티커 숫자, 스티커 아이템 초기화 및 삭제
         function initialzation() {
             let newData = stickerArray;
@@ -1444,9 +1451,24 @@ function Send() {
             };
         };
 
-        createEl(0, 1)
+        setTimeout(() => {
+            let templateStickerArrayLengh = tempalteStickerArray.length;
+            for (let i = 0; i < templateStickerArrayLengh; i++) {
+                createEl2(tempalteStickerArray[i].stickerNumber, tempalteStickerArray[i].stickerIcon);
+                let stickerIconTag = document.querySelector('#id' + i);
+                setTranslate2(tempalteStickerArray[i].stickerXpos, tempalteStickerArray[i].stickerYpos, stickerIconTag);
+                locationData(stickerArray, 'id'[i], tempalteStickerArray[i].stickerXpos, tempalteStickerArray[i].stickerYpos, tempalteStickerArray[i].stickerIcon);
+            };
+            console.log(stickerArray)
+        }, 500);
 
-        function createEl(props, num) {
+        // 스티커 이동 기능(3)-2
+        function setTranslate2(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            el.style.position = "absolute";
+        };
+        // 스티커 추가 기능
+        function createEl2(props, num) {
             // Creating elements
             let item = document.createElement('div');
             let itemClose = document.createElement('div');
@@ -1458,7 +1480,7 @@ function Send() {
             stage.appendChild(item);
             let stageClose = document.querySelector('#id' + props);
             stageClose.appendChild(itemClose);
-            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: stickerNumber + 1 });
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: props + 1 });
             // Function to move elements
             let dragItem = document.querySelector("#id" + props);
             let active = false;
@@ -1468,14 +1490,14 @@ function Send() {
             let initialY;
             let xOffset = 0;
             let yOffset = 0;
-            dragItem.addEventListener("touchstart", dragStart, false);
-            dragItem.addEventListener("touchend", dragEnd, false);
-            dragItem.addEventListener("touchmove", drag, false);
-            dragItem.addEventListener("mousedown", dragStart, false);
-            dragItem.addEventListener("mouseup", dragEnd, false);
-            dragItem.addEventListener("mousemove", drag, false);
+            dragItem.addEventListener("touchstart", dragStart2, false);
+            dragItem.addEventListener("touchend", dragEnd2, false);
+            dragItem.addEventListener("touchmove", drag2, false);
+            dragItem.addEventListener("mousedown", dragStart2, false);
+            dragItem.addEventListener("mouseup", dragEnd2, false);
+            dragItem.addEventListener("mousemove", drag2, false);
             // 스티커 이동 기능(1)
-            function dragStart(e) {
+            function dragStart2(e) {
                 if (e.type === "touchstart") {
                     initialX = e.touches[0].clientX - xOffset;
                     initialY = e.touches[0].clientY - yOffset;
@@ -1488,7 +1510,7 @@ function Send() {
                 };
             };
             // 스티커 이동 기능(2)
-            function drag(e) {
+            function drag2(e) {
                 if (active) {
                     e.preventDefault();
                     if (e.type === "touchmove") {
@@ -1496,26 +1518,26 @@ function Send() {
                         currentY = e.touches[0].clientY - initialY;
                     } else {
                         currentX = e.clientX - initialX;
-                        currentY = e.clientY - initialY;
+                        currentY = e.clientY - initialY; 
                     };
                     xOffset = currentX;
                     yOffset = currentY;
                     if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
-                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
-                        dragEnd(e);
+                        setTranslate2(Math.round(currentX), Math.round(currentY), dragItem);
+                        dragEnd2(e);
                         alert('편지지 안쪽에 스티커를 붙여주세요.');
                     } else {
-                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                        setTranslate2(Math.round(currentX), Math.round(currentY), dragItem);
                     };
                 };
             };
             // 스티커 이동 기능(3)
-            function setTranslate(xPos, yPos, el) {
+            function setTranslate2(xPos, yPos, el) {
                 el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
                 el.style.position = "relative";
             };
             // 스티커 이동 기능(4)
-            function dragEnd(e) {
+            function dragEnd2(e) {
                 locationData(stickerArray, e.target.id, currentX, currentY, num);
                 active = false;
                 dragItem.style.position = "absolute";
