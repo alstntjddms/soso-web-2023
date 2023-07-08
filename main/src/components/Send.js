@@ -1423,26 +1423,138 @@ function Send() {
     };
 
     // 스티커 배열, 스티커 숫자, 스티커 아이템 초기화 및 삭제 for Template
-    function initialzation() {
+    async function initialzation() {
         let content = document.querySelector('#send_textarea').childNodes;
         delItem(content);
         function delItem(props) {
             let newData = stickerArray;
-            newData = [];
+            newData.length = 0;
             let number = Number(props.length);
-            if ( number > 1) {
+            dispatch({ type: 'CHANGE_STICKER', data: newData.length });
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: 0 });
+            if (number > 1) {
                 for (let i = 0; i < number - 1; i++) {
                     props[1].remove();
                 };
             };
-            dispatch({ type: 'CHANGE_STICKER', data: newData });
-            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: 0 });
+        };
+    };
+
+    // 스티커 추가 기능 for Template
+    function stickerSetting(props) {
+        for (let i = 0; i < props.length; i++) {
+            createEl2(props[i].templateNum, props[i].templateIcon, props[i].templateXpos, props[i].templateYpos);
+            let dragItem = document.querySelector("#id" + i);
+            let active = false;
+            setTranslate2(props[i].templateXpos, props[i].templateYpos, dragItem);
+            dragEnd2(i, props[i].templateXpos, props[i].templateYpos, props[i].templateIcon, dragItem, active);
+        };
+        // 스티커 이동 기능(4)
+        function dragEnd2(i, currentX, currentY, num, dragItem, active) {
+            locationData(stickerArray, 'id' + i, currentX, currentY, num, dragItem);
+            active = false;
+            dragItem.style.position = "absolute";
+        };
+        // 스티커 이동 기능(3)
+        function setTranslate2(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            el.style.position = "relative";
+        };
+        // 스티커 추가 기능
+        function createEl2(props, num, xPos, yPos) {
+            // Creating elements
+            let item = document.createElement('div');
+            let itemClose = document.createElement('div');
+            let stage = document.querySelector('#send_textarea');
+            item.setAttribute('id', 'id' + props);
+            item.setAttribute('class', 'send_item_sticker' + num);
+            itemClose.setAttribute('class', 'send_close');
+            itemClose.addEventListener('click', () => { remove(props) });
+            stage.appendChild(item);
+            let stageClose = document.querySelector('#id' + props);
+            stageClose.appendChild(itemClose);
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: props + 1 });
+            // Function to move elements
+            let dragItem = document.querySelector("#id" + props);
+            let active = false;
+            let currentX = xPos;
+            let currentY = yPos;
+            let initialX = xPos;
+            let initialY = yPos;
+            let xOffset = xPos;
+            let yOffset = yPos;
+            dragItem.addEventListener("touchstart", dragStart, false);
+            dragItem.addEventListener("touchend", dragEnd, false);
+            dragItem.addEventListener("touchmove", drag, false);
+            dragItem.addEventListener("mousedown", dragStart, false);
+            dragItem.addEventListener("mouseup", dragEnd, false);
+            dragItem.addEventListener("mousemove", drag, false);
+            // 스티커 이동 기능(1)
+            function dragStart(e) {
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                };
+                if (e.target === dragItem) {
+                    active = true;
+                };
+            };
+            // 스티커 이동 기능(2)
+            function drag(e) {
+                if (active) {
+                    e.preventDefault();
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    };
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                        dragEnd(e);
+                        alert('편지지 안쪽에 스티커를 붙여주세요.');
+                    } else {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                    };
+                };
+            };
+            // 스티커 이동 기능(3)
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+                el.style.position = "relative";
+            };
+            // 스티커 이동 기능(4)
+            function dragEnd(e) {
+                locationData(stickerArray, e.target.id, currentX, currentY, num);
+                active = false;
+                dragItem.style.position = "absolute";
+            };
         };
     };
 
     // 템플릿 설정 기능(수정 중)
-    function template() {
-        initialzation();
+    async function template() {
+        let templateArraySticker = [
+            { templateNum: 0, templateIcon: 0, templateXpos: 50, templateYpos: 50 },
+            { templateNum: 1, templateIcon: 1, templateXpos: -50, templateYpos: -50 }
+        ];
+        let templateStyle = { fontSize: 0.875, fontFamily: 'GyeonggiBatang', color: 'red', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint.gif?raw=true')" };
+
+        let newStyle = { ...styleLetter };
+        newStyle['fontSize'] = templateStyle.fontSize + 'rem';
+        newStyle['fontFamily'] = templateStyle.fontFamily;
+        newStyle['color'] = templateStyle.color;
+        newStyle['textAlign'] = templateStyle.textAlign;
+        newStyle['backgroundImage'] = templateStyle.backgroundImage;
+        setStyleLetter(newStyle);
+        await initialzation();
+        stickerSetting(templateArraySticker);
     };
 
 
