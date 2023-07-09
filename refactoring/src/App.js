@@ -48,13 +48,16 @@ function App() {
     };
   };
 
-  // let now = 1687349981380;
-  let after = 1688133981380;
-  let nowDay = new Date();
-  let afterDay = new Date(Number(after));
-  let calculate = Math.abs(afterDay.getTime() - nowDay.getTime());
-  calculate = Math.ceil(calculate / (1000 * 60 * 60 * 24));
-  console.log(calculate);
+  let Dday = new Date();
+  Dday.setDate(Dday.getDate() + 1);
+  console.log(Dday);
+
+  let now = new Date();
+  console.log(now);
+
+  let diff = Math.abs(Dday.getTime() - now.getTime());
+  diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  console.log(diff);
 
   return (
     <React.Fragment>
@@ -62,6 +65,9 @@ function App() {
         <div className='inner'>
           <div className='sticker'></div>
         </div>
+      </div>
+      <div>
+        당신의 소중한 편지는 {diff}일 후에 열어 볼 수 있습니다.
       </div>
     </React.Fragment>
   );
