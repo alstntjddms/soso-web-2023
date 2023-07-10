@@ -3428,7 +3428,7 @@
 
 .sending_end_img {
     margin: auto;
-    margin-top: 7.375rem;
+    margin-top: 6.375rem;
     background-image: url('../lib/etc/send/send_done.gif');
     width: 12.5rem;
     height: 12.5rem;
@@ -3444,6 +3444,17 @@
     font-weight: normal;
     font-size: 1.25rem;
     font-family: 'NeoDunggeunmo';
+}
+
+.sending_end_p2 {
+    color: white;
+    /*  */
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 1.0rem;
+    font-weight: normal;
+    font-size: 1.0rem;
+    font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 .sending_end_div {

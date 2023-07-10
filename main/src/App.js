@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
@@ -16,8 +16,6 @@ function App() {
   const dispatch = useDispatch();
   const userID = useSelector((state) => state.userID);
   const isFirstInfo = useSelector((state) => state.isFirstInfo);
-  //
-  const a = 0;
 
   // 'vh' 자동 조정을 위한 기능(1)
   let vh = window.innerHeight * 0.01;

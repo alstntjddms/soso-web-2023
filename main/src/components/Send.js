@@ -594,15 +594,24 @@ function Send() {
 
     // 편지 발송 완료 Component(수정 중)
     function SendingEnd() {
-        //   let after = 1688133981380;
-        //   let nowDay = new Date();
-        //   let afterDay = new Date(Number(after));
-        //   let calculate = Math.abs(afterDay.getTime() - nowDay.getTime());
-        //   calculate = Math.ceil(calculate / (1000 * 60 * 60 * 24));
-        //   console.log(calculate);
-
+        const [whenDay, setWhenDay] = useState('');
+        // 편지 도착 일자 안내 기능(확인 필요)
+        function noticeDay() {
+            let goal = openUserOpenDate;
+            let now = new Date();
+            let originTime = Math.abs(goal - now.getTime());
+            let originDay = Math.ceil(originTime / (1000 * 60 * 60 * 24));
+            if (originDay < 1) {
+                setWhenDay('잠시 후');
+            } else if (originDay === 1) {
+                setWhenDay('내일');
+            } else {
+                setWhenDay(Number(originDay) + '일 후에');
+            };
+        };
         // 카카오 애드 관련 기능
         useEffect(() => {
+            noticeDay();
             let ins = document.createElement('ins');
             let scr = document.createElement('script');
             ins.className = 'kakao_ad_area';
@@ -628,6 +637,7 @@ function Send() {
                         </section>
                         <div className='sending_end_img'></div>
                         <p className='sending_end_p'>발송을 완료했어요!</p>
+                        <p className='sending_end_p2'>당신의 소중한 편지는 {whenDay} 도착합니다.</p>
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/web/main');
                         }}>나도 행성 개설하기</div>
@@ -1609,10 +1619,7 @@ function Send() {
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
                 {/*  */}
-                {/*  */}
                 <div style={{ color: "white" }} onClick={() => { template() }}>template</div>
-                {/*  */}
-                {/*  */}
                 {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
