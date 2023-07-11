@@ -1619,7 +1619,7 @@ function Send() {
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
                 {/*  */}
-                <div style={{ color: "white" }} onClick={() => { template() }}>template</div>
+                <div style={{ color: "white", position: "inherit", right: "0", marginRight: "10rem" }} onClick={() => { template() }}>template1</div>
                 {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {

@@ -29,6 +29,7 @@ function reducer(state, action) {
             isNamePage: false,
             ModalCreateUrl: false,
             isPopUpCopyLink: false,
+            isPopUpKakaoAgreement: false ,
             isYesName: true,
             isSendSignal: false,
             isLetter: false,
@@ -169,6 +170,10 @@ function reducer(state, action) {
 
     if (action.type === 'CHANGE_ISPOPUPCOPYLINK') {
         newState.isPopUpCopyLink = action.data;
+    };
+    
+    if (action.type === 'CHANGE_ISPOPUPKAKAOAGREEMENT') {
+        newState.isPopUpKakaoAgreement = action.data;
     };
 
     if (action.type === 'CHANGE_ISYESNAME') {

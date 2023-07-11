@@ -21,6 +21,7 @@ function InnerPage() {
     const isNamePage = useSelector((state) => state.isNamePage);
     const ModalCreateUrl = useSelector((state) => state.ModalCreateUrl);
     const isPopUpCopyLink = useSelector((state) => state.isPopUpCopyLink);
+    const isPopUpKakaoAgreement = useSelector((state) => state.isPopUpKakaoAgreement);
     const isYesName = useSelector((state) => state.isYesName);
     const isRestart = useSelector((state) => state.isRestart);
     const isImagePreload = useSelector((state) => state.isImagePreload);
@@ -342,15 +343,72 @@ function InnerPage() {
                         <div className='isPopupCopyLink_outContainer'>
                             <p className='isPopupCopyLink_title'>신호 복사 완료!</p>
                             <p className='isPopupCopyLink_p'>링크가 복사 되었어요.</p>
-                            <div className='isPopupCopyLink_button_signOut' onClick={() => { dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink }); }}>확인</div>
+                            <div className='isPopupCopyLink_button_signOut' onClick={() => {
+                                dispatch({ type: 'CHANGE_ISPOPUPCOPYLINK', data: !isPopUpCopyLink });
+                                if (userData.agreement === false) {
+                                    dispatch({ type: 'CHANGE_ISPOPUPKAKAOAGREEMENT', data: true });
+                                };
+                            }}>확인</div>
                         </div>
                     </div>
                 </React.Fragment>
             );
         };
-
+        // 동의 항목 동의 기능
+        function AgreementMSG() {
+            fetch(`${process.env.REACT_APP_USER_SCOPE}`, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userID)
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    };
+                    return res.json();
+                })
+                .then((data) => {
+                    alert('동의 항목 「동의」 완료 후, 다시 로그인 됩니다.');
+                    agreement(process.env.REACT_APP_REST_API_KEY, process.env.REACT_APP_REDIRECT);
+                })
+                .catch((error) => {
+                    alert('서버가 불안정 하여 동의 항목 「동의」에 실패했습니다. 다시 시도해주세요.');
+                });
+        };
+        // 카카오톡 알림 동의 기능
+        function agreement(key, url) {
+            window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${key}&redirect_uri=${url}&response_type=code&scope=talk_message`;
+        };
+        // (팝업) 카카오톡 동의항목 추가
+        function PopUpKakaoAgreement() {
+            return (
+                <React.Fragment>
+                    <div className={isPopUpKakaoAgreement ? "isPopupKakaoAgreement" : "isPopupKakaoAgreement_fade"}>
+                        <div className='isPopupKakaoAgreement_outContainer'>
+                            <p className='isPopupKakaoAgreement_title'>카카오톡 '나에게 보내기' 동의</p>
+                            <p className='isPopupKakaoAgreement_p'>카카오톡 '나에게 보내기' 권한을 동의 해주세요.</p>
+                            <p className='isPopupKakaoAgreement_p'>편지가 도착하거나 행성이 만료되면 알려드릴게요.</p>
+                            <div className='isPopupKakaoAgreement_innerBox'>
+                                <div className='isPopupKakaoAgreement_agreement' onClick={() => {
+                                    dispatch({ type: 'CHANGE_ISPOPUPKAKAOAGREEMENT', data: false });
+                                }} >취소</div>
+                                <div className='isPopupKakaoAgreement_cancel' onClick={() => {
+                                    AgreementMSG();
+                                }} >동의 하기</div>
+                            </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
         return (
             <React.Fragment>
+                <PopUpKakaoAgreement></PopUpKakaoAgreement>
                 <PopUpCopyLink></PopUpCopyLink>
                 <div className={ModalCreateUrl ? "yesNameUrl" : "yesNameUrl_fade"}>
                     <div className='yesNameUrl_outContainer'>
@@ -358,7 +416,12 @@ function InnerPage() {
                         <p className='yesNameUrl_p'>행성 개설이 완료되었습니다.</p>
                         <p className='yesNameUrl_p'>신호를 공유해 편지를 받아보세요.</p>
                         <div className='yesNameUrl_innerBox'>
-                            <div className='yesNameUrl_button_signOut' onClick={() => { dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl }); }}>확인</div>
+                            <div className='yesNameUrl_button_signOut' onClick={() => {
+                                dispatch({ type: 'CHANGE_MODALCREATEURL', data: !ModalCreateUrl });
+                                if (userData.agreement === false) {
+                                    dispatch({ type: 'CHANGE_ISPOPUPKAKAOAGREEMENT', data: true });
+                                };
+                            }}>확인</div>
                             <div className='yesNameUrl_button_cancel' onClick={urlCopy}>신호 복사하기</div>
                         </div>
                     </div>
