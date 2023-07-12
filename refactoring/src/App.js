@@ -9,10 +9,10 @@ function App() {
 
   useEffect(() => {
     let inApp = /KAKAOTALK|Instagram|NAVER|Whale|Snapchat|Line|everytimeApp|SamsungBrowser/i.test(navigator.userAgent);
-    alert(inApp);
+    // alert(inApp);
     if (inApp === true) {
       alert('인앱 브라우저의 경우 오류가 발생할 수 있습니다.')
-      window.location.href='intent://www.abc.com#Intent;scheme=http;package=com.android.chrome;end'
+      window.location.href = 'intent://www.abc.com#Intent;scheme=http;package=com.android.chrome;end'
     };
 
     // if (isAndroid) {
@@ -48,12 +48,26 @@ function App() {
     };
   };
 
+  let Dday = new Date();
+  Dday.setDate(Dday.getDate() + 1);
+  console.log(Dday);
+
+  let now = new Date();
+  console.log(now);
+
+  let diff = Math.abs(Dday.getTime() - now.getTime());
+  diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  console.log(diff);
+
   return (
     <React.Fragment>
       <div ref={divRef} className='capture' onClick={capture}>
         <div className='inner'>
           <div className='sticker'></div>
         </div>
+      </div>
+      <div>
+        당신의 소중한 편지는 {diff}일 후에 열어 볼 수 있습니다.
       </div>
     </React.Fragment>
   );

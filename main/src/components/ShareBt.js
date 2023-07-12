@@ -20,7 +20,7 @@ function ShareBt() {
     const shareBasicURL = `${process.env.REACT_APP_BASIC_URL2}userID=${ShareUserID}`;
     const basicURL = `${process.env.REACT_APP_BASIC_URL}`;
     const image_share = 'https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true';
-    const title = 'PL@TER - 기다려지는 소식';
+    const title = 'PL@TER - 편지를 보내주세요.';
 
     // 카카오톡 공유 기능
     function kakaoShare() {
@@ -32,7 +32,7 @@ function ShareBt() {
             objectType: 'feed',
             content: {
                 title: 'PL@TER',
-                description: '기다려지는 소식',
+                description: '편지를 보내주세요.',
                 imageUrl: image_share,
                 link: {
                     mobileWebUrl: shareBasicURL,

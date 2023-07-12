@@ -50,7 +50,7 @@ function ModalStory() {
         document.cookie = setCookie;
     };
 
-    // Slider 수정 중1
+    // Slider(수정 중)
     return (
         <React.Fragment>
             <div className={isStory ? "modalStory_fade" : "modalStory_nonFade"}>

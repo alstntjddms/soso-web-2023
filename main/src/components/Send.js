@@ -585,17 +585,33 @@ function Send() {
                             <span className='shootingStar'></span>
                         </section>
                         <div className='sending_page_gif'></div>
-                        <h3 className='sending_page_h3'>Loading..</h3>
+                        <h3 className='sending_page_h3'>편지 보내는 중...</h3>
                     </div>
                 </div>
             </React.Fragment>
         );
     };
 
-    // 편지 발송 완료 Component
+    // 편지 발송 완료 Component(수정 중)
     function SendingEnd() {
+        const [whenDay, setWhenDay] = useState('');
+        // 편지 도착 일자 안내 기능(확인 필요)
+        function noticeDay() {
+            let goal = openUserOpenDate;
+            let now = new Date();
+            let originTime = Math.abs(goal - now.getTime());
+            let originDay = Math.ceil(originTime / (1000 * 60 * 60 * 24));
+            if (originDay < 1) {
+                setWhenDay('잠시 후');
+            } else if (originDay === 1) {
+                setWhenDay('내일');
+            } else {
+                setWhenDay(Number(originDay) + '일 후에');
+            };
+        };
         // 카카오 애드 관련 기능
         useEffect(() => {
+            noticeDay();
             let ins = document.createElement('ins');
             let scr = document.createElement('script');
             ins.className = 'kakao_ad_area';
@@ -621,6 +637,7 @@ function Send() {
                         </section>
                         <div className='sending_end_img'></div>
                         <p className='sending_end_p'>발송을 완료했어요!</p>
+                        <p className='sending_end_p2'>당신의 소중한 편지는 {whenDay} 도착합니다.</p>
                         <div className='sending_end_div' onClick={() => {
                             window.location.replace('/web/main');
                         }}>나도 행성 개설하기</div>
@@ -690,12 +707,12 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        window.location.replace('/web/main');
+                        // window.location.replace('/web/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             });
     };
 
@@ -707,11 +724,11 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    window.location.replace('/web/main');
+                    // window.location.replace('/web/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             };
         };
     };
@@ -729,7 +746,7 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/web/main');
+            // window.location.replace('/web/main');
         };
     }, []);
 
@@ -1415,6 +1432,155 @@ function Send() {
         };
     };
 
+    // 스티커 배열, 스티커 숫자, 스티커 아이템 초기화 및 삭제 for Template
+    async function initialzation() {
+        let content = document.querySelector('#send_textarea').childNodes;
+        delItem(content);
+        function delItem(props) {
+            let newData = stickerArray;
+            newData.length = 0;
+            let number = Number(props.length);
+            dispatch({ type: 'CHANGE_STICKER', data: newData.length });
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: 0 });
+            if (number > 1) {
+                for (let i = 0; i < number - 1; i++) {
+                    props[1].remove();
+                };
+            };
+        };
+    };
+
+    // 스티커 추가 기능 for Template
+    function stickerSetting(props) {
+        for (let i = 0; i < props.length; i++) {
+            createEl2(props[i].templateNum, props[i].templateIcon, props[i].templateXpos, props[i].templateYpos);
+            let dragItem = document.querySelector("#id" + i);
+            let active = false;
+            setTranslate2(props[i].templateXpos, props[i].templateYpos, dragItem);
+            dragEnd2(i, props[i].templateXpos, props[i].templateYpos, props[i].templateIcon, dragItem, active);
+        };
+        // 스티커 이동 기능(4)
+        function dragEnd2(i, currentX, currentY, num, dragItem, active) {
+            locationData(stickerArray, 'id' + i, currentX, currentY, num, dragItem);
+            active = false;
+            dragItem.style.position = "absolute";
+        };
+        // 스티커 이동 기능(3)
+        function setTranslate2(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            el.style.position = "relative";
+        };
+        // 스티커 추가 기능
+        function createEl2(props, num, xPos, yPos) {
+            // Creating elements
+            let item = document.createElement('div');
+            let itemClose = document.createElement('div');
+            let stage = document.querySelector('#send_textarea');
+            item.setAttribute('id', 'id' + props);
+            item.setAttribute('class', 'send_item_sticker' + num);
+            itemClose.setAttribute('class', 'send_close');
+            itemClose.addEventListener('click', () => { remove(props) });
+            stage.appendChild(item);
+            let stageClose = document.querySelector('#id' + props);
+            stageClose.appendChild(itemClose);
+            dispatch({ type: 'CHANGE_STICKER_NUMBER', data: props + 1 });
+            // Function to move elements
+            let dragItem = document.querySelector("#id" + props);
+            let active = false;
+            let currentX = xPos;
+            let currentY = yPos;
+            let initialX = xPos;
+            let initialY = yPos;
+            let xOffset = xPos;
+            let yOffset = yPos;
+            dragItem.addEventListener("touchstart", dragStart, false);
+            dragItem.addEventListener("touchend", dragEnd, false);
+            dragItem.addEventListener("touchmove", drag, false);
+            dragItem.addEventListener("mousedown", dragStart, false);
+            dragItem.addEventListener("mouseup", dragEnd, false);
+            dragItem.addEventListener("mousemove", drag, false);
+            // 스티커 이동 기능(1)
+            function dragStart(e) {
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                };
+                if (e.target === dragItem) {
+                    active = true;
+                };
+            };
+            // 스티커 이동 기능(2)
+            function drag(e) {
+                if (active) {
+                    e.preventDefault();
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    };
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    if (currentX >= 140 || currentY >= 165 || currentX <= -140 || currentY <= -165) {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                        dragEnd(e);
+                        alert('편지지 안쪽에 스티커를 붙여주세요.');
+                    } else {
+                        setTranslate(Math.round(currentX), Math.round(currentY), dragItem);
+                    };
+                };
+            };
+            // 스티커 이동 기능(3)
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+                el.style.position = "relative";
+            };
+            // 스티커 이동 기능(4)
+            function dragEnd(e) {
+                locationData(stickerArray, e.target.id, currentX, currentY, num);
+                active = false;
+                dragItem.style.position = "absolute";
+            };
+        };
+    };
+
+    // 정보 for template
+    let templateArray = [
+        {
+            templateStyle: {
+                fontSize: 0.875, fontFamily: 'GyeonggiBatang', color: 'rgb(8 160 222)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true')"
+            }, templateArraySticker: [
+                { templateNum: 0, templateIcon: 0, templateXpos: 50, templateYpos: 50 },
+                { templateNum: 1, templateIcon: 1, templateXpos: -50, templateYpos: -50 }
+            ]
+        },
+        {
+            templateStyle: {
+                fontSize: 1.20, fontFamily: 'Saying_tobe_strong', color: 'rgb(76 76 253)', textAlign: 'right', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true')"
+            }, templateArraySticker: [
+                { templateNum: 0, templateIcon: 2, templateXpos: 100, templateYpos: 100 },
+                { templateNum: 1, templateIcon: 3, templateXpos: -100, templateYpos: -100 }
+            ]
+        }
+    ];
+
+    // 템플릿 설정 기능(수정 중)
+    async function template(props) {
+        let newStyle = { ...styleLetter };
+        newStyle['fontSize'] = props.templateStyle.fontSize + 'rem';
+        newStyle['fontFamily'] = props.templateStyle.fontFamily;
+        newStyle['color'] = props.templateStyle.color;
+        newStyle['textAlign'] = props.templateStyle.textAlign;
+        newStyle['backgroundImage'] = props.templateStyle.backgroundImage;
+        setStyleLetter(newStyle);
+        await initialzation();
+        stickerSetting(props.templateArraySticker);
+    };
+
     return (
         <React.Fragment>
             <SendingEnd></SendingEnd>
@@ -1465,6 +1631,21 @@ function Send() {
                     </div>
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
+                {/*  */}
+                <div className='template' onClick={() => {
+                    template(templateArray[0]);
+                    selectFontItem('fontItem_2');
+                    selectRangeItem('center');
+                    selectColorItem('color_5');
+                    selectPaperItem('paper_14');
+                }}></div>
+                <div className='template2' onClick={() => {
+                    template(templateArray[1]);
+                    selectFontItem('fontItem_4');
+                    selectRangeItem('right');
+                    selectColorItem('color_6');
+                    selectPaperItem('paper_28');
+                }}></div>
                 {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
