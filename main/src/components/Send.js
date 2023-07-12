@@ -1548,25 +1548,38 @@ function Send() {
         };
     };
 
-    // 템플릿 설정 기능(수정 중)
-    async function template() {
-        let templateArraySticker = [
-            { templateNum: 0, templateIcon: 0, templateXpos: 50, templateYpos: 50 },
-            { templateNum: 1, templateIcon: 1, templateXpos: -50, templateYpos: -50 }
-        ];
-        let templateStyle = { fontSize: 0.875, fontFamily: 'GyeonggiBatang', color: 'red', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_mint.gif?raw=true')" };
+    // 정보 for template
+    let templateArray = [
+        {
+            templateStyle: {
+                fontSize: 0.875, fontFamily: 'GyeonggiBatang', color: 'rgb(8 160 222)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true')"
+            }, templateArraySticker: [
+                { templateNum: 0, templateIcon: 0, templateXpos: 50, templateYpos: 50 },
+                { templateNum: 1, templateIcon: 1, templateXpos: -50, templateYpos: -50 }
+            ]
+        },
+        {
+            templateStyle: {
+                fontSize: 1.20, fontFamily: 'Saying_tobe_strong', color: 'rgb(76 76 253)', textAlign: 'right', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true')"
+            }, templateArraySticker: [
+                { templateNum: 0, templateIcon: 2, templateXpos: 100, templateYpos: 100 },
+                { templateNum: 1, templateIcon: 3, templateXpos: -100, templateYpos: -100 }
+            ]
+        }
+    ];
 
+    // 템플릿 설정 기능(수정 중)
+    async function template(props) {
         let newStyle = { ...styleLetter };
-        newStyle['fontSize'] = templateStyle.fontSize + 'rem';
-        newStyle['fontFamily'] = templateStyle.fontFamily;
-        newStyle['color'] = templateStyle.color;
-        newStyle['textAlign'] = templateStyle.textAlign;
-        newStyle['backgroundImage'] = templateStyle.backgroundImage;
+        newStyle['fontSize'] = props.templateStyle.fontSize + 'rem';
+        newStyle['fontFamily'] = props.templateStyle.fontFamily;
+        newStyle['color'] = props.templateStyle.color;
+        newStyle['textAlign'] = props.templateStyle.textAlign;
+        newStyle['backgroundImage'] = props.templateStyle.backgroundImage;
         setStyleLetter(newStyle);
         await initialzation();
-        stickerSetting(templateArraySticker);
+        stickerSetting(props.templateArraySticker);
     };
-
 
     return (
         <React.Fragment>
@@ -1619,7 +1632,20 @@ function Send() {
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
                 {/*  */}
-                <div style={{ color: "white", position: "inherit", right: "0", marginRight: "10rem" }} onClick={() => { template() }}>template1</div>
+                <div className='template' onClick={() => {
+                    template(templateArray[0]);
+                    selectFontItem('fontItem_2');
+                    selectRangeItem('center');
+                    selectColorItem('color_5');
+                    selectPaperItem('paper_14');
+                }}></div>
+                <div className='template2' onClick={() => {
+                    template(templateArray[1]);
+                    selectFontItem('fontItem_4');
+                    selectRangeItem('right');
+                    selectColorItem('color_6');
+                    selectPaperItem('paper_28');
+                }}></div>
                 {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
