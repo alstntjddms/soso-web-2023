@@ -62,9 +62,9 @@ function ModalStory() {
                             <div className='modalStory_outDiv'>
                                 <div style={{ textAlign: 'center' }}>
                                     <div className='modalStory_img1' style={{ backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true')", backgroundSize: 'cover', width: '35%', height: '7rem', marginTop: '1.5rem' }}></div>
-                                    <p className="modalStory_p_1_1" style={{ marginTop: '1.5rem', fontSize: '1.0rem', marginBottom: '0.5rem' }}>정식 오픈 준비 중 입니다.</p>
-                                    <p className="modalStory_p_1_2" style={{ marginBottom: '0.5rem' }}>2023. 7. 1. 이후</p>
-                                    <p className="modalStory_p_1_2">※ 정식 오픈 전 생성된 정보는 일괄 삭제될 수 있습니다.</p>
+                                    <p className="modalStory_p_1_1" style={{ marginTop: '1.5rem', fontSize: '1.0rem', marginBottom: '0.5rem' }}>PL@TER 정식 오픈!</p>
+                                    <p className="modalStory_p_1_2" style={{ marginBottom: '0.5rem' }}>PL@TER는 웹 기반의 익명 메시지 서비스 입니다.</p>
+                                    <p className="modalStory_p_1_2">당신만의 우편함을 개설하고 익명 메시지를 받아보세요.</p>
                                     <button style={{ fontSize: '0.8rem', border: 'none', marginTop: '1rem', height: '2rem', width: '50%', fontFamily: 'SpoqaHanSansNeo-Regular', backgroundColor: '#DBDBFF', color: '#4A4AFF', borderRadius: '0.75rem' }} onClick={() => {
                                         window.open('https://www.notion.so/PL-TER-83d6a7213845476f84c780d863591e90', '_blank');
                                     }}>자세히 알아보기</button>

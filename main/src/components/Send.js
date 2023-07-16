@@ -571,7 +571,7 @@ function Send() {
         useEffect(() => {
             setTimeout(() => {
                 checkLetterData();
-            }, 3000);
+            }, 1000);
         }, []);
 
         return (
@@ -707,12 +707,12 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        window.location.replace('/web/main');
+                        // window.location.replace('/web/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             });
     };
 
@@ -724,11 +724,11 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    window.location.replace('/web/main');
+                    // window.location.replace('/web/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                window.location.replace('/web/main');
+                // window.location.replace('/web/main');
             };
         };
     };
@@ -746,7 +746,7 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            window.location.replace('/web/main');
+            // window.location.replace('/web/main');
         };
     }, []);
 
