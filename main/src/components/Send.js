@@ -707,12 +707,12 @@ function Send() {
                     })
                     .catch((error) => {
                         alert('서버로부터 행성 개설자의 편지함 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                        // window.location.replace('/web/main');
+                        window.location.replace('/web/main');
                     });
             })
             .catch((error) => {
                 alert('서버로부터 행성 개설자 정보를 받아오지 못했습니다. 잠시 후 다시 시도해주세요.');
-                // window.location.replace('/web/main');
+                window.location.replace('/web/main');
             });
     };
 
@@ -724,11 +724,11 @@ function Send() {
             if (distance >= 0) {
                 if (userLetterCount >= 36) {
                     alert('행성이 편지로 가득찼습니다. Pl@ter 페이지로 이동합니다.');
-                    // window.location.replace('/web/main');
+                    window.location.replace('/web/main');
                 };
             } else {
                 alert('행성이 만료되었습니다. Pl@ter 페이지로 이동합니다.');
-                // window.location.replace('/web/main');
+                window.location.replace('/web/main');
             };
         };
     };
@@ -746,7 +746,7 @@ function Send() {
             requireUserCheckData(qs[0][1]);
         } else {
             alert('정상적인 접근 방법이 아닙니다. Pl@ter 페이지로 이동합니다.');
-            // window.location.replace('/web/main');
+            window.location.replace('/web/main');
         };
     }, []);
 
@@ -1552,18 +1552,41 @@ function Send() {
     let templateArray = [
         {
             templateStyle: {
-                fontSize: 0.875, fontFamily: 'GyeonggiBatang', color: 'rgb(8 160 222)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true')"
+                fontSize: 0.875, fontFamily: 'SpoqaHanSansNeo-Regular', color: 'rgb(6 18 42)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_wrinkle.gif?raw=true')"
             }, templateArraySticker: [
-                { templateNum: 0, templateIcon: 0, templateXpos: 50, templateYpos: 50 },
-                { templateNum: 1, templateIcon: 1, templateXpos: -50, templateYpos: -50 }
+                { templateNum: 0, templateIcon: 54, templateXpos: 21, templateYpos: -90 },
+                { templateNum: 1, templateIcon: 54, templateXpos: -55, templateYpos: -62 },
+                { templateNum: 2, templateIcon: 54, templateXpos: -66, templateYpos: -51 },
+                { templateNum: 3, templateIcon: 54, templateXpos: 73, templateYpos: -59 },
+                { templateNum: 4, templateIcon: 54, templateXpos: 38, templateYpos: -23 },
+                { templateNum: 5, templateIcon: 54, templateXpos: 116, templateYpos: 1 },
+                { templateNum: 6, templateIcon: 54, templateXpos: -93, templateYpos: 24 },
+                { templateNum: 7, templateIcon: 54, templateXpos: 71, templateYpos: 49 },
+                { templateNum: 8, templateIcon: 54, templateXpos: -15, templateYpos: 116 },
+                { templateNum: 9, templateIcon: 53, templateXpos: 8, templateYpos: 115 }
             ]
         },
         {
             templateStyle: {
-                fontSize: 1.20, fontFamily: 'Saying_tobe_strong', color: 'rgb(76 76 253)', textAlign: 'right', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_stripe.gif?raw=true')"
+                fontSize: 0.875, fontFamily: 'SpoqaHanSansNeo-Regular', color: 'rgb(8 160 222)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_little_flower.gif?raw=true')"
             }, templateArraySticker: [
-                { templateNum: 0, templateIcon: 2, templateXpos: 100, templateYpos: 100 },
-                { templateNum: 1, templateIcon: 3, templateXpos: -100, templateYpos: -100 }
+                { templateNum: 0, templateIcon: 38, templateXpos: -54, templateYpos: -127 },
+                { templateNum: 1, templateIcon: 40, templateXpos: -90, templateYpos: -128 },
+                { templateNum: 2, templateIcon: 33, templateXpos: 0, templateYpos: -123 },
+                { templateNum: 3, templateIcon: 38, templateXpos: 54, templateYpos: -126 },
+                { templateNum: 4, templateIcon: 40, templateXpos: 90, templateYpos: -126 },
+                { templateNum: 5, templateIcon: 33, templateXpos: 0, templateYpos: 113 }
+            ]
+        },
+        {
+            templateStyle: {
+                fontSize: 0.8125, fontFamily: 'NeoDunggeunmo', color: 'rgb(76 76 253)', textAlign: 'center', backgroundImage: "url('https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/paper/paper_city.gif?raw=true')"
+            }, templateArraySticker: [
+                { templateNum: 0, templateIcon: 59, templateXpos: 77, templateYpos: -122 },
+                { templateNum: 1, templateIcon: 24, templateXpos: 106, templateYpos: -132 },
+                { templateNum: 2, templateIcon: 24, templateXpos: 125, templateYpos: -92 },
+                { templateNum: 3, templateIcon: 24, templateXpos: -110, templateYpos: -132 },
+                { templateNum: 4, templateIcon: 24, templateXpos: -123, templateYpos: -97 }
             ]
         }
     ];
@@ -1631,22 +1654,27 @@ function Send() {
                     </div>
                     <div className='send_textLength'>{textLength}/240</div>
                 </div>
-                {/*  */}
                 <div className='template' onClick={() => {
                     template(templateArray[0]);
-                    selectFontItem('fontItem_2');
+                    selectFontItem('fontItem_1');
+                    selectRangeItem('center');
+                    selectColorItem('color_1');
+                    selectPaperItem('paper_31');
+                }}></div>
+                <div className='template2' onClick={() => {
+                    template(templateArray[1]);
+                    selectFontItem('fontItem_1');
                     selectRangeItem('center');
                     selectColorItem('color_5');
                     selectPaperItem('paper_14');
                 }}></div>
-                <div className='template2' onClick={() => {
-                    template(templateArray[1]);
-                    selectFontItem('fontItem_4');
-                    selectRangeItem('right');
+                <div className='template3' onClick={() => {
+                    template(templateArray[2]);
+                    selectFontItem('fontItem_3');
+                    selectRangeItem('center');
                     selectColorItem('color_6');
-                    selectPaperItem('paper_28');
+                    selectPaperItem('paper_1');
                 }}></div>
-                {/*  */}
                 <div className='send_option_button_div'>
                     <div className='send_option_button' onClick={() => {
                         activeLetterOption();

@@ -436,18 +436,19 @@
 }
 
 .send_letter_menu {
-    min-width: 6.5rem;
+    min-width: 7.0rem;
     height: 3rem;
     line-height: 3rem;
     text-align: center;
     background-color: lightgrey;
     transition: all 0.5s;
     font-size: 0.875rem;
+    border-right: rgb(6, 18, 42) 1px solid;
 }
 
 .send_letter_menu_active {
     color: white;
-    min-width: 6.5rem;
+    min-width: 7.0rem;
     height: 3rem;
     line-height: 3rem;
     text-align: center;
@@ -3562,21 +3563,32 @@
 .template {
     position: absolute;
     right: 0;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/5578/5578801.png');
+    background-image: url('../lib/icon/template_1.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 3.0rem;
-    height: 3.0rem;
-    margin-right: 10rem;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin-right: 11rem;
 }
 
 .template2 {
     position: absolute;
     right: 0;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/5578/5578801.png');
+    background-image: url('../lib/icon/template_2.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 3.0rem;
-    height: 3.0rem;
-    margin-right: 6rem;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin-right: 8rem;
+}
+
+.template3 {
+    position: absolute;
+    right: 0;
+    background-image: url('../lib/icon/template_3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin-right: 5rem;
 }
